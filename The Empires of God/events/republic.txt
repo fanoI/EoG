@@ -173,6 +173,10 @@ character_event = {
 		independent = yes
 		has_landed_title = e_hre
 		NOT = { has_global_flag = asked_for_submission }
+		d_commune_of_rome = {
+			has_holder = yes
+		}
+		# TODO How to check to be in our 1st bookmark?
 	}
 	
 	mean_time_to_happen = {

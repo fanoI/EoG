@@ -1,3 +1,9 @@
+lombard;Lombard;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+tuscan;Tuscan;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+sicilian;Sicilian;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+corsican;Corsican;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+sardinian;Sardinian;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+neapolitan;Neapolitan;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 e_byzantium_roman;Eastern Roman Empire;Eastern Roman Empire;Eastern Roman Empire;Eastern Roman Empire;;;;;;;;;;x
 d_commune_of_rome;The Commune of Rome;The Commune of Rome;The Commune of Rome;;The Commune of Rome;;;;;;;;;x
 b_viterbo_roman;Rome;Rome;Rome;;Rome;;;;;;;;;x
@@ -15,6 +21,8 @@ e_wre_adj;Roman;Roman;Roman;;Roman;;;;;;;;;x
 city_emperor_roman;Consul;Consul;Consul;;Consul;;;;;;;;;x
 city_king_roman;Proconsul;Proconsul;Proconsul;;Proconsul;;;;;;;;;x
 king_roman;Exarch;Exarch;Exarch;;Exarch;;;;;;;;;x
+city_king_italian;Serene Doge;Doge Sérénissime;Durchlauchter Doge;;Duque Sereno;;;;;;;;;x
+city_duke_italian;Doge;Doge;Doge;;Doge;;;;;;;;;x
 city_duke_roman;Patrician;Patrician;Patrician;;Patrician;;;;;;;;;x
 city_duchy_of_roman;Commune of;Commune of;Commune of;Commune of;;;;;;;;;x
 family_palace_baron_roman;Pater Familias;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
@@ -47,6 +55,56 @@ EVTOPTA_COR_4;Excellent!;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 COR.5.title;The County of Rome;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 COR.5.desc;[From.GetFOA] [From.GetTitledFirstName] has proclaimed that it is God's will that he, the Pope, rule the county of Rome. In the eyes of all Christian lords, this gives him and his successors a legitimate claim on Rome.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTA_COR_5;God's will? What arrogance!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.6.title;The Defender of The Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.6.desc;In this Dark Age the Church needs a proper defensor to help against our enemies, so it is the time to honour the most meritorious between all European Catholic Monarchs with the title of "The Defender of the Faith".;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_6;The most obvious candidate is the Holy Roman Emperor;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.7.title;The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.7.desc;To the glorious [This.GetFOA] [This.GetTitledFirstName], I am evalutating yourself for the title of "The Defender of The Faith";FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_7;This is a great honour I pray God to be meritorious;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.8.title;The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.8.desc;We need to the decide who is the most meritous to be\n"The Defender of The Faith", the Holy Roman Emperor or maybe an other Catholic Monarch is better?;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTA_COR_8;The Holy Roman Emperor;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTB_COR_8;I fear The Holy Roman Emperor is not the best candidate;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.9.title;The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.9.desc;To the glorious [This.GetFOA] [This.GetTitledFirstName], for the powers conferred by the Holy Roman Church I grant to you the title of\n"The Defender of the Faith";FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_9;I am "The Defender of the Faith"!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.10.title;The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.10.desc;To the glorious [This.GetFOA] [This.GetTitledFirstName], in this glorius day His Holiness, [FromFrom.GetFOA] [FromFrom.GetTitledFirstName], has granted the title of "The Defender of the Faith" to [From.GetFOA] [From.GetTitledFirstName].;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTA_COR_10;This is outrageous I am the Emperor and so "The Defender of the Faith"!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTB_COR_10;This could become a problem for us...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTC_COR_10;Interesting;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.11.title;The Enemies of the Church are attacking!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.11.desc;The Enemies of the Church are attacking me! I shall call "The Defender of the Faith" to help me.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_11;I pray Jesus he responds to my call.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.12.title;The Enemies of the Church are attacking!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.12.desc;To the glorious [This.GetFOA] [This.GetTitledFirstName] the enemies of the Church are attacking me! It is your duty, as "The Defender of the Faith", to join me in this war.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTA_COR_12;I will join His Holiness, [FromFrom.GetFOA] [FromFrom.GetTitledFirstName] in this war.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTB_COR_12;I fear I can not help him, this time...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.13.title;Attacking The Enemies of the Church!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.13.desc;I have decided to attack The Enemies of the Church for the better good of all Christerdom! I shall call "The Defender of the Faith" to help me.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_13;I pray Jesus he responds to my call.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.14.title;Attacking The Enemies of the Church!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.14.desc;To the glorious [This.GetFOA] [This.GetTitledFirstName] I have decided to attack the enemies of the Church! It is your duty, as "The Defender of the Faith", to join me in this war.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTA_COR_14;I will join His Holiness, [FromFrom.GetFOA] [FromFrom.GetTitledFirstName] in this war.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTB_COR_14;I fear I can not help him, this time...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.15.title;The War is ended...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.15.desc;The war against The Enemies of the Church has ended. I will praise The Lord this does not happen anymore.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_15;I hope so...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.16.title;The Enemies of the Church are attacking!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.16.desc;To His Holyness, [This.GetFOA] [This.GetTitledFirstName], I honour my obbligations and join you in this war. Let the enemies of the Church tremble!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_16;Deo gratias!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.17.title;The Enemies of the Church are attacking!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.17.desc;To His Holyness, [This.GetFOA] [This.GetTitledFirstName], please forgive me but I can not join you in this war.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_17;So he decided to not help me? Maybe he was not right choice...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.61.title;The Defender of The Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.61.desc;My old liege, the Emperor of the Romans, is died but a new Emperor  helds now the Empire again, I shall honour him with the title of "The Defender of the Faith".;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_61;My liege will be honored;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.18.title;The Defender of The Faith is no more;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.18.desc;The actual "Defender of the Faith" has shown no respect for the Holy Mother Church and is no more meritous of this honour. I regrettly shall revoke it.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_18;So be it;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.19.title;The Defender of The Faith is no more;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+COR.19.desc;To the despicable [This.GetFOA] [This.GetTitledFirstName] for your sins and your acts against the Holy Mother Church I, [From.GetFOA] [From.GetTitledFirstName] have to revoke the title of "The Defender of the Faith" and to give to a more meritous Catholic Monarch.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTOK_COR_19;This outrageous!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 d_legio_i_italia;Legio I Italia;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 d_legio_i_italia_adj;Legion;FRENCH;;GERMAN;;SPANISH;;;;;;;;;x
 republic_of_rome;Form the Republic of Rome;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
@@ -255,3 +313,8 @@ defender_of_the_faith;The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 defender_of_the_faith_desc;This character is "The Defender of the Faith", selected by the Pope himself between all Crusader Kings to defend the Faith and the Church.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 opinion_defender_of_the_faith;Selected as The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 title_defender_of_the_faith;Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+opinion_not_defender_of_the_faith;Emperor not The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+opinion_rev_def_of_the_faith;Revoked The Defender of the Faith;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+CB_NAME_RECLAIM_ROME;Reconquest of Rome;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+reclaim_rome_desc;Rome is the natural capital of the Papal States this character is "The Defender of the Faith" and so has the duty and the right to reconquer it for the Pope.;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+WAR_NAME_RECLAIM_ROME;Defeder of the Faith's Reconquest of Rome;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x

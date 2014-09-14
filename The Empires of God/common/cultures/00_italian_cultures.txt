@@ -1,7 +1,7 @@
-Italian = {
+italian = {
 	graphical_culture = westerngfx
        
-	Sicilian = {
+	sicilian = {
 		graphical_culture = italiangfx
 		
 		color = { 0.8 0.7 0.15 }
@@ -51,7 +51,7 @@ Italian = {
 		mother_name_chance = 5
 	}
 	   
-	Corsican = {
+	corsican = {
 	    graphical_culture = southerngfx
 		second_graphical_culture = occitangfx # Fallback type
 		
@@ -101,7 +101,7 @@ Italian = {
 		mother_name_chance = 5
 	}
 	
-    Sardinian = {
+    sardinian = {
 	    graphical_culture = southerngfx
 		second_graphical_culture = occitangfx # Fallback type
 		
@@ -151,7 +151,7 @@ Italian = {
 		mother_name_chance = 5
 	}
 	
-    Neapolitan = {
+    neapolitan = {
         graphical_culture = southerngfx
 		second_graphical_culture = occitangfx # Fallback type
 		
@@ -201,7 +201,7 @@ Italian = {
 		mother_name_chance = 5
 	}        
 
-    Tuscan = {
+    tuscan = {
 		graphical_culture = southerngfx
 		second_graphical_culture = occitangfx # Fallback type
 		
@@ -251,7 +251,7 @@ Italian = {
 		mother_name_chance = 5
 	}
 
-    Lombard = {
+    lombard = {
 		graphical_culture = southerngfx
 		second_graphical_culture = occitangfx # Fallback type
 		

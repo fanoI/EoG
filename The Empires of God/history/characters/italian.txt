@@ -392,7 +392,7 @@
 	name="Salusio"
 	dynasty=100326
 	religion="catholic"
-	culture="Sardinian"
+	culture="sardinian"
 	father = 144252
 	1100.1.1 = {
 		birth="1100.1.1"
@@ -479,7 +479,7 @@
 	name="Comita"
 	dynasty=13037
 	religion="catholic"
-	culture="Sardinian"
+	culture="sardinian"
 	father = 144528
 	1089.1.1 = {
 		birth="1089.1.1"
@@ -698,7 +698,7 @@
 144588 = {
 	name="Pierre"
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	1085.1.1 = {
 		birth="1085.1.1"
 	}
@@ -2110,7 +2110,7 @@
 	intrigue=7
 	stewardship=5
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	trait="arbitrary"
 	trait="cynical"
 	trait="tough_soldier"
@@ -2400,7 +2400,7 @@
 	intrigue=7
 	stewardship=8
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	trait="fortune_builder"
 	father=7737
 	mother=70877
@@ -2661,7 +2661,7 @@
 	intrigue=7
 	stewardship=7
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	trait="zealous"
 	trait="diligent"
 	trait="amateurish_plotter"
@@ -6369,7 +6369,7 @@
 	intrigue=6
 	stewardship=4
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	trait="strong"
 	trait="gregarious"
 	trait="tough_soldier"
@@ -6413,7 +6413,7 @@
 	intrigue=5
 	stewardship=6
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	trait="deceitful"
 	trait="craven"
 	trait="misguided_warrior"
@@ -18368,7 +18368,7 @@
 	intrigue=4
 	stewardship=7
 	religion="catholic"
-	culture="Corsican"
+	culture="corsican"
 	trait="ambitious"
 	trait="just"
 	trait="thrifty_clerk"
@@ -22934,7 +22934,7 @@
 	name="Pietro"
 	dynasty=7236
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=170060
 	1093.1.2 = {
 		birth="1093.1.2"
@@ -22954,7 +22954,7 @@
 	name="Domenico"
 	dynasty=13070
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=182012
 	trait="charismatic_negotiator"
 	1090.1.2 = {
@@ -22983,7 +22983,7 @@
 	name="Sebastiano"
 	dynasty=13075
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=182001
 	mother=167660
 	1102.1.1 = {
@@ -25634,7 +25634,7 @@
 73417 = {
 	name="Constanzo"
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	1105.1.1={
 		birth="1105.1.1"
 	}
@@ -25911,7 +25911,7 @@
 73444 = {
 	name="Serafino"
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	1087.1.1={
 		birth="1087.1.1"
 	}
@@ -26333,7 +26333,7 @@
 73478 = {
 	name="Gregorio"
 	religion="catholic"
-	culture="Neapolitan"
+	culture="neapolitan"
 	trait=detached_priest
 	1092.1.1={
 		birth="1092.1.1"
@@ -26383,7 +26383,7 @@
 }
 
 73482 = {
-	name="Lombardo"
+	name="lombardo"
 	religion="catholic"
 	culture="italian"
 	trait=detached_priest
@@ -26659,7 +26659,7 @@
 73508 = {
 	name="Luchino"
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	1107.1.1={
 		birth="1107.1.1"
 	}
@@ -26731,7 +26731,7 @@
 73514 = {
 	name="Stefano"
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	1105.1.1={
 		birth="1105.1.1"
 	}
@@ -26996,7 +26996,7 @@
 73534 = {
 	name="Gualtiero"
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	trait=detached_priest
 	1070.1.1={
 		birth="1070.1.1"
@@ -28316,7 +28316,7 @@
 	name="Ugo"
 	dynasty=23107
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=167272
 	1108.1.1 = {
 		birth="1108.1.1"
@@ -28804,7 +28804,7 @@
 	dynasty = 13016
 	
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 
 	father=73701
 	
@@ -29570,7 +29570,7 @@
 	name="Enrico" #Patriarch of Grado
 	dynasty=13027
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=170042
 	1104.1.2 = {
 		birth="1104.1.2"
@@ -30910,7 +30910,7 @@
 	#placeholder
 	dynasty=13026
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	father=167407
 	1105.1.1 = {
 		birth="1105.1.1"
@@ -31314,7 +31314,7 @@
 	name="Orso"
 	dynasty=622 #Caetani
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	father=167487
 	1110.1.1 = {
 		birth="1110.1.1"
@@ -32449,7 +32449,7 @@
 	#placeholder
 	dynasty=9521 #Alliata
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	father=167509
 	1110.1.1 = {
 		birth="1110.1.1"
@@ -32945,7 +32945,7 @@
 	dynasty=13028
 	
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=167538
 	1100.1.1 = {
 		birth="1100.1.1"
@@ -33538,7 +33538,7 @@
 	name="Giovanni"
 	dynasty=514
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=167571
 	1110.1.1 = {
 		birth="1110.1.1"
@@ -33984,7 +33984,7 @@
 	#placeholder
 	dynasty=516
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 	father=167599
 	1100.1.1 = {
 		birth="1100.1.1"
@@ -35512,7 +35512,7 @@
 	# Tedice V, Count of Castagneto & Settimo
 	dynasty=13031
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	father=180024
 	mother=180511
 	1093.1.1={
@@ -37957,7 +37957,7 @@
 	name="Guido"
 	dynasty=1042014
 	religion="catholic"
-	culture="Tuscan"
+	culture="tuscan"
 	father=180212
 	mother=180513
 	1096.1.1={
@@ -38002,7 +38002,7 @@
 }
 180251 = {
 	name="Raineri"
-	# Marquis of Tuscany
+	# Marquis of tuscany
 	dynasty=1042017
 	religion="catholic"
 	culture="italian"
@@ -38525,7 +38525,7 @@
 	dynasty=13041 # Doria
 	
 	religion="catholic"
-	culture="Lombard"
+	culture="lombard"
 		
 	father = 91412 # Genualdo
 	
@@ -39694,7 +39694,7 @@
 	name="Ansaldo" # Ansaldo, consul of Genoa in 1152 and 1159
 	dynasty=50 # Spinola
 	religion="catholic"
-	culture="Lombard"	
+	culture="lombard"	
 	father = 91343 # Guido
 	mother = 91344 # Alda
 	1130.1.1 = {

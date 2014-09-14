@@ -22297,7 +22297,7 @@ e_spain = {
 		catholic = 100 # Crusade target weight
 		muslim = 50 # Crusade target weight
 		west_african_pagan_reformed = 50
-		
+
 		allow = {
 			hidden_tooltip = {
 				OR = {
