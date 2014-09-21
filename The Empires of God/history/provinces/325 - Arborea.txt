@@ -15,7 +15,7 @@ b_ardara = temple
 #b_santaigia = castle
 
 # Misc
-culture = Sardinian
+culture = sardinian
 religion = catholic
 terrain = mountain
 

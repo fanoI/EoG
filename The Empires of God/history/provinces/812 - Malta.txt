@@ -16,7 +16,7 @@ b_sliema = city
 #b_sangjilan = castle
 
 # Misc
-culture = Sicilian
+culture = sicilian
 religion = orthodox
 terrain = hills
 

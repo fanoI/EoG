@@ -16,7 +16,7 @@ b_otranto = temple
 #b_oria = city
 
 # Misc
-culture = Neapolitan
+culture = neapolitan
 religion = orthodox
 terrain = hills
 

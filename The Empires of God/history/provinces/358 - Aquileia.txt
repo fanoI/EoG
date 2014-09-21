@@ -15,7 +15,7 @@ b_friuli = castle
 #b_sacile = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

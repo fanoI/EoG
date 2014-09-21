@@ -15,7 +15,7 @@ b_bobbio = temple
 #b_montebello = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

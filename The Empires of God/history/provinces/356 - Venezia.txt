@@ -16,7 +16,7 @@ b_lido = city
 #b_fusina = city
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

@@ -15,7 +15,7 @@ b_assemini = temple
 #b_capoterra = castle
 
 # Misc
-culture = Sardinian
+culture = sardinian
 religion = catholic
 terrain = hills
 

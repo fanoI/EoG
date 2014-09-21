@@ -16,7 +16,7 @@ b_forli = temple
 #b_budno = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

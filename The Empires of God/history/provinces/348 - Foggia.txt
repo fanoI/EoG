@@ -16,7 +16,7 @@ b_siponto = temple
 #b_vieste = castle
 
 # Misc
-culture = Neapolitan
+culture = neapolitan
 religion = catholic
 
 # History

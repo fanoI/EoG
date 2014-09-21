@@ -16,7 +16,7 @@ b_radicofani = temple
 #b_barrati = castle
 
 # Misc
-culture = Tuscan
+culture = tuscan
 religion = catholic
 
 # History

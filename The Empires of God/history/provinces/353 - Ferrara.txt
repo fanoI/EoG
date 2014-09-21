@@ -15,7 +15,7 @@ b_commacchio = temple
 #b_voghiera = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

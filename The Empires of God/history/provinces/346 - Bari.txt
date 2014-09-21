@@ -16,7 +16,7 @@ b_giovinazzo = temple
 #b_ruvo = castle
 
 # Misc
-culture = Neapolitan
+culture = neapolitan
 religion = orthodox
 
 # History

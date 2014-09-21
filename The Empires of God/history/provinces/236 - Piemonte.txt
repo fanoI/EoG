@@ -16,7 +16,7 @@ b_settimo = temple
 #b_crevacuore = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

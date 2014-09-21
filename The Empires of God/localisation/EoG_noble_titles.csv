@@ -1,0 +1,35 @@
+AUGUSTUS;Imperator Augustus;Imperator Augustus;Imperator Augustus;Imperator Augustus;;;;;;;;;x
+AUGUSTAS;Imperatrix Augustas;Imperatrix Augustas;Imperatrix Augustas;Imperatrix Augustas;;;;;;;;;x
+EMPEROR;Emperor;Emperor;Emperor;Emperor;;;;;;;;;x
+EMPRESS;Empress;Empress;Empress;Empress;;;;;;;;;x
+BASILEUS;Basileus Autokratôr;Basileus Autokratôr;;Basileus Autokratôr;Basileus Autokratôr;;;;;;;;;x
+BASILEAS;Basileas Autokratôr;Basileas Autokratôr;;Basileas Autokratôr;Basileas Autokratôr;;;;;;;;;x
+KAISER;Kaiser;Kaiser;Kaiser;Kaiser;;;;;;;;;x
+KAISERIN;Kaiserin;Kaiserin;Kaiser;Kaiserin;;;;;;;;;x
+emperor_catholic;King;King;King;King;;;;;;;;;x
+emperor_female_catholic;Queen;Queen;Queen;Queen;;;;;;;;;x
+empire_of_catholic;Kingdom of;Kingdom of;Kingdom of;Kingdom of;;;;;;;;;x
+emperor_orthodox;Basileus;Basileus;Basileus;Basileus;;;;;;;;;x
+emperor_female_orthodox;Basileas;Basileas;Basileas;Basileas;;;;;;;;;x
+empire_of_orthodox;Basileia of;Basileia of;Basileia of;Basileia of;;;;;;;;;x
+TSAR;Tsar Basileus;Tsar Basileus;Tsar Basileus;Tsar Basileus;;;;;;;;x
+TSARINA;Tsarina Basilissa;Tsar Basileus;Tsar Basileus;Tsar Basileus;;;;;;;;x
+TSARDOM;Tsardom;Tsardom;Tsardom;;;;;;;;;x
+GRANDDUCHESS;Grand Duchess;Grande-Duchesse;Großherzogin;;Gran Duquesa;;;;;;;;;x
+GRANDDUKE;Grand Duke;Grand-Duc;Großherzog;;Gran Duque;;;;;;;;;x
+GRANDDUKE_FOA;Your Serene Highness;Votre Altesse Sérénissime;Ihre Durchlaucht;;Su Alteza Serenísima;;;;;;;;;x
+GRANDDUKE_OF;Grand Duchy of;Grand-Duché de;Großherzogtum;;Gran Ducado de;;;;;;;;;x
+PREFECTUS;Prefect;Prefect;Prefect;Prefect;;;;;;;;;;x
+PREFECTURE_OF;Prefecture of;Prefecture of;Prefecture of;Prefecture of;;;;;;;;;;x
+PRINCE;Prince;Prince;Prince;Prince;;;;;;;;;x
+PRINCESS;Princess;Princepess;Princepess;Princepess;;;;;;;;;x
+PRINCIPALITY_OF;Principality of;Principality of;Principality of;Principality of;;;;;;;;;x
+KAGHAN;Kaghan;Kaghan;Kaghan;Kaghan;;;;;;;;;x
+empire_of_norse;High Kingdom of;High Kingdom of;Kingdom of;Kingdom of;;;;;;;;;x
+emperor_of_norse;High King;High King;High King;High King;;;;;;;;;x
+empire_of_norse_reformed;High Kingdom of;High Kingdom of;Kingdom of;Kingdom of;;;;;;;;;x
+emperor_of_norse_reformed;High King;High King;High King;High King;;;;;;;;;x
+PADISOTTO;Padishah Kaysar-i-Rûm;Padishah Kaysar-i-Rûm;;;;;;;;x
+ARCHDUKE;Archduke;Archduke;Archduke;Archduke;;;;;;;;x
+ARCHDUKESS;Archdukess;Archdukess;Archdukess;Archdukess;;;;;;;;x
+ARCHDUCHY_OF;Archduchy of;Archduchy of;Archduchy of;Archduchy of;;;;;;;;x

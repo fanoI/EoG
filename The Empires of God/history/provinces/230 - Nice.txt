@@ -16,7 +16,7 @@ b_monaco = castle
 #b_contes = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 

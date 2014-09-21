@@ -16,7 +16,7 @@ b_cesena = city
 #b_gatteo = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

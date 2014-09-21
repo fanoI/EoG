@@ -17,7 +17,7 @@ b_avellino = city
 #b_sanangelo = castle
 
 # Misc
-culture = Neapolitan
+culture = neapolitan
 religion = catholic
 
 # History

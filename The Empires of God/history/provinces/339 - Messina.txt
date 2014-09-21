@@ -16,7 +16,7 @@ b_lipari = temple
 #b_torregrota = castle
 
 # Misc
-culture = Sicilian
+culture = sicilian
 religion = orthodox
 terrain = hills
 

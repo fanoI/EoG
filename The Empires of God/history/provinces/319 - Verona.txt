@@ -15,7 +15,7 @@ b_montecchio = castle
 #b_schio = castle
 
 # Misc
-culture = Lombard
+culture = lombard
 religion = catholic
 
 # History

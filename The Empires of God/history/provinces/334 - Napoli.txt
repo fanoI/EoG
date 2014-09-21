@@ -16,7 +16,7 @@ b_portici = castle
 #b_afragola=city
 
 # Misc
-culture = Neapolitan
+culture = neapolitan
 religion = orthodox
 
 # History

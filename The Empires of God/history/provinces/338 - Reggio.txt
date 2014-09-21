@@ -16,7 +16,7 @@ b_mileto = temple
 #b_squillace = castle
 
 # Misc
-culture = Neapolitan
+culture = neapolitan
 religion = orthodox
 terrain = hills
 

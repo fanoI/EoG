@@ -15,7 +15,7 @@ b_bonifacio = temple
 #b_aleria = castle
 
 # Misc
-culture = Corsican
+culture = corsican
 religion = catholic
 terrain = mountain
 

@@ -12,7 +12,7 @@
 			texture_internal = 0
 			emblem = 0
 			color = 0
-			<F12>olor = 0
+			color = 0
 			color = 0
 		}
 	}
@@ -27779,12 +27779,22 @@
 }
 1042103 = {
 	name="Pierleoni"
-	culture = roman
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 3
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
 }
 1042104 = {
 	name="Orsini"
 	culture = roman
-
 	coat_of_arms = {
 		template = 0
 		layer = {
@@ -27792,7 +27802,7 @@
 			texture_internal = 0
 			emblem = 0
 			color = 0
-			<F12>olor = 0
+			color = 0
 			color = 0
 		}
 	}
@@ -27800,15 +27810,48 @@
 }
 1042105 = {
 	name="Colonna"
-	culture = roman
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 1
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
 }
 1042106 = {
 	name="Frangipani"
-	culture = roman
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
 }
 1042107 = {
 	name="Annibaldi"
-	culture = roman
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 2
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
 }
 1042108 = {
 	name = "Tusculum"
