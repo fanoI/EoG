@@ -1,0 +1,111 @@
+# Empereur pas content !
+
+Emp_in_suo = {
+	opinion = -50
+        years = 30
+}
+
+Emp_in_serb = {
+	opinion = -50
+        years = 30
+}
+
+Emp_pol_rex = {
+	opinion = -40
+        years = 30
+}
+
+Emp_boh_rex = {
+	opinion = -30
+        years = 30
+}
+
+Emp_stupor = {
+	opinion = -40
+        years = 10
+}
+
+Emp_fr = {
+	opinion = -50
+        years = 10
+}
+
+soutien_pret = {
+	opinion = 50
+        years = 6
+}
+
+pas_soutien = {
+	opinion = -40
+        years = 10
+}
+
+emp_byz_outre = {
+	opinion = -40
+        years = 30
+}
+
+emp_byz_outre_serb = {
+	opinion = -40
+        years = 30
+}
+
+emp_byz_outre_bul = {
+	opinion = -40
+        years = 30
+}
+
+defenseur_ordre = {
+	opinion = 40
+        years = 30
+}
+
+defenseur_ibe = {
+	opinion = 30
+        years = 30
+}
+
+elec_menace = {
+	opinion = -40
+}
+
+emp_compro_pas = {
+	opinion = -80
+        years = 30
+}
+
+basileus_non_cour = {
+	opinion = -60
+        years = 30
+}
+
+basileus_oui_cour = {
+	opinion = 60
+        years = 30
+}
+
+byz_refus_prono = {
+	opinion = -60
+        years = 10
+}
+
+# Added by Van Diemen
+limited_crown_election = {
+	opinion = -15
+}
+maximum_crown_election = {
+	opinion = -40
+}
+opinion_attended_ceremony = {
+	opinion = 10
+}
+coronation_rejected = {
+	opinion = -30
+}
+opinion_pronoia_authority = {
+	opinion = 10
+	months = 12
+}
+op_peti_pro = {
+	opinion = -60
+}

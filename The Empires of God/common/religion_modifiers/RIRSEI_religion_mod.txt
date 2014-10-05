@@ -1,0 +1,18 @@
+eglise_unie = {
+	authority = 15
+	years = 1
+}
+
+filioque_conteste = {
+	authority = 10
+	years = 1
+}
+schisme_informel = {
+	authority = -5
+	years = 1
+}
+
+schisme_total = {
+	authority = -10
+	years = 1
+}

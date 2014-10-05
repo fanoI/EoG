@@ -1,0 +1,65 @@
+decisions = {
+
+emp_ot_rum = {
+		is_high_prio = yes
+		potential = {
+			
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+culture = turkish
+			NOT = { has_landed_title = e_latin_empire }
+                        NOT = { has_landed_title = e_roman_empire }
+NOT = { has_landed_title = e_byzantium }
+NOT = { has_landed_title = e_hre } 
+NOT = { has_landed_title = e_otto_roum }                     
+completely_controls = c_byzantion			
+		
+			 NOT = { religion_group = christian }
+religion_group = muslim
+			
+                        
+                        independent = yes
+
+e_roman_empire = {
+			has_holder = no
+		}
+e_otto_roum = {
+			has_holder = no
+		}
+
+		}
+		allow = {
+
+			prestige = 10000
+e_byzantium = {
+			has_holder = no
+		}
+e_serbia = {
+			has_holder = no
+		}
+		e_bulgaria = {
+			has_holder = no
+		}
+e_latin_empire = {
+			has_holder = no
+		}
+                        
+		                       
+completely_controls = k_byzantium
+completely_controls = k_anatolia
+
+			
+		}
+		effect = {
+set_global_flag = otto_sult
+			  narrative_event = { id = RIRSEBYZ.111141 }
+activate_title = { title = e_byzantium status = no }
+
+}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

@@ -33,3 +33,21 @@ PADISOTTO;Padishah Kaysar-i-Rûm;Padishah Kaysar-i-Rûm;;;;;;;;x
 ARCHDUKE;Archduke;Archduke;Archduke;Archduke;;;;;;;;x
 ARCHDUKESS;Archdukess;Archdukess;Archdukess;Archdukess;;;;;;;;x
 ARCHDUCHY_OF;Archduchy of;Archduchy of;Archduchy of;Archduchy of;;;;;;;;x
+emperor_of_turkish;Padishahlari;Padishahlari;Padishah;;Emperador Padishah;;;;;;;;;x;;;;;;;;
+empire_of_turkish;Padishahlari;Padishahlari;Padishah;;Emperador Padishah;;;;;;;;;x;;;;;;;;
+empire_turkish;Padishahlari;Padishahlari;Padishah;;Emperador Padishah;;;;;;;;;x;;;;;;;;
+emperor_arabic;Amir al-'umara';Amîr al-'umara';Padishah;;Emperador Padishah;;;;;;;;;x;;;;;;;;
+duchy_of_greek;Thème de;Thème de;;;;;;;;;x;;;;;;;;;;;
+county_of_greek;Katepanikion de;Katepanikion de;;;;;;;;;;x;;;;;;;;;;
+duke_norse_pagan_reformed;Jarl;Jarl;;;;;;;;;;;;x;;;;;;;;
+duke_norse_pagan;Jarl;Jarl;;;;;;;;;;;;x;;;;;;;;
+count_norse_pagan_reformed;Jarl;Jarl;;;;;;;;;;;;x;;;;;;;;
+count_norse_pagan;Jarl;Jarl;;;;;;;;;;;;x;;;;;;;;
+city_emperor;Princeps Semper Augustus;Princeps Semper Augustus;Grand Prinz;;Gran Príncipe;;;;;;;;;x;;;;;;;;
+city_king_latin;Consul;Consul;Durchlauchter Doge;;Duque Sereno;;;;;;;;;x;;;;;;;;
+city_king_byzantine;Doux;Doux;Durchlauchter Doge;;Duque Sereno;;;;;;;;;x;;;;;;;;
+city_duke_latin;Consul;Consul;Doge;;Dux;;;;;;;;;x;;;;;;;;
+city_duke_byzantine;Doux;Doux;Doge;;Dux;;;;;;;;;x;;;;;;;;
+city_count_latin;Consul;Consul;Oberbürgermeister;;Gran Alcalde;;;;;;;;;x;;;;;;;;
+city_count_byzantine;Demarchos;Demarchos;Oberbürgermeister;;Gran Alcalde;;;;;;;;;x;;;;;;;;
+

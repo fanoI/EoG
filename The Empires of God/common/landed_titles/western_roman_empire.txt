@@ -41,7 +41,7 @@ e_hre =  {
 }
 
 # (High) Kingdom of Italia
-e_italia = {
+e_italy = {
 	color={ 234 217 110 }
 	color2={ 255 255 255 }
 	
