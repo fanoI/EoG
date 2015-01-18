@@ -1,0 +1,26 @@
+spriteTypes = {
+	spriteType = {
+		name = "GFX_republic_of_rome"
+		texturefile = "gfx\\interface\\decision_icon_republic_of_rome.dds"
+	}
+	spriteType = {
+		name = "GFX_legio_italia"
+		texturefile = "gfx\\interface\\decision_icon_legio_italia.tga"
+	}
+	spriteType = {
+		name = "GFX_renovate_the_colosseum"
+		texturefile = "gfx\\interface\\decision_icon_renovate_the_colosseum.tga"
+	}
+	spriteType = {
+		name = "GFX_gladiators"
+		texturefile = "gfx\\interface\\decision_icon_gladitors.tga"
+	}
+	spriteType = {
+		name = "GFX_form_the_praetorians"
+		texturefile = "gfx\\interface\\decision_icon_form_the_praetorians.tga"
+	}
+	spriteType = {
+		name = "GFX_western_roman_empire"
+		texturefile = "gfx\\interface\\decision_icon_western_roman_empire.dds"
+	}
+}

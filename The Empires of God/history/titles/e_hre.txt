@@ -1,4 +1,7 @@
-800.12.4={
+20.1.1 = {
+	active = no
+}
+800.12.25={
 	holder = 6392 #Charlemagne
         
 	law = agnatic_succession

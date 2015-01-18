@@ -48,6 +48,47 @@ e_italy = {
 	capital = 333 # Rome
 	
 	culture = italian
+
+	k_genoa = {
+		color={ 234 131 110 }
+		capital = 233 # Genoa
+		culture = italian
+	
+		dignity = 200 # Never want the Republic of Genoa to change primary title
+	
+		allow = {
+			is_republic = yes
+		}
+	}
+
+	k_pisa = {
+		color={ 196 192 140 }
+		color2={ 255 255 255 }
+	
+		capital = 327 # Pisa
+		culture = italian
+	
+		dignity = 200 # Never want the Republic of Pisa to change primary title
+	
+		allow = {
+			is_republic = yes
+		}
+	}
+
+	k_naples = {
+		color = { 218 217 242 }
+		capital = 334 # Napoli
+		
+		allow = {
+			FROM = {
+				any_previous_holder = {
+					always = yes # The title has existed before
+				}
+			}
+		}
+		
+		culture = italian
+	}
 	
 	k_italy = {
 		color={ 244 227 160 }
@@ -897,6 +938,17 @@ e_italy = {
 	}
 }
 
+k_lombardy = {
+	color={ 234 217 110 }  # Only for the CoA
+	culture = lombard
+	
+	capital = 234 # Anhalt
+	
+	allow = {
+		always = no
+	}
+}
+
 # S.P.Q.R. Alternative title for "Italia" if created by Roman and Republic
 e_spqr = {
 	color={ 234 217 110 }
@@ -914,19 +966,7 @@ e_spqr = {
 
 }
 
-# Most Serene Republic of Genoa
-k_genoa = {
-	color={ 234 131 110 }
-	capital = 233 # Genoa
-	culture = italian
-	
-	dignity = 200 # Never want the Republic of Genoa to change primary title
-	
-	allow = {
-		is_republic = yes
-	}
-}
-
+# Patricians of The Most Serene Republic of Genoa
 b_doria = {
 	culture = italian
 	religion = catholic
@@ -952,21 +992,7 @@ b_embriaco = {
 	religion = catholic
 }
 
-# Most Serene Republic of Pisa
-k_pisa = {
-	color={ 196 192 140 }
-	color2={ 255 255 255 }
-	
-	capital = 327 # Pisa
-	culture = italian
-	
-	dignity = 200 # Never want the Republic of Pisa to change primary title
-	
-	allow = {
-		is_republic = yes
-	}
-}
-
+# Patricians of The Most Serene Republic of Pisa
 b_dappiano = {
 	culture = italian
 	religion = catholic
@@ -992,6 +1018,7 @@ b_caetani = {
 	religion = catholic
 }
 
+#The Most Serene Republic of Venice
 k_venice = {
 	color = { 54 167 156 }
 	capital = 356 # Venice
@@ -1083,7 +1110,27 @@ b_tradonico = {
 	religion = catholic
 }
 
+b_antenoreo = {
+	culture = italian
+	religion = catholic
+}
+
+b_galbaio = {
+	culture = italian
+	religion = catholic
+}
+
+b_monegario = {
+	culture = italian
+	religion = catholic
+}
+
+b_gaulo = {
+	culture = italian
+	religion = catholic
+}
 
+# The Republic of Amalfi
 d_amalfi = {
 	color={ 140 200 230 }
 	capital = 935 # Amalfi
@@ -1119,6 +1166,57 @@ b_urso = {
 	culture = italian
 	religion = catholic
 }
+
+b_amalfinos = {
+	culture = greek
+	religion = catholic
+}
+
+b_manginos = {
+	culture = greek
+	religion = catholic
+}
+
+b_kanakares = {
+	culture = greek
+	religion = catholic
+}
+
+b_sorrenti = {
+	culture = italian
+	religion = catholic
+}
+
+b_ravelli = {
+	culture = italian
+	religion = catholic
+}
+
+# The Hanseatic Leauge
+b_bardewik = {
+	culture = german
+	religion = catholic
+}
+
+b_vorrade = {
+	culture = german
+	religion = catholic
+}
+
+b_warendorp = {
+	culture = german
+	religion = catholic
+}
+
+b_pat_luneburg = {
+	culture = german
+	religion = catholic
+}
+
+b_wittenborg = {
+	culture = german
+	religion = catholic
+}
 
 # Yes this the one that the Savoy's used to claim the Kingdom (Empire) of Italia
 k_sardinia = {
@@ -5123,49 +5221,29 @@ e_britannia = {
 			
 			norman = "Hereford"
 			english = "Hereford"
-			
-			c_hereford = {
-				color={ 241 50 20 }
+		
+			c_leicester = {
+				color={ 255 85 10 }
 				color2={ 255 255 255 }
 			
-				b_st_ethelberts = {
+				b_leicester = {
 				}
-				b_hereford = {
+				b_nottingham = {
 				}
-				b_leominster = {
+				b_southwell = {
 				}
-				b_archenfield = {
+				b_newark = {
 				}
-				b_ewyas_harold = {
+				b_hucknall = {
 				}
-				b_ledbury = {
+				b_tickhill = {
 				}
-				b_clifford = {
+				b_worksop = {
 				}
-				b_brobury = {
-				}
-			}
-			c_shrewsbury = {
-				color={ 241 55 25 }
-				color2={ 255 255 255 }
-			
-				b_shrewsbury = {
-				}
-				b_clun = {
-				}
-				b_wenlock = {
-				}
-				b_ludlow = {
-				}
-				b_whitchurch = {
-				}
-				b_bridgnorth = {
-				}
-				b_oswestry = {
-				}
-				b_chirk = {
+				b_newstead = {
 				}
 			}
+
 			c_warwick = {
 				color={ 241 60 30 }
 				color2={ 255 255 255 }
@@ -5500,28 +5578,82 @@ e_britannia = {
 				b_hawarden = {
 				}
 			}
-			c_powys = {
-				color={ 175 90 20 }
-				color2={ 255 255 255 }
-				
-				b_caersws = {
-				}
-				b_mathrafal = {
-				}
-				b_llangollen = {
-				}
-				b_llandinam = {
-				}
-				b_glascwm = {
-				}
-				b_radnor = {
-				}
-				b_montgomery = {
-				}
-				b_rhayader = {
-				}
-			}
 		}
+		d_powys = {
+			color={ 180 130 0 }
+			color2={ 255 255 255 }
+				
+			capital = 66 # Shrewsbury
+
+			c_powys = {
+				color={ 175 90 20 }
+				color2={ 255 255 255 }
+				
+				b_caersws = {
+				}
+				b_mathrafal = {
+				}
+				b_llangollen = {
+				}
+				b_llandinam = {
+				}
+				b_glascwm = {
+				}
+				b_radnor = {
+				}
+				b_montgomery = {
+				}
+				b_rhayader = {
+				}
+			}
+			c_shrewsbury = {
+				color={ 241 55 25 }
+				color2={ 255 255 255 }
+				
+				welsh = Pengwern
+			
+				b_shrewsbury = {
+				}
+				b_clun = {
+				}
+				b_wenlock = {
+				}
+				b_ludlow = {
+				}
+				b_whitchurch = {
+				}
+				b_bridgnorth = {
+				}
+				b_oswestry = {
+				}
+				b_chirk = {
+				}
+			}
+			c_hereford = {
+				color={ 241 50 20 }
+				color2={ 255 255 255 }
+				
+				welsh = Ergyng
+			
+				b_st_ethelberts = {
+				}
+				b_hereford = {
+					welsh = "Din Aricon"
+				}
+				b_leominster = {
+				}
+				b_archenfield = {
+				}
+				b_ewyas_harold = {
+				}
+				b_ledbury = {
+				}
+				b_clifford = {
+				}
+				b_brobury = {
+				}
+			}
+		}
 		d_deheubarth = {
 			color={ 125 51 3 }
 			color2={ 255 255 255 }
@@ -5665,6 +5797,83 @@ k_scotland = {
 		welsh = Alba
 		irish = Alba
 		breton = Alba
+		pictish = Pictland
+		
+		d_the_isles = {
+			color={ 10 48 243 }
+			color2={ 255 255 255 }
+
+			capital = 54 # Isle of Man
+			
+			welsh = Manaw
+			norwegian = "Mann"
+			danish = "Mann"
+			swedish = "Mann"
+			norse = "Mann"
+			pictish = "Manu"
+			irish = "Mhannin"
+			
+			c_isle_of_man = {
+				color={ 25 65 243 }
+				color2={ 255 255 255 }
+				
+				norwegian = "Mann"
+				danish = "Mann"
+				swedish = "Mann"
+				norse = "Mann"
+				pictish = "Insee Manu"
+				welsh = "Ynys Manaw"
+				irish = "Ellan Mhannin"
+ 		
+				b_peel = {
+					norwegian = "Pålø"
+					danish = "Pålø"
+					swedish = "Pålø"
+					norse = "Pålø"
+					pictish = "Pirtinsee"
+					welsh = "Porth Ynys"
+					irish = "Purt ny h-Inshey"
+				}
+				b_rushen = {
+					pictish = "Resan"
+					welsh = "Resyn"
+					irish = "Rosien"
+				}
+				b_maughold = {
+					pictish = "Mauugan"
+					welsh = "Mawgan Sant"
+					irish = "Macaille"
+				}
+				b_douglas = {
+					pictish = "Duunglasc"
+					welsh = "Duonglassafon"
+					irish = "Duboglassio"
+				}
+				b_kirk_michael = {
+					pictish = "Icluasc Mihagal"
+					welsh = "Eglwys Mihangel"
+					irish = "Cill Micheál"
+				}
+				b_sulby = {
+					pictish = "Drauuglan"
+					welsh = "Drywglyn"
+					irish = "Druígleann"
+					norwegian = "Sõlabyr"
+					danish = "Sõlabyr"
+					swedish = "Sõlabyr"
+				}
+				b_inis_patraic = {
+					pictish = "Inees Pedric"
+					welsh = "Ynys Padric"
+					irish = "Inis Pátraic"
+				}
+				b_laxey = {
+					pictish = "Ahonugad"
+					welsh = "Afoneogiaid"
+					irish = "Uisge Bradán"
+				}
+			}
+		}
 
 		d_galloway = {
 			color={ 77 116 208 }
@@ -5794,36 +6003,6 @@ k_scotland = {
 			b_dunvegan = {
 			}
 			b_dunyveg = {
-			}
-		}
-		c_isle_of_man = {
-			color={ 25 65 243 }
-			color2={ 255 255 255 }
-
-			norwegian = "Mann"
-				danish = "Mann"
-				swedish = "Mann"
-				norse = "Mann"
-
-				b_peel = {
-					norwegian = "PÃ¥lÃ¸"
-						danish = "PÃ¥lÃ¸"
-						swedish = "PÃ¥lÃ¸"
-						norse = "PÃ¥lÃ¸"
-				}
-			b_rushen = {
-			}
-			b_maughold = {
-			}
-			b_douglas = {
-			}
-			b_kirk_michael = {
-			}
-			b_sulby = {
-			}
-			b_inis_patraic = {
-			}
-			b_laxey = {
 			}
 		}
 		c_argyll = {
@@ -6529,13 +6708,49 @@ k_ireland = {
 # Germania excluding a little part of it (Germania Minor) was never a part of the Western Roman Empire
 # but it is added because this mod considers the Holy Roman Empire (of the German Nation) as
 # a legittimate successor of the Western Roman Empire so it considered  de jure drifted
-e_germania = {
+e_germany = {
 	color={ 155 155 155 }
 	color2={ 220 220 20 }
 	
-	religion=catholic
 	culture = german
-	capital = 90 # JÃ¼lich / Aachen
+	capital = 121 # Nassau
+
+	allow = {
+		hidden_tooltip = {
+			OR = {
+				culture_group = central_germanic
+				culture = old_saxon
+			}
+		}
+	}
+
+	k_hansa = {
+		color={ 142 142 142 }
+		color2={ 255 255 255 }
+
+		capital = 262 # Lübeck
+	
+		dignity = 200 # Never want the Hanseatic League to change primary title
+	
+		allow = {
+			# Created only via special event 
+			always = no
+			is_republic = yes
+		}
+	}	
+
+	k_saxony = {
+		color={ 120 25 25 }
+		culture = old_saxon
+
+		capital = 310 # Anhalt
+
+		allow = {
+			culture = old_saxon
+		}
+		
+		catholic = 3000 # Crusade target weight
+	}
 	
 	k_frisia = {
 		color={ 245 100 20 }

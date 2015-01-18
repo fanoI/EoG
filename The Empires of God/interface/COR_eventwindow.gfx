@@ -1,0 +1,83 @@
+spriteTypes = 
+{
+	spriteType = {
+		name = "GFX_evt_senate"
+		texturefile = "gfx\\event_pictures\senate.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_rome_gladiator"
+		texturefile = "gfx\\event_pictures\rome_gladiator.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_town_forum"
+		texturefile = "gfx\\event_pictures\roman_town_forum.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_soldiers_training"
+		texturefile = "gfx\\event_pictures\roman_soldiers_training.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_rider"
+		texturefile = "gfx\\event_pictures\roman_rider.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_legionary_dark"
+		texturefile = "gfx\\event_pictures\roman_legionary_dark.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_legion_marching"
+		texturefile = "gfx\\event_pictures\roman_legion_marching.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_great_temple"
+		texturefile = "gfx\\event_pictures\roman_great_temple.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_emperor_salute"
+		texturefile = "gfx\\event_pictures\roman_emperor_salute.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_emperor_colosseum"
+		texturefile = "gfx\\event_pictures\roman_emperor_colosseum.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_army_aquila"
+		texturefile = "gfx\\event_pictures\roman_army_aquila.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_roman_aquila_pillar"
+		texturefile = "gfx\\event_pictures\roman_aquila_pillar.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_gladiator2"
+		texturefile = "gfx\\event_pictures\gladiator2.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_gladiator_revolt"
+		texturefile = "gfx\\event_pictures\gladiator_revolt.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_colosseum"
+		texturefile = "gfx\\event_pictures\colosseum.tga"
+		allwaystransparent = yes
+	}
+	spriteType = {
+		name = "GFX_evt_assassination"
+		texturefile = "gfx\\event_pictures\assassination.tga"
+		allwaystransparent = yes
+	}
+}

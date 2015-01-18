@@ -1,3 +1,11 @@
+539.1.1={
+	liege="e_byzantium"	
+	vice_royalty = yes
+}
+610.1.1={
+	liege=0
+	vice_royalty = no
+}
 768.1.1={
 	holder = 167858
 }
@@ -15,7 +23,7 @@
 }
 891.1.1={
 	holder = 167869
-liege = "e_bulgaria"
+	liege = "e_bulgaria"
 }
 892.1.1={
 	holder = 167876
@@ -31,7 +39,7 @@ liege = "e_bulgaria"
 }
 960.1.1={
 	holder = 0
-liege = 0
+	liege = 0
 }
 1071.8.26={
 	holder=20529
@@ -41,9 +49,11 @@ liege = 0
 }
 1091.1.1={
 	liege="e_byzantium"	
+	vice_royalty = yes
 }
 1101.1.1={
 	liege=0	
+	vice_royalty = no
 }
 1112.1.1={
 	holder=218510
@@ -56,6 +66,7 @@ liege = 0
 }
 1162.1.1={
 	liege="e_byzantium"	
+	vice_royalty = yes
 }
 1163.1.1={
 	holder=34071
@@ -68,6 +79,7 @@ liege = 0
 }
 1183.9.24={
 	liege=0	
+	vice_royalty = no
 }
 1186.1.1={
 	liege="k_serbia"	

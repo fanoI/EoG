@@ -1,5 +1,13 @@
+750.1.1 = {
+	holder = 194091
+}
+799.1.1 = {
+	holder = 194092
+}
+822.1.1 = {
+	holder = 194093
+}
 850.1.1={
-	liege=d_kuyavia
 	holder = 82237
 }
 911.1.1={
@@ -66,7 +74,6 @@
 	holder=471534 #leszek
 }
 1295.6.27={
-	
-de_jure_liege = k_polandball
-liege = "k_polandball"
+	de_jure_liege = k_polandball
+	liege = "k_polandball"
 }

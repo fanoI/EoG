@@ -16,14 +16,17 @@ b_lipari = temple
 #b_torregrota = castle
 
 # Misc
-culture = sicilian
+culture = greek
 religion = orthodox
 terrain = hills
 
 # History
+869.1.1 = { culture = maghreb_arabic
+	    religion = sunni
+}
 
-
-1085.1.1={ religion = catholic }
+1079.1.1 = { culture = italian
+	    religion = catholic }
 
 1104.1.1 = { trade_post = b_visconti }
 1187.1.1 = { b_sanmarcodalunzio = castle }

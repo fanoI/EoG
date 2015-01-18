@@ -1,0 +1,24 @@
+# Types:
+# 0 - Light Infantry
+# 1 - Heavy Infantry
+# 2 - Pikemen
+# 3 - Light Cavalry
+# 4 - Heavy Cavalry
+# 5 - Archers
+# 6 - Special troops
+
+RETTYPE_CUL_ROMAN = 
+{
+	first_type = 1
+	first_amount = 500
+	
+	potential = {
+		culture = roman
+	}
+	
+	modifier = {
+		heavy_infantry_offensive = 0.4
+		heavy_infantry_defensive = 0.2
+		heavy_infantry_morale = 0.5
+	}
+}

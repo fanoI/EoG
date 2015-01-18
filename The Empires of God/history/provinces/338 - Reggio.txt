@@ -16,13 +16,13 @@ b_mileto = temple
 #b_squillace = castle
 
 # Misc
-culture = neapolitan
+culture = greek
 religion = orthodox
 terrain = hills
 
 # History
 1066.1.1 = { trade_post = b_ziani }
-1187.1.1={ culture = italian }
-1187.1.1={ religion = catholic }
+1074.1.1={ culture = neapolitan
+	   religion = catholic }
 
 1337.1.1 = { b_belcastro = castle }

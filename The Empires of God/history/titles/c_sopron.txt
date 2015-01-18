@@ -1,15 +1,28 @@
+731.1.1={
+	liege="d_esztergom"
+	holder=146137
+}
+770.1.1={
+	holder=146138
+}
+780.1.1={
+	holder=146139
+}
+785.1.1={
+	holder=146140
+}
 800.1.1=
 {
-liege="d_pecs"
-holder=187011
+	liege="d_pecs"
+	holder=187011
 }
 861.1.1=
 {
-holder=187012
+	holder=187012
 }
 876.1.1=
 {
-  holder=167797
+	holder=167797
 }
 884.1.1=
 {
@@ -40,7 +53,6 @@ holder=187012
 955.1.1={
 	holder = 1294
 }
-
 976.1.1={
 	holder = 10084
 }
@@ -55,61 +67,61 @@ holder=187012
 }
 1063.12.1=
 {
-liege="d_esztergom"
+	liege="d_esztergom"
 } 
 1063.12.1=
 {
-holder=476
+	holder=476
 }
 1083.8.15=
 {
-holder=474
+	holder=474
 }
 1095.7.29=
 {
-holder=93652
+	holder=93652
 }
 1130.1.1=
 {
-holder=93653
+	holder=93653
 }
 1160.1.1=
 {
-holder=93654
+	holder=93654
 }
 1180.1.1=
 {
-holder=219005
+	holder=219005
 }
 1200.1.1=
 {
-holder=470090
+	holder=470090
 }
 1230.1.1=
 {
-holder=93651
+	holder=93651
 }
 1236.1.1=
 {
-holder=470092
+	holder=470092
 }
 1255.1.1=
 {
-holder=470094
+	holder=470094
 }
 1291.1.1=
 {
-holder=470095
+	holder=470095
 }
 1299.1.1=
 {
-liege="d_pecs"
+	liege="d_pecs"
 }
 1309.1.1=
 {
-holder=470099
+	holder=470099
 }
 1326.1.1=
 {
-holder=470101
+	holder=470101
 }

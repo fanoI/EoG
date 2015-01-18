@@ -71,7 +71,7 @@
 1026.1.1={
 	holder=184070 #Pietro Barbolano
 	# Venice no more part of Byzantium but of Italia, that is indipendent
-	de_jure_liege=e_italia
+	de_jure_liege=e_italy
 	liege = 0
 }
 1032.1.1={

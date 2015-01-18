@@ -1,17 +1,49 @@
-867.1.1=
-{
-liege=d_pest
+685.1.1 = {
+	liege="k_hungary"
+	holder=146156
+}
+707.1.1 = {
+	holder=146160
+}
+731.1.1 = {
+	holder=146165
+}
+741.1.1={
+	liege="d_moravia"
+	holder = 187000
+}
+764.1.1={
+	holder = 146176
+}
+801.1.1={
+	holder = 146177
+}
+809.1.1={
+	holder = 187001
+}
+830.1.1={
+	liege=k_moravia
+}
+846.8.15={
+	holder = 187002
+}
+866.1.1={
+	holder=168073
+}
+884.1.1={
+	holder=168074
 }
 867.1.1=
 {
-holder=168072
+	liege=d_pest
 }
+# TODO some holders are missing here!
 911.1.1 = {
-liege="k_magyar"
+	liege="k_magyar"
 }
 1066.1.1=
 {
-liege="k_hungary"
+	liege="k_hungary"
 }
 1066.1.1={
 holder=476

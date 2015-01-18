@@ -1726,6 +1726,42 @@ e_scandinavia = {
 	}
 }
 
+# Republic of Gotland
+d_gotland = {
+	color={ 60 70 235 }
+	color2={ 255 255 255 }
+	
+	capital = 301 # Gotland
+	
+	dignity = 10
+}
+
+b_stenkyrka = {
+	culture = swedish
+	religion = catholic
+}
+
+b_guldsmed = {
+	culture = swedish
+	religion = catholic
+}
+
+b_hejnum = {
+	culture = swedish
+	religion = catholic
+}
+
+b_gildehusen = {
+	culture = swedish
+	religion = catholic
+}
+
+b_strabain = {
+	culture = swedish
+	religion = catholic
+}
+
+
 # Empire of Albion
 e_albion = {
 	color={ 6 127 2 }
@@ -2651,6 +2687,20 @@ e_wendish_empire = {
 	}
 
 	short_name = yes
+
+	k_moravia = {
+		color={ 158 102 36 }
+		color2={ 200 0 0 }
+		culture = bohemian
+		tribe = yes
+	
+		capital = 441 # Brno
+		slavic_pagan_reformed = 100 # Crusade target weight
+	
+#		allow = {
+#			k_bohemia = { has_holder = no }
+#		}
+	}
 
 	k_poland = {
 		color={ 150 23 23 }
@@ -4095,58 +4145,58 @@ e_wendish_empire = {
 				}
 			}
 		}
-		
-		d_grodno = {
-			color={ 131 30 30 }
-			color2={ 255 255 255 }
-			
-			capital = 424 # Grodno
-			
-			c_jacwiez = { # Grodno
-				color={ 141 32 30 }
-				color2={ 255 255 255 }
-			
-				b_jacwiez = {
-				}
-				b_novogrudok = {
-				}
-				b_grodno = {
-				}
-				b_iuje = {
-				}
-				b_slonim = {
-				}
-				b_mir = {
-				}
-				b_niasvizh = {
-				}
-				b_zirmuny = {
-				}
-			}
-			c_podlasie = {
-				color={ 148 100 100 }
-				color2={ 255 255 255 }
-				
-				b_drohiczyn = {
-				}
-				b_kolno = {
-				}
-				b_sejny = {
-					holy_site = baltic_pagan
-					holy_site = baltic_pagan_reformed
-				}
-				b_lomza = {
-				}
-				b_tykocin = {
-				}
-				b_zambrow = {
-				}
-				b_lapy = {
-				}
-				b_krynki = {
-				}
-			}
-		}
+
+		d_yatviags = {
+			color={ 149 97 97 }
+			color2={ 255 255 255 }
+			
+			capital = 424 # Grodno
+			
+			c_jacwiez = { # Grodno
+				color={ 141 32 30 }
+				color2={ 255 255 255 }
+			
+				b_jacwiez = {
+				}
+				b_novogrudok = {
+				}
+				b_grodno = {
+				}
+				b_iuje = {
+				}
+				b_slonim = {
+				}
+				b_mir = {
+				}
+				b_niasvizh = {
+				}
+				b_zirmuny = {
+				}
+			}
+			c_podlasie = {
+				color={ 148 100 100 }
+				color2={ 255 255 255 }
+				
+				b_drohiczyn = {
+				}
+				b_kolno = {
+				}
+				b_sejny = {
+					holy_site = baltic_pagan
+					holy_site = baltic_pagan_reformed
+				}
+				b_lomza = {
+				}
+				b_tykocin = {
+				}
+				b_zambrow = {
+				}
+				b_lapy = {
+				}
+				b_krynki = {
+				}
+			}
+		}
 		
 		d_courland = { 
 			color={ 182 16 16 }
@@ -4344,6 +4394,10 @@ e_wendish_empire = {
         catholic = 400 # Crusade target weight
         slavic_pagan_reformed = 100 # Crusade target weight
         baltic_pagan_reformed = 50 # Crusade target weight
+
+	allow = {
+		k_moravia = { has_holder = no }
+	}
         
         d_bohemia = {
             color={ 195 110 11 }
@@ -4583,17 +4637,6 @@ e_commonwealth = {
 	}
 }
 
-k_moravia = {
-	color={ 158 102 36 }
-	culture = bohemian
-	tribe = yes
-	
-	capital = 441 # Brno
-	
-	allow = {
-		always = no
-	}
-}
 
 # TODO
 #e_slavic_horde = {
@@ -4840,8 +4883,6 @@ e_carpathia = {
 		
 		capital	= 444 # Esztergom
 
-		avar = Avar
-		
 		allow = {
 			OR = {
 				culture_group = magyar
@@ -5465,6 +5506,17 @@ e_carpathia = {
 	}
 }
 
+# Magyar / Hungary if ruled by Avars
+k_avaria = {
+	color={ 250 120 90 }  # Only for the CoA
+	culture = avar
+	
+	capital = 444 # Anhalt
+	
+	allow = {
+		always = no
+	}
+}
 
 e_abyssinia = {
 	color={ 181 133 68 }
@@ -6048,18 +6100,7 @@ e_outremer = {
 	}
 }
 
-k_magyar = {
-	color={ 187 70 70 }
-	tribe = yes
-	culture = hungarian
-	
-	capital = 522 # Pest
-	
-	allow = {
-		always = no
-	}
-}
-
+# TODO create a titular "Empire of Zion"
 k_israel = {
 	color = { 20 138 255 }
 
@@ -6072,7 +6113,6 @@ k_israel = {
 		always = no # Only created through special event
 	}
 }
-
 
 e_mali = {
 	color={ 138 148 55 }

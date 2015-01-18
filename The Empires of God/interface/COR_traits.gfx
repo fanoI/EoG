@@ -1,0 +1,24 @@
+spriteTypes = 
+{
+	spriteType = {
+		name = "GFX_trait_gladiator"
+		texturefile = "gfx/traits/gladiator.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_ex-gladiator"
+		texturefile = "gfx/traits/ex-gladiator.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_defender_of_the_faith"
+		texturefile = "gfx/traits/defender_of_the_faith.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

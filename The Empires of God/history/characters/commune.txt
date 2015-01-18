@@ -1,6 +1,6 @@
 1000284000 = {
 	name="Giordano"
-	dynasty=1042103 # House Pierleoni
+	dynasty=5042103 # House Pierleoni
 	father=73404 # Pier Leone (founder of the dinasty)
 	martial=13
 	diplomacy=6
@@ -30,7 +30,7 @@
 
 1000284001 = { #Fictional Son
 	name="Abelardo"
-	dynasty=1042103 # House Pierleoni
+	dynasty=5042103 # House Pierleoni
 	religion="catholic"
 	culture="roman"
 	father=1000284000
@@ -79,7 +79,7 @@
 
 1000284004 = {
 	name="Giovanni" # Later Cardinal, nothing is known (fictionary?)
-	dynasty=1042105 # House Colonna
+	dynasty=5042105 # House Colonna
 	martial=7
 	diplomacy=12 # At least you could have a mediocre chancellor
 	intrigue=4
@@ -99,7 +99,7 @@
 
 1000284005 = { #Fictional Son
 	name="Ferdinando" #
-	dynasty=1042105 # House Colonna
+	dynasty=5042105 # House Colonna
 	religion="catholic"
 	culture="roman"
 	father=1000284004 
@@ -113,7 +113,7 @@
 
 1000284006 = {
 	name="Oddone" # Prefect of Rome, Chronicler?
-	dynasty=1042106 # House Frangipani  
+	dynasty=5042106 # House Frangipani  
 	martial=7
 	diplomacy=6
 	intrigue=10
@@ -136,7 +136,7 @@
 
 1000284007 = { #Fictional Son
 	name="Flavio" 
-	dynasty=1042106 # House Frangipani  
+	dynasty=5042106 # House Frangipani  
 	religion="catholic"
 	culture="roman"
 	father=1000284006
@@ -153,7 +153,7 @@
 	# important. This Riccardo is not the Cardinal of XIV century, 
 	# but a fictionary character.	
 	name="Riccardo"
-	dynasty=1042107 # House Annibaldi
+	dynasty=5042107 # House Annibaldi
 	martial=13
 	diplomacy=6
 	intrigue=10
@@ -174,7 +174,7 @@
 }
 1000284009 = { #Fictional Son
 	name="Alessandro"
-	dynasty=1042107 # House Annibaldi
+	dynasty=5042107 # House Annibaldi
 	religion="catholic"
 	culture="roman"
 	father=1000284008
@@ -217,7 +217,7 @@
 
 1000284010 = { #"Count" of Tusculum
 	name="Giacomo"
-	dynasty=1042108 #of Tusculum
+	dynasty=5042108 #of Tusculum
 	martial=8
 	diplomacy=6
 	intrigue=12

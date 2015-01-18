@@ -1,4 +1,10 @@
-825.1.1={
+750.1.1 = {
+	holder = 194084
+}
+799.1.1 = {
+	holder = 194085
+}
+822.1.1={
 	holder = 82291
 }
 830.1.1={
@@ -27,9 +33,9 @@
 }
 985.1.1=
 {
-liege="k_poland"
-#law = agnatic_succession
-#law = succ_gavelkind
+	liege="k_poland"
+	#law = agnatic_succession
+	#law = succ_gavelkind
 }
 1020.1.1={
 	holder = 82303
@@ -75,9 +81,8 @@ liege="k_poland"
 	holder=471732
 }
 1295.6.27={
-	
-de_jure_liege = k_polandball
-liege = "k_polandball"
+	de_jure_liege = k_polandball
+	liege = "k_polandball"
 }
 1296.2.22=
 {

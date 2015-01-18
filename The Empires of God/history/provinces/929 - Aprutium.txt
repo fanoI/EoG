@@ -16,7 +16,7 @@ b_chieti = temple
 #b_aquila
 
 # Misc
-culture = roman
+culture = lombard
 religion = catholic
 
 # History

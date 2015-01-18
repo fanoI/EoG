@@ -193,8 +193,6 @@ decisions = {
 		}
 		
 		effect = {
-			piety = 1000
-			
 			if = {
 				limit = {
 					religion = catholic
@@ -211,6 +209,25 @@ decisions = {
 					}
 				}
 			}
+			if = {
+				limit = {
+					AND = {
+						religion = catholic
+						NOT = { has_character_flag = restored_catholic_pope_in_rome }
+					}
+				}
+				k_papal_state = {
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							modifier = opinion_restored_to_rome
+						}
+					}
+				}
+				piety = 1000
+				set_character_flag = restored_catholic_pope_in_rome
+			}
+
 			
 			if = {
 				limit = {
@@ -223,6 +240,16 @@ decisions = {
 						}
 					}
 				}
+			}
+			if = {
+				limit = {
+					AND = {
+						religion = fraticelli
+						 NOT = { has_character_flag = restored_fraticelli_pope_in_rome }
+					}
+				}
+				piety = 1000
+				set_character_flag = restored_fraticelli_pope_in_rome
 			}
 		}
 		
@@ -358,6 +385,62 @@ decisions = {
 			#		}
 			#	}
 			#}
+		}
+	}
+	restore_ecumenical_patriarchate = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Sons of Abraham"
+			religion = orthodox
+			has_landed_title = c_byzantion
+			is_playable = yes
+			independent = yes
+			k_orthodox = {
+				NOT = {
+					holder_scope = {
+						religion = orthodox
+					}
+				}
+			}
+		}
+		allow = {
+			piety = 1000
+			OR = {
+				owns = 496 # Constantinople
+				any_realm_lord = {
+					owns = 496
+				}
+			}
+		}
+		effect = {
+			piety = -1000
+			hidden_tooltip = {
+				if = {
+					limit = {
+						NOT = { is_title_active = k_orthodox }
+					}
+					activate_title = { title = k_orthodox status = yes }
+				}
+				create_random_priest = {
+					random_traits = yes
+					religion = ROOT
+					female = no
+					dynasty = none
+				}
+				new_character = {
+					k_orthodox = {
+						grant_title = PREV
+					}
+					b_hagiasophia = {
+						grant_title = PREV
+					}
+					# This makes sense? To lose the capital of the Empire to a priest?
+					c_byzantion = {
+						grant_title = PREV
+					}
+					wealth = 500
+				}
+			}
 		}
 	}
 }

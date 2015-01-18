@@ -1,3 +1,10 @@
+750.1.1 = {
+	holder = 194084
+	liege = d_silesia
+}
+799.1.1 = {
+	holder = 194085
+}
 830.1.1={
 	liege = "k_moravia"
 }
@@ -89,9 +96,8 @@
 	holder=471722
 }
 1295.6.27={
-	
-
-liege = "k_polandball"
+	# Poland recognized as Kingdom
+	liege = "k_polandball"
 }
 1313.5.14=
 {

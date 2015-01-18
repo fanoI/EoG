@@ -15,8 +15,8 @@ b_disentis = temple
 #b_mendrisio = castle
 
 # Misc
-culture = lombard
+culture = german
 religion = catholic
 
 # History
-
+790.1.1 = { culture = lombard }

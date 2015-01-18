@@ -527,66 +527,67 @@ relique_ruler = {
 	}
 
 	on_success = {
-	if = {
-		limit = { ROOT = { has_landed_title = k_france } }
-		set_global_flag = relique_char_fr
-	}
-	if = {
-		limit = { ROOT = { has_landed_title = e_hre } }
-		clr_global_flag = relique_char_fr
-	}
-	if = {
-		limit = { ROOT = { has_landed_title = k_lotharingia } }
-		clr_global_flag = relique_char_fr
-	}
-
-	ROOT = {
-		prestige = 150
-		piety = 50
-		add_trait = relique_charles
-	}
-
-	FROM = {
-		prestige = -200
-		remove_trait = relique_charles
-	}
-		
-	on_fail = {
-		ROOT = {
-			piety = -50
-			prestige = -150
+		if = {
+			limit = { ROOT = { has_landed_title = k_france } }
+			set_global_flag = relique_char_fr
 		}
-	}
+		if = {
+			limit = { ROOT = { has_landed_title = e_hre } }
+			clr_global_flag = relique_char_fr
+		}
+		if = {
+			limit = { ROOT = { has_landed_title = k_lotharingia } }
+			clr_global_flag = relique_char_fr
+		}
 
-	on_reverse_demand = {
 		ROOT = {
-			piety = -100
+			prestige = 150
+				piety = 50
+				add_trait = relique_charles
+		}
+
+		FROM = {
 			prestige = -200
-			transfer_scaled_wealth = {
-				to = FROM
-				value = 4.0
+				remove_trait = relique_charles
+		}
+
+		on_fail = {
+			ROOT = {
+				piety = -50
+					prestige = -150
 			}
 		}
-		FROM = {
-			prestige = 200
+
+		on_reverse_demand = {
+			ROOT = {
+				piety = -100
+					prestige = -200
+					transfer_scaled_wealth = {
+						to = FROM
+							value = 4.0
+					}
+			}
+			FROM = {
+				prestige = 200
+			}
 		}
-	}
 
 
-	attacker_ai_victory_worth = {
-		factor = -1 # always accept
-	}
-	
-	attacker_ai_defeat_worth = {
-		factor = 100
-	}
+		attacker_ai_victory_worth = {
+			factor = -1 # always accept
+		}
 
-	defender_ai_victory_worth = {
-		factor = -1 # always accept
-	}
-	
-	defender_ai_defeat_worth = {
-		factor = 100
+		attacker_ai_defeat_worth = {
+			factor = 100
+		}
+
+		defender_ai_victory_worth = {
+			factor = -1 # always accept
+		}
+
+		defender_ai_defeat_worth = {
+			factor = 100
+		}
 	}
 }
 

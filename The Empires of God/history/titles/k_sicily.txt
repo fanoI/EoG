@@ -14,7 +14,7 @@
 1166.5.7 = {
 	holder = 211500 #William II
 	# Sicily is long lost to Byzantium, it is now part of Italia...
-	de_jure_liege = e_italia
+	de_jure_liege = e_italy
 }
 
 1189.11.11 = {

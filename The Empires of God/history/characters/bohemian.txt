@@ -1423,9 +1423,9 @@
 	1252.1.1={
 		add_spouse = 30810
 	}
-1254.5.21 ={
-add_claim = e_hre
-}
+	1254.5.21 ={
+		add_claim = e_hre
+	}
 	1260.7.12={
 		give_nickname = nick_the_magnificent
 	}
@@ -2646,13 +2646,14 @@ add_claim = e_hre
 187000 = {
 	name="Mojmír"
 	dynasty=7508
-	religion="baltic_pagan"
+	religion="slavic_pagan"
 	culture="bohemian"
-	740.1.1={
-		birth="740.1.1"
+
+	720.1.1={
+		birth="720.1.1"
 	}
-	790.1.1={
-		death="790.1.1"
+	782.1.1={
+		death="782.1.1"
 	}
 } 
 
@@ -2660,60 +2661,37 @@ add_claim = e_hre
 	name="Mojmír"
 	# AKA: Mojmír I Mojmírovci
 	dynasty=7508
-	religion="catholic"
+	religion="slavic_pagan"
 	culture="bohemian"
-	father=187000
+	father=146177
 	790.1.1={
 		birth="790.1.1"
+	}
+	831.1.1={
+		religion="catholic"
 	}
 	846.8.15={
 		death="846.8.15"
 	}
 }
 
-187009 = {
-	name="Svatopluk"
-	dynasty=7508
-	religion="catholic"
-	culture="bohemian"
-	father=187000
-	794.1.1={
-		birth="794.1.1"
-	}
-	815.1.1={
-		death="815.1.1"
-	}
-} 
-
 187002 = {
 	name="Rostislav"
 	# AKA: Rostislav Mojmírovci
 	dynasty=7508
-	religion="catholic"
+	religion="slavic_pagan"
 	culture="bohemian"
 	father=187009
 	815.1.1={
 		birth="815.1.1"
 	}
+	831.1.1={
+		religion="catholic"
+	}
 	869.1.1={
 		death="869.1.1"
 	}
 }
-
-187010 = {
-	name="Svetimír"
-	dynasty=7508
-	religion="catholic"
-	culture="bohemian"
-	father=187009
-	817.1.1={
-		birth="817.1.1"
-	}
-	850.1.1={
-		death="815.1.1"
-	}
-} 
-
 
 187003 = {
 	name="Svatopluk"
@@ -2809,14 +2787,48 @@ add_claim = e_hre
 	}
 }
 
+187009 = {
+	name="Svatopluk"
+	dynasty=7508
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=146177
+	794.1.1={
+		birth="794.1.1"
+	}
+	819.1.1={
+		death="819.1.1"
+	}
+} 
+
+187010 = {
+	name="Svetimír"
+	dynasty=7508
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=187009
+	817.1.1={
+		birth="817.1.1"
+	}
+	831.1.1={
+		religion="catholic"
+	}
+	850.1.1={
+		death="815.1.1"
+	}
+} 
+
 187011 = {
 	name="Pribina"
 	# AKA: Pribina z Nitrava
 	dynasty=7509
-	religion="catholic"
+	religion="slavic_pagan"
 	culture="bohemian"
 	800.1.1={
 		birth="800.1.1"
+	}
+	831.1.1={
+		religion="catholic"
 	}
 	861.1.1={
 		death="861.1.1"
@@ -3199,3 +3211,74 @@ add_claim = e_hre
 		death=yes
 	}
 }
+
+146174 = {
+	name="Kresomysl"
+	dynasty=506
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=168345
+	722.1.1={
+		birth=yes
+	}
+	787.1.1={
+		death=yes
+	}
+}
+
+146175 = {
+	name="Strojmir"
+	dynasty=506
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=146174
+	742.1.1={
+		birth=yes
+	}
+	801.1.1={
+		death=yes
+	}
+}
+
+146176 = {
+	name="Predslav"
+	dynasty=7508
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=187000
+	748.1.1={
+		birth=yes
+	}
+	801.1.1={
+		death=yes
+	}
+}
+
+146177 = {
+	name="Rostislav"
+	dynasty=7508
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=187000
+	750.1.1={
+		birth=yes
+	}
+	809.1.1={
+		death=yes
+	}
+}
+
+146178 = {
+	name="Svetimir"
+	dynasty=7508
+	religion="slavic_pagan"
+	culture="bohemian"
+	father=187000
+	752.1.1={
+		birth=yes
+	}
+	814.1.1={
+		death=yes
+	}
+}
+

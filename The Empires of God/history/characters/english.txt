@@ -3740,9 +3740,9 @@
 	1243.11.23 = {
 		add_spouse=71648 #Sanca de Barcelona
 	}
-1254.5.21 = {
-add_claim = e_hre
-}
+	1254.5.21 = {
+		add_claim = e_hre
+	}
 	1269.6.16 = {
 		add_spouse=161696 #Beatrix Flamens
 	}

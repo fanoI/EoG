@@ -64,7 +64,7 @@
 811.7.26={
 	holder=70496
 }
-812.1.11={
+811.10.2={
 	holder=70494
 }
 813.7.11={
@@ -78,13 +78,12 @@
 }
 842.1.20={
 	holder=70490
-
 }
 866.9.24={
 	holder=1700
 
-law = emp_aristos
-law = theme_byz
+	law = emp_aristos
+	law = theme_byz
 }
 #867.9.24={ # The historical date, but we want the Macedonian dynasty in place at the bookmark start
 #	holder=1700
@@ -122,7 +121,7 @@ law = theme_byz
 }
 1025.12.15={
 	holder=1718
-law = emp_dunatos
+	law = emp_dunatos
 }
 1028.11.15={
 	holder=1720
@@ -147,7 +146,7 @@ law = emp_dunatos
 }
 1057.8.31={
 	holder=1730
-law = pronoia_byz
+	law = pronoia_byz
 }
 1059.11.22={
 	holder=1732
@@ -167,7 +166,7 @@ law = pronoia_byz
 }
 1081.4.1={
 	holder=1742
-law = emp_aristos
+	law = emp_aristos
 
 }
 1118.8.15={

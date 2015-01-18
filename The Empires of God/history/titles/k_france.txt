@@ -2,6 +2,64 @@
 	pentarch = b_roma
 }
 
+#Merovingians
+481.1.1 = {
+	holder=168673 #Clovis Ier
+	name = WEST_FRANCIA
+	adjective = WEST_FRANCIA_ADJ
+}
+511.11.27 = {
+	holder=168681 #Clotaire Ier
+}
+561.11.29 = {
+	holder=168689 #Chilpéric Ier
+}
+584.11.1 = {
+	holder=168695 #Clotaire II
+}
+629.10.19 = {
+	holder=168696 #Dagobert Ier
+}
+639.1.19 = {
+	holder=168699 #Clovis II, le Fainéant
+}
+657.10.31 = {
+	holder=168701 #Clotaire III
+}
+673.5.9 = {
+	holder=168703 #Thierry III
+}
+673.12.1 = {
+	holder=168702 #Childéric II
+}
+675.1.1 = {
+	holder=168703 #Thierry III
+}
+691.4.12 = {
+	holder=168709 #Clovis IV
+}
+695.1.1 = {
+	holder=168711 #Childebert IV
+}
+711.4.14 = {
+	holder=168712 #Dagobert III
+}
+715.12.31 = {
+	holder=168706 #Chilpéric II
+}
+717.1.1 = {
+	holder=168710 #Clotaire IV
+}
+719.1.1 = {
+	holder=168706 #Chilpéric II
+}
+721.2.13 = {
+	holder=168713 #Thierry IV
+}
+743.2.15 = {
+	holder=168707 #Childéric III
+}
+
 #Carolingians
 751.11.1 = {
 	holder = 131722 #Pépin le Bref
@@ -10,12 +68,13 @@
 	law = agnatic_succession
 }
 768.9.24={
-	holder = 144999 #Carloman I
-}
-
-771.12.4={
 	holder = 6392 #Charlemagne
-
+}
+769.1.1 = {
+	set_global_flag = game_start_charlemagne
+}
+770.1.1 = {
+	clr_global_flag = game_start_charlemagne
 }
 814.1.28={
 	holder = 90095 #Louis Ier le Pieux
@@ -23,7 +82,7 @@
 840.6.20={
 #	liege = "e_france"
 	holder = 90104 #Charles II le Chauve
-
+	set_global_flag = charlemagne_hre
 }
 877.10.6={
 	holder = 90123 #Louis II le Bègue
@@ -58,11 +117,11 @@
 922.6.29={
 	holder = 6442 #Robert Ier
 	law = investiture_law_1
+	law = agnatic_succession
         law = succ_feudal_elective
 	reset_name = yes
 	reset_adjective = yes
 	set_global_flag = west_francia_renamed
-        
 }
 
 #Bosonids
@@ -80,9 +139,9 @@
 }
 954.11.12={
 	holder = 90125 #Lothaire
+}
 978.1.1 = {
-set_global_flag = relique_char_fr
-
+	set_global_flag = relique_char_fr
 }
 986.6.8={
 	holder = 90126 #Louis V le Fainéant
@@ -114,12 +173,11 @@ set_global_flag = relique_char_fr
 }
 1137.8.1={
 	holder = 205500 #Louis VII le Jeune
-law = centralization_1
+	law = centralization_1
 }
 1180.9.18={
 	holder=205506 # Philippe II Auguste
-
-law = centralization_2        
+	law = centralization_2        
 }
 1223.7.14={
 	holder = 455402 #Louis VIII le Lion
@@ -133,7 +191,7 @@ law = centralization_2
 }
 1285.10.5={
 	holder = 455526 # Philippe IV le Bel
-law = centralization_3
+	law = centralization_3
 }
 1314.11.29={
 	holder = 455836 # Louis V le Hutin
@@ -152,5 +210,5 @@ law = centralization_3
 
 1328.2.1={
 	holder=455500 # Philippe VI
-law = centralization_2
+	law = centralization_2
 }

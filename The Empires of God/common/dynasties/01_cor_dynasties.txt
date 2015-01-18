@@ -1,0 +1,80 @@
+5042103 = {
+	name="Pierleoni"
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 3
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+}
+5042104 = {
+	name="Orsini"
+	culture = roman
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 5
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+
+}
+5042105 = {
+	name="Colonna"
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 1
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+}
+5042106 = {
+	name="Frangipani"
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 0
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+}
+5042107 = {
+	name="Annibaldi"
+	culture = roman	
+	coat_of_arms = {
+		template = 0
+		layer = {
+			texture = 8
+			texture_internal = 2
+			emblem = 0
+			color = 0
+			color = 0
+			color = 0
+		}
+	}
+}
+5042108 = {
+	name = "Tusculum"
+	culture = roman
+}

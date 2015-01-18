@@ -27,14 +27,14 @@ crowned_by_pope = {
 }
 # Ajout par Faras
 roi_des_romains = {
-vassal_opinion = -10
-monthly_character_prestige = 0.5
+	vassal_opinion = -10
+	monthly_character_prestige = 0.5
 }
 stupor_mundi = {
-temple_all_opinion = 15
-vassal_opinion = 15
-rel_head_opinion = -20
-monthly_character_prestige = 1.0
+	temple_all_opinion = 15
+	vassal_opinion = 15
+	rel_head_opinion = -20
+	monthly_character_prestige = 1.0
 }
 relique_jacques = {
         church_opinion = 20
@@ -42,10 +42,10 @@ relique_jacques = {
 	monthly_character_piety = 0.50
 }
 defenseur_chretiente = {
-church_opinion = 20
-vassal_opinion = 15
-monthly_character_prestige = 0.50
-monthly_character_piety = 0.50
+	church_opinion = 20
+	vassal_opinion = 15
+	monthly_character_prestige = 0.50
+	monthly_character_piety = 0.50
 }
 relique_charles = {
         vassal_opinion = 5
@@ -62,14 +62,13 @@ aristos = {
 	}
         martial = 6
 
-intrigue = -5
+	intrigue = -5
 	same_opinion = 10
         opposite_opinion = -50
-command_modifier = {
+	command_modifier = {
 		morale_defence = 0.1
 		morale_offence = 0.1
 	}
-	
 }
 
 # aristos
@@ -80,26 +79,23 @@ dunatos = {
 		aristos
 	}
 	martial = -6
-intrigue = 5
-monthly_character_prestige = 0.25
+	intrigue = 5
+	monthly_character_prestige = 0.25
 	same_opinion = 10
         opposite_opinion = -50
-command_modifier = {
+	command_modifier = {
 		morale_defence = -0.1
 		morale_offence = -0.1
 	}
 }
 # autocrate
 byz_autocrator = {
-	 
-	
-	
 	martial = 8
-intrigue = 5
- stewardship = 20
-monthly_character_prestige = 1.0
+	intrigue = 5
+	stewardship = 20
+	monthly_character_prestige = 1.0
 	
-command_modifier = {
+	command_modifier = {
 		morale_defence = 0.15
 		morale_offence = 0.15
 	}

@@ -1,0 +1,94 @@
+spriteTypes = 
+{
+       spriteType = {
+		name = "GFX_trait_Imp_regn"
+		texturefile = "gfx/traits/Imp_regn.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_roi_oint"
+		texturefile = "gfx/traits/roi_oint.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+		name = "GFX_trait_crowned_by_pope"
+		texturefile = "gfx/traits/crowned_by_pope.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+		name = "GFX_trait_roi_des_romains"
+		texturefile = "gfx/traits/roi_des_romains.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+		name = "GFX_trait_stupor_mundi"
+		texturefile = "gfx/traits/stupor_mundi.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+		name = "GFX_trait_relique_jacques"
+		texturefile = "gfx/traits/relique_jacques.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+        spriteType = {
+ 		name = "GFX_trait_defenseur_chretiente"
+		texturefile = "gfx/traits/defenseur_chretiente.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_relique_charles"
+		texturefile = "gfx/traits/relique_charles.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+    	spriteType = {
+		name = "GFX_trait_aristos"
+		texturefile = "gfx/traits/aristos.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_dunatos"
+		texturefile = "gfx/traits/dunatos.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+ 	spriteType = {
+		name = "GFX_trait_byz_autocrator"
+		texturefile = "gfx/traits/byz_autocrator.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_Roi_esp"
+		texturefile = "gfx/traits/Roi_esp.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+	spriteType = {
+		name = "GFX_trait_Roi_norm"
+		texturefile = "gfx/traits/Roi_norm.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

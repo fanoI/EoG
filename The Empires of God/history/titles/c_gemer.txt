@@ -1,11 +1,33 @@
+741.1.1={
+	liege="d_moravia"
+	holder = 187000
+}
+764.1.1={
+	holder = 146176
+}
+801.1.1={
+	holder = 146177
+}
+809.1.1={
+	holder = 187001
+}
+830.1.1={
+	liege=k_moravia
+}
+846.8.15={
+	holder = 187002
+}
+863.1.1={
+	holder = 187004
+}
 867.1.1=
 {
-holder=187004
-liege=k_moravia
+	holder=187004
+	liege=k_moravia
 }
 894.1.1=
 {
-holder=187006
+	holder=187006
 }
 907.7.4=
 {
@@ -15,27 +37,27 @@ holder=187006
 	holder=460
 }
 1000.12.25={
-holder=482
-#law = agnatic_succession
-#law = succ_seniority
+	holder=482
+	#law = agnatic_succession
+	#law = succ_seniority
 }
 #1038.1.1={
-#holder=497
+	#holder=497
 #}
 1041.1.1={
-holder=20371
+	holder=20371
 }
 1044.7.1={
-holder=497
+	holder=497
 }
 1046.1.1={
-holder=468
+	holder=468
 }
 1060.10.1={
-holder=470
+	holder=470
 }
 1063.12.1={
-holder=476
+	holder=476
 }
 1066.1.1=
 {
@@ -43,41 +65,41 @@ holder=476
 }
 1066.1.1=
 {
-holder=4400
+	holder=4400
 }
 1100.1.1=
 {
-holder=480
+	holder=480
 }
 1116.2.3=
 {
-holder = 93678
+	holder = 93678
 }
 1150.1.1=
 {
-holder = 93679
+	holder = 93679
 }
 1170.1.1=
 {
-holder = 93715
+	holder = 93715
 }
 1210.1.1=
 {
-holder = 93716
+	holder = 93716
 }
 1236.1.1=
 {
-holder = 93720
+	holder = 93720
 }
 1297.1.1=
 {
-holder = 93721
+	holder = 93721
 }
 1300.1.1=
 {
-holder = 93723
+	holder = 93723
 }
 1335.1.1=
 {
-holder = 93726
+	holder = 93726
 }

@@ -290,7 +290,9 @@
 	1221.1.1={
 		add_spouse=98026
 	}
-	#1238 married Eirene Komnene Angeli
+	1237.1.1={
+		add_spouse=125713 # Eirene Komnene Doukaina
+	}
 	1242.6.24={
 		death="1242.6.24"
 	}
@@ -382,8 +384,9 @@
 	religion="orthodox"
 	culture="bulgarian"
 	father=31160
-	1238.1.1={
-		birth="1238.1.1"
+	mother=125713
+	1240.1.1={
+		birth="1240.1.1"
 	}
 	1256.1.1={
 		death="1256.1.1"
@@ -397,6 +400,7 @@
 	religion="orthodox"
 	culture="bulgarian"
 	father=31160
+	mother=125713
 	1239.1.1={
 		birth="1239.1.1"
 	}
@@ -412,8 +416,9 @@
 	religion="orthodox"
 	culture="bulgarian"
 	father=31160
-	1235.1.1={
-		birth="1235.1.1"
+	mother=125713
+	1237.1.1={
+		birth="1237.1.1"
 	}
 	1292.1.1={
 		death="1292.1.1"
@@ -1562,8 +1567,8 @@
 	trait="proud"
 	trait="tough_soldier"
 	father=159126
-	800.1.1={
-		birth="800.1.1"
+	802.1.1={
+		birth="802.1.1"
 	}
 	852.1.1={
 		death="852.1.1"
@@ -1614,11 +1619,11 @@
 	}
 	864.1.1={
 		religion="orthodox"
-}
+	}
 
-893.1.1={
-add_claim = c_byzantion
-}
+	893.1.1={
+		add_claim = c_byzantion
+	}
 	
 	927.5.27={
 		death="927.5.27"
@@ -1966,12 +1971,12 @@ add_claim = c_byzantion
 
 159126 = {
 	name="Zvinica" #father of Presian I
-	dynasty=8636
+	dynasty=591
 	religion="tengri_pagan"
 	culture="bulgarian"
 	father=159124
-	781.1.2={
-		birth="781.1.2"
+	784.1.2={
+		birth="784.1.2"
 	}
 	830.1.2={
 		death="830.1.2"
