@@ -38,7 +38,11 @@ religion = catholic
 1143.1.1 = {
 		 capital = b_viterbo
 		 #b_viterbo = { set_name = Roma } 
-	   }
+}
+1159.1.1 = {
+		 capital = b_roma
+		 #b_viterbo = { set_name = Roma } 
+} 
 1187.1.1 = { b_ostia = city }
 1285.1.1 = { trade_post = b_doria }
 1337.1.1 = { b_aragni = temple }

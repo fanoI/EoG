@@ -500,6 +500,9 @@
 {
 	holder=71800
 }
+1143.1.1={
+	set_global_flag = commune_of_rome_scenario_start
+}
 1143.9.24=
 {
 	holder=71805

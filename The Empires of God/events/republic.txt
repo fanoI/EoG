@@ -9,23 +9,27 @@ narrative_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTAcommune.1"
+	    name = "EVTOPTAcommune.1"
 
+	    # The Commune of Rome is now part of "The Roman Republic"
+	    d_commune_of_rome = { 
+			de_jure_liege = k_roman_republic
+	    }
+ 
+	    # Bug of new patch grant_title does not work on not active titles anymore!
+	    activate_title = { title = k_roman_republic status = yes }
+
+	    # Make this happen for the liege to not make the character independent
 	    liege = {
 	 	k_roman_republic = {
 			grant_title = ROOT
 			copy_title_laws = d_commune_of_rome
+			copy_title_history = d_commune_of_rome
 		}
 		set_defacto_vassal = ROOT
 	    }
 
-	    d_commune_of_rome = {
-		destroy_landed_title = THIS
-	    }
 	    give_nickname = nick_the_glorious
-	    hidden_tooltip = {
-		activate_title = { title = d_commune_of_rome status = no }
-	    }
 
 	    any_playable_ruler = {
 		limit = {
@@ -149,7 +153,7 @@ character_event = {
 		}
 		set_global_flag = goodbye_italy
 		hidden_tooltip = {
-			activate_title = { title = d_commune_of_rome status = no }
+			activate_title = { title = k_italy status = no }
 			k_italy = {
 				destroy_landed_title = THIS
 			}
@@ -158,6 +162,12 @@ character_event = {
 			any_direct_de_jure_vassal_title = {
 				de_jure_liege = k_roman_republic
 			}
+		}
+		d_latium = {
+			de_jure_liege = k_roman_republic
+		}
+		d_commune_of_rome = { 	
+			de_jure_liege = k_roman_republic
 		}
 	}
 }
@@ -271,18 +281,32 @@ narrative_event = {
 	
 	option = {
 		name = "EVTOPTAcommune.5"
-		e_wre = {
+		e_spqr = {
 			grant_title = ROOT
 			copy_title_laws = k_roman_republic
 		}
 
-		# Now we make S.P.Q.R. and Sicily as its de jure vassals
 		k_roman_republic = {
-			de_jure_liege = e_wre
+			de_jure_liege = e_spqr
 		}
-		k_sicily = {
-			de_jure_liege = e_wre
+
+		# Now we make any de jure vassal of "Italia" vassal of "S.P.Q.R"
+		e_italy = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_spqr
+			}
 		}
+		hidden_tooltip = {
+			activate_title = { title = e_italy status = no }
+		}
+
+		#k_roman_republic = {
+		#	de_jure_liege = e_spqr
+		#}
+		#k_sicily = {
+		#	de_jure_liege = e_spqr
+		#}
+
 		hidden_tooltip = {
 			e_byzantium = {
 				holder_scope = {

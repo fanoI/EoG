@@ -1,12 +1,12 @@
 decisions = {
 
-western_roman_empire = {
+	restore_spqr = {
 	is_high_prio = yes	
 	potential = {
 		has_landed_title = k_roman_republic
 		culture = roman
 		NOT = {
-			has_global_flag = western_roman_empire
+			has_global_flag = spqr_restored
 		}
 	}
 	allow = {
@@ -14,9 +14,14 @@ western_roman_empire = {
 		wealth = 300
 		independent = yes
                 # At this point the Kingdom of Italy should not exists
-               	# anymore being replaced totally by S.P.Q.R. 
+               	# anymore being replaced totally by "The Roman Republic"
 		has_landed_title = k_sicily
 		has_landed_title = k_roman_republic
+		custom_tooltip = {
+			text = k_italy_no_more
+			has_global_flag = goodbye_italy
+		}
+
 		# As for the vanilla's decision of "Empire of Francia" and 
                 # "Empire of Italia" you need another King level title or
                 # it will be too easy...
@@ -28,14 +33,14 @@ western_roman_empire = {
 	}
 
 	effect = {
-		set_global_flag = western_roman_empire
+		set_global_flag = spqr_restored
 		prestige = 1000	
 		narrative_event = { id = commune.5 } 
 		}
 		ai_will_do = { factor = 1 }
 	}
 
-republic_of_rome = {
+	republic_of_rome = {
 	is_high_prio = yes
 	potential = {
 		has_landed_title = d_commune_of_rome

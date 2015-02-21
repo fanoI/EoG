@@ -52,7 +52,7 @@ italian = {
 	}
 	   
 	corsican = {
-	    graphical_culture = southerngfx
+	    graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color = { 0.95 0.15 0.45 }
@@ -102,7 +102,7 @@ italian = {
 	}
 	
     sardinian = {
-	    graphical_culture = southerngfx
+	    graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color = { 0.35 0.95 0.75 }
@@ -152,7 +152,7 @@ italian = {
 	}
 	
     neapolitan = {
-        graphical_culture = southerngfx
+        graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color={ 160 160 160 }
@@ -202,7 +202,7 @@ italian = {
 	}        
 
     tuscan = {
-		graphical_culture = southerngfx
+		graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color = { 232 190 25 }
@@ -252,7 +252,7 @@ italian = {
 	}
 
     lombard = {
-		graphical_culture = southerngfx
+		graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color={ 16 135 12 }
@@ -302,7 +302,7 @@ italian = {
 	}
 	
 	roman = {
-		graphical_culture = southerngfx
+		graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color = { 0.95 0.95 0.75 }
@@ -344,7 +344,7 @@ italian = {
 		modifier = default_culture_modifier
 	}
 	italian = {
-		graphical_culture = southerngfx
+		graphical_culture = italiangfx
 		second_graphical_culture = occitangfx # Fallback type
 		
 		color = { 0.95 0.95 0.75 }

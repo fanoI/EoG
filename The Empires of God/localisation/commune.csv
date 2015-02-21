@@ -5,7 +5,7 @@ corsican;Corsican;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 sardinian;Sardinian;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 neapolitan;Neapolitan;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 e_byzantium_roman;Eastern Roman Empire;Eastern Roman Empire;Eastern Roman Empire;Eastern Roman Empire;;;;;;;;;;x
-d_commune_of_rome;The Commune of Rome;The Commune of Rome;The Commune of Rome;;The Commune of Rome;;;;;;;;;x
+d_commune_of_rome;Commune of Rome;Commune of Rome;Commune of Rome;Commune of Rome;;;;;;;;;x
 b_viterbo_roman;Rome;Rome;Rome;;Rome;;;;;;;;;x
 d_spoleto_roman;Umbria;Umbria;Umbria;;Umbria;;;;;;;;;x
 d_spoleto_roman_adj;Umbrian;Umbrian;Umbrian;;Umbrian;;;;;;;;;x
@@ -109,6 +109,8 @@ d_legio_i_italia;Legio I Italia;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 d_legio_i_italia_adj;Legion;FRENCH;;GERMAN;;SPANISH;;;;;;;;;x
 republic_of_rome;Form the Republic of Rome;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 republic_of_rome_desc;Our Commune has expanded far beyond the city of Rome, we now own enough land to be able to claim to be the the true inheritors of the Roman Republic. No longer are we confined to the city, now we can emulate the old Roman Republic, and take control of all Italy, and then Europe!;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+restore_spqr;Form S感想愛;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x 
+restore_spqr_desc;The Roman Republic has expanded far beyond the city of Rome, we now control all the Italian Peninsula and so we we can claim to be the the true inheritors of the Roman Empire in the West. There is still much work left ahead of us before we can reunite West and East, first and foremost the German must fall, but now we celebrate at the rebirth of Rome. Now is the time to conquer Europe!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 western_roman_empire;Form the Western Roman Empire;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 western_roman_empire_desc;The Roman Republic has expanded far beyond the city of Rome, we now control all the Italian Peninsula and so we we can claim to be the the true inheritors of the Roman Empire in the West. There is still much work left ahead of us before we can reunite West and East, first and foremost the German must fall, but now we celebrate at the rebirth of Rome. Now is the time to conquer Europe!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 legio_italia;Organize the Legio I Italia;;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
@@ -143,13 +145,22 @@ EVTDESCcommune.4;We are free from the Pope, but now we have another problem to d
 EVTOPTAcommune.4;Rome will not submit!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTBcommune.4;We made a promise, and we shall keep it.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTNAMEcommune.5;The Western Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-EVTDESCcommune.5;Friends, Romans, countrymen, lend me your ears! After the miraculous recovery of all the Italian peninsula the Western Roman Empire has been reborn! Italy has endured dark times since the imperial frontiers were stormed by barbarians and province after province burned at their touch, but now a bright new age has dawned for all of civilization.\n\n[Root.GetTitledFirstName] rules a restored Imperium Romanum Occidentalis, but much work remains to be done. There are still two illegimate Emperors that claim the mantle of Rome: one in the West and an other in the East and this is the time to deal with them. For the Senate and People of Rome!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTDESCcommune.5;Friends, Romans, countrymen, lend me your ears! After the miraculous recovery of all the Italian peninsula the S感想愛 has been reborn! Italy has endured dark times since the imperial frontiers were stormed by barbarians and province after province burned at their touch, but now a bright new age has dawned for all of civilization.\n\n[Root.GetTitledFirstName] rules a restored Senatus Polusque Romanorum, but much work remains to be done. Someone denies yet our right to be the true hineritor of the Western Roman Empire, we will see this when we reconquer Europe!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTAcommune.5;Esto perpetua!;Esto perpetua !;Esto perpetua!;;Esto perpetua!;;;;;;;;;x
 EVTNAMEcommune.6;The Second Western Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTDESCcommune.6;The Romans have somehow managed to reclaim enough lost territory to declare the Western Roman Empire restored! It can no longer be denied that they are the true successors of Rome and its glorious legacy. They claim a new era is upon us.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTAcommune.6;Can it be true?;Est-ce que 蓷 peut 皻re vrai ?;Kann dies wahr sein?;;燕uede ser cierto?;;;;;;;;;x
 EVTOPTBcommune.6;Really? The Holy Roman Empire will be always The Roman Empire!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTCcommune.6;Really? The Byzantines are the true Romans... not the Romans (?);FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTNAMEcommune.7;The Western Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTDESCcommune.7;Friends, Romans, countrymen, lend me your ears! After the miraculous recovery of all the Italian peninsula the Western Roman Empire has been reborn! Italy has endured dark times since the imperial frontiers were stormed by barbarians and province after province burned at their touch, but now a bright new age has dawned for all of civilization.\n\n[Root.GetTitledFirstName] rules a restored Imperium Romanum Occidentalis, but much work remains to be done. There are still two illegimate Emperors that claim the mantle of Rome: one in the West and an other in the East and this is the time to deal with them. For the Senate and People of Rome!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTAcommune.5;Esto perpetua!;Esto perpetua !;Esto perpetua!;;Esto perpetua!;;;;;;;;;x
+EVTNAMEcommune.6;The Second Western Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTDESCcommune.6;The Romans have somehow managed to reclaim enough lost territory to declare the Western Roman Empire restored! It can no longer be denied that they are the true successors of Rome and its glorious legacy. They claim a new era is upon us.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTOPTAcommune.6;Can it be true?;Est-ce que 蓷 peut 皻re vrai ?;Kann dies wahr sein?;;燕uede ser c
+EVTDESCcommune.7;Friends, Romans, countrymen, lend me your ears! After the miraculous recovery of all the Provinces of Italia, Gallia and Hispania the Western Roman Empire has been reborn! Italy has endured dark times since the imperial frontiers were stormed by barbarians and province after province burned at their touch, but now a bright new age has dawned for all of civilization.\n\n[Root.GetTitledFirstName] rules a restored Imperium Romanum Occidentalis, but much work remains to be done. There are still two illegimate Emperors that claim the mantle of Rome: one in the West and an other in the East and this is the time to deal with them. For the Senate and People of Rome!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+commune_of_rome_and_latium_united;The Commune of Rome and the Duchy of Latium become the same entity, with the same administration, de jure territory and titulature;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+k_italy_no_more;The Kingdom of Italy shall be replaced by The Roman Republic\n;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTDESCromcro.1;You are just entering the Senate when you notice that the Senators are crowding around you in a most... unusual fashion. Suddenly, before you can do anything, they all pull out daggers. There is no time to move, the senators engulf you, all shouting "Death to Tyrants.";FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTAromcro.1;Et tu, Brute?;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 title_praetor;Praetor;FRENCH;GERMAN;;SPANISH;;;;;;;;;x

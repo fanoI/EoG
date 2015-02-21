@@ -2591,6 +2591,7 @@ decisions = {
 			religion_group = christian
 
 			independent = yes
+			year = 867 # After the death of Charle Magne 
 		}
 		allow = {
 			OR = { 

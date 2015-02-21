@@ -1,7 +1,0 @@
-752.3.22={
-	holder = 7895
-	de_jure_liege = k_papal_state
-}
-757.4.29={
-	holder = 0
-}

@@ -108,8 +108,7 @@ k_roman_republic = {
 	title = "CONSUL"
 
 	allow = { 
-		has_landed_title = d_commune_of_rome
-		is_republic = yes
+		always = no # Only created through special event
 	}
 }
 
@@ -137,4 +136,3 @@ b_annibaldi =  {
 	culture = roman
 	religion = catholic
 }
-

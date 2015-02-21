@@ -492,9 +492,14 @@
 1130.2.13={
 	holder=71800
 }
+1142.12.31={
+    holder = 0
+    liege = 0
+}
 1143.1.1={
 	holder = 1000284000
 	liege=d_commune_of_rome
+	#de_jure_liege = d_commune_of_rome
 }
 1155.1.1={
 	holder=71809
