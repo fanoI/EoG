@@ -3150,7 +3150,10 @@ e_latin_empire = {
 	capital = 496 # Byzantion
 	
 	short_name = yes
-	
+
+	title = EMPEROR
+	title_female = EMPRESS
+
 	allow = {
 		always = no # Only created through special event
 	}

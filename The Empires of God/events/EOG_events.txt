@@ -1,0 +1,2940 @@
+namespace = EoG
+
+# Holy Roman Emperor gains the trait of "Ruler of Successor State of WRE"
+character_event = {
+	id = EoG.1
+	desc = EVTDESCEoG.1
+	picture = GFX_evt_rome_restored_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		has_landed_title = e_hre
+		trait = crowned_by_pope
+		NOT = { trait = successor_state_of_wre }
+		# To avoid that during the conference of peace the loser gets the trait only because e_hre exists yet
+		NOT = { has_character_flag = lost_successor_state_of_wre_war }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTAEoG.1
+		add_trait = successor_state_of_wre
+	}
+}
+
+# No more Holy Roman Emperor, the trait is lost
+character_event = {
+	id = EoG.2
+	desc = EVTDESCEoG.2
+	picture = GFX_evt_rome_restored_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		NOT = { has_landed_title = e_hre }
+		# To avoid that during the conference of peace the winner lose the trait only because e_hre exists yet
+		NOT = { has_character_flag = won_successor_state_of_wre_war }
+		trait = successor_state_of_wre
+		is_alive = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTAEoG.2
+		remove_trait = successor_state_of_wre
+	}
+}
+
+# Pretender to be Successor State of WRE, in the West there is only one S.P.Q.R!
+character_event = {
+	id = EoG.3
+	desc = EVTDESCEoG.3
+	picture = GFX_evt_rome_restored_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		has_landed_title = e_spqr
+		NOT = { trait = pretender_successor_state_of_wre }
+		NOT = { trait = successor_state_of_wre }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTAEoG.3
+		add_trait = pretender_successor_state_of_wre
+	}
+}
+
+# No more Consul of S.P.Q.R "Pretender to be Successor State of WRE" trait is lost
+character_event = {
+	id = EoG.4
+	desc = EVTDESCEoG.4
+	picture = GFX_evt_rome_restored_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		NOT = { has_landed_title = e_spqr }
+		trait = pretender_successor_state_of_wre
+		# To avoid that during the conference of peace the loser loses the trait only because has not e_spqr
+		NOT = { has_character_flag = lost_successor_state_of_wre_war }
+		is_alive = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTAEoG.4
+		remove_trait = pretender_successor_state_of_wre
+	}
+}
+
+# On action event: the Pretender has won the war against the Rightful Successor state of WRE
+# and now is universally recognized as the true Successor State. 
+# Now a Conference of Peace shall be called to decide the new assect of Europe!
+# The first character to be invited to the conference is the Holy Roman Emperor
+character_event = {
+	id = EoG.5
+	desc = EVTDESCEoG.5
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	immediate = {
+		# Fist we count the number of independent catholic characters second their rank	
+
+		any_independent_ruler = {
+			# The First rank to check would be the one of Emperors that is characters of Imperial rank which title has
+			# a historical link (fabricated or not) with the Roman Empire, these are the true Emperors that wore
+			# the Imperial crown and which might scares the Popes too! But in the west only three character of this type
+			# exist: The Holy Roman Emperor, the Consul of S.P.Q.R and the Western Roman Emperor but the first two are
+			# the hoster of the Peace Conference and the thirth cannot yet exist! In the East the things are different
+			# and more complex...
+
+			# The "High Kings" that is characters of Imperial rank that because their title has not a historical link
+			# (fabricated or not) with the Roman Empire can not use the title of "Emperor" (are called Kings effectively)
+			# but apart for this they enjoy the same benefits of being an Emperor: they get more prestige that a mere King,
+			# can have Kings as vassal or Viceroys and so on...
+			# Some historical examples: King Knuth the great (vassal King of Scotland), Kings of the United Kingdom
+			# (they vassalized a lot of Rajas in India), Kings of Spain (vassalized tribal kings in the Americas).
+			# Typically in CK2 is difficult this rank exists because IA seems hardcoded to never create Empires sadly...
+			if = {
+				limit = {
+					AND = { 
+						religion = catholic
+						NOT = { has_landed_title = e_spqr }
+						NOT = { has_landed_title = e_hre }
+						tier = emperor
+					}
+				}
+
+				add_trait = independent_character
+
+				# This is not needed anymore, I can find the character using the trait
+				#set_character_flag = is_high_king
+				#e_spqr = {
+				#	change_variable = { which = "number_of_independent_chars" value = 1 }
+				#}
+			}
+
+			# Normal Kings with nothing exotical attached, note that I am not doing distinction of character type so
+ 			# in here are counted the Serene Doges and unbeliable King Bishops too, I am unsure if it is correct to consider
+			# them really the same thing of Feudal Kings...
+			if = {
+				limit = {
+					AND = { 
+						religion = catholic
+						NOT = { has_landed_title = k_papal_state }
+						tier = king
+					}
+				}
+
+				add_trait = independent_character
+
+				# This is not needed anymore, I can find the character using the trait
+				#set_character_flag = is_king
+				#e_spqr = {
+				#	change_variable = { which = "number_of_independent_chars" value = 1 }
+				#}
+			}
+
+			# Normal Dukes that are independent, note that I am not doing distinction of character type so
+ 			# in here are counted the Doges and Prince Archbishops too, I am unsure if it is correct to consider
+			# them really the same thing of Feudal Dukes...
+			if = {
+				limit = {
+					AND = { 
+						religion = catholic
+						tier = duke
+						# TODO add check if not landed, I want the Teutonic order if it holds Prussia!
+						primary_title = { holy_order = no } 	
+						primary_title = { mercenary = no } 	
+					}
+				}
+
+				add_trait = independent_character
+
+				# This is not needed anymore, I can find the character using the trait
+				#set_character_flag = is_duke
+				#e_spqr = {
+				#	change_variable = { which = "number_of_independent_chars" value = 1 }
+				#}
+			}
+
+			# Normal Counts that are independent, note that I am not doing distinction of character type so
+ 			# in here are counted the Mayors and Prince Bishops too, I am unsure if it is correct to consider
+			# them really the same thing of Feudal Counts...
+			if = {
+				limit = {
+					AND = { 
+						religion = catholic
+						NOT = { has_landed_title = e_spqr }
+						NOT = { has_landed_title = e_hre }
+						NOT = { has_landed_title = k_papal_state }
+						tier = count
+					}
+				}
+
+				add_trait = independent_character
+
+				# This is not needed anymore, I can find the character using the trait
+				#set_character_flag = is_count
+				#e_spqr = {
+				#	change_variable = { which = "number_of_independent_chars" value = 1 }
+				#}
+			}
+		}
+
+		# count the Princeps of the Empire
+		e_hre = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						AND = {
+							primary_title = { higher_tier_than = BARON }
+						 	NOT = { has_landed_title = e_hre }
+						 	ROOT = { is_liege_of = THIS }
+							#any_demesne_title = {
+							#	temporary = no
+							#}
+							#THIS = {
+							#	in_revolt = no
+							#}
+						}
+					}
+
+					add_trait = prince_of_the_hre
+                                        # This is not needed anymore, I can find the character using the trait
+					#set_character_flag = is_prince_of_hre
+					#e_spqr = {
+					#	change_variable = { which = "number_of_princes_of_hre" value = 1 }
+					#}
+				}
+			}
+		}
+
+		# count the Patricians of S.P.Q.R. (in future will be the Senators, the Patricians are Senators by right)
+		any_realm_character = {
+			limit = {
+				is_patrician  = yes 
+			}
+
+			add_trait  = patrician_of_sqpr
+                        # This is not needed anymore, I can find the character using the trait
+			#set_character_flag = is_patrician_of_spqr
+			#e_spqr = {
+			#	change_variable = { which = "number_of_patricians_of_spqr" value = 1 }
+			#}
+		}
+	}
+
+	# The Victor is the Consul of S.P.Q.R
+	option = {
+		name = "EVTOPTAEoG.5"
+		trigger = {
+			has_landed_title = e_spqr
+		}
+
+		set_character_flag = spqr_host_peace_conference
+
+		# Let's call the Holy Roman Emperor first
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_hre
+			}
+			character_event = { id = EoG.6 days = 3 } 
+		}
+	}
+
+	# The Victor is the King of Germania
+}
+
+# The Conference of Peace invitation to the conference
+character_event = {
+	id = EoG.6
+	desc = EVTDESCEoG.6
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#}
+
+	# The Holy Roman Emperor is forced to join the Conference 
+	option = {
+		name = "EVTOPTAEoG.6"
+		
+		trigger = {
+			has_landed_title = e_hre
+		}
+		
+		set_character_flag = joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.7 days = 30 random = 30 } }
+	}
+
+	# The Pope is forced to join the Conference 
+	option = {
+		name = "EVTOPTBEoG.6"
+		
+		trigger = {
+			has_landed_title = k_papal_state
+		}
+		
+		set_character_flag = joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.7 days = 30 random = 30 } }
+	}
+	
+
+	# Vassals of the Holy Roman Empire which the Emperor is not de jure liege (forced to join)
+	option = {
+		name = "EVTOPTCEoG.6"
+		trigger = {
+			NOT = { has_landed_title = e_hre }
+			NOT = { has_landed_title = k_papal_state }
+			any_realm_title = {
+				kingdom = {
+					OR = {
+						title = k_roman_republic
+						title = k_burgundy
+						title = k_bohemia
+					}
+					NOT = { tier = baron }
+				}
+			}
+		}
+
+		set_character_flag = joins_the_conference_of_peace
+
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.7 days = 30 random = 30 } }
+		
+	}
+
+	# Other characters that can, effectively, choose to join the conference or not: they decide to join
+	# TODO force them to join if they posses land in the Kingdom of Italy / S.P.Q.R
+	option = {
+		name = "EVTOPTDEoG.6"
+		trigger = {
+			AND = {
+				NOT = { has_landed_title = e_hre } 
+				NOT = { has_landed_title = k_papal_state }
+				NOT = {
+					any_realm_title = {
+						kingdom = {
+							OR = {
+								title = k_roman_republic
+								title = k_burgundy
+								title = k_bohemia
+							}
+							NOT = { tier = baron }
+						}
+					}
+				}
+
+				OR = {
+					de_jure_liege_or_above = e_hre
+					#is_patrician = yes
+					trait = patrician_of_sqpr
+					independent = yes
+			
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 50
+
+			# If the character is at war it will be anti-climatic that he partecipates to a Conference of Peace
+			#modifier = {
+			#	factor = 0
+			#	war = yes
+			#}
+
+			# An (High) King or King should have a special interest to join for prestige reasons
+			modifier = {
+				factor = 3
+				higher_real_tier_than = duke
+				#OR = {
+				#	tier = king
+				#	tier = emperor
+				#}
+			}
+
+			# If he possesses land in Italy (Roman Republic) it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_roman_republic
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Burgundy it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_burgundy
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Bohemia it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_bohemia
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# The (High) King of Francia / King of France has a special interest in this conference...
+			modifier = {
+				factor = 3
+				OR = {
+					has_landed_title = e_france
+					has_landed_title = k_france
+				}
+			}
+
+			# Diplomacy >= 12 or "diplomatic" traits interested to join
+			modifier = {
+				factor = 1.25
+				OR = {
+					diplomacy = 12
+					trait = intricate_webweaver
+					trait = elusive_shadow
+					trait = naive_appeaser
+					trait = underhanded_rogue
+					trait = charismatic_negotiator
+					trait = grey_eminence
+					trait = ambitious
+					trait = diligent
+					trait = socializer
+				}
+			}
+
+			# Proud character: it is my right to be there!
+			modifier = {
+				factor = 1.75
+				trait = proud
+			}
+		}
+
+		set_character_flag = joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.7 days = 30 random = 30 } }
+	}
+
+	# Other characters that can, effectively, choose to join the conference or not: they decide
+	# to NOT join!
+	option = {
+		name = "EVTOPTEEoG.6"
+		trigger = {
+			AND = {
+				NOT = { has_landed_title = e_hre } 
+				NOT = { has_landed_title = k_papal_state }
+				NOT = {
+					any_realm_title = {
+						kingdom = {
+							OR = {
+								title = k_roman_republic
+								title = k_burgundy
+								title = k_bohemia
+							}
+							NOT = { tier = baron }
+						}
+					}
+				}
+				
+				OR = {
+					de_jure_liege_or_above = e_hre
+					#is_patrician = yes
+					trait = patrician_of_sqpr
+					independent = yes
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 50
+
+			modifier = {
+				factor = 2
+				OR = {
+					trait = slothful
+					trait = shy
+					# It is only excuse to kill me!
+					trait = paranoid
+					# Not too smart to partecipate to the Conference
+					trait = imbecile
+					trait = slow
+					trait = inbred
+					# I'm too humble to partecipate...
+					trait = humble
+				}
+			}
+		}		
+
+		set_character_flag = not_joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our not partecipation
+		FROM = { character_event = { id = EoG.8 days = 30 random = 30 } }
+	}
+}
+
+# Notification of joining The Conference of Peace
+character_event = {
+	id = EoG.7
+	desc = EVTDESCEoG.7
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.7"
+		
+		if = {
+			limit = {
+			 	FROM = { has_landed_title = e_hre }
+			}
+			# The Holy Roman Emperor has given a positive response (he cannot give a negative
+			# one!), now scope back to ROOT itself to make him call the Pope
+			character_event = { id = EoG.9 days = 3 } 
+		}
+
+		if = {
+			limit = {
+				FROM = { has_landed_title = k_papal_state }
+			}
+			# The Pope has given a positive response (he cannot give a negative
+			# one!), now scope back to ROOT itself to make him call the High Kings
+			character_event = { id = EoG.10 days = 3 } 
+		}
+
+
+ 		# An independent character has given his answer, remove his trait
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = independent_character }
+                     }	
+ 			
+		     hidden_tooltip = { FROM = { remove_trait = independent_character } }
+             	}
+		
+
+		# A Prince of the Holy Roman Empire has given his answer, remove his trait 
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = prince_of_the_hre }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = prince_of_the_hre } }
+             	}
+
+             	# A Patrician of S.P.Q.R has given his answer, remove his trait
+             	if = {
+                     limit = { 
+                     	FROM = { trait = patrician_of_sqpr }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = patrician_of_sqpr } }
+             	}
+	}
+}
+
+# Notification of not joining The Conference of Peace
+character_event = {
+	id = EoG.8
+	desc = EVTDESCEoG.8
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.8"
+		opinion = {
+			modifier = opinion_disappointed
+			who = FROM
+			months = 120
+		}
+
+
+ 		# An independent character has given his answer, remove his trait
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = independent_character }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = independent_character } }
+             	}
+		
+
+		# A Prince of the Holy Roman Empire has given his answer, remove his trait 
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = prince_of_the_hre }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = prince_of_the_hre } }
+             	}
+
+             	# A Patrician of S.P.Q.R has given his answer, remove his trait
+             	if = {
+                     limit = { 
+                     	FROM = { trait = patrician_of_sqpr }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = patrician_of_sqpr } }
+             	}
+		
+	}
+}
+
+# The Conference of Peace (Consul of S.P.Q.R. has won)
+# Invitation of the Pope
+character_event = {
+	id = EoG.9
+	desc = EVTDESCEoG.9
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.9"
+
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = k_papal_state
+			}
+			character_event = { id = EoG.6 days = 3 } 
+		}
+	}
+}
+
+# The Conference of Peace (Consul of S.P.Q.R. has won)
+# Invitation of independent characters
+character_event = {
+	id = EoG.10
+	desc = EVTDESCEoG.10
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	# Let's call all the independent characters
+	option = {
+		name = "EVTOPTOKEoG.10"
+
+		set_character_flag = calling_independent_chars
+		any_independent_ruler = {
+			limit = {
+				trait = independent_character
+			}
+			character_event = { id = EoG.6 days = 30 random = 30 } 
+		}
+	}
+}
+
+# The Conference of Peace (Consul of S.P.Q.R. has won)
+# Invitation of The Princeps of the Empire
+character_event = {
+	id = EoG.12
+	desc = EVTDESCEoG.12
+	picture = GFX_evt_throne_room
+
+	#is_triggered_only = yes
+
+	trigger = {
+		has_landed_title = e_spqr
+		has_character_flag = spqr_host_peace_conference
+		has_character_flag = calling_independent_chars
+		
+		#NOT = {
+	        #    	any_independent_ruler = {
+                #     		limit = { 
+                #        		trait = independent_character
+                #        	}
+		#    	}
+         	#}
+		NOT = { 
+			any_independent_ruler = {
+				count = 1
+				trait = independent_character
+			}
+		}
+	}
+
+	# Let's call the Princes of the Holy Roman Empire then	
+	option = {
+		name = "EVTOPTOKEoG.12"
+
+		# If we are here all indipendent characters are called
+		clr_character_flag = calling_independent_chars
+		set_character_flag = calling_princes_of_hre
+		e_hre = {
+			holder_scope = {
+				any_vassal = {
+					limit = { 
+						trait = prince_of_the_hre
+					}
+
+					character_event = { id = EoG.6 days = 3 } 
+				}
+			}
+		}
+	}
+}
+
+# The Conference of Peace (Consul of S.P.Q.R. has won)
+# Invitation of The Patricians of S.P.Q.R.
+character_event = {
+	id = EoG.13
+	desc = EVTDESCEoG.13
+	picture = GFX_evt_throne_room
+
+	#is_triggered_only = yes
+
+	trigger = {
+		has_landed_title = e_spqr
+		has_character_flag = spqr_host_peace_conference
+		has_character_flag = calling_princes_of_hre
+		
+		e_hre = {
+			holder_scope = {
+				#NOT = {
+				#	any_vassal = {
+				#		limit = { 
+				#			trait = prince_of_the_hre
+				#		}
+				#	}
+				#}
+				NOT = {
+					any_vassal = {
+						count = 1
+						#trait = independent_character
+						trait = prince_of_the_hre
+					}
+				}
+			}
+		}
+	}
+
+	# Let's call the Patricians of S.P.Q.R.
+	option = {
+		name = "EVTOPTOKEoG.13"
+
+		# If we are here all Princes of H.R.E. characters are called
+		clr_character_flag = calling_princes_of_hre
+		set_character_flag = calling_patricians_of_spqr
+
+		any_realm_character = {
+			limit = {
+				trait = patrician_of_sqpr
+			}
+
+			character_event = { id = EoG.6 days = 3 }
+		}
+	}
+}
+
+# ID 13 - 30 reserved for various flavorful events: "pilgrinage" events for the characters that have decided to join the conference
+# (similar to religios or VIET survey realm events), maybe some pre-riunions to convince characters to vote to become your vassal in
+# the conference, events for the hoster of the conference preparatory to the meeting and so on...
+
+# The Conference of Peace (Consul of S.P.Q.R. has won)
+# First issue: dissolution of the Holy Roman Empire
+long_character_event = {
+	id = EoG.30
+	desc = EVTDESCEoG.30
+	picture = GFX_evt_council
+	border = GFX_event_long_frame_diplomacy
+
+	trigger = {
+		has_landed_title = e_spqr
+		has_character_flag = spqr_host_peace_conference
+		has_character_flag = calling_patricians_of_spqr
+		
+		# TODO as all the guests should phisically come to the Conference of Peace it will be better to sum all the number
+		# in the first event and subtract it when they are arrived to the seat of the Conference and here to check that number
+		#NOT = {
+		#	any_realm_character = {
+		#		limit = {
+		#			trait = patrician_of_sqpr
+		#		}
+		#	}
+		#}
+		NOT = {
+			any_realm_character = {
+				count = 1
+				trait = patrician_of_sqpr
+			}
+		}
+	}
+
+	#mean_time_to_happen = {
+	#	days = 30
+	#}
+
+	# Give the sad news to the Holy Roman Emperor that his Empire is forfeit
+	option = {
+		name = "EVTOPTOKEoG.30"
+
+		clr_character_flag = calling_patricians_of_spqr
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_hre
+			}
+
+			character_event = { id = EoG.31 days = 3} 
+		}
+	}
+}
+
+# The Conference of Peace (Consul of S.P.Q.R. has won)
+# The Emperor is forced to abdicate and to accept the crown of Germania instead
+character_event = {
+	id = EoG.31
+	desc = EVTDESCEoG.31
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	# First we deal with the Fake Emperor!
+	option = {
+		name = "EVTOPTAEoG.31"
+
+		activate_title = { title = e_germany status = yes }
+
+		e_germany = {
+			grant_title = ROOT
+			copy_title_laws = e_hre
+			copy_title_history = e_hre
+		}
+
+		# The De Jure Vassalls of HRE become vassals of the new Kingdom (Empire)
+		e_hre = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_germany
+			}
+		}
+
+		# The Holy Roman Empire is dissolved!	
+		activate_title = { title = e_hre status = no }
+		e_hre = {
+			destroy_landed_title = THIS
+		}
+
+		# The Emperor abdicates
+		remove_trait = crowned_by_pope
+		prestige = -1000
+		set_global_flag = germania_was_hre
+
+	 	# The last discourse as Emperor to the convened to the Conference of Peace
+		any_playable_ruler  = {
+			limit = {
+				#has_character_flag = joins_the_conference_of_peace
+				religion_group = christian
+			}
+			narrative_event = { id = EoG.32 }
+		}
+	}
+}
+
+# The former Emperor communicates to the convened to the Conference of Peace that he accepts to abdicate and
+# becomes the King of Germania 
+narrative_event = {
+	id = EoG.32
+	title = EVTDESCEoG.32
+	desc = EVTDESCEoG.32
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		trigger = {
+			OR = {
+				has_landed_title = e_byzantium	
+				has_landed_title = e_ere	
+			}
+		}
+ 
+		name = "EVTOPTA.32"
+	}
+
+	option = {
+		trigger = {
+			has_landed_title = e_spqr
+			NOT = {
+				OR = {
+					has_landed_title = e_byzantium	
+					has_landed_title = e_ere	
+				}
+			}
+		}
+
+		name = "EVTOPTB.32"
+	}
+
+	option = {
+		trigger = {
+			NOT = {
+				OR = {
+					has_landed_title = e_spqr
+					has_landed_title = e_byzantium	
+					has_landed_title = e_ere	
+				}
+			}
+		}
+ 
+		name = "EVTOPTC.32"
+	}
+}
+
+# Now that we have dealt with the Holy Roman Empire we should see if other issues, we count them and create a series of global_flags to recognize them,
+# when an issue is resolved we subtract from the count when the count reaches 0 it means that "The Conference of Peace" has ended.
+character_event = {
+	id = EoG.33
+	desc = EVTDESCEoG.33
+	picture = GFX_evt_council
+
+	trigger = {
+		has_landed_title = e_spqr
+		has_global_flag = germania_was_hre
+		has_character_flag = spqr_host_peace_conference
+		NOT = { has_global_flag = issue_calculation_done }
+	}
+
+	immediate = {
+
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.33"
+
+		# Possible issues to check: The (High) King of Germania is holding land in Northern Italy, to check this issue we search
+		# if the Kingdom of Germany has vassals that are in reality de jure part of k_roman_republic (or k_italy but
+		# this seems to not work anymore, bug?)
+		e_germany = {
+			holder_scope = {
+				random_vassal = {
+					limit = {
+						#OR = { 
+						#	de_jure_liege = k_italy 
+						#	de_jure_liege = k_roman_republic
+						#}
+						de_jure_liege_or_above = k_roman_republic
+						NOT = { tier = baron }
+					}
+					character_event = { id = EoG.34 }
+				}
+			}
+		}
+
+		# If the (High) King of Francia or the King of France is present at the conference and the (High) King of Germania is
+		# holding land in the Kingdom of Burgundy we have another issue
+		e_germany = {
+			holder_scope = {
+				random_vassal = {
+					limit = {
+						AND = { 
+							de_jure_liege_or_above = k_burgundy
+							OR = {
+								e_france = {
+									holder_scope = {
+										has_character_flag = joins_the_conference_of_peace 
+									}
+								}
+								k_france =  {
+									holder_scope = {
+										has_character_flag = joins_the_conference_of_peace 
+									}
+								}
+							}
+						}
+
+						NOT = { tier = baron }
+					}
+					character_event = { id = EoG.35 }
+				}
+			}
+		}
+
+		# The (High) King of Germania is holding as vassal the King of Bohemia this is another issue 
+		e_germany = {
+			holder_scope = {
+				random_vassal = {
+					limit = {
+						de_jure_liege_or_above = k_bohemia
+						NOT = { tier = baron }
+					}
+					character_event = { id = EoG.36 }
+				}
+			}
+		}
+
+		set_global_flag = issue_calculation_done
+	}
+}
+
+character_event = {
+	id = EoG.34
+	desc = EVTDESCEoG.34
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.34"
+		#set_global_flag = issue_germania_controlling_north_italy 
+		set_global_flag = issue_germania_controlling_north_italy 
+
+		e_spqr = {
+			change_variable = { which = "conference_issues" value = 1 }
+		}
+	}
+}
+
+character_event = {
+	id = EoG.35
+	desc = EVTDESCEoG.35
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.35"
+		set_global_flag = issue_germania_controlling_burgundy 
+		#set_character_flag = issue_germania_controlling_north_burgundy 
+
+		e_spqr = {
+			change_variable = { which = "conference_issues" value = 1 }
+		}
+	}
+}
+
+character_event = {
+	id = EoG.36
+	desc = EVTDESCEoG.36
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.36"
+		set_global_flag = issue_germania_controlling_bohemia 
+		#set_character_flag = issue_germania_controlling_bohemia 
+
+		e_spqr = {
+			change_variable = { which = "conference_issues" value = 1 }
+		}
+	}
+}
+
+# A Prince of the former Holy Roman Empire in North Italy sollevates the question of the legittimacy of the King of Germany as his liege
+long_character_event = {
+	id = EoG.37
+	desc = EVTDESCEoG.37
+	picture = GFX_evt_council
+
+	trigger = {
+		has_character_flag = joins_the_conference_of_peace
+		liege = { has_landed_title = e_germany } 
+		NOT = { has_landed_title = e_germany }
+		de_jure_liege = k_roman_republic # That is the Consul of S.P.Q.R
+		has_global_flag = issue_germania_controlling_north_italy
+		NOT = { has_global_flag = italian_issue_raised }	
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.37"
+
+		set_global_flag = italian_issue_raised	
+
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_spqr
+			}
+			long_character_event = { id = EoG.38 }
+		}
+	}
+}
+
+# A Northern Italian Prince of the former Holy Roman Empire has sollevated an
+# interesting issue: his state and the other in North Italy should remain vassal of Germania or not?
+# The Consul of S.P.Q.R has two possible choiches:
+#
+# 1. Annex these states as he is their de jure liege
+# 2. Make them vote on the issue
+long_character_event = {
+	id = EoG.38
+	desc = EVTDESCEoG.38
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		#set_global_flag = conference_discussing_issue
+
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		e_spqr = {
+			subtract_variable = { which = "conference_issues" value = 1 }
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the North Italia Princes of the former Holy Roman Empire
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						#OR = { 
+						#	de_jure_liege = k_italy 
+						#	de_jure_liege = k_roman_republic
+						#}
+						de_jure_liege_or_above = k_roman_republic
+						#NOT = { tier = baron }
+						tier = duke
+					}
+
+					add_trait = prince_of_the_hre_italian
+				}
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						#OR = { 
+						#	de_jure_liege = k_italy 
+						#	de_jure_liege = k_roman_republic
+						#}
+						de_jure_liege_or_above = k_roman_republic
+						#NOT = { tier = baron }
+						tier = count
+
+						NOT = {
+						  	de_jure_liege = liege
+						}
+					}
+					
+					add_trait = prince_of_the_hre_italian
+				}
+			}
+		}
+		
+		# This character is holding unlawful imperial territory that is territory that is part of the Roman Republic but
+		# hes has no de jure right to do so
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						AND = {
+							NOT = { 
+								de_jure_liege_or_above = k_roman_republic
+							}
+
+							any_realm_title = {
+								kingdom = {
+									title = k_roman_republic
+									NOT = { tier = baron }
+								}
+							}
+						}
+					}
+
+					add_trait = unlawful_imperial_territory
+				}
+			}
+		}
+
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_germany
+				any_demesne_title = {
+					kingdom = {
+						title = k_roman_republic
+					}
+				}
+			}
+
+			add_trait = unlawful_imperial_territory_ex_imperor
+		}
+	}
+
+	# TODO we need to find these types of characters:
+        # 1. De jure vassals of The Roman Republic / Kingodom of Lombardy
+        # 2. Characters that for some cause hold land in The Roman Republic / Kingodom of Lombardy but are not de jure vassals of the title
+        #    (between these could be the King of Germania itself)
+	# Maybe an immediate section in which these classes of characters get temporary traits / character flags could be a solution
+
+	# Vassalize them to S.P.Q.R. directly without further discussion!
+	option = {
+		name = "EVTOPTAEog.38"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+
+		}
+
+		# Northern Italian Prince of the former Holy Roman Empire, these characters shall be vassalized
+		#prince_of_the_hre_italian = {
+		#	character_event = { id = EoG.39 }
+		#}
+		
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_germania_controlling_north_italy 
+
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						trait = prince_of_the_hre_italian
+					}
+					# Inform the Italian Prince of the forced vassalization
+					character_event = { id = EoG.39 }
+				}
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the Consul
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						trait = unlawful_imperial_territory
+						
+					}
+					# Inform the unlawful holder that the land will be usurped
+					character_event = { id = EoG.40 }
+				}
+			}
+		}
+
+		# The King of Germania himself could hold land in Italy / Roman Republic too!
+		# Again we should grant the contested title to the Consul itself
+		any_independent_ruler = {
+			limit = {
+				trait = unlawful_imperial_territory_ex_imperor
+			}
+
+			character_event = { id = EoG.41 }
+		}
+	}
+
+	# Let them vote on the issue
+	option = {
+		name = "EVTOPTBEog.38"
+		set_global_flag = voting_on_italian_issue
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+
+		}
+
+		# The Italian Princes as have similar culture group should probably vote yes
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						#OR = { 
+						#	de_jure_liege = k_italy 
+						#	de_jure_liege = k_roman_republic
+						#}
+						#de_jure_liege_or_above = k_roman_republic
+						#NOT = { tier = baron }
+						
+						trait = prince_of_the_hre_italian
+					}
+					character_event = { id = EoG.42 }
+				}
+			}
+		}
+
+		# This character primary title is no de jure part of "The Roman Republic" but has the right to vote because hold land in that
+                # kingdom, his vote will be, probably, no! 
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						#AND = {
+						#	NOT = { 
+						#		de_jure_liege_or_above = k_roman_republic
+						#	}
+						#	any_demesne_title = {
+						#		kingdom = {
+						#			title = k_roman_republic
+						#			NOT = { tier = baron }
+						#		}
+						#	}
+						#}
+						trait = unlawful_imperial_territory
+					}
+					character_event = { id = EoG.43 }
+				}
+			}
+		}
+
+		# Similar case to the above but the unlawful ruler held the title indirectly using a vassal, the vassal become a vassal
+		# of the Consul
+		# This character primary title is no de jure part of "The Roman Republic" but has the right to vote because hold land in that
+                # kingdom via a vassall, his vote will be, probably, no! 
+		#e_germany = {
+		#	holder_scope = {
+		#		any_vassal = {
+		#			limit = {
+		#				AND = {
+		#					NOT = { 
+		#						de_jure_liege_or_above = k_roman_republic
+		#					}
+                #
+		#					any_realm_title = {
+		#						kingdom = {
+		#							title = k_roman_republic
+		#							NOT = { tier = baron }
+		#						}
+		#					}
+		#				}
+		#			}
+		#			character_event = { id = EoG.43 }
+		#		}
+		#	}
+		#}
+
+		# The King of Germania himself could hold land in Italy / Roman Republic too!
+		# This character can NEVER vote yes it is only for flavour that it could vote
+		any_independent_ruler = {
+			limit = {
+				#has_landed_title = e_germany
+				#any_demesne_title = {
+				#	kingdom = {
+				#		title = k_roman_republic
+				#	}
+				#}
+				trait = unlawful_imperial_territory_ex_imperor
+			}
+
+			character_event = { id = EoG.44 }
+		}
+	}
+}
+
+# A Northern Italian Prince is informed of the forced vassalazation to S.P.Q.R.
+character_event = {
+	id = EoG.39
+	desc = EVTDESCEoG.39
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.39"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+		 hidden_tooltip = { remove_trait = prince_of_the_hre_italian }
+	}
+}
+
+# An unlawful holder of a title in North Italy is informed of the annexion of the title to S.P.Q.R.
+character_event = {
+	id = EoG.40
+	desc = EVTDESCEoG.40
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.40"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_roman_republic
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_roman_republic
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		 hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The (High) King of Germania is an unlawful holder of a title in North Italy and is informed of the annexion of the title to S.P.Q.R.
+character_event = {
+	id = EoG.41
+	desc = EVTDESCEoG.41
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.41"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_roman_republic
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		 hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# Vote of the Princes of Northern Italy
+character_event = {
+	id = EoG.42
+	desc = EVTDESCEoG.42
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#	remove_trait = prince_of_the_hre_italian
+	#}
+
+	# First option vassalization to the Consul of S.P.Q.R.
+	option = {
+		name = "EVTOPTAEoG.42"
+
+		ai_chance = {
+			factor = 50
+
+			# He has similar culture
+			modifier = {
+				factor = 2
+				culture_group = italian
+			}
+			
+			# He likes the new liege
+			modifier = {
+				factor = 2
+				opinion = { who = FROM value = 50 }
+			}
+		}
+
+		set_defacto_liege = FROM
+		FROM = { character_event = { id = EoG.45 } }
+		
+	}
+
+	# Second option he decides to remain part of Germania (that is nothing happens)
+	option = {
+		name = "EVTOPTBEoG.42"
+
+		ai_chance = {
+			factor = 50
+
+			# He has Germanic cultures he wants to be part of the (High) Kingdom of Germania!
+			modifier = {
+				factor = 2
+				culture_group = central_germanic
+			}
+			
+			# He likes the old liege more
+			modifier = {
+				factor = 2
+				opinion = { who = liege value = 50 }
+			}
+		}
+
+		FROM = { character_event = { id = EoG.46 } }
+	}
+
+	# Third option he decides to use this as an excuse to declare his indipendence
+	option = {
+		name = "EVTOPTCEoG.42"
+
+		ai_chance = {
+			factor = 50
+
+			# It is a Republic and... "The Republic do not known master"
+			# (motto of the Most Serene Republic of Genoa - La Superba)
+			modifier = {
+				factor = 4
+				is_republic = yes
+			}
+			
+			# It is a King and a King should be independent!
+			modifier = {
+				factor = 3
+				OR = {
+					higher_real_tier_than = duke
+					# A Gran Duke probably...
+					num_title_realm_provs = {
+  						who = ROOT
+  						num = 12 
+					}
+				}
+			}
+
+			# An ambitious or proud character will become independent in any case...
+			modifier = {
+				factor = 2
+				trait = ambitious
+				trait = proud
+			}
+		}
+
+		set_defacto_liege = THIS
+		FROM = { character_event = { id = EoG.47 } }
+	}
+}
+
+# Vote of an unlawful holder of a title in North Italy
+character_event = {
+	id = EoG.43
+	desc = EVTDESCEoG.43
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#	remove_trait = unlawful_imperial_territory
+	#}
+
+	# First option give unlawful territory to the Consul of S.P.Q.R.
+	option = {
+		name = "EVTOPTAEoG.43"
+
+		ai_chance = {
+			# I prefer AI to take this choice
+			factor = 100
+
+			# If he has a weak character he is more incline to accept 
+			modifier = {
+				factor = 2
+				trait = weak
+				trait = slothful
+				trait = craven
+			}
+
+			# If he is just he knows it is the right thing to do...
+			modifier = {
+				factor = 2
+				trait = just
+			}
+		}
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_roman_republic
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_roman_republic
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+		}
+
+		FROM = { character_event = { id = EoG.45 } }
+	}
+
+	# Second option he decides to retain his unlawful territory (that will remain part of Germania)
+	option = {
+		name = "EVTOPTBEoG.43"
+
+		ai_chance = {
+			# I prefer AI to NOT take this choice
+			factor = 50
+
+			# If he has a strong character he will not accept
+			modifier = {
+				factor = 2
+				trait = strong
+				trait = ambitious
+				trait = brave
+			}
+
+			# if he has Germanic culture he will not accept as he wants a Great Germania
+			modifier = {
+				factor = 2
+				culture_group = central_germanic
+			}
+		}
+
+		FROM = { character_event = { id = EoG.46 } }
+	}
+}
+
+# Vote of the King of Germania (the former Holy Roman Emperor)
+character_event = {
+	id = EoG.44
+	desc = EVTDESCEoG.44
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#	remove_trait = unlawful_imperial_territory_ex_imperor
+	#}
+
+	# First option give unlawful territory to the Consul of S.P.Q.R.
+	option = {
+		name = "EVTOPTAEoG.44"
+	
+		ai_chance = {
+			# I prefer AI to NOT take this choice (it does not makes sense...)
+			factor = 50
+
+			# If he has a weak character he is more incline to accept 
+			modifier = {
+				factor = 2
+				trait = weak
+				trait = slothful
+				trait = craven
+			}
+
+			# If he is just he knows it is the right thing to do...
+			modifier = {
+				factor = 2
+				trait = just
+			}
+		}
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_roman_republic
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+			FROM = { character_event = { id = EoG.45 } }
+		}
+	}
+
+	# Second option retain your territory and send an insult to the weak Consul
+	option = {
+		name = "EVTOPTBEoG.44"
+
+		ai_chance = {
+			# I prefer AI to take this choice
+			factor = 100
+
+			# If he has a strong character he will not accept
+			modifier = {
+				factor = 2
+				trait = strong
+				trait = ambitious
+				trait = brave
+			}
+		}
+
+		FROM = { character_event = { id = EoG.46 } }
+	}
+}
+
+# Inform the new liege that the new vassal is ready to serve
+character_event = {
+	id = EoG.45
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = prince_of_the_hre_italian }
+				FROM = { trait = prince_of_the_hre_burgundian }
+			}
+		}
+		text = EVTDESCEoG_Vassal.45
+	}
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory }
+				FROM = { trait = not_burgundian_holding_in_burgundy }
+			}
+		}
+		text = EVTDESCEoG_GiveBack.45
+	}
+	
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory_ex_imperor }
+				FROM = { trait = emperor_holding_in_burgundy }
+			}
+		}
+		text = EVTDESCEoG_GiveBackEmp.45
+	}
+		 
+	option =  {
+		name = "EVTOPTAEoG.45"
+
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = prince_of_the_hre_italian
+				remove_trait = prince_of_the_hre_burgundian
+				remove_trait = unlawful_imperial_territory
+				remove_trait = not_burgundian_holding_in_burgundy
+				remove_trait = unlawful_imperial_territory_ex_imperor
+				remove_trait = emperor_holding_in_burgundy
+			}
+		}
+	}
+}
+
+# Inform the new liege that the new vassal is ready to serve
+character_event = {
+	id = EoG.451
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			FROM = { trait = prince_of_the_hre_burgundian }
+		}
+		text = EVTDESCEoG_Vassal.451
+	}
+
+	desc = {
+		trigger = {
+			FROM = { trait = not_burgundian_holding_in_burgundy }
+		}
+		text = EVTDESCEoG_GiveBack.451
+	}
+	
+	desc = {
+		trigger = {
+			FROM = { trait = emperor_holding_in_burgundy }
+		}
+		text = EVTDESCEoG_GiveBackEmp.451
+	}
+		 
+	option =  {
+		name = "EVTOPTAEoG.451"
+
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = prince_of_the_hre_burgundian
+				remove_trait = not_burgundian_holding_in_burgundy
+				remove_trait = emperor_holding_in_burgundy
+			}
+		}
+	}
+}
+
+# Inform the Consul that the de jure vassal has decided to remain part of Germania
+character_event = {
+	id = EoG.46
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = prince_of_the_hre_italian }
+				FROM = { trait = prince_of_the_hre_burgundian }
+			}
+		}
+		text = EVTDESCEoG_Vassal.46
+	}
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory }
+				FROM = { trait = not_burgundian_holding_in_burgundy }
+			}
+		}
+		text = EVTDESCEoG_GiveBack.46
+	}
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory_ex_imperor }
+				FROM = { trait = emperor_holding_in_burgundy }
+			}
+		}
+		text = EVTDESCEoG_GiveBackEmp.46
+	}
+
+	option =  {
+		name = "EVTOPTAEoG.46"
+
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = prince_of_the_hre_italian
+				remove_trait = prince_of_the_hre_burgundian
+				remove_trait = unlawful_imperial_territory
+				remove_trait = not_burgundian_holding_in_burgundy
+				remove_trait = unlawful_imperial_territory_ex_imperor
+				remove_trait = emperor_holding_in_burgundy
+			}
+		}	
+	}
+}
+
+# Inform the Consul that the de jure vassal has decided to become indipendent!
+character_event = {
+	id = EoG.47
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = prince_of_the_hre_italian }
+				FROM = { trait = prince_of_the_hre_burgundian }
+			}
+		}
+		text = EVTDESCEoG_Vassal.47
+	}
+
+
+	option =  {
+		name = "EVTOPTAEoG.47"
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = prince_of_the_hre_italian
+				remove_trait = prince_of_the_hre_burgundian
+			}
+		}
+	}
+}
+
+# This event is to check that all have voted and that so we can pass on the next issue
+character_event = {
+	id = EoG.48
+	desc = EVTDESCEoG.48
+	picture = GFX_evt_council
+
+	trigger = {
+		has_landed_title = e_spqr
+
+		has_global_flag = deciding_on_issue
+		has_global_flag = issue_germania_controlling_north_italy
+		#NOT = { has_global_flag = votation_ended }
+		has_global_flag = voting_on_italian_issue
+		AND = {
+			e_germany = { 
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							count = 1
+							trait = prince_of_the_hre_italian
+						}
+					 }
+				}
+			}
+
+			e_germany = { 
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							count = 1
+							trait = unlawful_imperial_territory
+						}
+					}
+				}
+			}
+			
+			any_independent_ruler = {
+				NOT = {
+					count = 1
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+			}
+		}
+	}
+
+	option =  {
+		name = "EVTOPTAEoG.48"
+
+		clr_global_flag = deciding_on_issue
+		#set_global_flag = votation_ended
+		clr_global_flag = issue_germania_controlling_north_italy 
+		clr_global_flag = voting_on_italian_issue
+
+		prestige = 500
+	}
+}
+
+# If the (High) King of Francia or the King of France was partecipating at the Conference and Burgundy was part of Germania he could raise the issue!
+character_event = {
+	id = EoG.49
+	desc = EVTDESCEoG.49
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_landed_title = e_france
+			has_landed_title = k_france
+		}
+		has_global_flag = issue_germania_controlling_burgundy
+
+		NOT = { has_global_flag = deciding_on_issue } 
+	}
+
+	option =  {
+		name = "EVTOPTOKEoG.49"
+
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_spqr
+			}
+			long_character_event = { id = EoG.50 }
+		}
+	}
+}
+
+# The (High) King of Francia or the King of France has raised an interesting question what should be the fate of Burgundy?
+# Four possibilities:
+# 1. Annex them to Francia / France giving them to their de jure liege
+# 2. Annex them to S.P.Q.R. as a first point of expansion for the formation of the Western Roman Empire (the King of France will be not happy)
+# 3. Give the vassals the possibility to vote
+# 4. Create an independent Republic of Burgundy, that in reality will be your Puppet
+long_character_event = {
+	id = EoG.50
+	desc = EVTDESCEoG.50
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		#set_global_flag = conference_discussing_issue
+
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		e_spqr = {
+			subtract_variable = { which = "conference_issues" value = 1 }
+		}
+
+		set_global_flag = deciding_on_issue
+
+		# Search the Burgundian Princes of the former Holy Roman Empire
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						de_jure_liege_or_above = k_burgundy
+						#NOT = { tier = baron }
+						tier = duke
+					}
+					
+					add_trait = prince_of_the_hre_burgundian
+				}
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						de_jure_liege_or_above = k_burgundy
+						#NOT = { tier = baron }
+						tier = count
+
+						NOT = {
+						  	de_jure_liege = liege
+						}
+					}
+
+					add_trait = prince_of_the_hre_burgundian
+				}
+			}
+		}
+
+		# This character is holding territory on the kingdom of Burgundy but his primary title is not in Burgundy
+		# he has no de jure right to do so
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						AND = {
+							NOT = { 
+								de_jure_liege_or_above = k_burgundy
+							}
+
+							any_realm_title = {
+								kingdom = {
+									title = k_burgundy
+									NOT = { tier = baron }
+								}
+							}
+						}
+					}
+
+					add_trait = not_burgundian_holding_in_burgundy
+				}
+			}
+		}
+
+		# The former Emperor himself was holding land in Burgundy
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_germany
+				any_demesne_title = {
+					kingdom = {
+						title = k_roman_republic
+					}
+				}
+			}
+
+			add_trait = emperor_holding_in_burgundy
+		}
+	}
+
+	# We do the right thing France is their de jure liege and they shall become part of France / Francia 
+	option = {
+		name = "EVTOPTAEoG.50"
+		
+		# TODO give to the King of France the good news
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_germania_controlling_burgundy
+
+		# Hiding the tooltip should hide the character portraits? It does not seems so...
+		hidden_tooltip = {	
+			e_germany = {
+				holder_scope = {
+					any_vassal = {
+						limit = {
+							trait = prince_of_the_hre_burgundian
+						}
+						# Inform the Burgundian Prince of the forced vassalization
+						character_event = { id = EoG.51 }
+					}
+				}
+			}
+
+			# These characters are holding Burgundian territory without having the right to do so, we have two cases:
+			# 1. They hold the territory direct in this case the title is simply usurped
+			# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the (High) King of Francia / King of France
+			e_germany = {
+				holder_scope = {
+					any_vassal = {
+						limit = {
+							trait = not_burgundian_holding_in_burgundy
+						}
+						# Inform the unlawful holder that the land will be usurped
+						character_event = { id = EoG.52 }
+					}
+				}
+			}
+
+			# The King of Germania himself could hold land in Burgundy too!
+			# Again we should grant the contested title to the (High) King of Francia / King of France
+			any_independent_ruler = {
+				limit = {
+					trait = emperor_holding_in_burgundy
+				}
+
+				character_event = { id = EoG.53 }
+			}
+		}
+	}
+
+	# We annex them to S.P.Q.R. as a first point of expansion for the formation of the Western Roman Empire (the King of France will be not happy)
+	option = {
+		name = "EVTOPTBEoG.50"
+		
+		# We have already decided!
+		clr_global_flag  = deciding_on_issue
+		clr_global_flag = issue_germania_controlling_burgundy
+
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						trait = prince_of_the_hre_burgundian
+					}
+					# Inform the Burgundian Prince of the forced vassalization
+					character_event = { id = EoG.54 }
+				}
+			}
+		}
+
+		
+		# These characters are holding Burgundian territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the Consul of S.P.Q.R
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						trait = not_burgundian_holding_in_burgundy
+						
+					}
+					# Inform the unlawful holder that the land will be usurped
+					character_event = { id = EoG.55 }
+				}
+			}
+		}
+
+		# The King of Germania himself could hold land in Burgundy too!
+		# Again we should grant the contested title to the (High) King of Francia / King of France
+		any_independent_ruler = {
+			limit = {
+				trait = emperor_holding_in_burgundy
+			}
+
+			character_event = { id = EoG.56 }
+		}
+	}
+
+	# Let them vote on the issue
+	option = {
+		name = "EVTOPTCEoG.50"
+		set_global_flag = voting_on_burgundian_issue
+
+		# Vote of The Burgundian Princes 
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						trait = prince_of_the_hre_burgundian
+					}
+					character_event = { id = EoG.57 }
+				}
+			}
+		}
+
+		# This character primary title is no de jure part of Burgundy but has the right to vote because hold land in that
+                # kingdom, his vote will be, probably, no!
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						trait = not_burgundian_holding_in_burgundy
+						
+					}
+					character_event = { id = EoG.58 }
+				}
+			}
+		}
+
+		# The King of Germania himself could hold land in Burgundy too!
+		# This character can NEVER vote yes it is only for flavour that it could vote
+		any_independent_ruler = {
+			limit = {
+				trait = emperor_holding_in_burgundy
+			}
+
+			character_event = { id = EoG.59 }
+		}
+	}
+
+	# Create an independent Republic of Burgundy, that in reality will be our Puppet 
+	option = {
+		name = "EVTOPTDEoG.50"
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_germania_controlling_burgundy
+
+		create_character = {
+			random_traits = yes
+			dynasty = random
+			religion = ROOT
+			culture = ROOT
+			female = no
+			age = 25
+
+			attributes = {
+    				martial = 18
+    				diplomacy = 8
+    				stewardship = 9
+    				intrigue = 12
+    				learning = 12
+  			}
+		}
+
+		new_character = {
+			character_event = { id = EoG.60 }
+		}
+
+		#e_germany = {
+		#	holder_scope = {
+		#		any_realm_lord = {
+		#			limit = {
+		#				# The future Doge of Burgundy
+		#				has_landed_title = b_marseille
+		#			}
+		#			character_event = { id = EoG.60 }
+		#		}
+		#	}
+		#}
+	}
+}
+
+# A Burgundian Prince is informed of the forced vassalization to France / Francia
+character_event = {
+	id = EoG.51
+	desc = EVTDESCEoG.51
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.51"
+		set_defacto_liege = FROMFROM
+
+		opinion = {
+			who =  FROMFROM
+			modifier = forced_vassalization
+		}
+		hidden_tooltip = { remove_trait = prince_of_the_hre_burgundian }
+	}
+}
+
+# An unlawful holder of a title in Burgundy is informed of the annexion of the title to France / Francia
+character_event = {
+	id = EoG.52
+	desc = EVTDESCEoG.52
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.52"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROMFROM
+			set_defacto_liege = FROMFROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_burgundy
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROMFROM
+			opinion = {
+				who = FROMFROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = not_burgundian_holding_in_burgundy }
+	}
+}
+
+# The (High) King of Germania is an unlawful holder of a title in Burgundy and is informed of the annexion of the title to France / Francia
+character_event = {
+	id = EoG.53
+	desc = EVTDESCEoG.53
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.53"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROMFROM
+			set_defacto_liege = FROMFROM
+		}
+		hidden_tooltip = { remove_trait = emperor_holding_in_burgundy }
+	}
+}
+
+# A Burgundian Prince is informed of the forced vassalization to S.P.Q.R
+character_event = {
+	id = EoG.54
+	desc = EVTDESCEoG.54
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.54"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+		hidden_tooltip = { remove_trait = prince_of_the_hre_burgundian }
+	}
+}
+
+# An unlawful holder of a title in Burgundy is informed of the annexion of the title to S.P.Q.R
+character_event = {
+	id = EoG.55
+	desc = EVTDESCEoG.55
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.55"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM 
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_burgundy
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = not_burgundian_holding_in_burgundy }
+	}
+}
+
+# The (High) King of Germania is an unlawful holder of a title in Burgundy and is informed of the annexion of the title to S.P.Q.R.
+character_event = {
+	id = EoG.56
+	desc = EVTDESCEoG.56
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.56"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = emperor_holding_in_burgundy }
+	}
+}
+
+# Vote of the Princes of Burgundy
+character_event = {
+	id = EoG.57
+	desc = EVTDESCEoG.57
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_tooltip = { remove_trait = prince_of_the_hre_italian }
+	}
+
+	# First option vassalization to the (High) King of Francia / King of France
+	option = {
+		name = "EVTOPTAEoG.57"
+
+		set_defacto_liege = FROMFROM
+		FROMFROM = { character_event = { id = EoG.45 } }
+		# Let make know it to the Consul too
+		FROM = {  character_event = { id = EoG.451 } }
+		
+	}
+
+	# Second option vassalization to the Consul of S.P.Q.R.
+	option = {
+		name = "EVTOPTAEoG.57"
+
+		set_defacto_liege = FROM
+		FROM = { character_event = { id = EoG.45 } }
+		
+	}
+
+	# Third option he decides to remain part of Germania (that is nothing happens)
+	option = {
+		name = "EVTOPTBEoG.57"
+		FROM = { character_event = { id = EoG.46 } }
+	}
+
+	# Fourth option he decides to use this as an excuse to declare his indipendence
+	option = {
+		name = "EVTOPTCEoG.57"
+
+		set_defacto_liege = THIS
+		FROM = { character_event = { id = EoG.47 } }
+	}
+}
+
+# Vote of an unlawful holder of a title in Burgundy
+character_event = {
+	id = EoG.58
+	desc = EVTDESCEoG.58
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+
+	# First option give unlawful territory to the (High) King of Francia / King of France
+	option = {
+		name = "EVTOPTAEoG.58"
+	
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROMFROM
+			set_defacto_liege = FROMFROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_burgundy
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROMFROM
+		}
+
+		FROM = { character_event = { id = EoG.45 } }
+	}
+
+	# Second option give unlawful territory to the Consul of S.P.Q.R.
+	option = {
+		name = "EVTOPTBEoG.58"
+	
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_burgundy
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+		}
+
+		FROM = { character_event = { id = EoG.45 } }
+	}
+
+	# Third option he decides to remain part of Germania (that is nothing happens)
+	option = {
+		name = "EVTOPTBEoG.58"
+		FROM = { character_event = { id = EoG.46 } }
+	}
+}
+
+# Vote of the King of Germania (the former Holy Roman Emperor)
+character_event = {
+	id = EoG.59
+	desc = EVTDESCEoG.59
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+
+	# First option give unlawful territory to the Consul of S.P.Q.R.
+	option = {
+		name = "EVTOPTAEoG.59"
+	
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_burgundy
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+			FROM = { character_event = { id = EoG.45 } }
+		}
+	}
+
+	# Second option retain your territory and send an insult to the weak Consul
+	option = {
+		name = "EVTOPTBEoG.59"
+		FROM = { character_event = { id = EoG.46 } }
+	}
+}
+
+# The Mayor of the city of Marseille is granted the County of Provence, the Duchy of Provence and in the end the Kingdom of Burgundy
+character_event = {
+	id = EoG.60
+	desc = EVTDESCEoG.60
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	# If we were Napoleon we would have given the title it to our brother / parent but two Patrician Palaces of the same family in two Republics could give
+	# enormous problems! So we don't do it sadly...
+	# TODO Maybe create a character of Roman Culture and give the title to him to simbolize the fact that Burgundy is not a really sovereign realm but a sort of
+	# Puppet / Protectorate? Mmhh interesting concept I need to think to it...
+	option = {
+		name = "EVTOPTOKEog.60"
+
+		# Marseille became his capital
+		b_marseille = {
+			grant_title = ROOT
+		}
+
+	 	c_provence = {
+			grant_title = ROOT
+		}
+
+		d_provence = {
+			grant_title = ROOT
+		}
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_burgundy status = yes }
+
+		liege = {
+			k_burgundy = {
+				grant_title = ROOT
+				copy_title_laws = d_provence
+				#copy_title_history = d_commune_of_rome
+
+				# This is not working! Other game bug? Annoying...
+				any_de_jure_vassal = {
+					set_defacto_liege = ROOT
+				}
+			#	any_direct_de_jure_vassal_title = {
+			#		set_defacto_vassall = ROOT
+			#	}
+			}
+		}
+
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# This event is to check that all have voted and that so we can pass on the next issue
+character_event = {
+	id = EoG.61
+	desc = EVTDESCEoG.61
+	picture = GFX_evt_council
+
+	trigger = {
+		has_landed_title = e_spqr
+
+		has_global_flag = deciding_on_issue
+		has_global_flag = issue_germania_controlling_burgundy
+		#NOT = { has_global_flag = votation_ended }
+		has_global_flag = voting_on_burgundian_issue
+		AND = {
+			e_germany = { 
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							count = 1
+							trait = prince_of_the_hre_burgundian
+						}
+					}
+				}
+			}
+
+			e_germany = { 
+				holder_scope = {
+					NOT = {
+						any_vassal = {
+							count = 1
+							trait = not_burgundian_holding_in_burgundy
+						}
+					}
+				}
+			}
+			
+			any_independent_ruler = {
+				NOT = {
+					count = 1
+					trait = emperor_holding_in_burgundy
+				}
+			}
+		}
+	}
+
+	option =  {
+		name = "EVTOPTOKEoG.60"
+
+		clr_global_flag = deciding_on_issue
+		#set_global_flag = votation_ended
+		clr_global_flag = issue_germania_controlling_burgundy 
+		clr_global_flag = voting_on_burgundian_issue
+	}
+
+}
+
+# The King or Duke of Bohemia raises another issue, it should be independent from Germania as does not makes sense anymore to be part of that realm 
+long_character_event = {
+	id = EoG.62
+	desc = EVTDESCEoG.62
+	picture = GFX_evt_council
+
+	trigger = {
+		OR = {
+			has_landed_title = k_bohemia
+			has_landed_title = d_bohemia
+		}
+		has_global_flag = issue_germania_controlling_bohemia
+
+		NOT = { has_global_flag = deciding_on_issue } 
+	}
+	
+	option = {
+		name = "EVTOPTOKEoG.62"
+		set_global_flag = issue_germania_controlling_bohemia 
+		#set_character_flag = issue_germania_controlling_bohemia 
+
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_spqr
+			}
+			long_character_event = { id = EoG.63 }
+		}
+	}
+}
+
+# Bohemia should become independent or not?
+long_character_event = {
+	id = EoG.63
+	desc = EVTDESCEoG.63
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		#set_global_flag = conference_discussing_issue
+
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		e_spqr = {
+			subtract_variable = { which = "conference_issues" value = 1 }
+		}
+
+		set_global_flag = deciding_on_issue
+	}
+
+	# Bohemia must become independent
+	option = {
+		name = "EVTOPTOKEoG.63"
+
+		# We have already decided!
+		clr_global_flag  = deciding_on_issue
+		clr_global_flag = issue_germania_controlling_bohemia
+
+		FROM = { character_event = { id = EoG.64 } }
+
+		#if = { 
+		#	limit = {
+		#		FROM = { NOT = { has_landed_title = d_moravia } }
+		#	}
+		
+#			e_germany = {
+#				holder_scope = {
+#					any_vassal = {
+#						limit = {
+#							has_landed_title = d_moravia	
+#						}
+#						character_event = { id = EoG.62 }
+#					}
+#				}
+#			}
+#		}	
+	}
+}
+
+# Prince of the former Holy Roman Empire in Bohemia is informed that it is now independent
+character_event = {
+	id = EoG.64
+	desc = EVTDESCEoG.64
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.64"
+
+		# If it has not the title of King of Bohemia (that is it is only the Duke of Bohemia) it is automatically granted the crown
+		if = {
+			limit = {
+				NOT = { has_landed_title = k_bohemia }
+			}
+
+			liege = {
+				k_bohemia = {
+					grant_title = ROOT
+					copy_title_laws = d_bohemia
+					#copy_title_history = d_commune_of_rome
+
+					any_de_jure_vassal = {
+						set_defacto_liege = ROOT
+					}
+				}
+			}
+		}
+	
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		# In the end make the realm part of the (High) Kingdom of Venedia with Poland and the other Western Slavs
+		k_bohemia = {
+			de_jure_liege = e_wendish_empire
+		}
+	}
+}
+
+# TODO Final Event of the "technical" part of the Conference, check that there are not remaing issues, then start dinner, ballets... whatever!
+
+# The Conference of Peace has ended, all guest are gone home...
+character_event = {
+	id = EoG.80
+	desc = EVTDESCEoG.80
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		#has_landed_title = e_spqr
+		has_character_flag = spqr_host_peace_conference
+		#OR = {
+		#	has_global_flag = issue_germania_controlling_north_italy
+		#	has_global_flag = issue_germania_controlling_burgundy
+		#	has_global_flag = issue_germania_controlling_bohemia 
+		#}
+		# Kludge! I expected that an unexisting variable evalutated to false, instead is equal to 0...
+		# After the global flag 'issue_calculation_done' it should exist and have a value...
+		has_global_flag = issue_calculation_done
+		e_spqr = {
+			is_variable_equal = { which = "conference_issues" value = 0 }
+		}
+	}
+
+	option = {
+		name = "EVTOPTAEoG.80"	
+
+		# Now a little of clean up...
+		clr_character_flag = spqr_host_peace_conference
+		clr_global_flag = issue_calculation_done
+
+		any_independent_ruler = {
+			clr_character_flag = joins_the_conference_of_peace
+			clr_character_flag = not_joins_the_conference_of_peace
+		}
+
+		e_germany = {
+			holder_scope = {
+				any_vassal = {
+					limit = {
+						AND = {
+							primary_title = { higher_tier_than = BARON }
+						 	NOT = { has_landed_title = e_germany }
+						 	ROOT = { is_liege_of = THIS }
+							#any_demesne_title = {
+							#	temporary = no
+							##}
+							#THIS = {
+							#	in_revolt = no
+							#}
+						}
+					}
+		
+					clr_character_flag = joins_the_conference_of_peace
+					clr_character_flag = not_joins_the_conference_of_peace
+				 }
+			}
+		}
+		
+		any_realm_character = {
+			limit = {
+				is_patrician  = yes 
+			}
+		
+			clr_character_flag = joins_the_conference_of_peace
+			clr_character_flag = not_joins_the_conference_of_peace
+		}
+	}
+}
+
+# ID from 500 to 999 reserved to the Eastern Roman Empire
+
+# Byzantine Emperor gains the trait of "Ruler of Successor State of WRE"
+character_event = {
+	id = EoG.500
+	desc = EVTDESCEoG.500
+	picture = GFX_evt_rome_restored_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		has_landed_title = e_byzantium
+		NOT = { trait = successor_state_of_ere }
+		# To avoid that during the conference of peace the loser gets the trait only because e_hre exists yet
+		NOT = { has_character_flag = lost_successor_state_of_wre_war }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTAEoG.500
+		add_trait = successor_state_of_ere
+	}
+}
+
+# No more Byzantine Emperor, the trait is lost
+character_event = {
+	id = EoG.501
+	desc = EVTDESCEoG.501
+	picture = GFX_evt_rome_restored_byzantine
+	
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		NOT = { has_landed_title = e_hre }
+		# To avoid that during the conference of peace the winner lose the trait only because e_hre exists yet
+		NOT = { has_character_flag = won_successor_state_of_wre_war }
+		trait = successor_state_of_wre
+		is_alive = yes
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = EVTOPTAEoG.501
+		remove_trait = successor_state_of_ere
+	}
+}

@@ -41,6 +41,7 @@ defender_of_the_faith = {
 
 	church_opinion = 25
 	same_opinion_if_same_religion = 30
-	
+	customizer = no
+
 	ai_zeal = 10
 }

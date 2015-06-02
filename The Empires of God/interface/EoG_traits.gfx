@@ -1,0 +1,34 @@
+spriteTypes = 
+{
+       spriteType = {
+		name = "GFX_trait_successor_state_of_wre"
+		texturefile = "gfx/traits/successor_state_of_wre.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+
+       spriteType = {
+		name = "GFX_trait_pretender_successor_state_of_wre"
+		texturefile = "gfx/traits/pretender_successor_state_of_wre.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+
+       spriteType = {
+		name = "GFX_trait_successor_state_of_ere"
+		texturefile = "gfx/traits/successor_state_of_ere.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+
+       spriteType = {
+		name = "GFX_trait_pretender_successor_state_of_ere"
+		texturefile = "gfx/traits/pretender_successor_state_of_ere.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate.lua"
+	}
+}

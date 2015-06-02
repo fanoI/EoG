@@ -24,8 +24,8 @@ e_wre = {
 
 # Holy Roman Empire, Western Roman Empire successor state
 e_hre =  {
-	color={ 155 155 155 }
-	color2={ 220 220 20 }
+	color={ 250 250 250 }
+	color2={ 0 0 0 }
 
 	religion = catholic
 	culture = german
@@ -6711,7 +6711,7 @@ k_ireland = {
 # but it is added because this mod considers the Holy Roman Empire (of the German Nation) as
 # a legittimate successor of the Western Roman Empire so it considered  de jure drifted
 e_germany = {
-	color={ 155 155 155 }
+	color={ 190 200 190 }
 	color2={ 220 220 20 }
 	
 	culture = german

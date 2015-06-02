@@ -1,0 +1,9 @@
+forced_vassalization = {
+	opinion = -30
+        years = 10
+}
+
+consulted_on_vassalization = {
+	opinion = 30
+        years = 10
+}

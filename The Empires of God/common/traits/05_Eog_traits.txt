@@ -1,0 +1,125 @@
+successor_state_of_wre = {
+	monthly_character_prestige = 1
+
+	customizer = no
+	random = no
+
+	opposites = {
+    		pretender_successor_state_of_wre,
+		successor_state_of_ere
+	}
+			
+	vassal_opinion = 10
+	opposite_opinion = -30
+	general_opinion = 10
+}
+
+pretender_successor_state_of_wre = {
+	monthly_character_prestige = 0.5 
+
+	customizer = no
+	random = no
+
+	opposites = {
+		successor_state_of_wre
+		successor_state_of_ere
+	}
+			
+	vassal_opinion = 10
+	opposite_opinion = -30
+}
+
+successor_state_of_ere = {
+	monthly_character_prestige = 1
+
+	customizer = no
+	random = no
+
+	opposites = {
+    		pretender_successor_state_of_ere,
+		successor_state_of_wre
+	}
+			
+	vassal_opinion = 10
+	opposite_opinion = -30
+	general_opinion = 10
+}
+
+pretender_successor_state_of_ere = {
+	monthly_character_prestige = 0.5 
+
+	customizer = no
+	random = no
+
+	opposites = {
+		successor_state_of_wre
+		successor_state_of_ere
+	}
+			
+	vassal_opinion = 10
+	opposite_opinion = -30
+}
+
+independent_character = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+prince_of_the_hre = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+patrician_of_sqpr  = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+prince_of_the_hre_italian = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+# Sort of in the Europa Universalis sense, but the Empire is dynamic!
+unlawful_imperial_territory = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+unlawful_imperial_territory_ex_imperor = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+prince_of_the_hre_burgundian = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+not_burgundian_holding_in_burgundy = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+emperor_holding_in_burgundy = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
