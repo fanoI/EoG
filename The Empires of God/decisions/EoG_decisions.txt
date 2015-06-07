@@ -1,0 +1,128 @@
+decisions = {
+	restore_western_roman_empire = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = wre_restored }
+			trait = successor_state_of_wre
+			religion_group = christian
+		}
+		allow = {
+			prestige = 3000
+
+			# No pretenders should exist
+			NOT = {
+				any_independent_ruler = {
+					trait = pretender_successor_state_of_wre
+				}
+			}
+
+			# S.P.Q.R replace Italia when is created by decision
+			# Italia exists but as an uncreatable titular title
+			OR = {
+				AND = {
+					has_landed_title = e_italy
+					custom_tooltip = {
+						text = spqr_not_restored
+						NOT = { has_global_flag = spqr_restored }
+					}
+				}
+				has_landed_title = e_spqr
+			}
+
+			has_landed_title = e_france
+			has_landed_title = e_spain
+		}
+
+		effect = {
+			set_global_flag = wre_restored
+			#narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+			narrative_event = { id = EoG.81 tooltip = EVTTOOLTIPEoG.81 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	restore_eastern_roman_empire = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = ere_restored }
+			trait = successor_state_of_ere
+			religion_group = christian
+		}
+		allow = {
+			prestige = 3000
+
+			# No pretenders should exist
+			NOT = {
+				any_independent_ruler = {
+					trait = pretender_successor_state_of_ere
+				}
+			}
+
+			# For now Latin Empire and Byzantium are considered
+			# the same title, in future Latin Empire should make
+			# de jure the land of Byzantium before to have the
+			# possibility to take this decision
+			OR = {
+				has_landed_title = e_byzantium
+				has_landed_title = e_latin_empire
+			}
+
+			# The "Tsardom of Serbia" is, in reality, the same
+			# title of "(High) Kingdom of Illiria" under a no Roman Name
+			# probably an OR could be OK here too but how to check it has all
+			# the needed land? 
+			has_landed_title = e_illiria
+			has_landed_title = e_aegyptus
+		}
+
+		effect = {
+			set_global_flag = ere_restored
+			#narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+			narrative_event = { id = EoG.581 tooltip = EVTTOOLTIPEoG.581 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	restore_roman_empire = {
+		is_high_prio = yes
+		potential = {
+			has_dlc = "Legacy of Rome"
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+			OR = {
+				has_landed_title = e_ere
+				has_landed_title = e_wre
+			}
+			religion_group = christian
+		}
+		allow = {
+			prestige = 3000
+
+			has_landed_title = e_ere
+			has_landed_title = e_wre
+		}
+		effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = EoG.82 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -144,7 +144,7 @@ EVTNAMEcommune.4;The Holy Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTDESCcommune.4;We are free from the Pope, but now we have another problem to deal with. We have recently received an emissary from the Holy Roman Empire requesting me to go and swear fealty to the Emperor. While it is true that we promised our allegiance to the Empire, promises can be forgotten...;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTAcommune.4;Rome will not submit!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTBcommune.4;We made a promise, and we shall keep it.;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
-EVTNAMEcommune.5;The Western Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+EVTNAMEcommune.5;The S感想愛;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTDESCcommune.5;Friends, Romans, countrymen, lend me your ears! After the miraculous recovery of all the Italian peninsula the S感想愛 has been reborn! Italy has endured dark times since the imperial frontiers were stormed by barbarians and province after province burned at their touch, but now a bright new age has dawned for all of civilization.\n\n[Root.GetTitledFirstName] rules a restored Senatus Polusque Romanorum, but much work remains to be done. Someone denies yet our right to be the true hineritor of the Western Roman Empire, we will see this when we reconquer Europe!;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
 EVTOPTAcommune.5;Esto perpetua!;Esto perpetua !;Esto perpetua!;;Esto perpetua!;;;;;;;;;x
 EVTNAMEcommune.6;The Second Western Roman Empire;FRENCH;GERMAN;;SPANISH;;;;;;;;;x

@@ -1,18 +1,46 @@
 namespace = EoG
 
-# Holy Roman Emperor gains the trait of "Ruler of Successor State of WRE"
+# Holy Roman Emperor or Consul of S.P.Q.R gains the trait of "Ruler of Successor State of WRE"
 character_event = {
 	id = EoG.1
-	desc = EVTDESCEoG.1
+	#desc = EVTDESCEoG.1
+
+	desc = {
+		trigger = {
+			has_landed_title = e_hre
+		}
+		text = EVTDESCEoG_HRE.1
+	}
+			
+	desc = {
+		trigger = {
+			has_landed_title = e_spqr
+		}
+		text = EVTDESCEoG_SPQR.1
+	}
+
 	picture = GFX_evt_rome_restored_byzantine
 	
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		has_landed_title = e_hre
-		trait = crowned_by_pope
 		NOT = { trait = successor_state_of_wre }
-		# To avoid that during the conference of peace the loser gets the trait only because e_hre exists yet
-		NOT = { has_character_flag = lost_successor_state_of_wre_war }
+		OR = {
+			AND = {
+				has_landed_title = e_hre
+				trait = crowned_by_pope
+				# To avoid that during the conference of peace the loser gets the trait only because e_hre exists yet
+				NOT = { has_character_flag = lost_successor_state_of_wre_war }
+			}
+			AND = {
+				has_landed_title = e_spqr
+				OR = {
+					e_hre = {
+						has_holder = no	
+					}
+					has_global_flag = spqr_successor_by_might
+				}
+			 }
+		}
 	}
 
 	mean_time_to_happen = {
@@ -25,18 +53,37 @@ character_event = {
 	}
 }
 
-# No more Holy Roman Emperor, the trait is lost
+# No more Holy Roman Emperor or Consul of S.P.Q.R, the trait is lost
 character_event = {
 	id = EoG.2
-	desc = EVTDESCEoG.2
+	#desc = EVTDESCEoG.2
 	picture = GFX_evt_rome_restored_byzantine
 	
+	desc = {
+		trigger = {
+			has_landed_title = e_hre
+		}
+		text = EVTDESCEoG_HRE.2
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_spqr
+		}
+		text = EVTDESCEoG_SPQR.2
+	}
+
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		NOT = { has_landed_title = e_hre }
+		trait = successor_state_of_wre
+	
+		OR = {
+			NOT = { has_landed_title = e_hre }
+			NOT = { has_landed_title = e_spqr }
+		}
+
 		# To avoid that during the conference of peace the winner lose the trait only because e_hre exists yet
 		NOT = { has_character_flag = won_successor_state_of_wre_war }
-		trait = successor_state_of_wre
 		is_alive = yes
 	}
 
@@ -45,12 +92,26 @@ character_event = {
 	}
 
 	option = {
-		name = EVTOPTAEoG.2
+		#name = EVTOPTAEoG.2
+		name= {
+			text = EVTOPTAEoG_Empire.2
+			trigger = {
+				is_feudal = yes
+			}
+		}
+		
+		name= {
+			text = EVTOPTAEoG_Republic.2
+			trigger = {
+				is_republic = yes
+			}
+		}
+
 		remove_trait = successor_state_of_wre
 	}
 }
 
-# Pretender to be Successor State of WRE, in the West there is only one S.P.Q.R!
+# Pretender to be Successor State of WRE, S.P.Q.R or Germania (if it was HRE before)
 character_event = {
 	id = EoG.3
 	desc = EVTDESCEoG.3
@@ -58,9 +119,18 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		has_landed_title = e_spqr
 		NOT = { trait = pretender_successor_state_of_wre }
 		NOT = { trait = successor_state_of_wre }
+		OR = {
+			AND = {
+				has_landed_title = e_spqr
+				# This globlal flag implicates that S.P.Q.R. is the real successor NOT the pretender!
+				NOT = { has_global_flag = spqr_successor_by_might }
+			}
+			AND = {
+				has_landed_title = e_germany
+				has_global_flag = germania_was_hre
+			}
 	}
 
 	mean_time_to_happen = {
@@ -73,16 +143,34 @@ character_event = {
 	}
 }
 
-# No more Consul of S.P.Q.R "Pretender to be Successor State of WRE" trait is lost
+# No more Consul of S.P.Q.R or Emperor of Germania "Pretender to be Successor State of WRE" trait is lost
 character_event = {
 	id = EoG.4
 	desc = EVTDESCEoG.4
 	picture = GFX_evt_rome_restored_byzantine
 	
+	desc = {
+		trigger = {
+			has_landed_title = e_hre
+		}
+		text = EVTDESCEoG_Germania.4
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_spqr
+		}
+		text = EVTDESCEoG_SPQR.4
+	}
+
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		NOT = { has_landed_title = e_spqr }
 		trait = pretender_successor_state_of_wre
+		OR = {
+			NOT = { has_landed_title = e_spqr }
+			NOT = { has_landed_title = e_germany }
+		}
+		
 		# To avoid that during the conference of peace the loser loses the trait only because has not e_spqr
 		NOT = { has_character_flag = lost_successor_state_of_wre_war }
 		is_alive = yes
@@ -93,7 +181,19 @@ character_event = {
 	}
 
 	option = {
-		name = EVTOPTAEoG.4
+		name= {
+			text = EVTOPTAEoG_Monarchy.4
+			trigger = {
+				is_feudal = yes
+			}
+		}
+		
+		name= {
+			text = EVTOPTAEoG_Republic.4
+			trigger = {
+				is_republic = yes
+			}
+		}
 		remove_trait = pretender_successor_state_of_wre
 	}
 }
@@ -269,6 +369,7 @@ character_event = {
 		}
 
 		set_character_flag = spqr_host_peace_conference
+		set_global_flag = spqr_successor_by_might 
 
 		# Let's call the Holy Roman Emperor first
 		any_independent_ruler = {
@@ -2888,9 +2989,223 @@ character_event = {
 	}
 }
 
+# Restoration of the Western Roman Empire
+narrative_event = {
+	id = EoG.81
+	title = EVTNAMEEoG.81
+	#desc = EVTDESCEoG.81
+	desc = {
+		trigger = {
+			has_landed_title = e_hre
+		}
+		text = EVTDESCEoG_hre.81
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_spqr
+		}
+		text = EVTDESCEoG_spqr.81
+	}
+	
+	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes	
+
+	option = {
+		name = "EVTOPTAEoG.81"	
+
+		#hidden_tooltip = {
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_wre
+				}
+			}
+		#}
+
+		e_italy = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_wre
+			}
+		}
+
+		e_france = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_wre
+			}
+		}
+
+		e_spain = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_wre
+			}
+		}
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_wre status = yes }
+
+		if = {
+			limit = {
+				has_landed_title = e_hre
+			}
+
+			e_wre = {
+				grant_title = ROOT
+				copy_title_laws = e_hre
+				#copy_title_history = e_hre
+			}
+
+			e_hre = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_hre status = no }
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_spqr
+			}
+
+			e_wre = {
+				grant_title = ROOT
+				copy_title_laws = e_spqr
+				#copy_title_history = e_spqr
+			}
+
+			e_spqr = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_spqr status = no }
+		}
+		
+		# We have reformed the Empire, these titles are not needed anymore
+		e_italy = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_italy status = no }
+
+		e_france = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_france status = no }
+
+		e_spain = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_spain status = no }
+
+		remove_trait = successor_state_of_wre
+
+		add_trait = augustus
+		give_nickname = nick_the_glorious
+
+		# TODO Send narrative event to other characters
+	}
+}
+
+# Restoration of the Western Roman Empire
+narrative_event = {
+	id = EoG.82
+	title = EVTNAMEEoG.82
+	desc = EVTDESCEoG.82
+	#desc = {
+	#	trigger = {
+	#		has_landed_title = e_hre
+	#	}
+	#	text = EVTDESCEoG_hre.81
+	#}
+
+	#desc = {
+	#	trigger = {
+	#		has_landed_title = e_spqr
+	#	}
+	#	text = EVTDESCEoG_spqr.81
+	#}
+	
+	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes	
+
+	option = {
+		name = "EVTOPTAEoG.82"
+
+		#hidden_tooltip = {
+		#	primary_title = {
+		#		any_direct_de_jure_vassal_title = {
+		#			de_jure_liege = e_roman_empire
+		#		}
+		#	}
+		#}
+
+		e_ere = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_roman_empire
+			}
+		}
+
+		e_wre = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_roman_empire
+			}
+		}
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_roman_empire status = yes }
+		if = {
+			limit = {
+				has_landed_title = e_wre
+			}
+
+			e_roman_empire = {
+				grant_title = ROOT
+				copy_title_laws = e_wre
+				#copy_title_history = e_wre
+			}
+		}
+
+		#if = {
+		#	limit = {
+		#		has_landed_title = e_ere
+		#	}
+
+		#	e_roman_empire = {
+		#		grant_title = ROOT
+		#		copy_title_laws = e_ere
+		#		#copy_title_history = e_ere
+		#	}
+		#}
+
+		# We have reformed the Empire, these titles are not needed anymore
+		e_ere = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_ere status = no }
+
+		e_wre = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_wre status = no }
+
+		remove_trait = successor_state_of_wre
+		remove_trait = successor_state_of_ere
+
+		add_trait = augustus
+		give_nickname = nick_the_glorious
+
+		e_roman_empire = {
+			succession = primogeniture # Kludge!
+		}
+
+		recalc_succession = yes
+		# TODO Send narrative event to other characters
+	}
+}
+
 # ID from 500 to 999 reserved to the Eastern Roman Empire
 
-# Byzantine Emperor gains the trait of "Ruler of Successor State of WRE"
+# Byzantine Emperor gains the trait of "Ruler of Successor State of ERE"
 character_event = {
 	id = EoG.500
 	desc = EVTDESCEoG.500
@@ -2900,8 +3215,8 @@ character_event = {
 		has_dlc = "Legacy of Rome"
 		has_landed_title = e_byzantium
 		NOT = { trait = successor_state_of_ere }
-		# To avoid that during the conference of peace the loser gets the trait only because e_hre exists yet
-		NOT = { has_character_flag = lost_successor_state_of_wre_war }
+		# To avoid that during the conference of peace the loser gets the trait only because e_byzantium exists yet
+		NOT = { has_character_flag = lost_successor_state_of_ere_war }
 	}
 
 	mean_time_to_happen = {
@@ -2922,10 +3237,10 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		NOT = { has_landed_title = e_hre }
-		# To avoid that during the conference of peace the winner lose the trait only because e_hre exists yet
-		NOT = { has_character_flag = won_successor_state_of_wre_war }
-		trait = successor_state_of_wre
+		NOT = { has_landed_title = e_byzantium }
+		# To avoid that during the conference of peace the winner lose the trait only because e_byzantium exists yet
+		NOT = { has_character_flag = won_successor_state_of_ere_war }
+		trait = successor_state_of_ere
 		is_alive = yes
 	}
 
@@ -2936,5 +3251,110 @@ character_event = {
 	option = {
 		name = EVTOPTAEoG.501
 		remove_trait = successor_state_of_ere
+	}
+}
+
+# Restoration of the Eastern Roman Empire
+narrative_event = {
+	id = EoG.581
+	title = EVTNAMEEoG.581
+	#desc = EVTDESCEoG.581
+	desc = {
+		trigger = {
+			has_landed_title = e_byzantium
+		}
+		text = EVTDESCEoG_byz.581
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_latin_empire
+		}
+		text = EVTDESCEoG_latin_empire.581
+	}
+	
+	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTAEoG.581"	
+
+		#hidden_tooltip = {
+			primary_title = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
+			}
+		#}
+
+		e_illiria = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_ere
+			}
+		}
+
+		e_aegyptus = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_ere
+			}
+		}
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_ere status = yes }
+
+		if = {
+			limit = {
+				has_landed_title = e_byzantium
+			}
+
+			e_ere = {
+				grant_title = ROOT
+				copy_title_laws = e_byzantium
+				#copy_title_history = e_byzantium
+			}
+
+			e_byzantium = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_byzantium status = no }
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_latin_empire
+			}
+
+			e_ere = {
+				grant_title = ROOT
+				copy_title_laws = e_latin_empire
+				#copy_title_history = e_latin_empire
+			}
+
+			e_latin_empire = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_latin_empire status = no }
+		}
+		
+		# We have reformed the Empire, these titles are not needed anymore
+		e_illiria = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_illiria status = no }
+
+		e_aegyptus = {
+			destroy_landed_title = THIS
+		}
+		activate_title = { title = e_aegyptus status = no }
+
+		remove_trait = successor_state_of_ere
+
+		add_trait = augustus
+		give_nickname = nick_the_glorious
+
+		# TODO Send narrative event to other characters
 	}
 }

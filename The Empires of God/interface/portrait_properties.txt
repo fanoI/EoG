@@ -930,6 +930,7 @@
 			NOT = { has_landed_title = e_latin_empire }
 			NOT = { has_landed_title = e_nikaea }
 			NOT = { has_landed_title = e_ere }
+			NOT = { has_landed_title = e_roman_empire }
 			#NOT = { trait = successor_state_of_wre }
 		}
 		modifier = {

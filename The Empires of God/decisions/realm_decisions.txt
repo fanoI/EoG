@@ -292,42 +292,44 @@ decisions = {
 		}
 	}
 	
-	restore_roman_empire = {
-		is_high_prio = yes
-		potential = {
-			has_dlc = "Legacy of Rome"
-			age = 16
-			prisoner = no
-			NOT = { trait = incapable }
-			NOT = { has_global_flag = rome_restored }
-			has_landed_title = e_byzantium
-			religion_group = christian
-		}
-		allow = {
-			prestige = 3000
-			completely_controls = d_latium
-			completely_controls = d_venice
-			completely_controls = d_ferrara
-			completely_controls = d_sicily
-			completely_controls = d_genoa
-			completely_controls = d_capua
-			completely_controls = d_apulia
-			completely_controls = d_thrace
-			completely_controls = d_antioch
-			completely_controls = d_jerusalem
-			completely_controls = d_alexandria
-			completely_controls = d_athens
-			completely_controls = d_tunis
-			completely_controls = d_croatia
-		}
-		effect = {
-			set_global_flag = rome_restored
-			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# Moved in EoG_decision.txt
+	#
+	#restore_roman_empire = {
+	#	is_high_prio = yes
+	#	potential = {
+	#		has_dlc = "Legacy of Rome"
+	#		age = 16
+	#		prisoner = no
+	#		NOT = { trait = incapable }
+	#		NOT = { has_global_flag = rome_restored }
+	#		has_landed_title = e_byzantium
+	#		religion_group = christian
+	#	}
+	#	allow = {
+	#		prestige = 3000
+	#		completely_controls = d_latium
+	#		completely_controls = d_venice
+	#		completely_controls = d_ferrara
+	#		completely_controls = d_sicily
+	#		completely_controls = d_genoa
+	#		completely_controls = d_capua
+	#		completely_controls = d_apulia
+	#		completely_controls = d_thrace
+	#		completely_controls = d_antioch
+	#		completely_controls = d_jerusalem
+	#		completely_controls = d_alexandria
+	#		completely_controls = d_athens
+	#		completely_controls = d_tunis
+	#		completely_controls = d_croatia
+	#	}
+	#	effect = {
+	#		set_global_flag = rome_restored
+	#		narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
 	
 	mend_great_schism = {
 		is_high_prio = yes
@@ -462,7 +464,16 @@ decisions = {
 		is_high_prio = yes
 		potential = {
 			has_dlc = "Legacy of Rome"
-			has_landed_title = e_roman_empire
+			#has_landed_title = e_roman_empire
+			OR = {
+				has_landed_title = e_roman_empire
+				has_landed_title = e_wre
+				has_landed_title = e_italy
+			}
+
+			# A Patrician Republic or a Theocracy will be destroyed by this decision!
+			is_feudal = yes
+
 			capital_scope = {
 				NOT = { province_id = 333 }
 			}
@@ -480,7 +491,11 @@ decisions = {
 			}
 		}
 		allow = {
-			has_landed_title = e_roman_empire
+			#has_landed_title = e_roman_empire
+			OR = {
+				has_landed_title = e_roman_empire
+				has_landed_title = e_wre
+			}
 			any_realm_lord = { has_landed_title = c_roma }
 		}
 		effect = {
@@ -505,6 +520,8 @@ decisions = {
 			factor = 0
 		}
 	}
+	
+	# TODO make_rome_capital_theocracy and make_rome_capital_republic
 	
 	petition_doge_for_tp = {
 		is_high_prio = yes
@@ -1446,6 +1463,8 @@ decisions = {
 			e_france = {
 				has_holder = no
 			}
+			NOT = { has_global_flag = wre_restored }
+			NOT = { has_global_flag = rome_restored }
 		}
 		allow = {
 			is_adult = yes
