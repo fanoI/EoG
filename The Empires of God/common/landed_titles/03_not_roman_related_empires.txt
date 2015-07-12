@@ -7,7 +7,7 @@ e_scandinavia = {
 	capital = 290 # Uppland
 	
 	culture = swedish
-	short_name = yes	
+	short_name = yes
 
 	norse_pagan_reformed = 500 # Crusade target weight
 		
@@ -1779,11 +1779,8 @@ e_albion = {
 				culture=irish
 			}
 		}
-		any_demesne_title = {
-			tier = king
-			NOT = { title = k_scotland }
-			NOT = { title = k_ireland }
-		}
+		# You must be the King of England too...
+		has_landed_title = k_england
 	}
 
 	k_scotland = {
@@ -4636,7 +4633,6 @@ e_commonwealth = {
 		}
 	}
 }
-
 
 # TODO
 #e_slavic_horde = {

@@ -1714,6 +1714,7 @@ on_new_holder_inheritance = {
 on_new_holder_usurpation = {
 	events = {
 		CM.10022
+		EoG.4
 	}
 }
 
@@ -1793,7 +1794,7 @@ on_war_started = {
 on_war_ended_victory = {
 	events = {
 		CM.10038
-		#Eog.5
+		#EoG.5
 	}
 }
 

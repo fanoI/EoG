@@ -1,8 +1,8 @@
 # High Empire of "Easter Roman Empire"
 e_ere = {
-	color={ 255 0 0 }
-	color2= { 255 255 0 }	
-
+	color={ 163 10 145 }
+	color2={ 255 255 20 }
+	
 	dignity = 200
 
 	religion = orthodox
@@ -17,36 +17,6 @@ e_ere = {
 	# Unsure for now...
 	#purple_born_heirs = yes
 	
-	allow = {
-		always = no # Only created through special event
-	}
-}
-
-# High Empire of "Roman Empire" the union of the Western and Eastern Roman
-# Empire.
-# Note it should be defined here because e_byzantium references it, probably
-# inside e_western_roman_empire.txt would have been more correct...
-e_roman_empire = {
-	color={ 167 10 100 }
-	color2={ 255 255 20 }
-	
-	capital = 333 # Rome
-	
-	short_name = yes
-	
-	title = AUGUSTUS
-	title_female = AUGUSTAS
-
-	duchy_revokation = yes
-	purple_born_heirs = yes
-	
-	culture = italian
-	religion = orthodox
-	
-	# Cannot be held as a secondary title
-	primary = yes
-	dignity = 1000
-
 	allow = {
 		always = no # Only created through special event
 	}

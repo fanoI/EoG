@@ -1,0 +1,27 @@
+0.0.2 Alpha
+
+- The Eastern Roman Empire after being formed obtains an Event in which is
+declared "Pretender Successor State of W.R.E" after this it gets access to
+specific casus belli and access to "The Conference of Peace"
+- Modified "The Conference of Peace" event chain to make it more generic and usable by the Eastern Roman Empire
+- The landed titles are now ordered in a logical way (e_rebels and e_pirates
+readded maybe someone has not "The Old Gods"?)
+- Restored decision "Lateran Teatry" for S.P.Q.R. 
+- Added icons for the traits "Successor State of WRE" and "Successor State of
+ERE" and the corresponding pretenders traits.
+- Called the Empires generically "High Kingdoms" and the holder "High Kings" 
+with specific localizations exceptions
+- Added custom tooltips to simplify the text of some decisions
+
+0.0.1 Alpha
+First Public Alpha Release
+
+- Added decisions to restore the Eastern Roman Empire, Western Roman
+Empire and the Roman Empire
+- Enabled the "Make Rome Capital" decision for Western Roman Empire too
+- Disable decision "Restore the HRE" if WRE or Roman Empire are restored
+- Made more dynamic the giving of the traits Successor of WRE /
+Pretender of WRE
+- The Roman Emperor had a King Crown, blasphemy!
+- Commented "form_the_hre" localization overwritten by RIRSEI as no more
+actual

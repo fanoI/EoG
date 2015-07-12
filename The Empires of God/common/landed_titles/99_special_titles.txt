@@ -1,0 +1,25 @@
+# Used if you do not have the Old Gods DLC, that is the old unlanded rebels
+e_rebels = {
+	rebel = yes
+	landless = yes
+	primary = yes
+
+	culture = swedish
+	tribe = yes
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}
+
+# Not really used in game, I suppose it is a remant of Europa Universalis 3
+e_pirates = {
+	pirate = yes
+	landless = yes
+	primary = yes
+
+	culture = swedish
+	tribe = yes
+
+	color={ 0 0 0 }
+	color2={ 0 0 0 }
+}

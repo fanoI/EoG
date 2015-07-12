@@ -35,6 +35,25 @@ decisions = {
 
 			has_landed_title = e_france
 			has_landed_title = e_spain
+
+			# If you are Catholic the Pope should be your vassal to be the true Roman Emperor!
+			custom_tooltip = {
+				text = vassal_rel_head_catholic
+				hidden_tooltip = {
+					OR = {
+						AND = {
+							religion = catholic
+							any_vassal = {
+								has_landed_title = k_papal_state
+							}
+						}
+						AND = {
+							NOT = { religion = catholic }
+							always = yes
+						}
+					}
+				}
+			}
 		}
 
 		effect = {
@@ -84,6 +103,38 @@ decisions = {
 			# the needed land? 
 			has_landed_title = e_illiria
 			has_landed_title = e_aegyptus
+
+			custom_tooltip = {
+				text = vassal_rel_head_orthodox
+				hidden_tooltip = {
+					OR = {
+						# If you are Orthodox the Ecumenical Pathriarch should be your vassal to be the true Roman Emperor!
+						AND = {
+							religion = orthodox
+							any_vassal = {
+								has_landed_title = k_orthodox
+							}
+						}
+						# If you are Iconoclast the Iconoclast Pathriarch should be your vassal to be the true Roman Emperor!
+						AND = {
+							religion = iconoclast
+							any_vassal = {
+								has_landed_title = d_iconoclast
+							}
+						}
+					
+						AND = {
+							NOT = {
+								OR = {
+									religion = orthodox 
+									religion = iconoclast
+								}
+							}
+							always = yes
+						}
+					}
+				}
+			}
 		}
 
 		effect = {

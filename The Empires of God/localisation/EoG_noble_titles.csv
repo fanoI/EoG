@@ -6,12 +6,18 @@ BASILEUS;Basileus Autokratôr;Basileus Autokratôr;;Basileus Autokratôr;Basileus A
 BASILEAS;Basileas Autokratôr;Basileas Autokratôr;;Basileas Autokratôr;Basileas Autokratôr;;;;;;;;;x
 KAISER;Kaiser;Kaiser;Kaiser;Kaiser;;;;;;;;;x
 KAISERIN;Kaiserin;Kaiserin;Kaiser;Kaiserin;;;;;;;;;x
+emperor;High King;High King;High King;High King;;;;;;;;;x
+emperor_female;High Queen;High Queen;High Queen;High Queen;;;;;;;;;x
+empire_of;High Kingdom of;High Kingdom of;High Kingdom of;High Kingdom of;;;;;;;;;x
 emperor_catholic;King;King;King;King;;;;;;;;;x
 emperor_female_catholic;Queen;Queen;Queen;Queen;;;;;;;;;x
 empire_of_catholic;Kingdom of;Kingdom of;Kingdom of;Kingdom of;;;;;;;;;x
 emperor_orthodox;Basileus;Basileus;Basileus;Basileus;;;;;;;;;x
 emperor_female_orthodox;Basileas;Basileas;Basileas;Basileas;;;;;;;;;x
 empire_of_orthodox;Basileia of;Basileia of;Basileia of;Basileia of;;;;;;;;;x
+#emperor_germanic;High King;High King;High King;High King;;;;;;;;;x
+#emperor_female_germanic;High Queen;High Queen;High Queen;High Queen;;;;;;;;;x
+#empire_of_germanic;High Kingdom of;High Kingdom of;High Kingdom of;High Kingdom of;;;;;;;;;x
 TSAR;Tsar Basileus;Tsar Basileus;Tsar Basileus;Tsar Basileus;;;;;;;;x
 TSARINA;Tsarina Basilissa;Tsar Basileus;Tsar Basileus;Tsar Basileus;;;;;;;;x
 TSARDOM;Tsardom;Tsardom;Tsardom;;;;;;;;;x

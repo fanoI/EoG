@@ -111,11 +111,31 @@ character_event = {
 	}
 }
 
-# Pretender to be Successor State of WRE, S.P.Q.R or Germania (if it was HRE before)
+# Pretender to be Successor State of WRE: S.P.Q.R, Germania (if it was HRE # before) and, obviously, Eastern Roman Empire
 character_event = {
 	id = EoG.3
-	desc = EVTDESCEoG.3
 	picture = GFX_evt_rome_restored_byzantine
+
+	desc = {
+		trigger = {
+			has_landed_title = e_spqr
+		}
+		text = EVTDESCEoG_SPQR.3
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_germania
+		}
+		text = EVTDESCEoG_GER.3
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_ere
+		}
+		text = EVTDESCEoG_ERE.3
+	}
 	
 	trigger = {
 		has_dlc = "Legacy of Rome"
@@ -131,6 +151,8 @@ character_event = {
 				has_landed_title = e_germany
 				has_global_flag = germania_was_hre
 			}
+		 	has_landed_title = e_ere
+		}
 	}
 
 	mean_time_to_happen = {
@@ -143,53 +165,94 @@ character_event = {
 	}
 }
 
-# No more Consul of S.P.Q.R or Emperor of Germania "Pretender to be Successor State of WRE" trait is lost
+# on_action event on_new_holder_usurpation ROOT is the character FROM is the title FROMFROM is the old holder
+# It happens for the usurper (that is not really interested and for this in future we hide this window)
 character_event = {
 	id = EoG.4
 	desc = EVTDESCEoG.4
 	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes
+	#hide_window = yes
+
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		FROMFROM = { trait = pretender_successor_state_of_wre }
+		FROM = {
+			OR = {
+				empire = { title = e_germania }	
+				empire = { title = e_spqr }	
+				empire = { title = e_ere }	
+			}
+		}
+	}
 	
+	#immediate = {
+		#FROMFROM = { character_event = { id = EoG.400 } } 
+	#}
+	
+	option = {
+		name = "EVTOPTOKEoG.4"
+		FROMFROM = { character_event = { id = EoG.400 } } 
+	}
+}
+	
+# No more Consul of S.P.Q.R or Emperor of Germania "Pretender to be Successor State of WRE" trait is lost
+character_event = {
+	id = EoG.400
+	picture = GFX_evt_rome_restored_byzantine
+	
+	is_triggered_only = yes
+
 	desc = {
 		trigger = {
-			has_landed_title = e_hre
+			FROM = { has_landed_title = e_germania }
 		}
-		text = EVTDESCEoG_Germania.4
+		text = EVTDESCEoG_Germania.400
 	}
 
 	desc = {
 		trigger = {
-			has_landed_title = e_spqr
+			FROM = { has_landed_title = e_spqr }
 		}
-		text = EVTDESCEoG_SPQR.4
+		text = EVTDESCEoG_SPQR.400
+	}
+
+	desc = {
+		trigger = {
+			FROM = { has_landed_title = e_ere }
+		}
+		text = EVTDESCEoG_ERE.400
 	}
 
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		trait = pretender_successor_state_of_wre
-		OR = {
-			NOT = { has_landed_title = e_spqr }
-			NOT = { has_landed_title = e_germany }
-		}
-		
+		#OR = {
+		#	NOT = { has_landed_title = e_spqr }
+		#	NOT = { has_landed_title = e_germany }
+		#	NOT = { has_landed_title = e_ere }
+		#}
+
 		# To avoid that during the conference of peace the loser loses the trait only because has not e_spqr
 		NOT = { has_character_flag = lost_successor_state_of_wre_war }
 		is_alive = yes
 	}
 
-	mean_time_to_happen = {
-		days = 1
-	}
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
 
 	option = {
 		name= {
-			text = EVTOPTAEoG_Monarchy.4
+			text = EVTOPTAEoG_Monarchy.400
 			trigger = {
 				is_feudal = yes
 			}
 		}
 		
 		name= {
-			text = EVTOPTAEoG_Republic.4
+			text = EVTOPTAEoG_Republic.400
 			trigger = {
 				is_republic = yes
 			}
@@ -212,6 +275,10 @@ character_event = {
 	#mean_time_to_happen = {
 	#	days = 1
 	#}
+
+	trigger = {
+		FROM = { has_character_flag = won_successor_state_of_wre_war }
+	}
 
 	immediate = {
 		# Fist we count the number of independent catholic characters second their rank	
@@ -361,15 +428,36 @@ character_event = {
 		}
 	}
 
-	# The Victor is the Consul of S.P.Q.R
+	#  Consul of S.P.Q.R vs Holy Roman Emperor
 	option = {
-		name = "EVTOPTAEoG.5"
 		trigger = {
-			has_landed_title = e_spqr
+			has_character_flag = spqr_vs_hre
 		}
+
+		name = "EVTOPTOKEoG.5"
 
 		set_character_flag = spqr_host_peace_conference
 		set_global_flag = spqr_successor_by_might 
+
+		# Let's call the Holy Roman Emperor first
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = e_hre
+			}
+			character_event = { id = EoG.6 days = 3 } 
+		}
+	}
+
+	# Eastern Roman Emperor vs Holy Roman Emperor
+	option = {
+		trigger = {
+			has_character_flag = ere_vs_hre
+		}
+
+		name = "EVTOPTOKEoG.5"
+
+		set_character_flag = ere_host_peace_conference
+		set_global_flag = ere_successor_by_might 
 
 		# Let's call the Holy Roman Emperor first
 		any_independent_ruler = {
@@ -433,6 +521,7 @@ character_event = {
 				kingdom = {
 					OR = {
 						title = k_roman_republic
+						title = k_italy
 						title = k_burgundy
 						title = k_bohemia
 					}
@@ -461,6 +550,7 @@ character_event = {
 						kingdom = {
 							OR = {
 								title = k_roman_republic
+								title = k_italy
 								title = k_burgundy
 								title = k_bohemia
 							}
@@ -503,7 +593,10 @@ character_event = {
 				factor = 3
 				any_realm_title = {
 					kingdom = {
-						title = k_roman_republic
+						OR = {
+							title = k_roman_republic
+							title = k_italy
+						}
 						NOT = { tier = baron }
 					}
 				}
@@ -583,6 +676,7 @@ character_event = {
 						kingdom = {
 							OR = {
 								title = k_roman_republic
+								title = k_italy
 								title = k_burgundy
 								title = k_bohemia
 							}
@@ -789,8 +883,13 @@ character_event = {
 	#is_triggered_only = yes
 
 	trigger = {
-		has_landed_title = e_spqr
-		has_character_flag = spqr_host_peace_conference
+		OR = {
+			has_character_flag = spqr_host_peace_conference
+			has_character_flag = ere_host_peace_conference
+		}
+
+		#has_landed_title = e_spqr
+		#has_character_flag = spqr_host_peace_conference
 		has_character_flag = calling_independent_chars
 		
 		#NOT = {
@@ -881,7 +980,7 @@ character_event = {
 	}
 }
 
-# ID 13 - 30 reserved for various flavorful events: "pilgrinage" events for the characters that have decided to join the conference
+# ID 14 - 30 reserved for various flavorful events: "pilgrinage" events for the characters that have decided to join the conference
 # (similar to religios or VIET survey realm events), maybe some pre-riunions to convince characters to vote to become your vassal in
 # the conference, events for the hoster of the conference preparatory to the meeting and so on...
 
@@ -894,23 +993,34 @@ long_character_event = {
 	border = GFX_event_long_frame_diplomacy
 
 	trigger = {
-		has_landed_title = e_spqr
-		has_character_flag = spqr_host_peace_conference
-		has_character_flag = calling_patricians_of_spqr
+		OR = {
+			AND = {
+				has_landed_title = e_spqr
+				has_character_flag = spqr_host_peace_conference
+				has_character_flag = calling_patricians_of_spqr
 		
-		# TODO as all the guests should phisically come to the Conference of Peace it will be better to sum all the number
-		# in the first event and subtract it when they are arrived to the seat of the Conference and here to check that number
-		#NOT = {
-		#	any_realm_character = {
-		#		limit = {
-		#			trait = patrician_of_sqpr
-		#		}
-		#	}
-		#}
-		NOT = {
-			any_realm_character = {
-				count = 1
-				trait = patrician_of_sqpr
+				NOT = {
+					any_realm_character = {
+					count = 1
+					trait = patrician_of_sqpr
+					}
+				}
+			}
+			AND = {
+				has_landed_title = e_ere
+				has_character_flag = ere_host_peace_conference
+				has_character_flag = calling_princes_of_hre
+
+				e_hre = {
+					holder_scope = {
+						NOT = {
+							any_vassal = {
+								count = 1
+								trait = prince_of_the_hre
+							}
+						}
+					}
+				}
 			}
 		}
 	}
@@ -921,9 +1031,21 @@ long_character_event = {
 
 	# Give the sad news to the Holy Roman Emperor that his Empire is forfeit
 	option = {
-		name = "EVTOPTOKEoG.30"
+		name= {
+  			text = EVTOPTOKSQPREoG.30
+  			trigger = {
+    				has_landed_title = e_spqr
+  			}
+		}
+		name= {
+  			text = EVTOPTOKEREEoG.30
+  			trigger = {
+    				has_landed_title = e_ere
+  			}
+		}
 
 		clr_character_flag = calling_patricians_of_spqr
+		clr_character_flag = calling_princes_of_hre
 		any_independent_ruler = {
 			limit = {
 				has_landed_title = e_hre
@@ -993,32 +1115,40 @@ narrative_event = {
 	picture = GFX_evt_council
 
 	is_triggered_only = yes
-
+	
+	# As we have decided
 	option = {
 		trigger = {
+			#OR = {
+			#	has_landed_title = e_byzantium	
+			#	has_landed_title = e_ere	
+			#}
 			OR = {
-				has_landed_title = e_byzantium	
-				has_landed_title = e_ere	
+				has_character_flag = spqr_host_peace_conference 
+				has_character_flag = ere_host_peace_conference
+				has_character_flag = joins_the_conference_of_peace 
 			}
 		}
  
 		name = "EVTOPTA.32"
 	}
 
+	# For Byzantines / Eastern Roman Emperor if S.P.Q.R. did this: "Well this fake "Romans" has done a good thing in the end!"
 	option = {
 		trigger = {
-			has_landed_title = e_spqr
-			NOT = {
-				OR = {
-					has_landed_title = e_byzantium	
-					has_landed_title = e_ere	
-				}
+			OR = {
+				has_landed_title = e_ere
+				has_landed_title = e_byzantium
 			}
+			NOT = { has_character_flag = ere_host_peace_conference }
+			#FROMFROM = {  has_character_flag = spqr_host_peace_conference }
 		}
 
+		# TODO make them lose prestige? They should the one to do this!
 		name = "EVTOPTB.32"
 	}
 
+	# For other characters that have NOT partecipated to the Conference of Peace
 	option = {
 		trigger = {
 			NOT = {
@@ -1026,6 +1156,7 @@ narrative_event = {
 					has_landed_title = e_spqr
 					has_landed_title = e_byzantium	
 					has_landed_title = e_ere	
+					has_character_flag = joins_the_conference_of_peace
 				}
 			}
 		}
@@ -1034,7 +1165,7 @@ narrative_event = {
 	}
 }
 
-# Now that we have dealt with the Holy Roman Empire we should see if other issues, we count them and create a series of global_flags to recognize them,
+# Now that we have dealt with the Holy Roman Empire we should see if there are other issues, we count them and create a series of global_flags to recognize them,
 # when an issue is resolved we subtract from the count when the count reaches 0 it means that "The Conference of Peace" has ended.
 character_event = {
 	id = EoG.33
@@ -1042,15 +1173,18 @@ character_event = {
 	picture = GFX_evt_council
 
 	trigger = {
-		has_landed_title = e_spqr
+		OR = {
+			has_character_flag = spqr_host_peace_conference
+			has_character_flag = ere_host_peace_conference
+		}
+		
 		has_global_flag = germania_was_hre
-		has_character_flag = spqr_host_peace_conference
 		NOT = { has_global_flag = issue_calculation_done }
 	}
 
-	immediate = {
-
-	}
+	#immediate = {
+#
+#	}
 
 	option = {
 		name = "EVTOPTOKEoG.33"
@@ -1066,7 +1200,10 @@ character_event = {
 						#	de_jure_liege = k_italy 
 						#	de_jure_liege = k_roman_republic
 						#}
-						de_jure_liege_or_above = k_roman_republic
+						OR = {
+							de_jure_liege_or_above = k_roman_republic
+							de_jure_liege_or_above = k_italy
+						}
 						NOT = { tier = baron }
 					}
 					character_event = { id = EoG.34 }
@@ -1131,9 +1268,24 @@ character_event = {
 		name = "EVTOPTOKEoG.34"
 		#set_global_flag = issue_germania_controlling_north_italy 
 		set_global_flag = issue_germania_controlling_north_italy 
+		set_character_flag = sollevates_issue_germania_controlling_north_italy
 
-		e_spqr = {
-			change_variable = { which = "conference_issues" value = 1 }
+		if = {
+			limit = { 
+				FROM = { has_character_flag = spqr_host_peace_conference }
+			}
+			e_spqr = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = ere_host_peace_conference }
+			}
+			e_ere = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
 		}
 	}
 }
@@ -1149,9 +1301,28 @@ character_event = {
 		name = "EVTOPTOKEoG.35"
 		set_global_flag = issue_germania_controlling_burgundy 
 		#set_character_flag = issue_germania_controlling_north_burgundy 
+		set_character_flag = sollevates_issue_germania_controlling_burgundy
 
-		e_spqr = {
-			change_variable = { which = "conference_issues" value = 1 }
+		#e_spqr = {
+		#	change_variable = { which = "conference_issues" value = 1 }
+		#}
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = spqr_host_peace_conference }
+			}
+			e_spqr = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = ere_host_peace_conference }
+			}
+			e_ere = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
 		}
 	}
 }
@@ -1167,9 +1338,28 @@ character_event = {
 		name = "EVTOPTOKEoG.36"
 		set_global_flag = issue_germania_controlling_bohemia 
 		#set_character_flag = issue_germania_controlling_bohemia 
+		set_character_flag = sollevates_issue_germania_controlling_bohemia
 
-		e_spqr = {
-			change_variable = { which = "conference_issues" value = 1 }
+		#e_spqr = {
+		#	change_variable = { which = "conference_issues" value = 1 }
+		#}
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = spqr_host_peace_conference }
+			}
+			e_spqr = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = ere_host_peace_conference }
+			}
+			e_ere = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
 		}
 	}
 }
@@ -1182,21 +1372,34 @@ long_character_event = {
 
 	trigger = {
 		has_character_flag = joins_the_conference_of_peace
-		liege = { has_landed_title = e_germany } 
-		NOT = { has_landed_title = e_germany }
-		de_jure_liege = k_roman_republic # That is the Consul of S.P.Q.R
+		has_character_flag = sollevates_issue_germania_controlling_north_italy
+
+#		liege = { has_landed_title = e_germany } 
+#		NOT = { has_landed_title = e_germany }
+#		OR = {
+#			de_jure_liege = k_roman_republic # That is the Consul of S.P.Q.R
+#			de_jure_liege = k_italy
+#		}
 		has_global_flag = issue_germania_controlling_north_italy
-		NOT = { has_global_flag = italian_issue_raised }	
+#		#NOT = { has_global_flag = italian_issue_raised }	
+#
+		NOT = { has_global_flag = deciding_on_issue }
 	}
 
 	option = {
 		name = "EVTOPTOKEoG.37"
 
 		set_global_flag = italian_issue_raised	
+		set_global_flag = deciding_on_issue
+		#clr_character_flag = sollevates_issue_germania_controlling_north_italy
 
 		any_independent_ruler = {
 			limit = {
-				has_landed_title = e_spqr
+				#has_landed_title = e_spqr
+				OR = {
+					has_character_flag = spqr_host_peace_conference
+					has_character_flag = ere_host_peace_conference
+				}
 			}
 			long_character_event = { id = EoG.38 }
 		}
@@ -1220,8 +1423,21 @@ long_character_event = {
 		#set_global_flag = conference_discussing_issue
 
 		# When the option is pressed the issue could be considered resolved in a way or in another...		
-		e_spqr = {
-			subtract_variable = { which = "conference_issues" value = 1 }
+		if = {
+			limit = {
+				has_character_flag = spqr_host_peace_conference
+			}
+			e_spqr = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = ere_host_peace_conference
+			}
+			e_ere = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
 		}
 	
 		set_global_flag = deciding_on_issue
@@ -1235,7 +1451,11 @@ long_character_event = {
 						#	de_jure_liege = k_italy 
 						#	de_jure_liege = k_roman_republic
 						#}
-						de_jure_liege_or_above = k_roman_republic
+						OR = {
+							de_jure_liege_or_above = k_roman_republic
+							de_jure_liege_or_above = k_italy
+						}
+
 						#NOT = { tier = baron }
 						tier = duke
 					}
@@ -1255,7 +1475,11 @@ long_character_event = {
 						#	de_jure_liege = k_italy 
 						#	de_jure_liege = k_roman_republic
 						#}
-						de_jure_liege_or_above = k_roman_republic
+						OR = { 
+							de_jure_liege_or_above = k_roman_republic
+							de_jure_liege_or_above = k_italy
+						}
+
 						#NOT = { tier = baron }
 						tier = count
 
@@ -1277,12 +1501,18 @@ long_character_event = {
 					limit = {
 						AND = {
 							NOT = { 
-								de_jure_liege_or_above = k_roman_republic
+								OR = { 
+									de_jure_liege_or_above = k_roman_republic
+									de_jure_liege_or_above = k_italy
+								}
 							}
 
 							any_realm_title = {
 								kingdom = {
-									title = k_roman_republic
+									OR = { 
+										title = k_roman_republic
+										title = k_italy
+									}
 									NOT = { tier = baron }
 								}
 							}
@@ -1299,7 +1529,10 @@ long_character_event = {
 				has_landed_title = e_germany
 				any_demesne_title = {
 					kingdom = {
-						title = k_roman_republic
+						OR = { 
+							title = k_roman_republic
+							title = k_italy
+						}
 					}
 				}
 			}
@@ -1506,7 +1739,7 @@ character_event = {
 			who =  FROM
 			modifier = forced_vassalization
 		}
-		 hidden_tooltip = { remove_trait = prince_of_the_hre_italian }
+		hidden_tooltip = { remove_trait = prince_of_the_hre_italian }
 	}
 }
 
@@ -1524,7 +1757,10 @@ character_event = {
 		any_demesne_title = {
 			limit = {
 				kingdom = {
-					title = k_roman_republic
+					OR = { 
+						title = k_roman_republic
+						title = k_italy
+					}
 					NOT = { tier = baron }
 				}
 			}
@@ -1534,7 +1770,10 @@ character_event = {
 
 		any_realm_lord = {
 			limit = {
-				de_jure_liege_or_above = k_roman_republic
+				OR = {
+					de_jure_liege_or_above = k_roman_republic
+					de_jure_liege_or_above = k_italy
+				}
 				NOT = { tier = baron }
 			}
 			set_defacto_liege = FROM
@@ -1562,7 +1801,10 @@ character_event = {
 		any_demesne_title = {
 			limit = {
 				kingdom = {
-					title = k_roman_republic
+					OR = {
+						title = k_roman_republic
+						title = k_italy
+					}
 					NOT = { tier = baron }
 				}
 			}
@@ -1621,6 +1863,12 @@ character_event = {
 			modifier = {
 				factor = 2
 				culture_group = central_germanic
+			}
+
+			# It is the character that raised the issue! Now he cannot decide to remain part of Germania...
+			modifier = {
+				factor = 0
+				has_character_flag = sollevates_issue_germania_controlling_north_italy	
 			}
 			
 			# He likes the old liege more
@@ -1711,7 +1959,10 @@ character_event = {
 		any_demesne_title = {
 			limit = {
 				kingdom = {
-					title = k_roman_republic
+					OR = { 
+						title = k_roman_republic
+						title = k_italy
+					}
 					NOT = { tier = baron }
 				}
 			}
@@ -1721,7 +1972,10 @@ character_event = {
 
 		any_realm_lord = {
 			limit = {
-				de_jure_liege_or_above = k_roman_republic
+				OR = {	
+					de_jure_liege_or_above = k_roman_republic
+					de_jure_liege_or_above = k_italy
+				}
 				NOT = { tier = baron }
 			}
 			set_defacto_liege = FROM
@@ -1794,14 +2048,17 @@ character_event = {
 		any_demesne_title = {
 			limit = {
 				kingdom = {
-					title = k_roman_republic
+					OR = { 
+						title = k_roman_republic
+						title = k_italy
+					}
 					NOT = { tier = baron }
 				}
 			}
 			usurp_title_plus_barony_if_unlanded = FROM
 			set_defacto_liege = FROM
-			FROM = { character_event = { id = EoG.45 } }
 		}
+		FROM = { character_event = { id = EoG.45 } }
 	}
 
 	# Second option retain your territory and send an insult to the weak Consul
@@ -2008,7 +2265,10 @@ character_event = {
 	picture = GFX_evt_council
 
 	trigger = {
-		has_landed_title = e_spqr
+		OR = {
+			has_character_flag = spqr_host_peace_conference
+			has_character_flag = ere_host_peace_conference
+		}
 
 		has_global_flag = deciding_on_issue
 		has_global_flag = issue_germania_controlling_north_italy
@@ -2071,15 +2331,27 @@ character_event = {
 		}
 		has_global_flag = issue_germania_controlling_burgundy
 
-		NOT = { has_global_flag = deciding_on_issue } 
+		NOT = { has_global_flag = deciding_on_issue }
 	}
 
 	option =  {
 		name = "EVTOPTOKEoG.49"
 
+		#any_independent_ruler = {
+		#	limit = {
+		#		has_landed_title = e_spqr
+		#	}
+		#	long_character_event = { id = EoG.50 }
+		#}
+		set_global_flag = deciding_on_issue
+
 		any_independent_ruler = {
 			limit = {
-				has_landed_title = e_spqr
+				#has_landed_title = e_spqr
+				OR = {
+					has_character_flag = spqr_host_peace_conference
+					has_character_flag = ere_host_peace_conference
+				}
 			}
 			long_character_event = { id = EoG.50 }
 		}
@@ -2103,9 +2375,23 @@ long_character_event = {
 		#set_global_flag = conference_discussing_issue
 
 		# When the option is pressed the issue could be considered resolved in a way or in another...		
-		e_spqr = {
-			subtract_variable = { which = "conference_issues" value = 1 }
+		if = {
+			limit = {
+				has_character_flag = spqr_host_peace_conference
+			}
+			e_spqr = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
 		}
+		if = {
+			limit = {
+				has_character_flag = ere_host_peace_conference
+			}
+			e_ere = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
 
 		set_global_flag = deciding_on_issue
 
@@ -2175,7 +2461,7 @@ long_character_event = {
 				has_landed_title = e_germany
 				any_demesne_title = {
 					kingdom = {
-						title = k_roman_republic
+						title = k_burgundy
 					}
 				}
 			}
@@ -2328,6 +2614,10 @@ long_character_event = {
 	# Create an independent Republic of Burgundy, that in reality will be our Puppet 
 	option = {
 		name = "EVTOPTDEoG.50"
+
+		trigger = {
+			has_landed_title = e_spqr # This makes sense only for S.P.Q.R.
+		}
 
 		# We have already decided!
 		clr_global_flag = deciding_on_issue
@@ -2752,7 +3042,11 @@ character_event = {
 	picture = GFX_evt_council
 
 	trigger = {
-		has_landed_title = e_spqr
+		OR = {
+			has_character_flag = spqr_host_peace_conference
+			has_character_flag = ere_host_peace_conference
+		}
+		#has_landed_title = e_spqr
 
 		has_global_flag = deciding_on_issue
 		has_global_flag = issue_germania_controlling_burgundy
@@ -2791,12 +3085,14 @@ character_event = {
 	}
 
 	option =  {
-		name = "EVTOPTOKEoG.60"
+		name = "EVTOPTOKEoG.61"
 
 		clr_global_flag = deciding_on_issue
 		#set_global_flag = votation_ended
 		clr_global_flag = issue_germania_controlling_burgundy 
 		clr_global_flag = voting_on_burgundian_issue
+
+		prestige = 500
 	}
 
 }
@@ -2824,7 +3120,10 @@ long_character_event = {
 
 		any_independent_ruler = {
 			limit = {
-				has_landed_title = e_spqr
+				OR = {
+					has_character_flag = spqr_host_peace_conference
+					has_character_flag = ere_host_peace_conference
+				}
 			}
 			long_character_event = { id = EoG.63 }
 		}
@@ -2843,8 +3142,21 @@ long_character_event = {
 		#set_global_flag = conference_discussing_issue
 
 		# When the option is pressed the issue could be considered resolved in a way or in another...		
-		e_spqr = {
-			subtract_variable = { which = "conference_issues" value = 1 }
+		if = {
+			limit = {
+				has_character_flag = spqr_host_peace_conference
+			}
+			e_spqr = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = ere_host_peace_conference
+			}
+			e_ere = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
 		}
 
 		set_global_flag = deciding_on_issue
@@ -2916,6 +3228,7 @@ character_event = {
 		k_bohemia = {
 			de_jure_liege = e_wendish_empire
 		}
+		# Narrative event "The Crown of Boehmia"
 	}
 }
 
@@ -2929,7 +3242,11 @@ character_event = {
 
 	trigger = {
 		#has_landed_title = e_spqr
-		has_character_flag = spqr_host_peace_conference
+		OR = { 
+			has_character_flag = spqr_host_peace_conference
+			has_character_flag = ere_host_peace_conference
+		}
+
 		#OR = {
 		#	has_global_flag = issue_germania_controlling_north_italy
 		#	has_global_flag = issue_germania_controlling_burgundy
@@ -2938,9 +3255,45 @@ character_event = {
 		# Kludge! I expected that an unexisting variable evalutated to false, instead is equal to 0...
 		# After the global flag 'issue_calculation_done' it should exist and have a value...
 		has_global_flag = issue_calculation_done
-		e_spqr = {
-			is_variable_equal = { which = "conference_issues" value = 0 }
+
+		OR = {
+			AND = {
+				has_character_flag = spqr_host_peace_conference
+				e_spqr = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
+			AND = {
+				has_character_flag = ere_host_peace_conference
+				e_ere = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
 		}
+
+		#e_ere = {
+		#	is_variable_equal = { which = "conference_issues" value = 0 }
+		#}
+		#if = {
+		#	limit = {
+		#		has_character_flag = spqr_host_peace_conference
+		#	}
+		#	e_spqr = {
+		#		is_variable_equal = { which = "conference_issues" value = 1 }
+		#	}
+		#}
+		#if = {
+		#	limit = {
+		#		has_character_flag = ere_host_peace_conference
+		#	}
+		#	e_ere = {
+		#		is_variable_equal = { which = "conference_issues" value = 1 }
+		#	}
+		#}
+	}
+
+	mean_time_to_happen = {
+		days = 5
 	}
 
 	option = {
@@ -2948,6 +3301,7 @@ character_event = {
 
 		# Now a little of clean up...
 		clr_character_flag = spqr_host_peace_conference
+		clr_character_flag = ere_host_peace_conference
 		clr_global_flag = issue_calculation_done
 
 		any_independent_ruler = {
@@ -3016,12 +3370,21 @@ narrative_event = {
 		name = "EVTOPTAEoG.81"	
 
 		#hidden_tooltip = {
-			primary_title = {
-				any_direct_de_jure_vassal_title = {
-					de_jure_liege = e_wre
-				}
-			}
+		#	primary_title = {
+		#		any_direct_de_jure_vassal_title = {
+		#			de_jure_liege = e_wre
+		#		}
+		#	}
 		#}
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_wre status = yes }
+		primary_title = {
+			e_wre = {
+				grant_title = ROOT
+				copy_title_laws = PREV
+			}
+		}
 
 		e_italy = {
 			any_direct_de_jure_vassal_title = {
@@ -3041,19 +3404,22 @@ narrative_event = {
 			}
 		}
 
-		# Bug of new patch grant_title does not work on not active titles anymore!
-		activate_title = { title = e_wre status = yes }
-
 		if = {
 			limit = {
 				has_landed_title = e_hre
 			}
 
-			e_wre = {
-				grant_title = ROOT
-				copy_title_laws = e_hre
-				#copy_title_history = e_hre
+			e_hre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_wre
+				}
 			}
+
+			#e_wre = {
+			#	grant_title = ROOT
+			#	copy_title_laws = e_hre
+			#	#copy_title_history = e_hre
+			#}
 
 			e_hre = {
 				destroy_landed_title = THIS
@@ -3067,11 +3433,17 @@ narrative_event = {
 				has_landed_title = e_spqr
 			}
 
-			e_wre = {
-				grant_title = ROOT
-				copy_title_laws = e_spqr
-				#copy_title_history = e_spqr
+			e_spqr = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_wre
+				}
 			}
+			
+			#e_wre = {
+			#	grant_title = ROOT
+			#	copy_title_laws = e_spqr
+			#	#copy_title_history = e_spqr
+			#}
 
 			e_spqr = {
 				destroy_landed_title = THIS
@@ -3101,11 +3473,12 @@ narrative_event = {
 		add_trait = augustus
 		give_nickname = nick_the_glorious
 
+		recalc_succession = yes
 		# TODO Send narrative event to other characters
 	}
 }
 
-# Restoration of the Western Roman Empire
+# Restoration of the Roman Empire via unification of WRE with ERE
 narrative_event = {
 	id = EoG.82
 	title = EVTNAMEEoG.82
@@ -3126,7 +3499,7 @@ narrative_event = {
 	
 	picture = GFX_evt_rome_restored_byzantine
 
-	is_triggered_only = yes	
+	is_triggered_only = yes
 
 	option = {
 		name = "EVTOPTAEoG.82"
@@ -3139,6 +3512,15 @@ narrative_event = {
 		#	}
 		#}
 
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_roman_empire status = yes }
+		primary_title = {
+			e_roman_empire = {
+				grant_title = ROOT
+				copy_title_laws = PREV
+			}
+		}
+		
 		e_ere = {
 			any_direct_de_jure_vassal_title = {
 				de_jure_liege = e_roman_empire
@@ -3151,19 +3533,17 @@ narrative_event = {
 			}
 		}
 
-		# Bug of new patch grant_title does not work on not active titles anymore!
-		activate_title = { title = e_roman_empire status = yes }
-		if = {
-			limit = {
-				has_landed_title = e_wre
-			}
-
-			e_roman_empire = {
-				grant_title = ROOT
-				copy_title_laws = e_wre
-				#copy_title_history = e_wre
-			}
-		}
+		#if = {
+		#	limit = {
+		#		has_landed_title = e_wre
+		#	}
+                #
+	        #	e_roman_empire = {
+		#		grant_title = ROOT
+		#		copy_title_laws = e_wre
+		#		#copy_title_history = e_wre
+		#	}
+		#}
 
 		#if = {
 		#	limit = {
@@ -3194,9 +3574,9 @@ narrative_event = {
 		add_trait = augustus
 		give_nickname = nick_the_glorious
 
-		e_roman_empire = {
-			succession = primogeniture # Kludge!
-		}
+		#e_roman_empire = {
+		#	succession = primogeniture # Kludge!
+		#}
 
 		recalc_succession = yes
 		# TODO Send narrative event to other characters
@@ -3281,12 +3661,22 @@ narrative_event = {
 		name = "EVTOPTAEoG.581"	
 
 		#hidden_tooltip = {
-			primary_title = {
-				any_direct_de_jure_vassal_title = {
-					de_jure_liege = e_ere
-				}
-			}
+		#	primary_title = {
+		#		any_direct_de_jure_vassal_title = {
+		#			de_jure_liege = e_ere
+		#		}
+		#	}
 		#}
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_ere status = yes }
+
+		primary_title = {
+			e_ere = {
+				grant_title = ROOT
+				copy_title_laws = PREV
+			}
+		}
 
 		e_illiria = {
 			any_direct_de_jure_vassal_title = {
@@ -3300,19 +3690,23 @@ narrative_event = {
 			}
 		}
 
-		# Bug of new patch grant_title does not work on not active titles anymore!
-		activate_title = { title = e_ere status = yes }
 
 		if = {
 			limit = {
 				has_landed_title = e_byzantium
 			}
 
-			e_ere = {
-				grant_title = ROOT
-				copy_title_laws = e_byzantium
-				#copy_title_history = e_byzantium
+			e_byzantium = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
 			}
+
+			#e_ere = {
+			#	grant_title = ROOT
+			#	#copy_title_laws = e_byzantium
+			#	#copy_title_history = e_byzantium
+			#}
 
 			e_byzantium = {
 				destroy_landed_title = THIS
@@ -3326,11 +3720,17 @@ narrative_event = {
 				has_landed_title = e_latin_empire
 			}
 
-			e_ere = {
-				grant_title = ROOT
-				copy_title_laws = e_latin_empire
-				#copy_title_history = e_latin_empire
+			e_latin_empire = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
 			}
+
+			#e_ere = {
+			#	grant_title = ROOT
+			#	copy_title_laws = e_latin_empire
+			#	#copy_title_history = e_latin_empire
+			#}
 
 			e_latin_empire = {
 				destroy_landed_title = THIS
@@ -3355,6 +3755,7 @@ narrative_event = {
 		add_trait = augustus
 		give_nickname = nick_the_glorious
 
+		recalc_succession = yes
 		# TODO Send narrative event to other characters
 	}
 }

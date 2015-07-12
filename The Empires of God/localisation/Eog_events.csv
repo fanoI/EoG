@@ -5,14 +5,19 @@ EVTDESCEoG_HRE.2;You are no longer the ruler of the Holy Roman Empire. It will s
 EVTDESCEoG_SPQR.2;You are no longer the ruler of the Senatus Popolusque Romanorum. It will surely crumble without your guiding hand to lead it.;;;;;;;;;x
 EVTOPTAEoG_Empire.2;What a loss for the Empire!;Quelle perte pour l'empire !;Was für ein Verlust für das Reich!;;¡Qué pérdida para el Imperio!;;;;;;;;;x
 EVTOPTAEoG_Republic.2;What a loss for the Republic!;Quelle perte pour le Republique;;Was für ein Verlust für der Republick!;;¡Qué pérdida para la Republica!;;;;;;;;;x
-EVTDESCEoG.3;You are the current ruler of the glorious Senatus Popolusque Romanorum, the original State from which the glorious Roman Empire was born and for this you can make a sound claim to be the pretender to be the Successor State of the Western Roman Empire. May your reign be a prosperous one!;;;;;;;;;x
-EVTOPTAEoG.3;Hail Consul!;Avé Consul!;Heil Consul!;;¡Ave Consul!;;;;;;;;;x
-EVTDESCEoG_SPQR.4;You are no longer the ruler of the Senatus Popolusque Romanorum. It will surely crumble without your guiding hand to lead it.;;;;;;;;;x
-EVTOPTAEoG_Republic.4;What a loss for the Republic!;;;;;;;;;x
-EVTDESCEoG_Germania.4;;You are no longer the ruler of the Kingdom of Germania. It will surely crumble without your guiding hand to lead it.;;;;;;;;;x
-EVTOPTAEoG_Monarchy.4;What a loss for the Realm!;;;;;;;;;x
+EVTDESCEoG_SPQR.3;You are the current ruler of the glorious Senatus Popolusque Romanorum, the original State from which the glorious Roman Empire was born and for this you can make a sound claim to be the pretender to be the Successor State of the Western Roman Empire. May your reign be a prosperous one!;;;;;;;;;x
+EVTDESCEoG_GER.3;You are the current ruler of the glorious Kingdom of Germania, the State one known as The Holy Roman Empire and for this you can make a sound claim to be the pretender to be the Successor State of the Western Roman Empire. May your reign be a prosperous one!;;;;;;;;;x
+EVTDESCEoG_ERE.3;You are the current ruler of the glorious Eastern Roman Empire one of two states in which the Roman Empire was divided by the Emperor Diocletian and for this you can make a sound claim to be the pretender to be the Successor State of the Western Roman Empire. May your reign be a prosperous one!;;;;;;;;;x
+EVTOPTAEoG.3;Hail Caesar!;Avé César!;Heil Cäsar!;;¡Ave César!;;;;;;;;;x
+EVTDESCEoG.4;EoG.4 - Successor of Rome Usurped (You should not see this!);;;;;;;;;x
+EVTOPTOKEoG.4;???;;;;;;;;;x
+EVTDESCEoG_SPQR.400;You are no longer the ruler of the Senatus Popolusque Romanorum. It will surely crumble without your guiding hand to lead it.;;;;;;;;;x
+EVTOPTAEoG_Republic.400;What a loss for the Republic!;;;;;;;;;x
+EVTDESCEoG_Germania.400;You are no longer the ruler of the Kingdom of Germania. It will surely crumble without your guiding hand to lead it.;;;;;;;;;x
+EVTDESCEoG_ERE.400;You are no longer the ruler of the Eastern Roman Empire. It will surely crumble without your guiding hand to lead it.;;;;;;;;;x
+EVTOPTAEoG_Monarchy.400;What a loss for the Realm!;;;;;;;;;x
 EVTDESCEoG.5;You have won the war and asserted your right to be the ruler of the True Successor State of the glorious Roman Empire. This event is too important to be resolved between you and the defeated Emperor only, so you have decided that a Conference of Peace shall be called between all interested parties to decide the fate of Western Europe.;;;;;;;;;x
-EVTOPTAEoG.5;That the Conference of Peace be summoned;;;;;;;;;x
+EVTOPTOKEoG.5;That the Conference of Peace be summoned;;;;;;;;;x
 EVTDESCEoG.6;To the glorious [This.GetTitledFirstName] as the new ruler of the Successor State of the Western Roman Empire, so recognized by God and all the Christendom, I have decided to held a Peace Conference in [From.Location.GetName]. I extend to you an invitation to attend the Conference and eagerly await your response.\nSigned [From.GetTitledFirstName] of [From.PrimaryTitle.GetName];;;;;;;;;x
 EVTOPTAEoG.6;I have not a really choiche I must join this Conference;;;;;;;;;x
 EVTOPTBEoG.6;I give my blessing to this Conference;;;;;;;;;x
@@ -49,12 +54,13 @@ EVTDESCEoG.27;EOG27;;;;;;;;;x
 EVTDESCEoG.28;EOG28;;;;;;;;;x
 EVTDESCEoG.29;EOG29;;;;;;;;;x
 EVTDESCEoG.30;All the guests have arrived and the Conference of Peace can finally begin. You expose to the Conference the first problem: it is the fate of the state known as Holy Roman Empire. In your opinion the solution is easy and no matter of discussion! Only an Emperor shall exist in the West and that man is you.\nYou ask - or better command - to the Emperor of the Holy Roman Empire to abdicate. In a gesture of good will you permit to him to hold the more humble title of "King of Germania". Some mourmour can be heard in the hall but no one dares to oppose you. The Conference of Peace has taken its first decision.;;;;;;;;x
-EVTOPTOKEoG.30;I am the Emperor... ehm Consul of the West!;;;;;;;x
-EVTDESCEoG.31;The Conference of Peace has taken his decision: you should abdicate as Emperor of the Holy Roman Empire, the only title that will remain for your is the title of King of Germania. You give an hasty look to the Consul of S·P·Q·R and remove the Crown from your head and restituite it to the Pope togheter with the regalia of the Empire.;;;;;;;;;x
+EVTOPTOKSQPREoG.30;I am the Emperor... ehm Consul of the West!;;;;;;;x
+EVTOPTOKEREEoG.30;I am the Emperor of the East and the West!;;;;;;;x
+EVTDESCEoG.31;The Conference of Peace has taken his decision: you should abdicate as Emperor of the Holy Roman Empire, the only title that will remain for you is the title of King of Germania. You give an hasty look to [From.GetTitledFirstName] of [From.PrimaryTitle.GetName] and remove the Crown from your head and restituite it to the Pope together with the regalia of the Empire.;;;;;;;;;x
 EVTOPTAEoG.31;I will never forget this day!;;;;;;;;;x
-EVTDESCEoG.32;Today in the Conference of Peace has been decided that the Holy Roman Empire shall not exist anymore, a new State that will be know as Kingdom of Germania will be created on his ashes. The Emperor has restituited the Crown and the Relagia of the Empire to the Pope and has accepted the Crown of Germania for him and his descendent. A new chapter of the History of Western Europe now begin!;;;;;;;;;x
-EVTOPTA.32;Well this fake "Romans" has done a good thing in the end!;;;;;;;;;x 
-EVTOPTB.32;As we have decided;;;;;;;;;x
+EVTDESCEoG.32;Today in the Conference of Peace has been decided that the Holy Roman Empire shall not exist anymore, a new State that will be known as Kingdom of Germania will be created on his ashes. The Emperor has restituited the Crown and the Regalia of the Empire to the Pope and has accepted the Crown of Germania for him and his descendent. A new chapter of the History of Western Europe now begin!;;;;;;;;;x
+EVTOPTA.32;As The Conference of Peace has decided;;;;;;;;;x
+EVTOPTB.32;Well this fake "Romans" has done a good thing in the end!;;;;;;;;;x 
 EVTOPTC.32;Interesting;;;;;;;;;x
 EVTDESCEoG.33;EoG.33 - Calculating issue (You should not see this!);;;;;;;;;x
 EVTOPTOKEoG.33;???;;;;;;;;;x
@@ -66,7 +72,7 @@ EVTDESCEoG.36;EOG36 - Calculating issue (You should not see this!);;;;;;;;;x
 EVTOPTOKEoG.36;???;;;;;;;;;x
 EVTDESCEoG.37;Finally the Holy Roman Empire does not exist anymore and you suddenly realize that does not makes sense that the King of Germany is your liege and of the other Princes of North Italy. Maybe you could obtain independence but, in any case, to become vassal of S·P·Q·R will be more acceptable that being the one of a foreign King. You sat on your chair and start to speak to the Conference, sure that this moment will be part of the future History books.;;;;;;;;;x
 EVTOPTOKEoG.37;I hope my voice does not tremble...;;;;;;;;;x
-EVTDESCEoG.38;Egregious Consul of S·P·Q·R, your Holiness The Pope, your Majesty the King of Germania, Princes of the Former Holy Roman Empire, honorables members of this Conference of Peace I have an issue to raise: me, [From.GetTitledFirstName] of [From.PrimaryTitle.GetName], and some other Princes of North Italy are not happy with the situation to be vassals of a German King, it was difficult to accept this before but he was the Emperor but now he does not hold this title anymore. I demand this issue to be discussed by the Conference.;;;;;;;;;x
+EVTDESCEoG.38;Egregious [Root.GetTitledFirstName] of [Root.PrimaryTitle.GetName], your Holiness The Pope, your Majesty the King of Germania, Princes of the Former Holy Roman Empire, honorables members of this Conference of Peace I have an issue to raise: me, [From.GetTitledFirstName] of [From.PrimaryTitle.GetName], and some other Princes of North Italy are not happy with the situation to be vassals of a German King, it was difficult to accept this before but he was the Emperor but now he does not hold this title anymore. I demand this issue to be discussed by the Conference.;;;;;;;;;x
 EVTOPTAEog.38;Nothing to discuss I am your de jure liege!;;;;;;;;;x
 EVTOPTBEog.38;Good! Let any Prince decide for his future;;;;;;;;;x
 EVTDESCEoG.39;To the glorious [Root.GetTitledFirstName] of [Root.PrimaryTitle.GetName], I have decided to solve the Italian issue making you and the other Princes of the former Holy Roman Empire in North Italy my vassals.\nSigned [From.GetTitledFirstName] of [From.PrimaryTitle.GetName];;;;;;;;;;x
@@ -102,7 +108,7 @@ EVTOPTAEoG.47;Glorious Future? Do not be ridicolous!;;;;;;;;;x
 EVTDESCEoG.48;The members of the Conference of Peace that held lands in North Italy have voted and taken their decision in total liberty. You have probably lost some land that was rightfully your but you have obtained a great amount of respect doing this.;;;;;;;;;x
 EVTOPTAEoG.48;I have done the right thing;;;;;;;;;x
 EVTDESCEoG.49;EOG49;Finally the Holy Roman Empire does not exist anymore and you suddenly realize that does not makes sense that the King of Germany is the liege of the territories of Burgundy, indeed these territories should be part of your realm! You sat on your chair and start to speak to the Conference, sure that this moment will be part of the future History books.;;;;;;;;x
-EVTDESCEoG.50;Egregious Consul of S·P·Q·R, your Holiness The Pope, your Majesty the King of Germania, Princes of the Former Holy Roman Empire, honorables members of this Conference of Peace the Princes of Burgundy have requested to me, [From.GetTitledFirstName] of [From.PrimaryTitle.GetName], to voice an issue in their name, they are not happy with the situation to be vassals of a German King, it was difficult to accept this before but he was the Emperor but now he does not hold this title anymore. I demand this issue to be discussed by the Conference.;;;;;;;;;x
+EVTDESCEoG.50;Egregious [Root.GetTitledFirstName] of [Root.PrimaryTitle.GetName], your Holiness The Pope, your Majesty the King of Germania, Princes of the Former Holy Roman Empire, honorables members of this Conference of Peace the Princes of Burgundy have requested to me, [From.GetTitledFirstName] of [From.PrimaryTitle.GetName], to voice an issue in their name, they are not happy with the situation to be vassals of a German King, it was difficult to accept this before but he was the Emperor but now he does not hold this title anymore. I demand this issue to be discussed by the Conference.;;;;;;;;;x
 EVTOPTAEoG.50;There is no need to discuss! You are the de jure liege of Burgundy;;;;;;;;;x
 EVTOPTBEoG.50;Burgundy is part of the Western Roman Empire so I annex it!;;;;;;;;;x
 EVTOPTCEoG.50;Good! Let any Prince decide for his future;;;;;;;;;x
@@ -116,10 +122,11 @@ EVTDESCEoG.57;EOG57;;;;;;;;;x
 EVTDESCEoG.58;EOG58;;;;;;;;;x
 EVTDESCEoG.59;EOG59;;;;;;;;;x
 EVTDESCEoG.60;EOG60;;;;;;;;;x
-EVTDESCEoG.61;EOG61;;;;;;;;;x
+EVTDESCEoG.61;The members of the Conference of Peace that held lands in Burgundy have voted and taken their decision in total liberty. You have probably lost some land that was rightfully your but you have obtained a great amount of respect doing this.;x
+EVTOPTOKEoG.61;I have done the right thing;;;;;;;;;x
 EVTDESCEoG.62;Finally the Holy Roman Empire does not exist anymore and you suddenly realize that does not makes sense that the King of Germany is your liege and of the other Princes of Bohemia. Bohemia must obtain independence and maybe will could be recognized by the Pope and the other members of the Conference of Peace as its sovereign King. You sat on your chair and start to speak to the Conference, sure that this moment will be part of the future History books.;;;;;;;;;x
 EVTOPTOKEoG.62;I hope my voice does not tremble...;;;;;;;;;x
-EVTDESCEoG.63;Egregious Consul of S·P·Q·R, your Holiness The Pope, your Majesty the King of Germania, Princes of the Former Holy Roman Empire, honorables members of this Conference of Peace I have an issue to raise: me, [From.GetTitledFirstName] of [From.PrimaryTitle.GetName], and some other Princes of Boehmia are not happy with the situation to be vassals of a German King, it was difficult to accept this before but he was the Emperor but now he does not hold this title anymore.\nAs the Consul of S.P.Q.R. has not title on the territories of Bohemia I demand that they become independent.;;;;;;;x
+EVTDESCEoG.63;Egregious [Root.GetTitledFirstName] of [Root.PrimaryTitle.GetName], your Holiness The Pope, your Majesty the King of Germania, Princes of the Former Holy Roman Empire, honorables members of this Conference of Peace I have an issue to raise: me, [From.GetTitledFirstName] of [From.PrimaryTitle.GetName], and some other Princes of Boehmia are not happy with the situation to be vassals of a German King, it was difficult to accept this before but he was the Emperor but now he does not hold this title anymore.\nAs the [Root.GetTitledFirstName] of [Root.PrimaryTitle.GetName] has not title on the territories of Bohemia I demand that they become independent.;;;;;;;x
 EVTOPTOKEoG.63;There is no need to discuss this! Bohemia shall be independent.;;;;;;;x
 EVTDESCEoG.64; [From.GetTitledFirstName] of [From.PrimaryTitle.GetName] accepts your request Bohemia will become indipendent from Germania. The Pope and other members of the Conference of Peace recognizes you as sovereign King of Bohemia.;;;;;;;;;x
 EVTOPTOKEoG.64;Finally!;;;;;;;;;x

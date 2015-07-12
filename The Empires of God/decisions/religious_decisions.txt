@@ -294,6 +294,7 @@ decisions = {
 					# if "e_italia" is Savoia's United
 					# Italy... and it was? Sometimes :-)
 					has_landed_title = e_italy
+					has_landed_title = e_spqr
 					has_landed_title = e_wre
 			}
 			

@@ -54,7 +54,28 @@ pretender_of_wre_against_rightfull_successor = {
 			add_trait = successor_state_of_wre
 			set_character_flag = won_successor_state_of_wre_war
 			prestige = 1000
+			if = {
+				limit = {
+					AND = {
+						ROOT = { has_landed_title = e_spqr }
+						FROM = { has_landed_title = e_hre }
+					}
+				}
+				set_character_flag = spqr_vs_hre
+			}
+
+			if = {
+				limit = {
+					AND = {
+						ROOT = { has_landed_title = e_ere }
+						FROM = { has_landed_title = e_hre }
+					}
+				}
+				set_character_flag = ere_vs_hre
+			}
+
 			character_event = { id = EoG.5 }
+
 		}
 
 		FROM = {
