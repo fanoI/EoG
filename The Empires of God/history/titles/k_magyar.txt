@@ -1,3 +1,6 @@
+20.1.1 = {
+	historical_nomad = yes
+}
 764.1.1={
 	holder=146214
 }
@@ -20,11 +23,11 @@
 	holder=460
 }
 972.1.1={
-	holder =464
+	holder=464
 }
 997.1.1={
 	holder=482
 }
 1000.12.23 = {
-holder=0
+	holder=0
 }

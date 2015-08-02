@@ -1,12 +1,27 @@
-successor_state_of_wre = {
+pretender_successor_state_of_ere = {
+	monthly_character_prestige = 0.5 
+
+	customizer = no
+	random = no
+
+	opposites = {
+		successor_state_of_wre
+		successor_state_of_ere
+	}
+			
+	vassal_opinion = 10
+	opposite_opinion = -30
+}
+
+successor_state_of_ere = {
 	monthly_character_prestige = 1
 
 	customizer = no
 	random = no
 
 	opposites = {
-    		pretender_successor_state_of_wre,
-		successor_state_of_ere
+    		pretender_successor_state_of_ere
+		successor_state_of_wre
 	}
 			
 	vassal_opinion = 10
@@ -29,35 +44,20 @@ pretender_successor_state_of_wre = {
 	opposite_opinion = -30
 }
 
-successor_state_of_ere = {
+successor_state_of_wre = {
 	monthly_character_prestige = 1
 
 	customizer = no
 	random = no
 
 	opposites = {
-    		pretender_successor_state_of_ere,
-		successor_state_of_wre
-	}
-			
-	vassal_opinion = 10
-	opposite_opinion = -30
-	general_opinion = 10
-}
-
-pretender_successor_state_of_ere = {
-	monthly_character_prestige = 0.5 
-
-	customizer = no
-	random = no
-
-	opposites = {
-		successor_state_of_wre
+    		pretender_successor_state_of_wre
 		successor_state_of_ere
 	}
 			
 	vassal_opinion = 10
 	opposite_opinion = -30
+	general_opinion = 10
 }
 
 independent_character = {

@@ -16,7 +16,7 @@ namespace = LoR
 narrative_event = {
 	id = LoR.1
 	title = EVTNAMELoR.1
-	desc = EVTDESCLoR.1
+	desc = EVTDESCLoR.1
 	
 	picture = GFX_evt_victory_arch_byzantine
 	
@@ -58,7 +58,7 @@ narrative_event = {
 narrative_event = {
 	id = LoR.2
 	title = EVTNAMELoR.2
-	desc = EVTDESCLoR.2
+	desc = EVTDESCLoR.2
 	
 	picture = GFX_evt_victory_arch_byzantine
 	
@@ -94,7 +94,7 @@ narrative_event = {
 narrative_event = {
 	id = LoR.3
 	title = EVTNAMELoR.3
-	desc = EVTDESCLoR.3
+	desc = EVTDESCLoR.3
 	
 	picture = GFX_evt_victory_arch_byzantine
 	
@@ -126,7 +126,7 @@ narrative_event = {
 narrative_event = {
 	id = LoR.4
 	title = EVTNAMELoR.4
-	desc = EVTDESCLoR.4
+	desc = EVTDESCLoR.3
 	
 	picture = GFX_evt_victory_arch_byzantine
 	
@@ -160,7 +160,7 @@ narrative_event = {
 narrative_event = {
 	id = LoR.5
 	title = EVTNAMELoR.5
-	desc = EVTDESCLoR.5
+	desc = EVTDESCLoR.5
 	
 	picture = GFX_evt_victory_arch_byzantine
 	

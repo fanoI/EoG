@@ -1,0 +1,21 @@
+name = "War of the Commune of Rome"
+
+casus_belli={
+	actor=1000284000 # Giordano Pierleoni
+	recipient=71800 # Pope Gregorio 
+	casus_belli=peasant_revolt
+	landed_title=c_roma
+	date=1143.1.5
+}
+
+1143.1.5 = {
+	add_defender = 71800
+    	add_attacker = 1000284000 
+    	add_attacker = 7903 # Holy Roman Emperor 
+}
+
+1152.1.1 = {
+	rem_defender = 71800
+	rem_attacker = 1000284000
+	rem_attacker = 7903
+}

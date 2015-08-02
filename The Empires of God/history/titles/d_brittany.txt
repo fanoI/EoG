@@ -74,7 +74,7 @@
 #House of Nantes
 936.1.1={
 	holder=50002 #Alain II 'Barbe-Torte'
-        liege=k_france
+    liege=k_france
 	de_jure_liege=k_france
 }
 952.1.1={

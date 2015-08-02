@@ -881,6 +881,9 @@ character_event = {
 	picture = GFX_evt_throne_room
 
 	#is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		OR = {
@@ -936,6 +939,9 @@ character_event = {
 	picture = GFX_evt_throne_room
 
 	#is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		has_landed_title = e_spqr
@@ -991,6 +997,10 @@ long_character_event = {
 	desc = EVTDESCEoG.30
 	picture = GFX_evt_council
 	border = GFX_event_long_frame_diplomacy
+
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		OR = {
@@ -1171,6 +1181,10 @@ character_event = {
 	id = EoG.33
 	desc = EVTDESCEoG.33
 	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		OR = {
@@ -1369,6 +1383,10 @@ long_character_event = {
 	id = EoG.37
 	desc = EVTDESCEoG.37
 	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		has_character_flag = joins_the_conference_of_peace
@@ -2264,6 +2282,10 @@ character_event = {
 	desc = EVTDESCEoG.48
 	picture = GFX_evt_council
 
+	mean_time_to_happen = {
+		days = 1 
+	}
+
 	trigger = {
 		OR = {
 			has_character_flag = spqr_host_peace_conference
@@ -2323,6 +2345,10 @@ character_event = {
 	id = EoG.49
 	desc = EVTDESCEoG.49
 	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		OR = {
@@ -3041,6 +3067,10 @@ character_event = {
 	desc = EVTDESCEoG.61
 	picture = GFX_evt_council
 
+	mean_time_to_happen = {
+		days = 1 
+	}
+
 	trigger = {
 		OR = {
 			has_character_flag = spqr_host_peace_conference
@@ -3102,6 +3132,10 @@ long_character_event = {
 	id = EoG.62
 	desc = EVTDESCEoG.62
 	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
 
 	trigger = {
 		OR = {

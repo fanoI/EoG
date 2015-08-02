@@ -228,6 +228,9 @@ e_rajastan = {
 			c_multan = {
 				color={ 234 110 21 }
 				color2={ 255 255 255 }
+
+				holy_site = zun_pagan
+				holy_site = zun_pagan_reformed
 				
 				b_multan = {
 				}
@@ -461,13 +464,14 @@ e_rajastan = {
 			c_udabhanda = {
 				color={ 255 130 31 }
 				color2={ 255 255 255 }
+
+				holy_site = buddhist
 				
 				b_udabhanda = {
 				}
 				b_charsada = {
 				}
 				b_oddiyana = {
-					holy_site = buddhist
 				}
 				b_attak = {
 				}
@@ -687,11 +691,12 @@ e_rajastan = {
 			c_mathura = {
 				color={ 170 45 20 }
 				color2={ 255 255 255 }
+
+				holy_site = hindu
 				
 				b_mathura = {
 				}
 				b_krishnajanmabhoomi = {
-					holy_site = hindu
 				}
 				b_govardhan = {
 				}
@@ -815,11 +820,12 @@ e_rajastan = {
 			c_sarasvata_mandala = {
 				color={ 155 80 20 }
 				color2={ 255 255 255 }
+
+				holy_site = jain
 				
 				b_anahilapataka = {
 				}
 				b_vadnagar = {
-					holy_site = jain
 				}
 				b_siddhapura = {
 				}
@@ -897,13 +903,14 @@ e_rajastan = {
 			c_dvaraka = {
 				color={ 175 50 10 }
 				color2={ 255 255 255 }
+
+				holy_site = hindu
 				
 				b_dvaraka = {
 				}
 				b_lalpur = {
 				}
 				b_dwarakadheesh = {
-					holy_site = hindu
 				}
 				b_gomati = {
 				}
@@ -933,13 +940,14 @@ e_rajastan = {
 			c_bhumilka = {
 				color={ 220 120 50 }
 				color2={ 255 255 255 }
+
+				holy_site = jain
 				
 				b_vamanasthali = {
 				}
 				b_bhumilka = {
 				}
 				b_girnar = {
-					holy_site = jain
 				}
 				b_uperkot = {
 				}
@@ -1124,11 +1132,12 @@ e_rajastan = {
 			c_godwad = {
 				color={ 174 67 10 }
 				color2={ 255 255 255 }
+
+				holy_site = jain
 				
 				b_candravati = {
 				}
 				b_bhillamala = {
-					holy_site = jain
 				}
 				b_jalor = {
 				}
@@ -1452,13 +1461,14 @@ e_rajastan = {
 			c_ujjayini = {
 				color={ 205 200 30 }
 				color2={ 255 255 255 }
+
+				holy_site = hindu
 				
 				b_ujjayini = {
 				}
 				b_agar = {
 				}
 				b_mahakaleshwar = {
-					holy_site = hindu
 				}
 				b_mehidpur = {
 				}
@@ -1496,11 +1506,12 @@ e_rajastan = {
 			c_vidisa = {
 				color={ 190 150 15 }
 				color2={ 255 255 255 }
+
+				holy_site = buddhist
 				
 				b_vidisa = {
 				}
 				b_sanchi = {
-					holy_site = buddhist
 				}
 				b_sironj = {
 				}
@@ -1778,13 +1789,14 @@ e_rajastan = {
 			c_ayodhya = {
 				color={ 180 130 60 }
 				color2={ 255 255 255 }
+
+				holy_site = hindu
 				
 				b_ayodhya = {
 				}
 				b_ramkot = {
 				}
 				b_ram_janmabhoomi = {
-					holy_site = hindu
 				}
 				b_nageshwarnath = {
 				}
@@ -1970,7 +1982,7 @@ e_bengal = {
 		capital = 1151 # Laksmanavati
 		
 		d_vanga = {
-			color = { 35 165 35 }
+			color = { 35 190 35 }
 			color2={ 255 255 255 }
 			
 			capital = 1319 # Bikrampur
@@ -2805,12 +2817,13 @@ e_bengal = {
 			c_varanasi = {
 				color={ 140 235 101 }
 				color2={ 255 255 255 }
+
+				holy_site = hindu
+				holy_site = buddhist
 				
 				b_varanasi = {
-					holy_site = hindu
 				}
 				b_sarnath = {
-					holy_site = buddhist
 				}
 				b_bhadohi = {
 				}
@@ -2887,9 +2900,10 @@ e_bengal = {
 			c_rajrappa = {
 				color={ 28 138 31 }
 				color2={ 255 255 255 }
+
+				holy_site = jain
 				
 				b_rajrappa = {
-					holy_site = jain
 				}
 				b_kenduli = {
 				}
@@ -2958,9 +2972,10 @@ e_bengal = {
 			c_gaya = {
 				color={ 15 112 35 }
 				color2={ 255 255 255 }
+
+				holy_site = buddhist
 				
 				b_gaya = {
-					holy_site = buddhist
 				}
 				b_bodh_gaya = {
 				}
@@ -3227,11 +3242,12 @@ e_deccan = {
 			c_devagiri = {
 				color={ 220 119 85 }
 				color2={ 255 255 255 }
+
+				holy_site = buddhist
 				
 				b_devagiri = {
 				}
 				b_ellora = {
-					holy_site = buddhist
 				}
 				b_khuldabad = {
 				}
@@ -3477,11 +3493,12 @@ e_deccan = {
 			c_srirangapatna = {
 				color={ 108 23 49 }
 				color2={ 255 255 255 }
+
+				holy_site = jain
 				
 				b_srirangapatna = {
 				}
 				b_shravanabelagola = {
-					holy_site = jain
 				}
 				b_periyapatna = {
 				}
@@ -3995,7 +4012,7 @@ e_deccan = {
 			color={ 190 40 60 }
 			color2={ 255 255 255 }
 			
-			capital = 1121 # Vijayawada
+			capital = 1221 # Vijayawada
 			
 			c_vengipura = {
 				color={ 190 60 60 }

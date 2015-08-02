@@ -223,6 +223,7 @@ e_byzantium = {
 			c_ephesos = {
 				color={ 237 42 171 }
 				color2={ 255 255 20 }
+				holy_site = orthodox
 				
 				turkish = "Ayasoluk"
 				
@@ -230,7 +231,6 @@ e_byzantium = {
 					turkish = "Ayasoluk"
 				}
 				b_lebedos = {
-					holy_site = orthodox
 				}
 				b_miletos = {
 				}
@@ -306,12 +306,13 @@ e_byzantium = {
 				color2={ 255 255 20 }
 				
 				turkish = "Balakhisar"
+
+				holy_site = hellenic_pagan
 				
 				b_abydos = {
 					turkish = "Balakhisar"
 				}
 				b_lampsakos = {
-					holy_site = hellenic_pagan
 				}
 				b_alexandriatroas = {
 				}
@@ -450,6 +451,9 @@ e_byzantium = {
 				muslim = 250 # Crusade target weight
 				
 				top_de_jure_capital = yes
+
+				holy_site = orthodox
+
 				norse = Miklagarðr # A joke?
 				turkish = Kostantiniyye # This should never happen :-)
 				
@@ -463,12 +467,11 @@ e_byzantium = {
 					roman =    "Basilica di Sancta Sophia"
 					frankish = "Basilica de Sainte Sophie"
 					italian =  "Basilica di Santa Sofia"
-					spanish =  "Basilica de Santa Sofía"
+					castillan = "Basilica de Santa Sofía"
 					german  =  "Basilica der Saint Sophia"
 					english  = "Basilica of Saint Sophia"
 					short_name = yes
 					pentarchy = yes
-					holy_site = orthodox
 					turkish = "Ayasofya"
 				}
 				b_galata = {
@@ -573,11 +576,12 @@ e_byzantium = {
 			c_chalkidike = {
 				color={ 192 22 133 }
 				color2={ 255 255 20 }
+
+				holy_site = orthodox
 				
 				b_serres = {
 				}
 				b_mntathos = {
-					holy_site = orthodox
 				}
 				b_philippi = {
 				}
@@ -597,12 +601,13 @@ e_byzantium = {
 				color2={ 255 255 20 }
 				
 				turkish = "Salonika"
+
+				holy_site = hellenic_pagan
 				
 				b_thessaloniki = {
 					turkish = "Salonika"
 				}
 				b_thesedessa = {
-					holy_site = hellenic_pagan
 				}
 				b_voden = {
 				}
@@ -851,11 +856,12 @@ e_byzantium = {
 			c_atheniai = {
 				color={ 215 75 167 }
 				color2={ 255 255 20 }
+
+				holy_site = hellenic_pagan
 				
 				b_athens = {
 				}
 				b_piraeaus = {
-					holy_site = hellenic_pagan
 				}
 				b_megara = {
 				}
@@ -3070,47 +3076,6 @@ e_byzantium = {
 			}
 		}
 	}
-	
-	k_venice = {
-		color = { 54 167 156 }
-		capital = 356 # Venice
-		culture = italian
-		
-		dignity = 200 # Never want the Republic of Venice to change primary title
-		
-		allow = {
-			is_republic = yes
-		}
-		
-		d_venice = {
-			color = { 34 137 126 }
-			capital = 356 # Venice
-			
-			dignity = 10
-			
-			c_venezia = {
-				color = { 40 143 132 }
-				color2 = { 255 255 255 }
-				
-				b_venezia = {
-				}
-				b_rialto = {
-				}
-				b_pallestrina = {
-				}
-				b_lido = {
-				}
-				b_jesolo = {
-				}
-				b_murano = {
-				}
-				b_torcello = {
-				}
-				b_fusina = {
-				}
-			}
-		}
-	}
 }
 
 # "Western" Version of the Byzantine Empire
@@ -3676,7 +3641,7 @@ e_aegyptus = {
 	
 	capital = 802 # Alexandria
 
-	# More probably Arab?
+	# More probably Greek?
 	culture = roman
 
 	k_egypt = {
@@ -3690,6 +3655,8 @@ e_aegyptus = {
 		orthodox = 20 # Crusade target weight
 		muslim = 400 # Crusade target weight
 		zoroastrian_group = 150 # Crusade target weight
+		zun_pagan_reformed = 100 # Crusade target weight
+		jewish_group = 500 # Crusade target weight
 		
 		d_alexandria = {
 			color={ 100 219 134 }
@@ -3700,13 +3667,14 @@ e_aegyptus = {
 			c_alexandria = {
 				color={ 102 221 136 }
 				color2={ 255 255 255 }
+
+				holy_site = miaphysite
+				holy_site = monophysite
+				holy_site = hellenic_pagan
+				holy_site = nestorian
 			
 				b_alexandria = {
 					pentarchy = yes
-					holy_site = miaphysite
-					holy_site = monophysite
-					holy_site = hellenic_pagan
-					holy_site = nestorian
 				}
 				b_abukir = {
 				}
@@ -3887,6 +3855,9 @@ e_aegyptus = {
 			c_cairo = {
 				color={ 24 236 119 }
 				color2={ 255 255 255 }
+
+				holy_site = zun_pagan
+				holy_site = zun_pagan_reformed
 			
 				b_cairo = {
 				}
@@ -4049,11 +4020,12 @@ e_aegyptus = {
 			c_sinai = {
 				color={ 143 201 8 }
 				color2={ 255 255 255 }
+
+				holy_site = jewish
+				holy_site = samaritan
+				holy_site = karaite
 			
 				b_attur = {
-					holy_site = jewish
-					holy_site = samaritan
-					holy_site = karaite
 				}
 				b_sharmelsheikh = {
 				}
@@ -4143,6 +4115,7 @@ e_aegyptus = {
 		christian = 500 # Crusade target weight
 		muslim = 250 # Crusade target weight
 		zoroastrian_group = 200 # Crusade target weight
+		jewish_group = 3000 # Crusade target weight
 		
 		d_oultrejourdain = {
 			color={ 190 190 180 }
@@ -4383,6 +4356,20 @@ e_aegyptus = {
 				color2={ 250 250 230 }
 				color2={ 255 255 255 }
 				
+				holy_site = catholic
+				holy_site = orthodox
+				holy_site = sunni
+				holy_site = shiite
+				holy_site = miaphysite
+				holy_site = monophysite
+				holy_site = nestorian
+				holy_site = pagan
+				holy_site = yazidi
+				holy_site = jewish
+				holy_site = samaritan
+				holy_site = karaite
+				holy_site = ibadi
+
 				christian = 250 # Crusade target weight
 				muslim = 250 # Crusade target weight
 		
@@ -4390,18 +4377,6 @@ e_aegyptus = {
 				}
 				b_jerusalem = {
 					pentarchy = yes
-					holy_site = catholic
-					holy_site = orthodox
-					holy_site = sunni
-					holy_site = shiite
-					holy_site = miaphysite
-					holy_site = monophysite
-					holy_site = nestorian
-					holy_site = pagan
-					holy_site = yazidi
-					holy_site = jewish
-					holy_site = samaritan
-					holy_site = karaite
 				}
 				b_nablus = {
 				}
@@ -4696,13 +4671,14 @@ e_aegyptus = {
 			c_antiocheia = {
 				color={ 152 69 135 }
 				color2={ 255 255 255 }
+
+				holy_site = orthodox
+				holy_site = miaphysite
+				holy_site = monophysite
+				holy_site = nestorian
 			
 				b_antiocheia = {
 					pentarchy = yes
-					holy_site = orthodox
-					holy_site = miaphysite
-					holy_site = monophysite
-					holy_site = nestorian
 				}
 				b_latakiah = {
 				}
@@ -4856,14 +4832,15 @@ e_aegyptus = {
 			c_damascus = {
 				color={ 125 255 6 }
 				color2={ 255 255 255 }
+
+				holy_site = shiite
+				holy_site = jewish
+				holy_site = samaritan
+				holy_site = karaite
 			
 				b_qsarbardawil = {
 				}
 				b_damascus = {
-					holy_site = shiite
-					holy_site = jewish
-					holy_site = samaritan
-					holy_site = karaite
 				}
 				b_daraa = {
 				}
@@ -5199,14 +5176,15 @@ e_aegyptus = {
 			c_napata = {
 				color = { 155 140 67 }
 				color2={ 255 255 255 }
+
+				holy_site = miaphysite
+				holy_site = monophysite
 			
 				b_napata = {
 				}
 				b_marawi = {
 				}
 				b_ghazali = {
-					holy_site = miaphysite
-					holy_site = monophysite
 				}
 				b_kanisah = {
 				}

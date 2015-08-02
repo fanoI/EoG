@@ -14,6 +14,7 @@ RETTYPE_CUL_ROMAN =
 	
 	potential = {
 		culture = roman
+		is_nomadic = no
 	}
 	
 	modifier = {

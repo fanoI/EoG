@@ -1,5 +1,5 @@
 70518 = {
-	name=" Flavius Marcianus "
+	name="Flavius Marcianus"
 	# Flavius Marcianus Augustus
 	dynasty=1022190
 	martial=6

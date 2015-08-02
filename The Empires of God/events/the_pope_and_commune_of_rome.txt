@@ -598,6 +598,10 @@ character_event = {
     	desc = COR.11.desc
    	picture = GFX_evt_emissary
 
+	mean_time_to_happen = {
+		days = 1
+	}
+
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		has_landed_title = k_papal_state
@@ -694,6 +698,10 @@ character_event = {
 	title = COR.13.title
     	desc = COR.13.desc
    	picture = GFX_evt_emissary
+
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	trigger = {
 		has_dlc = "Legacy of Rome"
@@ -797,6 +805,10 @@ character_event = {
     	desc = COR.15.desc
    	picture = GFX_evt_emissary
 
+	mean_time_to_happen = {
+		days = 1
+	}
+
 	trigger = {
 		has_dlc = "Legacy of Rome"
 		has_landed_title = k_papal_state
@@ -866,6 +878,10 @@ character_event = {
 	title = COR.18.title
     	desc = COR.18.desc
    	picture = GFX_evt_emissary
+
+	mean_time_to_happen = {
+		days = 1
+	}
 
 	trigger = {
 		has_dlc = "Legacy of Rome"

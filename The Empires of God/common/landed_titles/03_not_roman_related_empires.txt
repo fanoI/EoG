@@ -35,8 +35,19 @@ e_scandinavia = {
 		catholic = 100 # Crusade target weight
 		baltic_pagan_reformed = 50 # Crusade target weight
 		finnish_pagan_reformed = 50
+		norse_pagan_reformed = 500 # Crusade target weight
 		
-		norse = SviÃ¾jod
+		norse = Sviþjod
+
+		# Republic of Gotland
+		d_gotland = {
+			color = { 170 25 25 }
+			color2={ 255 255 255 }
+			
+			capital = 301 # Gotland
+			
+			dignity = 10
+		}
 	
 		d_uppland = {
 			color={ 20 20 145 }
@@ -48,7 +59,7 @@ e_scandinavia = {
 			
 			capital = 290 # Uppland
 			
-			norse = SviÃ¾jod
+			norse = Sviþjod
 			
 			pagan_coa = {
 				template = 0
@@ -66,17 +77,18 @@ e_scandinavia = {
 			c_uppland = {
 				color={ 30 30 155 }
 				color2={ 255 255 255 }
+				holy_site = norse_pagan
+
+				holy_site = norse_pagan_reformed
 				
 				b_sigtuna = {
 				}
 				b_uppsala = {
 			   	# norse = Uppsalir
-					holy_site = norse_pagan
-					holy_site = norse_pagan_reformed
 				}
 				b_osteras = {
-					norwegian = "Ã˜sterÃ¥s"
-					danish = "Ã˜sterÃ¥s"
+					norwegian = "Østerås"
+					danish = "Østerås"
 				}
 				b_hatuna = {
 				}
@@ -338,6 +350,8 @@ e_scandinavia = {
 				danish = "VestergÃ¸tland"
 				norse = "Vestergautland"
 				
+				holy_site = pagan
+
 				b_galakvist = {
 					norwegian = "GÃ¦lakvist"
 					danish = "GÃ¦lakvist"
@@ -347,7 +361,6 @@ e_scandinavia = {
 					danish = "LÃ¸dÃ¸se"
 				}
 				b_skara = {
-					holy_site = pagan
 				}
 				b_falkoping = {
 					norwegian = "FalkÃ¸ping"
@@ -387,33 +400,6 @@ e_scandinavia = {
 				b_amordh = {
 				}
 				b_mellerud = {
-				}
-			}
-			c_viken = {
-				color={ 25 175 255 }
-				color2={ 255 255 255 }
-				
-				norse = Alfheimr
-				
-				b_bagahus = {
-				}
-				b_kungahalla = {
-					norwegian = "KungahÃ¦lla"
-					danish = "KungahÃ¦lla"
-				}
-				b_svarteborg = {
-				}
-				b_svenneby = {
-				}
-				b_ockero = {
-					norwegian = "Ã˜ckerÃ¸"
-					danish = "Ã˜ckerÃ¸"
-				}
-				b_hede = {
-				}
-				b_marstrand = {
-				}
-				b_kungsviken = {
 				}
 			}
 		}
@@ -749,6 +735,12 @@ e_scandinavia = {
 		capital = 266 # Sjaelland
 		
 		baltic_pagan_reformed = 50 # Crusade target weight
+		norse_pagan_reformed = 500 # Crusade target weight
+
+		norse = Danmark
+		danish = Danmark
+		swedish = Danmark
+		norwegian = Danmark
 		
 		d_skane = {
 			color={ 210 2 2 }
@@ -891,12 +883,15 @@ e_scandinavia = {
 				color={ 216 50 50 }
 				color2={ 255 255 255 }
 				
-				swedish = SjÃ¤lland
-				norse = SjÃ¦lland
+				swedish = Själland
+				norse = Själland
 				english = Zealand
+
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed		
 				
 				b_kobenhavn = {
-					swedish = KÃ¶penhamn
+					swedish = Köpenhamn
 					norse = Hafn
 				}
 				b_roskilde = {
@@ -919,8 +914,6 @@ e_scandinavia = {
 				}
 				b_lejre = {
 					norse = HleiÃ°ra
-					holy_site = norse_pagan
-					holy_site = norse_pagan_reformed		
 				}
 			}
 			c_fyn = {
@@ -1182,6 +1175,12 @@ e_scandinavia = {
 		
 		catholic = 100 # Crusade target weight
 		finnish_pagan_reformed = 50
+		norse_pagan_reformed = 500 # Crusade target weight
+
+		norse = Noregr
+		danish = Norge
+		swedish = Norge
+		norwegian = Norge
 		
 		d_iceland = {
 			color={ 195 190 255 }
@@ -1500,6 +1499,33 @@ e_scandinavia = {
 				b_baerum = {
 				}
 			}
+			c_viken = {
+				color={ 25 175 255 }
+				color2={ 255 255 255 }
+				
+				norse = Alfheimr
+				
+				b_bagahus = {
+				}
+				b_kungahalla = {
+					norwegian = "Kungahælla"
+					danish = "Kungahælla"
+				}
+				b_svarteborg = {
+				}
+				b_svenneby = {
+				}
+				b_ockero = {
+					norwegian = "Øckerø"
+					danish = "Øckerø"
+				}
+				b_hede = {
+				}
+				b_marstrand = {
+				}
+				b_kungsviken = {
+				}
+			}
 			c_oppland = {
 				color={ 94 120 215 }
 				color2={ 255 255 255 }
@@ -1552,9 +1578,9 @@ e_scandinavia = {
 			
 			capital = 275 # Trondelag
 			
-			swedish = "TrÃ¶ndelag"
-			german = "TrÃ¶ndelag"
-			norse = "TrÃ¶ndelag"
+			swedish = "Tröndelag"
+			german = "Tröndelag"
+			norse = "Tröndelag"
 			
 			pagan_coa = {
 				template = 0
@@ -1573,9 +1599,9 @@ e_scandinavia = {
 				color={ 20 155 255 }
 				color2={ 255 255 255 }
 				
-				swedish = "TrÃ¶ndelag"
-				german = "TrÃ¶ndelag"
-				norse = "TrÃ¶ndelag"
+				swedish = "Tröndelag"
+				german = "Tröndelag"
+				norse = "Tröndelag"
 				
 				b_nidaros = {
 				}
@@ -1597,6 +1623,9 @@ e_scandinavia = {
 			c_naumadal = {
 				color={ 25 205 240 }
 				color2={ 255 255 255 }
+
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed
 				
 				b_tinghaugen = {
 				}
@@ -1609,8 +1638,6 @@ e_scandinavia = {
 				b_hegra = {
 				}
 				b_maere = {
-					holy_site = norse_pagan
-					holy_site = norse_pagan_reformed
 				}
 				b_leksvik = {
 				}
@@ -1724,16 +1751,6 @@ e_scandinavia = {
 			}
 		}
 	}
-}
-
-# Republic of Gotland
-d_gotland = {
-	color={ 60 70 235 }
-	color2={ 255 255 255 }
-	
-	capital = 301 # Gotland
-	
-	dignity = 10
 }
 
 b_stenkyrka = {
@@ -1982,6 +1999,8 @@ e_albion = {
 				}
 				b_inverary = {
 				}
+				b_argh = {
+				}
 			}
 		}
 		d_lothian = {
@@ -2142,6 +2161,8 @@ e_albion = {
 				b_strathardle = {
 				}
 				b_struan = {
+				}
+				b_anthrachs = {
 				}
 			}
 		}
@@ -2723,12 +2744,12 @@ e_wendish_empire = {
 			c_plock = {
 				color={ 127 30 2 }
 				color2={ 255 255 255 }
-				
+
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed			
 				b_plock = {
 				}
 				b_pruszkow = {
-					holy_site = slavic_pagan
-					holy_site = slavic_pagan_reformed			
 				}
 				b_warszawa = {
 				}
@@ -3311,16 +3332,16 @@ e_wendish_empire = {
 			c_rugen = {
 				color={ 201 201 201 }
 				color2={ 255 255 255 }
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
 
 				pommeranian = Rana
 				
 				b_charenza = {
 				}
 				b_arkona = {
-					holy_site = slavic_pagan
-					holy_site = slavic_pagan_reformed
-					holy_site = baltic_pagan
-					holy_site = baltic_pagan_reformed
 				}
 				b_rugard = {
 				}
@@ -3821,11 +3842,14 @@ e_wendish_empire = {
 				color={ 101 48 48 }
 				color2={ 255 255 255 }
 				
-				swedish = "Ã–sel"
-				norse = "Ã–sel"
-				danish = "Ã˜sel"
-				norwegian = "Ã˜sel"
-				german = "Ã–sel"
+				swedish = "Ösel"
+				norse = "Ösel"
+				danish = "Øsel"
+				norwegian = "Øsel"
+				german = "Ösel"
+
+				holy_site = finnish_pagan
+				holy_site = finnish_pagan_reformed
 			
 				b_kuressare = {
 					swedish = "Arensborg"
@@ -3840,8 +3864,6 @@ e_wendish_empire = {
 					danish = "DagÃ¸"
 					norwegian = "DagÃ¸"
 					german = "DagÃ¶"
-					holy_site = finnish_pagan
-					holy_site = finnish_pagan_reformed
 				}
 				b_muhu = {
 					swedish = "Moon"
@@ -3963,6 +3985,9 @@ e_wendish_empire = {
 				norwegian = "Kulm"
 				danish = "Kulm"
 				norse = "Kulm"
+
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
 			
 				b_chelmno = {
 					german = "Kulm"
@@ -3984,8 +4009,6 @@ e_wendish_empire = {
 				b_eylau = {
 				}
 				b_briesen = {
-					holy_site = baltic_pagan
-					holy_site = baltic_pagan_reformed
 				}
 			}
 		}
@@ -4171,16 +4194,17 @@ e_wendish_empire = {
 				}
 			}
 			c_podlasie = {
-				color={ 148 100 100 }
-				color2={ 255 255 255 }
-				
+				color={ 148 100 100 }
+				color2={ 255 255 255 }
+
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
+
 				b_drohiczyn = {
 				}
 				b_kolno = {
 				}
 				b_sejny = {
-					holy_site = baltic_pagan
-					holy_site = baltic_pagan_reformed
 				}
 				b_lomza = {
 				}
@@ -4210,6 +4234,8 @@ e_wendish_empire = {
 			c_zemigalians = {
 				color={ 182 20 20 }
 				color2={ 255 255 255 }
+				holy_site = baltic_pagan
+				holy_site = baltic_pagan_reformed
 				
 				german = "Riga"
 				swedish = "Riga"
@@ -4218,8 +4244,6 @@ e_wendish_empire = {
 				norwegian = "Riga"
 				
 				b_riga = {
-					holy_site = baltic_pagan
-					holy_site = baltic_pagan_reformed
 				}
 				b_bauska = {
 				}
@@ -4850,12 +4874,13 @@ e_carpathia = {
 			c_birlad = {
 				color={ 233 212 155 }
 				color2={ 255 255 255 }
+
+				holy_site = slavic_pagan
+				holy_site = slavic_pagan_reformed
 			
 				b_barlad = {
 				}
 				b_husi = {
-					holy_site = slavic_pagan
-					holy_site = slavic_pagan_reformed
 				}
 				b_vaslui = {
 				}
@@ -5324,12 +5349,12 @@ e_carpathia = {
 			c_pest = {
 				color={ 176 67 67 }
 				color2={ 255 255 255 }
+				holy_site = tengri_pagan
+				holy_site = tengri_pagan_reformed
 				
 				b_pest = {
 				}
 				b_vac = {
-					holy_site = tengri_pagan
-					holy_site = tengri_pagan_reformed
 				}
 				b_kecskemet = {
 				}
@@ -5529,6 +5554,8 @@ e_abyssinia = {
 		capital = 883 # Gondar
 		
 		culture = ethiopian
+
+		jewish_group = 100 # Crusade target weight
 		
 		d_harer = { # Berbera
 			color={ 127 151 52 }
@@ -5606,12 +5633,13 @@ e_abyssinia = {
 			c_aksum = {
 				color={ 186 135 70 }
 				color2={ 255 255 255 }
+
+				holy_site = miaphysite
+				holy_site = monophysite
 			
 				b_adwa = {
 				}
 				b_aksum = {
-					holy_site = miaphysite
-					holy_site = monophysite
 				}
 				b_mekele = {
 				}
@@ -6137,12 +6165,12 @@ e_mali = {
 			c_timbuktu = {
 				color={ 130 180 61 }
 				color2={ 255 255 255 }
-			
+
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed			
 				b_timbuktu = {}
 				b_alafia = {}
 				b_salam = {
-					holy_site = west_african_pagan
-					holy_site = west_african_pagan_reformed			
 				}
 				b_lafia = {}
 				b_ber = {}
@@ -6200,11 +6228,12 @@ e_mali = {
 			c_ghana = {
 				color={ 130 180 61 }
 				color2={ 255 255 255 }
+
+				holy_site = pagan
 				
 				b_el_ghaba = {}
 				b_koumbi_saleh = {}
 				b_silla = {
-					holy_site = pagan
 				}
 				b_singhanah = {}
 				b_samakanda = {}
@@ -6252,12 +6281,13 @@ e_mali = {
 			c_mali = {
 				color={ 130 180 61 }
 				color2={ 255 255 255 }
+
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed
 				
 				b_boure = {}
 				b_niani = {}
 				b_bamako = {
-					holy_site = west_african_pagan
-					holy_site = west_african_pagan_reformed
 				}
 				b_safo = {}
 				b_baguineda = {}

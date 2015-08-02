@@ -550,44 +550,43 @@ relique_ruler = {
 			prestige = -200
 				remove_trait = relique_charles
 		}
+	}
 
-		on_fail = {
-			ROOT = {
-				piety = -50
-					prestige = -150
+	on_fail = {
+		ROOT = {
+			piety = -50
+			prestige = -150
+		}
+	}
+
+	on_reverse_demand = {
+		ROOT = {
+			piety = -100
+			prestige = -200
+			transfer_scaled_wealth = {
+				to = FROM
+				value = 4.0
 			}
 		}
-
-		on_reverse_demand = {
-			ROOT = {
-				piety = -100
-					prestige = -200
-					transfer_scaled_wealth = {
-						to = FROM
-							value = 4.0
-					}
-			}
-			FROM = {
-				prestige = 200
-			}
+		FROM = {
+			prestige = 200
 		}
+	}
 
+	attacker_ai_victory_worth = {
+		factor = -1 # always accept
+	}
 
-		attacker_ai_victory_worth = {
-			factor = -1 # always accept
-		}
+	attacker_ai_defeat_worth = {
+		factor = 100
+	}
 
-		attacker_ai_defeat_worth = {
-			factor = 100
-		}
+	defender_ai_victory_worth = {
+		factor = -1 # always accept
+	}
 
-		defender_ai_victory_worth = {
-			factor = -1 # always accept
-		}
-
-		defender_ai_defeat_worth = {
-			factor = 100
-		}
+	defender_ai_defeat_worth = {
+		factor = 100
 	}
 }
 

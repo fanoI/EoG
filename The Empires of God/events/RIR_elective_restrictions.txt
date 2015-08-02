@@ -2,6 +2,7 @@
 character_event = {
 	id = RIRSEI.2000000
 	desc = "EVTDESC_RIRSEI_2000000"
+	picture = GFX_evt_throne_room
 
 	only_rulers = yes
 
@@ -60,6 +61,7 @@ NOT = { year = 1300 }
 character_event = {
 	id = RIRSEI.2000005
 	desc = "EVTDESC_RIRSEI_2000005"
+	picture = GFX_evt_throne_room
 
 	only_rulers = yes
 
@@ -109,6 +111,7 @@ NOT = { year = 1300 }
 character_event = {
 	id = RIRSEI.2000010
 	desc = "EVTDESC_RIRSEI_2000010"
+	picture = GFX_evt_throne_room
 
 	only_rulers = yes
 

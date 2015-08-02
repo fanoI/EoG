@@ -117,7 +117,6 @@
 }
 976.1.10={
 	holder=1716
-
 }
 1025.12.15={
 	holder=1718
@@ -150,7 +149,6 @@
 }
 1059.11.22={
 	holder=1732
-
 }
 1067.5.22={
 	holder=1733
@@ -167,7 +165,6 @@
 1081.4.1={
 	holder=1742
 	law = emp_aristos
-
 }
 1118.8.15={
 	holder=223023
@@ -195,7 +192,7 @@
 }
 1204.5.16={
 	holder=215674
- law = centralization_1
+    law = centralization_1
 }
 1222.8.2={
 	holder=125741

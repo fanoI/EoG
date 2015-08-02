@@ -197,12 +197,14 @@ e_arabia = {
 			c_medina = {
 				color={ 162 253 55 }
 				color2={ 255 255 255 }
+
+				holy_site = sunni
+				holy_site = shiite				
+				holy_site = ibadi				
 				
 				muslim = 500 # Crusade target weight
 			
 				b_medina = {
-					holy_site = sunni
-					holy_site = shiite				
 				}
 				b_khaybar = {
 				}
@@ -222,14 +224,16 @@ e_arabia = {
 			c_mecca = {
 				color={ 166 253 59 }
 				color2={ 255 255 255 }
+
+				holy_site = sunni
+				holy_site = shiite
+				holy_site = pagan
+				holy_site = yazidi
+				holy_site = ibadi				
 				
 				muslim = 1000 # Crusade target weight
 			
 				b_mecca = {
-					holy_site = sunni
-					holy_site = shiite
-					holy_site = pagan
-					holy_site = yazidi
 				}
 				b_jeddah = {
 				}
@@ -429,6 +433,8 @@ e_arabia = {
 			c_hajar = {
 				color={ 98 201 7 }
 				color2={ 255 255 255 }
+
+				holy_site = ibadi				
 			
 				b_alhamra = {
 				}
@@ -492,11 +498,12 @@ e_arabia = {
 			c_dhofar = {
 				color={ 104 207 13 }
 				color2={ 255 255 255 }
+
+				holy_site = jewish
+				holy_site = samaritan
+				holy_site = karaite
 			
 				b_salalah = {
-					holy_site = jewish
-					holy_site = samaritan
-					holy_site = karaite
 				}
 				b_thamarit = {
 				}

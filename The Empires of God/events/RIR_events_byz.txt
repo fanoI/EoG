@@ -97,7 +97,8 @@ option = {
 }
 narrative_event = {    
 	id = RIRSEBYZ.111115
-desc = "EVTDESC_RIRSEBYZ_111115"
+	title = EVTNAME_RIRSEBYZ_111115
+	desc = "EVTDESC_RIRSEBYZ_111115"
 	picture = "GFX_evt_theme_image"
 
 	trigger = {	
@@ -576,7 +577,8 @@ FROMFROM = { add_spouse = ROOT }
 	}  
 narrative_event = {    
 	id = RIRSEBYZ.111139
-desc = "EVTDESC_RIRSEBYZ_111139"
+	title = "EVTNAME_RIRSEBYZ_111139"
+	desc = "EVTDESC_RIRSEBYZ_111139"
 	picture = "GFX_evt_theme_aristo"
 
 	trigger = {

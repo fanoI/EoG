@@ -2674,7 +2674,6 @@
 		death="846.8.15"
 	}
 }
-
 187002 = {
 	name="Rostislav"
 	# AKA: Rostislav Mojmírovci
@@ -2692,7 +2691,6 @@
 		death="869.1.1"
 	}
 }
-
 187003 = {
 	name="Svatopluk"
 	# AKA: Svatopluk Mojmírovci
@@ -2799,7 +2797,7 @@
 	819.1.1={
 		death="819.1.1"
 	}
-} 
+}
 
 187010 = {
 	name="Svetimír"
@@ -2816,8 +2814,7 @@
 	850.1.1={
 		death="815.1.1"
 	}
-} 
-
+}
 187011 = {
 	name="Pribina"
 	# AKA: Pribina z Nitrava
@@ -3134,7 +3131,7 @@
 	trait="brave"
 	trait="just"
 	trait="diligent"
-	trait="temparate"
+	trait="temperate"
 	father=168360
 	mother=168361
 	956.1.1={
@@ -3211,7 +3208,6 @@
 		death=yes
 	}
 }
-
 146174 = {
 	name="Kresomysl"
 	dynasty=506

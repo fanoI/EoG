@@ -101,13 +101,13 @@
 	reset_name = yes
 	reset_adjective = yes
 	set_global_flag = west_francia_renamed
-        law = succ_feudal_elective
+    law = succ_feudal_elective
 }
 
 #Carolingian
 893.1.28= {
 	holder = 90111 #Charles III le Simple
-        law = succ_primogeniture
+    law = succ_primogeniture
 	name = WEST_FRANCIA
 	adjective = WEST_FRANCIA_ADJ
 	clr_global_flag = west_francia_renamed
@@ -132,7 +132,7 @@
 #Carolingian
 936.1.15={
 	holder = 90120 #Louis IV d'Outre-mer
-        law = succ_primogeniture
+    law = succ_primogeniture
 	name = WEST_FRANCIA
 	adjective = WEST_FRANCIA_ADJ
 	clr_global_flag = west_francia_renamed
@@ -155,7 +155,7 @@
 	reset_name = yes
 	reset_adjective = yes
 	set_global_flag = west_francia_renamed
-        law = agnatic_succession
+    law = agnatic_succession
 	law = succ_primogeniture
 	
 }
@@ -184,7 +184,6 @@
 }
 1226.11.8={
 	holder = 455404 #Louis IX (saint Louis)
-
 }
 1270.8.25={
 	holder = 455528 # Philippe III le Hardi

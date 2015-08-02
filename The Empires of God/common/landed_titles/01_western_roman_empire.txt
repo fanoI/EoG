@@ -771,6 +771,12 @@ e_italy = {
 			c_roma = {
 				color={ 242 233 156 }
 				color2={ 220 220 1 }
+				holy_site = catholic
+				holy_site = aztec
+				holy_site = aztec_reformed
+				holy_site = hellenic_pagan
+				holy_site = pagan
+
 				
 				christian = 1500 # Crusade target weight
 				
@@ -780,11 +786,6 @@ e_italy = {
 					# Not Bishorpric of Basilica of...
 	                                short_name = yes 
 					pentarchy = yes
-					holy_site = catholic
-					holy_site = aztec
-					holy_site = aztec_reformed
-					holy_site = hellenic_pagan
-					holy_site = pagan
 					used_for_dynasty_names = no
 				}
 				b_viterbo = {
@@ -1670,6 +1671,9 @@ e_france = {
 			c_ile_de_france = {
 				color={ 38 144 211 }
 				color2={ 255 255 255 }
+
+				holy_site = aztec
+				holy_site = aztec_reformed
 				
 				b_paris = {
 					used_for_dynasty_names = no
@@ -1677,8 +1681,6 @@ e_france = {
 				b_melun = {
 				}
 				b_stdenis = {
-					holy_site = aztec
-					holy_site = aztec_reformed
 				}
 				b_meaux = {
 				}
@@ -2984,36 +2986,6 @@ e_france = {
 	}
 }
 
-# Needs to be up here for the k_asturias allow trigger
-k_leon = {
-	color={ 233 158 51 }
-	color2={ 255 255 255 }
-	
-	dignity = 1 # One more county than de jure
-	
-	capital = 190 # Leon
-	
-	culture = castillan
-	
-	# Creation/usurpation trigger
-	allow = {
-		hidden_tooltip = {
-			OR = {
-				ai = no
-				religion_group = christian
-			}
-		}
-		FROM = {
-			any_previous_holder = {
-				always = yes
-			}
-		}
-	}
-	
-	catholic = 250 # Crusade target weight
-	muslim = 25 # Crusade target weight
-}
-
 # (High) Kingdom of Spain
 e_spain = {
 	color={ 233 200 20 }
@@ -3023,13 +2995,34 @@ e_spain = {
 	
 	culture = castillan
 	
-	# Creation/usurpation trigger
-	#allow = {
-	#	OR = {
-	#		culture_group = iberian
-	#		culture = andalusian_arabic
-	#	}
-	#}
+	k_leon = {
+		color = { 253 158 51 }
+		color2={ 255 255 255 }
+		
+		dignity = 1 # One more county than de jure
+		
+		capital = 190 # Leon
+		
+		culture = castillan
+		
+		# Creation/usurpation trigger
+		allow = {
+			hidden_tooltip = {
+				OR = {
+					ai = no
+					religion_group = christian
+				}
+			}
+			FROM = {
+				any_previous_holder = {
+					always = yes
+				}
+			}
+		}
+		
+		catholic = 250 # Crusade target weight
+		muslim = 25 # Crusade target weight
+	}
 
 	k_castille = { #Spain
 		color={ 243 209 23 }
@@ -3695,7 +3688,7 @@ e_spain = {
 	}
 	
 	k_asturias = {
-		color={ 233 158 51 }
+		color={ 233 188 51 }
 		color2={ 255 255 255 }
 		
 		dignity = 10
@@ -3860,7 +3853,7 @@ e_spain = {
 		muslim = 25 # Crusade target weight
 		
 		d_galicia = {
-			color = { 213 158 51 }
+			color={ 255 224 94 }
 			color2={ 255 255 255 }
 			
 			capital = 156 # Coruna
@@ -3889,9 +3882,10 @@ e_spain = {
 			c_santiago = {
 				color = { 243 158 51}
 				color2={ 255 255 255 }
+
+				holy_site = catholic
 				
 				b_santiago = {
-					holy_site = catholic
 				}
 				b_vigo = {
 				}
@@ -4243,17 +4237,18 @@ e_spain = {
 			c_cordoba = {
 				color = { 246 216 16 }
 				color2={ 255 255 255 }
-				
+
 				bedouin_arabic = "Qurtubah"
 				maghreb_arabic = "Qurtubah"
 				levantine_arabic = "Qurtubah"
 				egyptian_arabic = "Qurtubah"
 				andalusian_arabic = "Qurtubah"
+
+				holy_site = sunni
+				holy_site = aztec
+				holy_site = aztec_reformed
 				
 				b_cordoba = {
-					holy_site = sunni
-					holy_site = aztec
-					holy_site = aztec_reformed
 					bedouin_arabic = "Qurtubah"
 					maghreb_arabic = "Qurtubah"
 					levantine_arabic = "Qurtubah"
@@ -5015,27 +5010,6 @@ e_britannia = {
 					norse = "Kungsborg"
 				}
 			}
-			c_leicester = {
-				color={ 255 85 10 }
-				color2={ 255 255 255 }
-			
-				b_leicester = {
-				}
-				b_nottingham = {
-				}
-				b_southwell = {
-				}
-				b_newark = {
-				}
-				b_hucknall = {
-				}
-				b_tickhill = {
-				}
-				b_worksop = {
-				}
-				b_newstead = {
-				}
-			}
 			c_lincoln = {
 				color={ 255 90 20 }
 				color2={ 255 255 255 }
@@ -5146,6 +5120,9 @@ e_britannia = {
 			c_middlesex = {
 				color={ 241 90 35 }
 				color2={ 255 255 255 }
+
+				holy_site = aztec
+				holy_site = aztec_reformed
 			
 				b_westminster = {
 					used_for_dynasty_names = no
@@ -5156,8 +5133,6 @@ e_britannia = {
 					norse=Lundúnir
 				}
 				b_st_pauls = {
-					holy_site = aztec
-					holy_site = aztec_reformed
 				}
 				b_tottenham = {
 				}
@@ -5392,13 +5367,14 @@ e_britannia = {
 			c_kent = {
 				color={ 241 115 65 }
 				color2={ 255 255 255 }
+
+				holy_site = catholic
 				
 				b_rochester = {
 				}
 				b_dover = {
 				}
 				b_canterbury = {
-					holy_site = catholic
 				}
 				b_faversham = {
 				}
@@ -5781,932 +5757,6 @@ e_britannia = {
 	}
 }
 
-k_scotland = {
-	color={ 20 80 162 }
-	color2={ 255 255 255 }
-
-	capital = 43 #Gowrie
-
-		culture = scottish
-
-		catholic = 300 # Crusade target weight
-		norse_pagan_reformed = 200 # Crusade target weight
-
-		norse = Skotland
-		swedish = Skottland
-		danish = Skotland
-		norwegian = Skottland
-		welsh = Alba
-		irish = Alba
-		breton = Alba
-		pictish = Pictland
-		
-		d_the_isles = {
-			color={ 10 48 243 }
-			color2={ 255 255 255 }
-
-			capital = 54 # Isle of Man
-			
-			welsh = Manaw
-			norwegian = "Mann"
-			danish = "Mann"
-			swedish = "Mann"
-			norse = "Mann"
-			pictish = "Manu"
-			irish = "Mhannin"
-			
-			c_isle_of_man = {
-				color={ 25 65 243 }
-				color2={ 255 255 255 }
-				
-				norwegian = "Mann"
-				danish = "Mann"
-				swedish = "Mann"
-				norse = "Mann"
-				pictish = "Insee Manu"
-				welsh = "Ynys Manaw"
-				irish = "Ellan Mhannin"
- 		
-				b_peel = {
-					norwegian = "P�l�"
-					danish = "P�l�"
-					swedish = "P�l�"
-					norse = "P�l�"
-					pictish = "Pirtinsee"
-					welsh = "Porth Ynys"
-					irish = "Purt ny h-Inshey"
-				}
-				b_rushen = {
-					pictish = "Resan"
-					welsh = "Resyn"
-					irish = "Rosien"
-				}
-				b_maughold = {
-					pictish = "Mauugan"
-					welsh = "Mawgan Sant"
-					irish = "Macaille"
-				}
-				b_douglas = {
-					pictish = "Duunglasc"
-					welsh = "Duonglassafon"
-					irish = "Duboglassio"
-				}
-				b_kirk_michael = {
-					pictish = "Icluasc Mihagal"
-					welsh = "Eglwys Mihangel"
-					irish = "Cill Miche�l"
-				}
-				b_sulby = {
-					pictish = "Drauuglan"
-					welsh = "Drywglyn"
-					irish = "Dru�gleann"
-					norwegian = "S�labyr"
-					danish = "S�labyr"
-					swedish = "S�labyr"
-				}
-				b_inis_patraic = {
-					pictish = "Inees Pedric"
-					welsh = "Ynys Padric"
-					irish = "Inis P�traic"
-				}
-				b_laxey = {
-					pictish = "Ahonugad"
-					welsh = "Afoneogiaid"
-					irish = "Uisge Brad�n"
-				}
-			}
-		}
-
-		d_galloway = {
-			color={ 77 116 208 }
-			color2={ 255 255 255 }
-
-			capital = 50 # Galloway
-
-				welsh = Strathclyde
-
-				c_galloway = {
-					color={ 15 185 243 }
-					color2={ 255 255 255 }
-
-					b_dumfries = {
-					}
-					b_dunragit = {
-					}
-					b_whithorn = {
-					}
-					b_dunrod = {
-					}
-					b_kirkcudbright = {
-					}
-					b_glenluce = {
-					}
-					b_wigtown = {
-					}
-					b_threave = {
-					}
-				}
-			c_carrick = {
-				color={ 50 185 243 }
-				color2={ 255 255 255 }
-
-				b_turnberry = {
-				}
-				b_dunure = {
-				}
-				b_maybole = {
-				}
-				b_crossraguel = {
-				}
-				b_loch_doon = {
-				}
-				b_ballantrae = {
-				}
-				b_culzean = {
-				}
-				b_greenan = {
-				}
-			}
-			c_clydesdale = {
-				color={ 5 140 240 }
-				color2={ 255 255 255 }
-
-				b_renfrew = {
-				}
-				b_st_kentigern = {
-				}
-				b_glasgow = {
-				}
-				b_lanark = {
-				}
-				b_cadzow = {
-				}
-				b_bothwell = {
-				}
-				b_lesmahagow = {
-				}
-				b_dumbarton = {
-				}
-			}
-
-		}
-	d_western_isles = {
-		color = { 6 42 127 }
-		color2 = { 255 255 255 }
-		capital = 35 # Inse Gall
-
-			norwegian = "Søreyar"
-			danish = "Søreyar"
-			swedish = "Söröarna"
-			norse = "Suðreyjar"
-
-			pagan_coa = {
-				template = 0
-					layer = {
-						texture = 2
-							texture_internal = 8
-							emblem = 0
-							color = 0
-							color = 0
-							color = 0
-					}
-				religion = "norse_pagan"
-			}
-
-		c_innse_gall = {
-			color={ 20 60 243 }
-			color2={ 255 255 255 }
-
-			norwegian = "Søreyar"
-				danish = "Søreyar"
-				swedish = "Söröarna"
-				norse = "Suðreyjar"
-
-				b_snizort = {
-				}
-			b_finlaggan = {
-			}
-			b_iona = {
-			}
-			b_stornoway = {
-				norwegian = "Stornavåg"
-					danish = "Stornavik"
-					swedish = "Stornavik"
-					norse = "Stornavik"
-			}
-			b_laggan = {
-			}
-			b_uig = {
-				norwegian = "Vik"
-					danish = "Vik"
-					swedish = "Vik"
-					norse = "Vik"
-			}
-			b_dunvegan = {
-			}
-			b_dunyveg = {
-			}
-		}
-		c_argyll = {
-			color={ 15 150 240 }
-			color2={ 255 255 255 }
-
-			b_st_moluag = {
-			}
-			b_dunollie = {
-			}
-			b_loch_awe = {
-			}
-			b_sween = {
-			}
-			b_dunstaffnage = {
-			}
-			b_ardchattan = {
-			}
-			b_kilmun = {
-			}
-			b_inverary = {
-			}
-		}
-	}
-	d_lothian = {
-		color = { 16 62 157 }
-		color2={ 255 255 255 }
-
-		capital = 48 # Lothian
-
-			c_lothian = {
-				color = { 16 62 160 }
-				color2={ 255 255 255 }
-
-				b_edinburgh = {
-				}
-				b_stirling = {
-				}
-				b_abercorn = {
-				}
-				b_linlithgow = {
-				}
-				b_falkirk = {
-				}
-				b_stow_of_wedale = {
-				}
-				b_leith = {
-				}
-				b_torphichen = {
-				}
-			}
-		c_dunbar = {
-			color = { 30 69 172 }
-			color2={ 255 255 255 }
-
-			b_dunbar = {
-			}
-			b_berwick = {
-			}
-			b_thirlestane = {
-			}
-			b_tyninghame = {
-			}
-			b_gordon = {
-			}
-			b_huntly = {
-			}
-			b_coldingham = {
-			}
-			b_crichton = {
-			}
-		}
-		c_teviotdale = {
-			color = { 11 51 145 }
-			color2={ 255 255 255 }
-
-			b_jedburgh = {
-			}
-			b_roxburgh = {
-			}
-			b_peebles = {
-			}
-			b_melrose = {
-			}
-			b_kelso = {
-			}
-			b_selkirk = {
-			}
-			b_maxwell = {
-			}
-			b_ednam = {
-			}
-		}
-	}
-	d_albany = {
-		color={ 25 85 160 }
-		color2={ 255 255 255 }
-
-		capital = 43 # Gowrie
-
-			c_gowrie = {
-				color={ 23 87 162 }
-				color2={ 255 255 255 }
-
-				b_scone = {
-				}
-				b_dunkeld = {
-				}
-				b_perth = {
-				}
-				b_forteviot = {
-				}
-				b_dundee = {
-				}
-				b_abernethy = {
-				}
-				b_clunie = {
-				}
-				b_errol = {
-				}
-			}
-		c_fife = {
-			color={ 20 80 152 }
-			color2={ 255 255 255 }
-
-			b_dunfermline = {
-			}
-			b_cupar = {
-			}
-			b_st_andrews = {
-			}
-			b_kirkcaldy = {
-			}
-			b_kinross = {
-			}
-			b_leuchars = {
-			}
-			b_lochore = {
-			}
-			b_falkland = {
-			}
-		}
-		c_strathearn = {
-			color={ 15 66 145 }
-			color2={ 255 255 255 }
-
-			b_crieff = {
-			}
-			b_dunblane = {
-			}
-			b_tullibardine = {
-			}
-			b_auchterarder = {
-			}
-			b_madderty = {
-			}
-			b_doune = {
-			}
-			b_inchaffray = {
-			}
-			b_kenmore = {
-			}
-		}
-		c_atholl = {
-			color={ 30 95 172 }
-			color2={ 255 255 255 }
-
-			b_blair_atholl = {
-			}
-			b_glen_dochart = {
-			}
-			b_pitlochry = {
-			}
-			b_fortingall = {
-			}
-			b_grandtully = {
-			}
-			b_rannoch = {
-			}
-			b_strathardle = {
-			}
-			b_struan = {
-			}
-		}
-	}
-	d_moray = {
-		color={ 10 81 243 }
-		color2={ 255 255 255 }
-
-		capital = 40 # Moray
-
-			c_moray = {
-				color={ 20 85 243 }
-				color2={ 255 255 255 }
-
-				b_forres = {
-				}
-				b_cawdor = {
-				}
-				b_elgin = {
-				}
-				b_nairn = {
-				}
-				b_inverness = {
-				}
-				b_lochindorb = {
-				}
-				b_kinloss = {
-				}
-				b_urquhart = {
-				}
-			}
-		c_ross = {
-			color={ 15 55 243 }
-			color2={ 255 255 255 }
-
-			b_applecross = {
-			}
-			b_dingwall = {
-				norwegian = "Tingvall"
-					danish = "Tingvall"
-					swedish = "Tingvall"
-					norse = "Tingvall"
-			}
-			b_rosemarkie = {
-			}
-			b_fortrose = {
-			}
-			b_fearn = {
-			}
-			b_tain = {
-			}
-			b_cromarty = {
-			}
-			b_avoch = {
-			}
-		}
-		c_buchan = {
-			color={ 40 227 250 }
-			color2={ 255 255 255 }
-
-			b_aberdeen = {
-			}
-			b_banff = {
-			}
-			b_deer = {
-			}
-			b_kintore = {
-			}
-			b_inverurie = {
-			}
-			b_fyvie = {
-			}
-			b_ellon = {
-			}
-			b_st_machar = {
-			}
-		}
-		c_caithness = {
-			color={ 30 95 243 }
-			color2={ 255 255 255 }
-
-			norwegian = "Katanes"
-				danish = "Katanæs"
-				swedish = "Katanäs"
-				norse = "Katanæs"
-
-				b_wick = {
-					norwegian = "Vik"
-						danish = "Vik"
-						swedish = "Vik"
-						norse = "Vik"
-				}
-			b_dunbeath = {
-			}
-			b_dornoch = {
-			}
-			b_thurso = {
-				swedish = "Tjurså"
-					danish = "Tyrså"
-					norwegian = "Tyrså"
-					norse = "Tyrså"
-			}
-			b_dunrobin = {
-			}
-			b_freswick = {
-				swedish = "Fresvik"
-					danish = "Fresvik"
-					norwegian = "Fresvik"
-					norse = "Fresvik"
-			}
-			b_latheron = {
-			}
-			b_golspie = {
-			}
-		}
-	}
-}
-
-k_ireland = {
-	color={ 6 127 2 }
-	color2={ 255 255 255 }
-
-	capital = 11 # Dublin
-
-		culture = irish
-
-		catholic = 300 # Crusade target weight
-		norse_pagan_reformed = 200 # Crusade target weight
-
-		norse = Irland
-		swedish = Irland
-		danish = Irland
-		norwegian = Irland
-
-		d_ulster = {
-			color={ 5 222 31 }
-			color2={ 255 255 255 }
-
-			capital = 5 # Ulster
-
-				norwegian = Strangfjord
-				swedish = Strangfjord
-				danish = Strangfjord
-				norse = Strangfjorðr
-
-				c_ulster = {
-					color={ 25 230 35 }
-					color2={ 255 255 255 }
-
-					norwegian = Strangfjord
-						swedish = Strangfjord
-						danish = Strangfjord
-						norse = Strangfjorðr
-
-						b_downpatrick = {
-							norwegian = Strangfjord
-								swedish = Strangfjord
-								danish = Strangfjord
-								norse = Strangfjorðr
-						}
-					b_dunseverick = {
-					}
-					b_bangor = {
-					}
-					b_carrickfergus = {
-					}
-					b_connor = {
-					}
-					b_dromore = {
-					}
-					b_larne = {
-					}
-					b_dunluce = {
-					}
-				}
-			c_oriel = {
-				color={ 30 180 45 }
-				color2={ 255 255 255 }
-
-				b_clones = {
-				}
-				b_armagh = {
-				}
-				b_dundalk = {
-					norwegian = Kerlingfjord
-						swedish = Kerlingfjord
-						danish = Kerlingfjord
-						norse = Kerlingfjorðr
-				}
-				b_clogher = {
-				}
-				b_drogheda = {
-				}
-				b_monaghan = {
-				}
-				b_olouth = {
-				}
-				b_ardee = {
-				}
-			}
-			c_tyrone = {
-				color={ 66 157 22 }
-				color2={ 255 255 255 }
-
-				b_coleraine = {
-				}
-				b_dungannon = {
-				}
-				b_aileach = {
-				}
-				b_maghera = {
-				}
-				b_derry = {
-				}
-				b_omagh = {
-				}
-				b_tullyhogue = {
-				}
-				b_dungiven = {
-				}
-			}
-			c_tyrconnell = {
-				color={ 25 190 31 }
-				color2={ 255 255 255 }
-
-				b_gartan = {
-				}
-				b_moville = {
-				}
-				b_raphoe = {
-				}
-				b_fahan = {
-				}
-				b_donegal = {
-				}
-				b_ballyshannon = {
-				}
-				b_kilmacrenan = {
-				}
-				b_ballymacswiney = {
-				}
-			}
-		}
-	d_connacht = {
-		color={ 73 229 56 }
-		color2={ 255 255 255 }
-
-		capital = 9 # Connacht
-
-			c_breifne = {
-				color={ 40 230 65 }
-				color2={ 255 255 255 }
-
-				b_dromahair = {
-				}
-				b_kilmore = {
-				}
-				b_cavan = {
-				}
-				b_longford = {
-				}
-				b_ardagh = {
-				}
-				b_leitrim = {
-				}
-				b_drumcliffe = {
-				}
-				b_kells = {
-				}
-			}
-		c_connacht = {
-			color={ 45 230 70 }
-			color2={ 255 255 255 }
-
-			b_galway = {
-			}
-			b_elphin = {
-			}
-			b_tuam = {
-			}
-			b_clonfert = {
-			}
-			b_roscommon = {
-			}
-			b_mayo = {
-			}
-			b_killala = {
-			}
-			b_anchory = {
-			}
-		}
-	}
-	d_meath = {
-		color={ 49 249 72 }
-		color2={ 255 255 255 }
-
-		capital = 11 # Dublin
-
-			norwegian = Dublin
-			danish = Dublin
-			swedish = Dublin
-			norse = Dyflinn
-			irish = Tara
-
-			pagan_coa = {
-				template = 0
-					layer = {
-						texture = 2
-							texture_internal = 3
-							emblem = 0
-							color = 0
-							color = 0
-							color = 0
-					}
-				religion = "norse_pagan"
-			}
-
-		c_kildare = {
-			color={ 102 248 65 }
-			color2={ 255 255 255 }
-
-			b_knockaulin = {
-			}
-			b_athlone = {
-			}
-			b_kildare = {
-			}
-			b_maynooth = {
-			}
-			b_st_brigit = {
-			}
-			b_rathangan = {
-			}
-			b_durrow = {
-			}
-			b_clonard = {
-			}
-		}
-		c_dublin = {
-			color={ 55 250 85 }
-			color2={ 255 255 255 }
-
-			norse = Dyflinn
-
-				b_dublin = {
-					norse = Dyflinn
-				}
-			b_clondalkin = {
-			}
-			b_finglas = {
-			}
-			b_wicklow = {
-			}
-			b_ath_cliath = {
-			}
-			b_christ_church = {
-			}
-			b_mellifont = {
-			}
-			b_trim = {
-			}
-		}
-	}
-	d_leinster = {
-		color={ 85 211 27 }
-		color2={ 255 255 255 }
-
-		capital = 16 # Leinster
-
-			norwegian = Veisafjord
-			swedish = Veisafjord
-			danish = Veisafjord
-			norse = Veisafjorðr
-
-			c_leinster = {
-				color={ 65 210 85 }
-				color2={ 255 255 255 }
-
-				norwegian = Veisafjord
-					swedish = Veisafjord
-					danish = Veisafjord
-					norse = Veisafjorðr
-
-					b_wexford = {
-						norwegian = Veisafjord
-							swedish = Veisafjord
-							danish = Veisafjord
-							norse = Veisafjorðr
-					}
-				b_leighlin = {
-				}
-				b_arklow = {
-				}
-				b_carlow = {
-				}
-				b_ferns = {
-				}
-				b_glendalough = {
-				}
-				b_naas = {
-				}
-				b_enniscorthy = {
-				}
-			}
-		c_ossory = {
-			color={ 60 210 80 }
-			color2={ 255 255 255 }
-
-			b_kilkenny = {
-			}
-			b_gowran = {
-			}
-			b_clonmacnoise = {
-			}
-			b_aghaboe = {
-			}
-			b_jerpoint = {
-			}
-			b_callan = {
-			}
-			b_grennan = {
-			}
-			b_grannagh = {
-			}
-		}
-	}
-	d_munster = {
-		color={ 16 157 12 }
-		color2={ 255 255 255 }
-
-		capital = 13 # Thomond
-
-			norwegian = "Hlymrek"
-			danish = "Lymrek"
-			swedish = "Lymrek"
-			norse = "Hlymrek"
-
-			c_thomond = {
-				color={ 90 221 111 }
-				color2={ 255 255 255 }
-
-				norwegian = "Hlymrek"
-					danish = "Lymrek"
-					swedish = "Lymrek"
-					norse = "Hlymrek"
-
-					b_limerick = {
-						norwegian = "Hlymrek"
-							danish = "Lymrek"
-							swedish = "Lymrek"
-							norse = "Hlymrek"
-					}
-				b_bunratty = {
-				}
-				b_killaloe = {
-				}
-				b_emly = {
-				}
-				b_ennis = {
-				}
-				b_kilfenora = {
-				}
-				b_askeaton = {
-				}
-				b_adare = {
-				}
-			}
-		c_ormond = {
-			color={ 95 221 121 }
-			color2={ 255 255 255 }
-
-			norwegian = Vedrafjord
-				swedish = Vedrafjord
-				danish = Vedrafjord
-				norse = Veðrafjorðr
-
-				b_waterford = {
-					norwegian = Vedrafjord
-						swedish = Vedrafjord
-						danish = Vedrafjord
-						norse = Veðrafjorðr
-				}
-			b_cahir = {
-			}
-			b_cashel = {
-			}
-			b_clonmel = {
-			}
-			b_lismore = {
-			}
-			b_roscrea = {
-			}
-			b_nenagh = {
-			}
-			b_fethard = {
-			}
-		}
-		c_desmond = {
-			color={ 100 221 90 }
-			color2={ 255 255 255 }
-
-			b_cork = {
-			}
-			b_dunasead = {
-			}
-			b_ross = {
-			}
-			b_youghal = {
-			}
-			b_ardfert = {
-			}
-			b_cloyne = {
-			}
-			b_fermoy = {
-			}
-			b_blarney = {
-			}
-		}
-	}
-}
-
 # Germania excluding a little part of it (Germania Minor) was never a part of the Western Roman Empire
 # but it is added because this mod considers the Holy Roman Empire (of the German Nation) as
 # a legittimate successor of the Western Roman Empire so it considered  de jure drifted
@@ -6722,6 +5772,7 @@ e_germany = {
 			OR = {
 				culture_group = central_germanic
 				culture = old_saxon
+				culture = saxon
 			}
 		}
 	}
@@ -6749,9 +5800,11 @@ e_germany = {
 
 		allow = {
 			culture = old_saxon
+			culture = saxon
 		}
 		
 		catholic = 3000 # Crusade target weight
+		norse_pagan_reformed = 500 # Crusade target weight
 	}
 	
 	k_frisia = {
@@ -6767,6 +5820,7 @@ e_germany = {
 				OR = {
 					ai = no
 					culture = dutch
+					culture = frisian
 				}
 			}
 		}
@@ -6848,12 +5902,13 @@ e_germany = {
 			c_zeeland = {
 				color={ 200 100 30 }
 				color2={ 255 255 255 }
+
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed
 			
 				b_middelburg = {
 				}
 				b_tholen = {
-					holy_site = norse_pagan
-					holy_site = norse_pagan_reformed
 				}
 				b_veere = {
 				}
@@ -7936,14 +6991,15 @@ e_germany = {
 			c_braunschweig = {
 				color={ 192 192 192 }
 				color2={ 255 255 255 }
+
+				holy_site = norse_pagan
+				holy_site = norse_pagan_reformed
 				
 				b_braunschweig = {
 				}
 				b_bielefeld = {
 				}
 				b_paderborn = {
-					holy_site = norse_pagan
-					holy_site = norse_pagan_reformed
 				}
 				b_hildesheim = {
 				}
@@ -8078,9 +7134,10 @@ e_germany = {
 			c_koln = {
 				color={ 141 141 141 }
 				color2={ 255 255 255 }
+
+				holy_site = catholic
 			
 				b_koln = {
-					holy_site = catholic
 				}
 				b_berg = {
 				}
@@ -8375,499 +7432,6 @@ e_germany = {
 	}
 }
 
-k_pomerania = {
-	color={ 145 130 40 }
-	color2={ 220 220 20 }
-
-	culture = pommeranian
-
-		capital = 366 #Stettin
-
-		catholic = 400 # Crusade target weight
-		slavic_pagan_reformed = 500 # Crusade target weight
-		norse_pagan_reformed = 100 # Crusade target weight
-		baltic_pagan_reformed = 100 # Crusade target weight
-
-		allow = {
-			hidden_tooltip = {
-				OR = {
-					ai = no
-						religion_group = pagan_group
-				}
-			}
-		}
-
-	d_mecklemburg = {
-		color={ 162 160 110 }
-		color2={ 255 255 255 }
-
-		capital = 260 #mecklemburg
-
-			pommeranian = Weligrad
-
-			c_mecklemburg = {
-				color={ 207 207 207 }
-				color2={ 255 255 255 }
-
-				pommeranian = Weligrad
-
-					b_mecklemburg = {
-						pommeranian = Weligrad
-					}
-				b_wismar = {
-					pommeranian = Vesimer
-				}
-				b_gevezin = {
-					pommeranian = Radgosc			
-				}
-				b_schwerin = {
-					pommeranian = Zuarina
-				}
-				b_lutzow = {
-				}
-				b_grevesmuhlen = {
-				}
-				b_parchim = {
-				}
-				b_hagenow = {
-				}
-			}
-		c_rostock = {
-			color={ 204 204 204 }
-			color2={ 255 255 255 }
-
-			pommeranian = Rastokú
-
-				b_rostock = {
-					pommeranian = Rastokú
-				}
-			b_penzlin = {	
-				pommeranian = Pentzelin	
-			}
-			b_gustrow = {	
-				pommeranian = Guscerov				
-			}
-			b_malchin = {
-			}
-			b_damgarten = {
-			}
-			b_strelitz = {
-				pommeranian = Streltza
-			}
-			b_stargard = {
-			}
-			b_ahrensberg = {
-			}
-		}
-		c_werle = {
-			color={ 202 202 202 }
-			color2={ 255 255 255 }
-
-			pommeranian = Dymin
-
-				b_waren = {
-				}
-			b_greifswald = {
-				pommeranian = Gripscogh
-			}
-			b_stralsund = {
-
-				pommeranian = Stralow
-			}
-			b_tribsees = {
-			}
-			b_demmin = {
-			}
-			b_treptow = {
-			}
-			b_friedland = {
-				pommeranian = Mirów
-			}
-			b_templin = {
-			}
-		}
-		c_rugen = {
-			color={ 201 201 201 }
-			color2={ 255 255 255 }
-
-			pommeranian = Rana
-
-				b_charenza = {
-				}
-			b_arkona = {
-				holy_site = slavic_pagan
-					holy_site = slavic_pagan_reformed
-					holy_site = baltic_pagan
-					holy_site = baltic_pagan_reformed
-			}
-			b_rugard = {
-			}
-			b_putbus = {
-			}
-			b_barth = {
-			}
-			b_ralswiek = {
-			}
-			b_hiddensee = {
-			}
-			b_tribuzin = {
-			}
-		}
-	}
-
-	d_pommerania = {
-		color={ 111 143 51 }
-		color2={ 255 255 255 }
-
-		capital = 366 # Stettin
-
-			c_wolgast = {
-				color={ 121 163 58 }
-				color2={ 255 255 255 }
-
-				pommeranian = Wologoszcz
-
-					b_wolgast = {
-						pommeranian = Wologoszcz
-					}
-				b_usedom = {
-					pommeranian = Uznjöm
-				}
-				b_anklam = {	
-					pommeranian = Taglim			
-				}
-				b_ueckermunde = {
-				}
-				b_zinnowitz = {
-				}
-				b_zussow = {
-				}
-				b_kemnitz = {
-				}
-				b_eggesin = {
-				}
-			}
-		c_stettin = {
-			color={ 91 163 48 }
-			color2={ 255 255 255 }
-
-			pommeranian = Szczecin
-
-				b_soldin = {
-				}
-			b_stettin = {
-
-				pommeranian = Szczecin
-			}
-			b_wollin = {
-			} 
-			b_stestargard = {
-			}
-			b_kammin = {
-			}
-			b_kolbatz = {
-			}
-			b_cedene = {
-			}
-			b_pyritz = {
-			}
-		}
-	}
-	d_pomeralia = {
-		color={ 95 135 77 }
-		color2={ 255 255 255 }
-
-		capital = 368 # Danzig
-
-			c_danzig = {
-				color={ 115 139 70 }
-				color2={ 255 255 255 }
-
-				pommeranian = "Gdansk"
-					polish = "Gdansk"
-					bohemian = "Gdansk"
-					russian = "Gdansk"
-					prussian = "Gdansk"
-					lithuanian = "Gdansk"
-					lettigallish = "Gdansk"
-					swedish = "Danzig"
-					norse = "Danzig"
-					norwegian = "Danzig"
-					danish = "Danzig"
-
-					b_bytow = {
-					}
-				b_danzig = {
-					pommeranian = "Gdansk"
-						polish = "Gdansk"
-						bohemian = "Gdansk"
-						russian = "Gdansk"
-						prussian = "Gdansk"
-						lithuanian = "Gdansk"
-						lettigallish = "Gdansk"
-						swedish = "Danzig"
-						norse = "Danzig"
-						norwegian = "Danzig"
-						danish = "Danzig"
-				}
-				b_oliva = {
-				}
-				b_tuchel = {
-				}
-				b_schwetz = {
-				}
-				b_danlauenburg = {
-				}
-				b_mewe = {
-				}
-				b_schlochau = {
-				}
-			}
-		c_slupsk = {
-			color={ 6 155 25 }
-			color2={ 255 255 255 }
-
-			german = "Stolp"
-				swedish = "Stolp"
-				norwegian = "Stolp"
-				danish = "Stolp"
-				norse = "Stolp"
-
-				b_rugenwalde = {
-				}
-			b_slupsk = {
-				german = "Stolp"
-					swedish = "Stolp"
-					norwegian = "Stolp"
-					danish = "Stolp"
-					norse = "Stolp"
-			}
-			b_colberg = {
-			}
-			b_schlawe = {
-			}
-			b_tempelburg = {
-			}
-			b_dramburg = {
-			}
-			b_ustka = {
-			}
-			b_belgard = {
-			}
-		}
-	}
-
-	d_saxony = {
-		color={ 164 162 162 }
-		color2={ 255 255 255 }
-
-		capital = 310 #Anhalt
-			c_anhalt = {
-				color={ 184 184 184 }
-				color2={ 255 255 255 }
-
-				pommeranian = Dolomici
-
-					b_zerbst = {	
-						pommeranian = Zirwisti
-					}
-				b_magdeburg = {	
-
-					pommeranian = Magadoburg			
-				}
-				b_haldensleben = {
-					pommeranian = Hahaldeslevo
-				}
-				b_mansfeld = {
-				}
-				b_dessau = {
-				}
-				b_arnstein = {
-				}
-				b_querfurt = {
-					pommeranian = Curnfurt
-				}
-				b_bernburg = {
-				}
-			}
-		c_plauen = {
-			color={ 180 180 180 }
-			color2={ 255 255 255 }
-
-			pommeranian = Ploni
-
-				b_plauen = {
-
-					pommeranian = Ploni
-				}
-			b_leipzig = {
-				pommeranian = Lipsk
-			}
-			b_merseburg = {
-
-			}
-			b_halle = {
-				pommeranian = Dobrebora
-			}
-			b_knobelsdorf = {
-			}
-			b_zeitz = {
-				pommeranian = Cici
-			}
-			b_zwickau = {
-				pommeranian = Swikawa
-			}
-			b_naumburg = {
-			}
-		}
-		c_weimar = {
-			color={ 183 183 183 }
-			color2={ 255 255 255 }
-
-			b_weimar = {
-			}
-			b_jena = {
-			}
-			b_walkenried = {
-			}
-			b_nordhausen = {
-			}
-			b_memelsen = {
-			}
-			b_gotha = {
-			}
-			b_apoldoa = {
-			}
-			b_gera = {
-			}
-		}
-	}
-
-	d_brandenburg = {
-		color={ 121 121 121 }
-		color2={ 255 255 255 }
-
-		capital = 365 #Brandenburg
-
-			pommeranian = Brennaburg
-
-			c_altmark = {
-				color={ 189 189 189 }
-				color2={ 255 255 255 }
-
-				pommeranian = Laczyn
-
-					b_werben = {
-					}
-				b_halberstedt = {
-				}
-				b_walbeck = {
-				}
-				b_luchow = {
-				}
-				b_salzwedel = {
-				}
-				b_stendal = {
-				}
-				b_osterburg = {
-				}
-				b_tangermunde = {
-				}
-			}
-
-		c_brandenburg = {
-			color={ 186 186 186 }
-			color2={ 255 255 255 }
-
-			pommeranian = Brennaburg
-
-				b_brandenburg = {
-					pommeranian = Brennaburg	
-				}
-			b_havelberg = {
-			}
-			b_berlin = {
-			}
-			b_juterborg = {
-				pommeranian = Jutriboc
-			}
-			b_belzig = {
-			}
-			b_ruppin = {
-			}
-			b_oranienburg = {
-				pommeranian = Bochzowe
-			}
-			b_muncheberg = {
-			}
-		}
-	}
-	d_meissen = {
-		color={ 182 188 181 }
-		color2={ 255 255 255 }
-
-		capital = 312 #Meissen
-
-			pommeranian = Nisani
-
-			c_meissen = {
-				color={ 177 177 177 }
-				color2={ 255 255 255 }
-
-				pommeranian = Nisani
-
-					b_dresden = {
-						pommeranian = Drezdany
-					}
-				b_meissen = {
-					pommeranian = Misni
-				}
-				b_dohna = {
-				}
-				b_belgern = { # Called Altenburg
-				}
-				b_strehla = {
-				}
-				b_rabenau = {
-				}
-				b_wettin = {
-				}
-				b_radeburg = {
-				}
-			}
-		c_lausitz = {
-			color={ 174 174 174 }
-			color2={ 255 255 255 }
-
-			pommeranian = Luzycka
-
-				b_gorlitz = {
-					pommeranian = Zhorjelc
-				}
-			b_bautzen = {
-				pommeranian = Budysin
-			} 
-			b_lebus = {
-				pommeranian = Lubiazu
-			}
-			b_cottbus = {
-				pommeranian = Chosebuz
-			}
-			b_rothenburg = {
-			}
-			b_forst = {
-			}
-			b_zittau = {
-				pommeranian = Zitawa
-			}
-			b_luckau = {
-				pommeranian = Luckawa
-			}
-		}
-	}
-}
-
-
 # Roman Prefecture of Africa / (High) Kingdom of Africa, contended between
 # Western Roman Empire and House of Islam
 e_africa = {
@@ -8918,14 +7482,15 @@ e_africa = {
 			c_medjerda = {
 				color={ 26 238 101 }
 				color2={ 255 255 255 }
+
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed			
 			
 				b_medjerda = {
 				}
 				b_lekef = {
 				}
 				b_siliana = {
-					holy_site = west_african_pagan
-					holy_site = west_african_pagan_reformed			
 				}
 				b_kasserine = {
 				}
@@ -9338,16 +7903,17 @@ e_africa = {
 			capital = 843 # Marrakech
 		
 			c_marrakech = {
+				holy_site = aztec
+				holy_site = aztec_reformed
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed
+
 				color={ 45 152 34 }
 				color2={ 255 255 255 }
 			
 				b_marrakech = {
 				}
 				b_sidirahhal = {
-					holy_site = aztec
-					holy_site = aztec_reformed
-					holy_site = west_african_pagan
-					holy_site = west_african_pagan_reformed
 				}
 				b_ouarzazate = {
 				}
@@ -9630,14 +8196,16 @@ e_africa = {
 			c_atlas_mnt = {
 				color={ 49 196 83 }
 				color2={ 255 255 255 }
+
+				holy_site = west_african_pagan
+				holy_site = west_african_pagan_reformed
+				holy_site = ibadi
 			
 				b_tiaret = {
 				}
 				b_djelfa = {
 				}
 				b_bordj = {
-					holy_site = west_african_pagan
-					holy_site = west_african_pagan_reformed
 				}
 				b_elyourh = {
 				}

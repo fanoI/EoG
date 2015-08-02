@@ -136,9 +136,9 @@ decisions = {
 					# Rome is the natural capital of Italia...
 					has_landed_title = e_italy
 					# TODO maybe only if Rome is capital?
-                                        # But would have really sense for the
-                                        # real Roman Empire to make rule Rome
-                                        # to a priest?
+                    # But would have really sense for the
+                    # real Roman Empire to make rule Rome
+                    # to a priest?
 					has_landed_title = e_roman_empire 
 
 					# We don't want that the Commune of Rome / Roman Republic
@@ -201,6 +201,17 @@ decisions = {
 					holder_scope = {
 						c_roma = {
 							grant_title = PREV
+							any_de_jure_vassal_title = {
+								limit = {
+									holder_scope = { 
+										OR = {
+											character = ROOT
+											is_liege_or_above = ROOT
+										}
+									}
+								}
+								grant_title = PREVPREV
+							}
 						}
 						opinion = {
 							who = ROOT
@@ -227,7 +238,6 @@ decisions = {
 				piety = 1000
 				set_character_flag = restored_catholic_pope_in_rome
 			}
-
 			
 			if = {
 				limit = {
@@ -237,6 +247,17 @@ decisions = {
 					holder_scope = {
 						c_roma = {
 							grant_title = PREV
+							any_de_jure_vassal_title = {
+								limit = {
+									holder_scope = { 
+										OR = {
+											character = ROOT
+											is_liege_or_above = ROOT
+										}
+									}
+								}
+								grant_title = PREVPREV
+							}
 						}
 					}
 				}
@@ -264,6 +285,17 @@ decisions = {
 				NOT = {
 					any_demesne_province = {
 						NOT = { province_id = 333 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				c_roma = {
+					holder_scope = {
+						OR = {
+							ai = no
+							any_liege = { ai = no }  # AI will never take Rome province away from a player
+						}
 					}
 				}
 			}
