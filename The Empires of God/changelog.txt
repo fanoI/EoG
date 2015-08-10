@@ -1,3 +1,10 @@
+0.0.3 Alpha
+
+- Compatible with "The Horse Lord DLC" and accompagning patches
+- RIRSEI events ID were no more OK because were > 99'999 changed them
+all!
+- Fixed RIRSEI decisions that referred to old laws
+
 0.0.2 Alpha
 
 - The Eastern Roman Empire after being formed obtains an Event in which is
