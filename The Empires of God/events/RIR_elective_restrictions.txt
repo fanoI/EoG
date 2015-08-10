@@ -1,18 +1,18 @@
 #Liege does respects election system
 character_event = {
-	id = RIRSEI.2000000
-	desc = "EVTDESC_RIRSEI_2000000"
+	id = RIRSEI.20000
+	desc = "EVTDESC_RIRSEI_20000"
 	picture = GFX_evt_throne_room
 
 	only_rulers = yes
 
 	trigger = {
 		independent = no
-NOT = { year = 1300 }
+		NOT = { year = 1300 }
                 OR = {
-				primary_title = { tier = KING }
-				primary_title = { tier = DUKE }
-			}
+			primary_title = { tier = KING }
+			primary_title = { tier = DUKE }
+		}
 		liege = {
 			independent = yes
 			has_law = centralization_0
@@ -23,7 +23,7 @@ NOT = { year = 1300 }
 				primary_title = { tier = KING }
 				primary_title = { tier = EMPEROR }
 			}
-			or = {
+			OR = {
 				reverse_has_opinion_modifier = {
 					who = ROOT
 					modifier = limited_crown_election 
@@ -34,7 +34,6 @@ NOT = { year = 1300 }
 				}
 			}
 		}
-
 	}
 
 	mean_time_to_happen = {
@@ -42,7 +41,7 @@ NOT = { year = 1300 }
 	}
 
 	option = {
-		name = "EVTOPTA_RIRSEI_2000000"
+		name = "EVTOPTA_RIRSEI_20000"
 		hidden_tooltip = {
 			liege = {
 				reverse_remove_opinion = {
@@ -57,21 +56,22 @@ NOT = { year = 1300 }
 		}
 	}
 }
+
 #Liege does not respect election system
 character_event = {
-	id = RIRSEI.2000005
-	desc = "EVTDESC_RIRSEI_2000005"
+	id = RIRSEI.20005
+	desc = "EVTDESC_RIRSEI_20005"
 	picture = GFX_evt_throne_room
 
 	only_rulers = yes
 
 	trigger = {
 		independent = no
-NOT = { year = 1300 }
-                 OR = {
+		NOT = { year = 1300 }
+                OR = {
 				primary_title = { tier = KING }
 				primary_title = { tier = DUKE }
-			}
+		}
 		liege = {
 			independent = yes
 			has_law = centralization_1
@@ -82,7 +82,7 @@ NOT = { year = 1300 }
 				primary_title = { tier = KING }
 				primary_title = { tier = EMPEROR }
 			}
-		not = { reverse_has_opinion_modifier = { who = ROOT modifier = limited_crown_election } }
+			NOT = { reverse_has_opinion_modifier = { who = ROOT modifier = limited_crown_election } }
 		}
 	}
 
@@ -91,37 +91,38 @@ NOT = { year = 1300 }
 	}
 
 	option = {
-		name = "EVTOPTA_RIRSEI_2000005"
-			hidden_tooltip = {
-				liege = {
-					reverse_opinion = {
-						modifier = limited_crown_election
-						who = ROOT
-						years = 80
-					}
-					reverse_remove_opinion = {
-						modifier = maximum_crown_election
-						who = ROOT
-					}
+		name = "EVTOPTA_RIRSEI_20005"
+		hidden_tooltip = {
+			liege = {
+				reverse_opinion = {
+					modifier = limited_crown_election
+					who = ROOT
+					years = 80
+				}
+				reverse_remove_opinion = {
+					modifier = maximum_crown_election
+					who = ROOT
 				}
 			}
+		}
 	}
 }
+
 #Liege does not respect election system
 character_event = {
-	id = RIRSEI.2000010
-	desc = "EVTDESC_RIRSEI_2000010"
+	id = RIRSEI.20010
+	desc = "EVTDESC_RIRSEI_20010"
 	picture = GFX_evt_throne_room
 
 	only_rulers = yes
 
 	trigger = {
 		independent = no
-NOT = { year = 1300 }
-                 OR = {
-				primary_title = { tier = KING }
-				primary_title = { tier = DUKE }
-			}
+		NOT = { year = 1300 }
+                OR = {
+			primary_title = { tier = KING }
+			primary_title = { tier = DUKE }
+		}
 		liege = {
 			independent = yes
 			
@@ -129,13 +130,11 @@ NOT = { year = 1300 }
                         NOT = { has_landed_title = e_byzantium }
                         NOT = { has_landed_title = e_roman_empire }
 				
-			
-			
 			OR = {
 				primary_title = { tier = KING }
 				primary_title = { tier = EMPEROR }
 			}
-		NOT = { reverse_has_opinion_modifier = { who = ROOT modifier = maximum_crown_election } }
+			NOT = { reverse_has_opinion_modifier = { who = ROOT modifier = maximum_crown_election } }
 		}
 	}
 
@@ -144,7 +143,7 @@ NOT = { year = 1300 }
 	}
 
 	option = {
-		name = "EVTOPTA_RIRSEI_2000010"
+		name = "EVTOPTA_RIRSEI_20010"
 		hidden_tooltip = {
 			liege = {
 				reverse_opinion = {

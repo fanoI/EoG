@@ -1,0 +1,3064 @@
+# Creation royaume de bretagne
+
+namespace = RIRSEI
+
+narrative_event = {
+	id = RIRSEI.1
+	title = EVTNAME_RIRSEI_1
+	desc = EVTDESC_RIRSEI_1
+	
+	picture = GFX_evt_bret
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_1
+		hidden_tooltip = {
+			primary_title = {
+				d_brittany = { de_jure_liege = k_brittany }
+			}
+		}
+		k_brittany = {
+			grant_title = ROOT
+			copy_title_laws = d_brittany
+			copy_title_history = d_brittany
+		}
+		d_brittany = {
+			destroy_landed_title = THIS
+			}
+		}
+	}	
+
+
+# Creation royaume d'aquitaine
+
+narrative_event = {
+	id = RIRSEI.2
+	title = EVTNAME_RIRSEI_2
+	desc = EVTDESC_RIRSEI_2
+	
+	picture = GFX_evt_recl
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_2
+		hidden_tooltip = {
+			primary_title = {
+				d_aquitaine = { de_jure_liege = k_aquitaine }
+                                d_toulouse = { de_jure_liege = k_aquitaine }
+				d_gascogne = { de_jure_liege = k_aquitaine }
+				d_bourbon = { de_jure_liege = k_aquitaine }
+				d_poitou = { de_jure_liege = k_aquitaine }
+				d_auvergne = { de_jure_liege = k_aquitaine }
+			}
+		}
+		k_aquitaine = {
+			grant_title = ROOT
+			copy_title_laws = d_aquitaine
+			copy_title_history = d_aquitaine
+		}
+		d_aquitaine = {
+			destroy_landed_title = THIS
+		}
+	}
+}
+
+# Sacre du roi de France	
+character_event = {
+        id = RIRSEI.3
+	title = "EVTNAME_RIRSEI_3"
+	desc = "EVTDESC_RIRSEI_3"
+	sound = church_bells
+	picture = GFX_evt_sacre
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_3"
+ 		add_trait = roi_oint
+ 		prestige = 300
+		if = {
+     			limit = { has_global_flag = rex_imperator_fr }
+     			add_trait = Imp_regn
+		}
+	}
+}
+
+# Le roi est empereur en son royaume France
+character_event = {
+        id = RIRSEI.4
+	title = EVTNAME_RIRSEI_4
+	desc = EVTDESC_RIRSEI_4
+	sound = church_bells
+	picture = GFX_evt_charlesv
+       
+	is_triggered_only = yes
+
+	option = {
+ 		name = "EVTOPTA_RIRSEI_4"
+ 		trigger = {
+         		has_landed_title = k_france 
+		}
+		add_trait = Imp_regn
+ 		prestige = 1500
+		give_nickname = nick_augustus
+ 		hidden_tooltip = {
+	           any_independent_ruler = {
+                   	limit = { has_landed_title = e_hre }
+				letter_event = { id = RIRSEI.5}
+
+		   }
+		}
+	}
+}
+
+# L'empereur est informé
+letter_event = {
+        id = RIRSEI.5
+	title = EVTNAME_RIRSEI_5
+	desc = EVTDESC_RIRSEI_5
+	
+	picture = GFX_evt_affro
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_5"
+                trigger = {
+			NOT = { has_law = centralization_4 }
+		}
+                prestige = -1000
+        	ROOT = {
+	        	opinion = {
+				modifier = Emp_in_suo
+				who = FROM
+                        	years = 30
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_5"
+		trigger = {
+			has_law = centralization_4
+                        demesne_size = 10
+		}
+                prestige = -1000
+                add_claim = k_france
+         	ROOT = {
+	        	opinion = {
+				modifier = Emp_in_suo
+				who = FROM
+                                years = 30
+			}
+		}
+	}
+}
+# La Pologne est un royaume
+character_event = {
+        id = RIRSEI.6
+	title = EVTNAME_RIRSEI_6
+	desc = EVTDESC_RIRSEI_6
+	sound = church_bells
+	picture = GFX_evt_polo
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_6"
+ 
+		prestige = 1000
+		hidden_tooltip = {
+                	primary_title = {
+				d_mazovia = { de_jure_liege = k_polandball }
+                                d_greater_poland = { de_jure_liege = k_polandball }
+                                d_silesia = { de_jure_liege = k_polandball }
+                                d_lesser_poland = { de_jure_liege = k_polandball }
+                                d_kuyavia = { de_jure_liege = k_polandball }
+			}
+		}
+		k_polandball = {
+			grant_title = ROOT
+			copy_title_laws = k_poland
+			copy_title_history = k_poland
+		}
+		k_poland = {
+			destroy_landed_title = THIS
+		}
+                activate_title = { title = k_poland status = no }
+	        any_independent_ruler = {
+        	        limit = {
+					has_landed_title = e_hre
+			}
+			letter_event = { id = RIRSEI.7}
+		}
+	}
+}
+
+# L'empereur est informé pour la pologne
+letter_event = {
+        id = RIRSEI.7
+	title = EVTNAME_RIRSEI_7
+	desc = EVTDESC_RIRSEI_7
+	
+	picture = GFX_evt_polo
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_7"
+               
+                prestige = -800
+         	ROOT = {
+	        	opinion = {
+				modifier = Emp_pol_rex
+				who = FROM
+                                years = 30
+				
+			}
+		}
+	}
+}
+# La Pologne doit faire son choix
+letter_event = {
+        id = RIRSEI.8
+	title = EVTNAME_RIRSEI_8
+	desc = EVTDESC_RIRSEI_8
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_8"
+                FROM = {
+			letter_event = { id = RIRSEI.9 }
+		}
+		ai_chance = {
+			factor = 0.4
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_8"
+                FROM = {
+			letter_event = { id = RIRSEI.10}
+		}
+	
+		ai_chance = {
+			factor = 0.6
+			modifier = {
+				factor = 2.0
+				FROM = { trait = kinslayer }
+			}
+			modifier = {
+				factor = 1.2
+				FROM = { culture = german }
+			}
+		}
+	}
+
+}
+# La Pologne accepte la vassalisation
+letter_event = {
+        id = RIRSEI.9
+	title = EVTNAME_RIRSEI_9
+	desc = EVTDESC_RIRSEI_9
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_9"
+                prestige = 1500
+                any_independent_ruler = {
+                   limit = {
+				has_landed_title = k_poland
+		    }
+                    set_defacto_liege = ROOT
+		}
+	}
+}
+
+# La Pologne refuse la vassalisation
+letter_event = {
+        id = RIRSEI.10
+	title = EVTNAME_RIRSEI_10
+	desc = EVTDESC_RIRSEI_10
+	
+	picture = GFX_evt_Council_Around_Table
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_10"
+                add_claim = k_poland
+	}
+}
+
+# Marche pas...
+character_event = {
+        id = RIRSEI.11
+	title = EVTNAME_RIRSEI_11
+	desc = EVTDESC_RIRSEI_11
+	picture = GFX_evt_Council_Around_Table
+
+	trigger = {
+           has_landed_title = e_hre
+           age = 16
+           year = 1066
+           NOT = { trait = roi_des_romains }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	option = {
+          name = "EVTOPTA_RIRSEI_11"
+          add_trait = roi_des_romains
+	}	
+}
+
+# Les monarques catholiques sont informes
+letter_event = {
+        id = RIRSEI.12
+	title = EVTNAME_RIRSEI_12
+	desc = EVTDESC_RIRSEI_12
+	
+	picture = GFX_evt_phare
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_12"
+               
+                prestige = -500
+        	ROOT = {
+		        opinion = {
+				modifier = Emp_stupor
+				who = FROM
+                        	years = 10
+			}
+		}
+	}
+}
+
+# Le roi de France est informe des pretentions imperiales
+letter_event = {
+        id = RIRSEI.13
+	title = EVTNAME_RIRSEI_13
+	desc = EVTDESC_RIRSEI_13
+	
+	picture = GFX_evt_affro
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_13"
+               
+                prestige = -1000
+       		ROOT = {
+	        	opinion = {
+				modifier = Emp_fr
+				who = FROM
+                                years = 10
+			}
+		}
+	}
+}
+
+# This is the same concept of restoring the WRE in "The Empires of God" but it
+# will happens differently so it is commented
+# Renovatio imperii ser
+#character_event = {
+#        id = RIRSEI.555555
+#	title = EVTNAME_RIRSEI_555555
+#	desc = EVTDESC_RIRSEI_555555
+#	
+#	picture = "GFX_evt_reno"
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_555555"
+#                prestige = 3000
+#                
+#                k_france = { de_jure_liege = e_hre }
+#                k_england = { de_jure_liege = e_hre }
+#                k_castille = { de_jure_liege = e_hre }
+#                k_leon = { de_jure_liege = e_hre }
+#                k_aragon = { de_jure_liege = e_hre }
+#                k_navarra = { de_jure_liege = e_hre }
+#                k_asturias = { de_jure_liege = e_hre }
+#                k_spanish_galicia = { de_jure_liege = e_hre }
+#                k_portugal = { de_jure_liege = e_hre }
+#                k_andalusia = { de_jure_liege = e_hre }
+#                k_italy = { de_jure_liege = e_hre }
+#                k_brittany = { de_jure_liege = e_hre }
+#                k_aquitaine = { de_jure_liege = e_hre }
+#                k_britannia = { de_jure_liege = e_hre }
+#                k_wales = { de_jure_liege = e_hre }
+#                k_spain = { de_jure_liege = e_hre }
+#                any_independent_ruler = {
+#                   limit = { religion = catholic }
+#                  
+#                   letter_event = { id = RIRSEI.565656}
+#}
+#}
+#}
+# Les monarques independants sont informes
+#letter_event = {
+#        id = RIRSEI.565656
+#	title = EVTNAME_RIRSEI_565656
+#	desc = EVTDESC_RIRSEI_565656
+#	
+#	picture = GFX_evt_reno
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_565656"
+#               
+#                prestige = -1500
+#}
+#}
+# The Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.575757
+#	title = EVTNAME_RIRSEI_575757
+#	desc = EVTDESC_RIRSEI_575757
+#	
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		set_character_flag = achievement_legacy_of_rome
+#	}
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_575757
+#		hidden_tooltip = {
+#		primary_title = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_roman_empire
+#				}
+#			}
+#		}
+#		e_roman_empire = {
+#			grant_title = ROOT
+#			copy_title_laws = e_hre
+#			copy_title_history = e_hre
+#		}
+#		e_hre = {
+#			destroy_landed_title = THIS
+#		}
+#		add_trait = augustus
+#		give_nickname = nick_the_glorious
+#		hidden_tooltip = {
+#			activate_title = { title = e_hre status = no }
+#			any_playable_ruler = {
+#				limit = {
+#					NOT = { has_landed_title = e_hre }
+#					ai = no
+#				}
+#				narrative_event = { id = RIRSEI.585858 }
+#			}
+#		}
+#	}	
+#} 
+# Informed about Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.585858
+#	title = EVTNAME_RIRSEI_585858
+#	desc = EVTDESC_RIRSEI_585858
+#	
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_585858
+#		trigger = {
+#			NOT = { has_landed_title = e_byzantium }
+#		}
+#	}
+#	option = {
+#		name = EVTOPTB_RIRSEI_585858
+#		trigger = {
+#			has_landed_title = e_byzantium
+#		}
+#		prestige = -5000
+#	}
+#}
+
+# phare
+character_event = {
+        id = RIRSEI.14
+	title = EVTNAME_RIRSEI_14
+	desc = EVTDESC_RIRSEI_14
+	
+	picture = "GFX_evt_phare"
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_14"
+	}
+}
+ 
+# lettre de reunification
+#letter_event = {
+#        id = RIRSEI.606060
+#	title = EVTNAME_RIRSEI_606060
+#	desc = EVTDESC_RIRSEI_606060
+	
+#	picture = GFX_evt_holy_emperor
+#	is_triggered_only = yes
+
+#	option = {
+#		name = "EVTOPTA_RIRSEI_606060"
+#	k_byzantium = {
+#			grant_title = ROOT
+#	}
+#        FROM = {
+#			letter_event = { id = RIRSEI.616161 }
+		#}
+#		ai_chance = {
+#			factor = 0.2
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 20
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 40
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 60
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 80
+#					}
+#				}
+#			}
+#                       modifier = {
+#				factor = 1.4
+#			ROOT = { 
+#                                        prestige = 12000 }
+#}
+# modifier = {
+#				factor = 1.5
+#				ROOT = { 
+#                                       prestige = 14000 }
+#}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 100
+#					}
+#				}
+#			}
+#		}
+#}
+#
+#option = {
+#		name = "EVTOPTB_RIRSEI_606060"
+#                FROM = {
+#			letter_event = { id = RIRSEI.626262}
+#		}
+#	
+#		ai_chance = {
+#			factor = 0.8
+#			modifier = {
+#				factor = 2.0
+#				FROM = { trait = kinslayer }
+#			}
+#			modifier = {
+#				factor = 2.0
+#				FROM = { trait = lunatic }
+#			}
+#			modifier = {
+#				factor = 2.0
+#				FROM = { trait = cynical }
+#			}
+#                        modifier = {
+#				factor = 2.0
+#				ROOT = { trait = ambitious }
+#		}
+#}
+#}
+#}
+# l'Empire Byzantin accepte
+#letter_event = {
+#       id = RIRSEI.616161
+#	title = EVTNAME_RIRSEI_616161
+#	desc = EVTDESC_RIRSEI_616161
+#	
+#	
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_616161"
+#
+#               e_byzantium = {
+#			destroy_landed_title = THIS
+#		} 
+#                character_event = { id = RIRSEI.636363 }
+#                               
+#}
+#} 
+# Empire reunifie
+#character_event = {
+#	id = RIRSEI.636363
+#	title = EVTNAME_RIRSEI_636363
+#	desc = EVTDESC_RIRSEI_636363
+#	
+#	picture = "GFX_evt_reno"
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_636363
+#                prestige = 3000
+#                piety = 500
+#               
+#
+# 
+#hidden_tooltip = {
+#
+#any_independent_ruler = {
+#                   limit = { has_landed_title = k_byzantium }
+#                set_defacto_liege = ROOT
+#}
+#			e_byzantium = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_hre
+#				}
+#			}
+#activate_title = { title = e_byzantium status = no }
+#		}
+#		
+#		
+#}
+#}
+# l'Empire Byzantin refuse
+#letter_event = {
+#        id = RIRSEI.626262
+#	title = EVTNAME_RIRSEI_626262
+#	desc = EVTDESC_RIRSEI_626262
+#	
+#	
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_626262"
+#
+#                               
+#}
+#}
+# lettre de reunification
+#letter_event = {
+#        id = RIRSEI.646464
+#	title = EVTNAME_RIRSEI_646464
+#	desc = EVTDESC_RIRSEI_646464
+#	
+#	picture = GFX_evt_holy_emperor
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_646464"
+#k_byzantium = {
+#			grant_title = ROOT
+#}
+#                FROM = {
+#			letter_event = { id = RIRSEI.656565 }
+#		}
+#		ai_chance = {
+#			factor = 0.6
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 20
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 40
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 60
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 80
+#					}
+#				}
+#			}
+#                        modifier = {
+#				factor = 1.4
+#				ROOT = { 
+#                                        prestige = 12000 }
+#}
+# modifier = {
+#				factor = 1.5
+#				ROOT = { 
+#                                        prestige = 14000 }
+#}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 100
+#					}
+#				}
+#			}
+#		}
+#}
+#
+#option = {
+#		name = "EVTOPTB_RIRSEI_646464"
+#                FROM = {
+#			letter_event = { id = RIRSEI.666666}
+#		}
+#	
+#		ai_chance = {
+#			factor = 0.4
+#			modifier = {
+#				factor = 1.2
+#				FROM = { trait = kinslayer }
+#			}
+#			modifier = {
+#				factor = 1.2
+#				FROM = { trait = lunatic }
+#			}
+#			modifier = {
+#				factor = 1.2
+#				FROM = { trait = cynical }
+#			}
+#                        modifier = {
+#				factor = 1.2
+#				ROOT = { trait = ambitious }
+#		}
+#}
+#}
+#}
+# l'Empire Byzantin accepte
+#letter_event = {
+#        id = RIRSEI.656565
+#	title = EVTNAME_RIRSEI_656565
+#	desc = EVTDESC_RIRSEI_656565
+#	
+#	
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_656565"
+#
+#                e_byzantium = {
+#			destroy_landed_title = THIS
+#		} 
+#                character_event = { id = RIRSEI.676767 }
+#                               
+#}
+#} 
+# Empire reunifie
+#character_event = {
+#	id = RIRSEI.676767
+#	title = EVTNAME_RIRSEI_676767
+#	desc = EVTDESC_RIRSEI_676767
+#	
+#	picture = "GFX_evt_reno"
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_676767
+#                prestige = 3000
+#                piety = 500
+#               
+#
+# 
+#hidden_tooltip = {
+#
+#any_independent_ruler = {
+#                   limit = { has_landed_title = k_byzantium }
+#                set_defacto_liege = ROOT
+#}
+#			e_byzantium = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_roman_empire
+#				}
+#			}
+#activate_title = { title = e_byzantium status = no }
+#		}
+#		
+#		
+#}
+#}
+# l'Empire Byzantin refuse
+#letter_event = {
+#        id = RIRSEI.666666
+#	title = EVTNAME_RIRSEI_666666
+#	desc = EVTDESC_RIRSEI_666666
+#	
+#	
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_666666"
+#
+#                               
+#}
+#}
+# l'Empereur est informe d'un nouveau pretendant
+letter_event = {
+        id = RIRSEI.15
+	title = EVTNAME_RIRSEI_15
+	desc = EVTDESC_RIRSEI_15
+	
+	is_triggered_only = yes
+
+	option = {
+                prestige = -2000
+		name = "EVTOPTA_RIRSEI_15"
+                ROOT = {
+			primary_title = {
+				reverse_war = {
+					target = FROM
+					casus_belli = claim
+				}
+			}
+		}
+	}
+}
+# Reponse des vassaux du SER
+letter_event = {
+	id = RIRSEI.16
+	desc = "EVTDESC_RIRSEI_16"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_RIRSEI_16"	
+                set_defacto_liege = FROM
+		
+		FROM = {
+			letter_event = { id = RIRSEI.17 }
+		}
+                ROOT = {
+			opinion = {
+				modifier = soutien_pret 
+
+				who = FROM
+				years = 6
+			}
+		}
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 30
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+			modifier = {
+				factor = 2.0
+				ROOT = { trait = zealous }
+			}
+			
+			modifier = {
+				factor = 1.2
+				ROOT = { piety = 400 }
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = { piety = 600 }
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = { piety = 800 }
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = { piety = 1000 }
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_16"	
+		FROM = {
+			letter_event = { id = RIRSEI.18 }
+		}
+		ROOT = {
+			opinion = {
+				modifier = pas_soutien 
+
+				who = FROM
+				years = 10
+			}
+		}
+		ai_chance = {
+			factor = 0.5
+			modifier = {
+				factor = 1.2
+				e_hre = {
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							value = 30
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				e_hre = {
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							value = 40
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				e_hre = {
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							value = 60
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				e_hre = {
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							value = 80
+						}
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				e_hre = {
+					holder_scope = {
+						opinion = {
+							who = ROOT
+							value = 100
+						}
+					}
+				}
+			}
+		}
+	}
+}
+# Le pretendant recoit du soutien
+letter_event = {
+        id = RIRSEI.17
+	title = EVTNAME_RIRSEI_17
+	desc = EVTDESC_RIRSEI_17
+	
+	
+	is_triggered_only = yes
+
+	option = {
+                prestige = 50
+		name = "EVTOPTA_RIRSEI_17"
+	}
+}
+
+# Le pretendant lui refuse 
+letter_event = {
+        id = RIRSEI.18
+	title = EVTNAME_RIRSEI_18
+	desc = EVTDESC_RIRSEI_18
+	
+	
+	is_triggered_only = yes
+
+	option = {
+                prestige = -50
+		name = "EVTOPTA_RIRSEI_18"
+	}
+}
+
+# Le Pape accepte de donner les regalia
+character_event = {
+	id = RIRSEI.19
+	desc = "EVTDESC_RIRSEI_19"
+	picture = "GFX_evt_empdeux"
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_RIRSEI_19"	
+		prestige = 500
+                add_trait = crowned_by_pope
+		
+	}
+}
+
+# Creation royaume de normannie
+#narrative_event = {
+#	id = RIRSEI.737373
+#	title = EVTNAME_RIRSEI_737373
+#	desc = EVTDESC_RIRSEI_737373
+#	
+#	picture = GFX_evt_kalmar
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_737373
+#                prestige = 2000
+#		hidden_tooltip = {
+#			primary_title = {
+#				d_uppland = { de_jure_liege = k_normannia }
+#d_ostergotland = { de_jure_liege = k_normannia }
+#d_vastergotland = { de_jure_liege = k_normannia }
+#d_norrland = { de_jure_liege = k_normannia }
+#d_bergslagen = { de_jure_liege = k_normannia }
+#d_smaland = { de_jure_liege = k_normannia }
+#d_skane = { de_jure_liege = k_normannia }
+#d_sjaelland = { de_jure_liege = k_normannia }
+#d_slesvig = { de_jure_liege = k_normannia }
+#d_holstein = { de_jure_liege = k_normannia }
+#d_orkney = { de_jure_liege = k_normannia }
+#d_vestlandet = { de_jure_liege = k_normannia }
+#d_ostlandet = { de_jure_liege = k_normannia }
+#d_trondelag = { de_jure_liege = k_normannia }
+#d_jamtland = { de_jure_liege = k_normannia }
+#d_iceland = { de_jure_liege = k_normannia }
+#
+#			}
+#		}
+#		k_normannia = {
+#			grant_title = ROOT
+#                        copy_title_laws = k_denmark
+#			
+#		}
+#activate_title = { title = k_sweden status = no }
+#activate_title = { title = k_denmark status = no }
+#activate_title = { title = k_norway status = no }
+#		k_sweden = {
+#			destroy_landed_title = THIS
+#		 
+#			}
+#k_norway = {
+#			destroy_landed_title = THIS
+#		 
+#			}
+#k_denmark = {
+#			destroy_landed_title = THIS
+#		 
+#			}
+#		}
+#	} 
+
+#Creation empire russie si byzance detruite
+narrative_event = {
+	id = RIRSEI.20
+	title = EVTNAME_RIRSEI_20
+	desc = EVTDESC_RIRSEI_20
+	
+	picture = GFX_evt_tsar
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_20
+                prestige = 3000
+		hidden_tooltip = {
+			primary_title = {
+				k_rus = { de_jure_liege = e_russia }
+                                
+			}
+		}
+		e_russia = {
+			grant_title = ROOT
+			copy_title_laws = k_rus
+                        copy_title_history = k_rus
+		}
+                k_rus = {
+			destroy_landed_title = THIS
+			}
+	}
+}
+
+# Creation empire russie si byzance faible
+narrative_event = {
+	id = RIRSEI.21
+	title = EVTNAME_RIRSEI_21
+	desc = EVTDESC_RIRSEI_21
+	
+	picture = GFX_evt_tsar
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_21
+                prestige = 1000
+		any_independent_ruler = {
+                   limit = {
+				 has_landed_title = e_byzantium
+		   }
+		   letter_event = { id = RIRSEI.22 }
+		}
+		hidden_tooltip = {
+			primary_title = {
+				k_rus = { de_jure_liege = e_russia }
+                                
+			}
+		}
+		e_russia = {
+			grant_title = ROOT
+			copy_title_laws = k_rus
+                        copy_title_history = k_rus
+		}
+                k_rus = {
+			destroy_landed_title = THIS
+		 
+		}
+	}
+}
+
+# l'empereur byzantin est informe des pretentions russes
+letter_event = {
+        id = RIRSEI.22
+	title = EVTNAME_RIRSEI_22
+	desc = EVTDESC_RIRSEI_22
+	
+	picture = GFX_evt_tsar
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_22"
+               
+                prestige = -1000
+        	ROOT = {
+	        	opinion = {
+				modifier = emp_byz_outre
+				who = FROM
+                        	years = 30
+			}
+		}
+	}
+}
+
+# Creation empire serbie si byzance detruite
+narrative_event = {
+	id = RIRSEI.23
+	title = EVTNAME_RIRSEI_23
+	desc = EVTDESC_RIRSEI_23
+	
+	picture = GFX_evt_tsarserb
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_23
+                prestige = 3000
+		
+		e_serbia = {
+			grant_title = ROOT
+			copy_title_laws = k_serbia
+                        copy_title_history = k_serbia
+			
+		}
+		k_serbia = {
+			destroy_landed_title = THIS
+		 
+			}
+              
+		}
+	}
+# Creation empire serbie si byzance faible
+
+narrative_event = {
+	id = RIRSEI.24
+	title = EVTNAME_RIRSEI_24
+	desc = EVTDESC_RIRSEI_24
+	
+	picture = GFX_evt_tsarserb
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_24
+                prestige = 1000
+		any_independent_ruler = {
+                   limit = {
+			 	has_landed_title = e_byzantium
+		   }
+		   letter_event = { id = RIRSEI.25 }
+		}
+		hidden_tooltip = {
+			e_serbia = {
+				grant_title = ROOT
+				copy_title_laws = k_serbia
+                        	copy_title_history = k_serbia
+			}
+		}
+		k_serbia = {
+			destroy_landed_title = THIS
+		}
+	}
+}
+# l'empereur byzantin est informe des pretentions serbes
+letter_event = {
+        id = RIRSEI.25
+	title = EVTNAME_RIRSEI_25
+	desc = EVTDESC_RIRSEI_25
+	
+	picture = GFX_evt_tsarserb
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTA_RIRSEI_25"
+               
+                prestige = -2000
+         	ROOT = {
+	        	opinion = {
+				modifier = emp_byz_outre_serb
+				who = FROM
+                                years = 30
+			}
+		}
+	}
+}
+
+# Creation empire bulgarie si byzance detruite
+narrative_event = {
+	id = RIRSEI.26
+	title = EVTNAME_RIRSEI_26
+	desc = EVTDESC_RIRSEI_26
+	
+	picture = GFX_evt_tsarbul
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_26
+                prestige = 3000
+		
+		e_bulgaria = {
+			grant_title = ROOT
+			copy_title_laws = k_bulgaria
+                        copy_title_history = k_bulgaria
+		}
+		k_bulgaria = {
+			destroy_landed_title = THIS
+		}
+	}
+}
+
+# Creation empire bulgarie si byzance faible
+narrative_event = {
+	id = RIRSEI.27
+	title = EVTNAME_RIRSEI_27
+	desc = EVTDESC_RIRSEI_27
+	
+	picture = GFX_evt_tsarbul
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_27
+                prestige = 1000
+		any_independent_ruler = {
+                   limit = {
+				 has_landed_title = e_byzantium
+		   }
+		   letter_event = { id = RIRSEI.28 }
+		}
+		hidden_tooltip = {
+			e_bulgaria = {
+				grant_title = ROOT
+				copy_title_laws = k_bulgaria
+                        	copy_title_history = k_bulgaria
+			}
+		}
+		k_bulgaria = {
+			destroy_landed_title = THIS
+		}
+	}
+}	
+
+# l'empereur byzantin est informe des pretentions bulgares
+letter_event = {
+        id = RIRSEI.28
+	title = EVTNAME_RIRSEI_28
+	desc = EVTDESC_RIRSEI_28
+	
+	picture = GFX_evt_tsarbul
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_28"
+               
+                prestige = -2000
+        	ROOT = {
+	        	opinion = {
+				modifier = emp_byz_outre_bul
+				who = FROM
+                                years = 30
+			}
+		}
+	}
+}
+
+# Creation empire byzantin par les tsars
+narrative_event = {
+	id = RIRSEI.29
+	title = EVTNAME_RIRSEI_29
+	desc = EVTDESC_RIRSEI_29
+	
+	picture = GFX_evt_prisbyz
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_29
+                prestige = 5000
+                piety = 500
+		if = {
+			limit = { has_landed_title = e_bulgaria }
+			hidden_tooltip = {
+				primary_title = {
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_byzantium
+					}
+				}
+			}
+		
+			e_byzantium = {
+				grant_title = ROOT
+				copy_title_laws = e_bulgaria
+                        	copy_title_history = e_bulgaria
+			}
+			e_bulgaria = {
+				destroy_landed_title = THIS
+			}
+		}
+		if = {
+			limit = { has_landed_title = e_russia }
+			hidden_tooltip = {
+				primary_title = {
+					any_direct_de_jure_vassal_title = {
+						de_jure_liege = e_byzantium
+					}
+				}
+			}
+		
+			e_byzantium = {
+				grant_title = ROOT
+				copy_title_laws = e_russia
+                        	copy_title_history = e_russia
+			}
+			e_russia = {
+				destroy_landed_title = THIS
+			}
+		}
+		if = {
+			limit = { has_landed_title = e_serbia }
+		
+			e_byzantium = {
+				grant_title = ROOT
+				copy_title_laws = e_serbia
+                        	copy_title_history = e_serbia
+			}
+			e_serbia = {
+				destroy_landed_title = THIS
+			}
+		}
+	}
+}
+
+# Protecteur des reliques de st jacques
+character_event = {
+        id = RIRSEI.30
+	title = EVTNAME_RIRSEI_30
+	desc = EVTDESC_RIRSEI_30
+	sound = church_bells
+	picture = GFX_evt_reliquej
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_30"
+ 		add_trait = relique_jacques
+ 		prestige = 100
+ 		piety = 150
+	}
+}
+
+# Plus protecteur !
+letter_event = {
+        id = RIRSEI.31
+	title = EVTNAME_RIRSEI_31
+	desc = EVTDESC_RIRSEI_31
+	
+	picture = GFX_evt_reliquej
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_31" 
+                prestige = -200
+                remove_trait = relique_jacques
+	}
+}
+
+# Titre de defenseur de la foi
+character_event = {
+        id = RIRSEI.32
+	title = EVTNAME_RIRSEI_32
+	desc = EVTDESC_RIRSEI_32
+	sound = church_bells
+	picture = GFX_evt_defensor
+       
+	is_triggered_only = yes
+
+	option = {
+ 		name = "EVTOPTA_RIRSEI_32"
+ 		add_trait = defenseur_chretiente
+ 		prestige = 1000
+ 		piety = 300
+	}
+}
+# soutien des monarques
+letter_event = {
+        id = RIRSEI.33
+	title = EVTNAME_RIRSEI_33
+	desc = EVTDESC_RIRSEI_33
+	
+	picture = GFX_evt_defensor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_33" 
+                ROOT = {
+			opinion = {
+				modifier = defenseur_ibe 
+				who = FROM
+				years = 30
+			}
+		}
+	} 
+}
+# soutien des ordres
+letter_event = {
+        id = RIRSEI.34
+	title = EVTNAME_RIRSEI_34
+	desc = EVTDESC_RIRSEI_34
+	
+	picture = GFX_evt_defensor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_34" 
+                ROOT = {
+			opinion = {
+				modifier = defenseur_ordre 
+
+				who = FROM
+				years = 30
+			}
+		}
+	}
+}
+
+# Creation royaume d'espagne
+#narrative_event = {
+#	id = RIRSEI.898989
+#	title = EVTNAME_RIRSEI_898989
+#	desc = EVTDESC_RIRSEI_898989
+#	
+#	picture = GFX_evt_espagnes
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_898989
+#                prestige = 3000
+#		hidden_tooltip = {
+#			primary_title = {
+#if = {
+#     limit = { has_global_flag = principat_dejure }
+#d_barcelona = { de_jure_liege = k_spain }
+#}
+#if = { limit = { ROOT = { has_landed_title = k_aragon } }
+#k_aragon = {
+#			destroy_landed_title = THIS
+#		}
+#}
+#if = { limit = { ROOT = { has_landed_title = k_castille } }
+#k_castille = {
+#			destroy_landed_title = THIS
+#		}
+#}
+#if = { limit = { ROOT = { has_landed_title = k_leon } }
+#k_leon = {
+#			destroy_landed_title = THIS
+#		}
+#}
+#if = { limit = { ROOT = { has_landed_title = k_navarra } }
+#k_navarra = {
+#			destroy_landed_title = THIS
+#		}
+#}
+#if = { limit = { ROOT = { has_landed_title = k_asturias } }
+#k_asturias = {
+#			destroy_landed_title = THIS
+#		}
+#}
+#if = { limit = { ROOT = { has_landed_title = k_spanish_galicia } }
+#k_spanish_galicia = {
+#			destroy_landed_title = THIS
+#		}
+#}
+#if = { limit = { ROOT = { has_landed_title = k_portugal } }
+#k_portugal = {
+#			destroy_landed_title = THIS
+#		}
+#}							
+#d_toledo = { de_jure_liege = k_spain }
+#d_badajoz = { de_jure_liege = k_spain }
+#d_cordoba = { de_jure_liege = k_spain }
+#d_granada = { de_jure_liege = k_spain }
+#d_sevilla = { de_jure_liege = k_spain }
+#d_algarve = { de_jure_liege = k_spain }
+#d_murcia = { de_jure_liege = k_spain }
+#d_valencia = { de_jure_liege = k_spain }
+#d_castilla = { de_jure_liege = k_spain }
+#d_aragon = { de_jure_liege = k_spain }
+#d_mallorca = { de_jure_liege = k_spain }
+#d_navarra = { de_jure_liege = k_spain }
+#d_asturias = { de_jure_liege = k_spain }
+#d_leon = { de_jure_liege = k_spain }
+#d_galicia = { de_jure_liege = k_spain }
+#d_porto = { de_jure_liege = k_spain }
+#d_beja = { de_jure_liege = k_spain }
+#
+#
+#			}
+#		}
+#		k_spain = {
+#			grant_title = ROOT
+#                        copy_title_laws = k_castille
+#			
+#		}
+#
+#		
+#		}
+#	} 
+# Brytenwalda
+#narrative_event = {
+#	id = RIRSEI.909090
+#	title = EVTNAME_RIRSEI_909090
+#	desc = EVTDESC_RIRSEI_909090
+#	
+#	picture = GFX_evt_bretw
+#	
+#	is_triggered_only = yes
+#	
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_909090
+#		hidden_tooltip = {
+#			k_england = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = k_britannia
+#				}
+#			}
+#k_wales = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = k_britannia
+#				}
+#			}
+#		}
+#		k_britannia = {
+#			grant_title = ROOT
+#			copy_title_laws = k_england
+#			copy_title_history = k_england
+#		}
+#		k_england = {
+#			destroy_landed_title = THIS
+#		}
+#		
+#		hidden_tooltip = {
+#			activate_title = { title = k_england status = no }
+#			
+#	}	
+#}
+#}
+
+# Creation empire latin par Venise
+narrative_event = {
+	id = RIRSEI.35
+	title = EVTNAME_RIRSEI_35
+	desc = EVTDESC_RIRSEI_35
+	
+	picture = GFX_evt_emplatin
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_35
+                prestige = 1500
+	
+		e_latin_empire = {
+			grant_title = ROOT
+			copy_title_laws = k_venice
+                        copy_title_history = k_venice
+			
+		}
+                k_venice = {
+			destroy_landed_title = THIS
+			}
+		}
+}
+
+# Creation empire latin par les autres monarques
+narrative_event = {
+	id = RIRSEI.36
+	title = EVTNAME_RIRSEI_36
+	desc = EVTDESC_RIRSEI_36
+	
+	picture = GFX_evt_emplatin
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_36
+                prestige = 1500
+	
+		e_latin_empire = {
+			grant_title = ROOT
+		}
+		hidden_tooltip = {
+			b_constantinople = { province_capital = yes }
+			ROOT = {
+				b_constantinople = {
+					usurp_title = PREV
+				}
+			}
+		}
+	}
+}  
+
+# The Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.939393
+#	title = EVTNAME_RIRSEI_939393
+#	desc = EVTDESC_RIRSEI_939393
+#	
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		set_character_flag = achievement_legacy_of_rome
+#	}
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_939393
+#		hidden_tooltip = {
+#			primary_title = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_roman_empire
+#				}
+#			}
+#		}
+#		e_roman_empire = {
+#			grant_title = ROOT
+#			copy_title_laws = e_latin_empire
+#			copy_title_history = e_latin_empire
+#		}
+#		e_latin_empire = {
+#			destroy_landed_title = THIS
+#		}
+#e_hre = {
+#			destroy_landed_title = THIS
+#		}
+#		add_trait = augustus
+#		give_nickname = nick_the_glorious
+#		hidden_tooltip = {
+#			activate_title = { title = e_latin_empire status = no }
+#			any_playable_ruler = {
+#				limit = {
+#					NOT = { has_landed_title = e_latin_empire }
+#					ai = no
+#				}
+#				narrative_event = { id = RIRSEI.949494 }
+#			}
+#		}
+#	}	
+#} 
+
+# Informed about Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.949494
+#	title = EVTNAME_RIRSEI_949494
+#	desc = EVTDESC_RIRSEI_949494
+#	
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_949494
+#		trigger = {
+#			NOT = { has_landed_title = e_hre }
+#		}
+#	}
+#	option = {
+#		name = EVTOPTB_RIRSEI_949494
+#		trigger = {
+#			has_landed_title = e_hre
+#		}
+#		prestige = -5000
+#	}
+#}  
+# The Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.959595
+#	title = EVTNAME_RIRSEI_959595
+#	desc = EVTDESC_RIRSEI_959595
+#	
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	is_triggered_only = yes
+#	
+#	immediate = {
+#		set_character_flag = achievement_legacy_of_rome
+#	}
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_959595
+#		e_byzantium = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_roman_empire
+#				}
+#			}
+#e_hre = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_roman_empire
+#				}
+#}
+#e_latin_empire = {
+#				any_direct_de_jure_vassal_title = {
+#					de_jure_liege = e_roman_empire
+#				}
+#			}
+#		e_roman_empire = {
+#			grant_title = ROOT
+#			
+#		}
+#		e_latin_empire = {
+#			destroy_landed_title = THIS
+#		}
+#e_hre = {
+#			destroy_landed_title = THIS
+#		}
+#e_byzantium = {
+#			destroy_landed_title = THIS
+#		}
+#		add_trait = augustus
+#		give_nickname = nick_the_glorious
+#		hidden_tooltip = {
+#			activate_title = { title = e_latin_empire status = no }
+#                        activate_title = { title = e_roman_empire status = no }
+#                        activate_title = { title = e_hre status = no }
+#			any_playable_ruler = {
+#				limit = {
+#					NOT = { has_landed_title = e_hre }
+#					ai = no
+#				}
+#				narrative_event = { id = RIRSEI.969696 }
+#			}
+#		}
+#	}	
+#} 
+# Informed about Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.969696
+#	title = EVTNAME_RIRSEI_969696
+#	desc = EVTDESC_RIRSEI_969696
+#	
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_969696
+#		trigger = {
+#			NOT = { has_landed_title = e_hre }
+#		}
+#	}
+#	
+#}   
+# Renovatio imperii Byzance
+#narrative_event = {
+#        id = RIRSEI.111213
+#	title = EVTNAME_RIRSEI_111213
+#	desc = EVTDESC_RIRSEI_111213
+#	
+#	picture = "GFX_evt_Basileianova"
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_111213"
+#                prestige = 3000
+#                
+#                k_egypt = { de_jure_liege = e_byzantium }
+#                k_jerusalem = { de_jure_liege = e_byzantium }
+#                k_syria = { de_jure_liege = e_byzantium }
+#                d_cyrenaica = { de_jure_liege = k_egypt }
+#                
+#                any_independent_ruler = {
+#                   limit = { religion_group = muslim  }
+#                  
+#                   letter_event = { id = RIRSEI.121314}
+#}
+#}
+#} 
+# Informed about Restoration of Rome
+#narrative_event = {
+#	id = RIRSEI.121314
+#	title = EVTNAME_RIRSEI_121314
+#	desc = EVTDESC_RIRSEI_121314
+#	
+#	picture = GFX_evt_Basileianova
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_121314
+#                prestige = -1500
+#		trigger = {
+#			NOT = { has_landed_title = e_hre }
+#		}
+#	}
+#	
+#} 
+# Le duc de bretagne doit faire son choix
+letter_event = {
+        id = RIRSEI.37
+	title = EVTNAME_RIRSEI_37
+	desc = EVTDESC_RIRSEI_37
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_37"
+		prestige = -200
+                FROM = {
+			letter_event = { id = RIRSEI.38 }
+		}
+		ai_chance = {
+			factor = 0.6
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_37"
+                FROM = {
+			letter_event = { id = RIRSEI.39}
+		}
+	
+		ai_chance = {
+			factor = 0.4
+			modifier = {
+				factor = 3.0
+				FROM = { trait = kinslayer }
+			}
+		}
+	}
+}
+# Le duc de Bretagne accepte la vassalisation
+letter_event = {
+        id = RIRSEI.38
+	title = EVTNAME_RIRSEI_38
+	desc = EVTDESC_RIRSEI_38
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_38"
+                prestige = 1000
+		d_brittany = {
+			de_jure_liege = k_france
+		}
+
+                any_independent_ruler = {
+                	limit = {
+			 has_landed_title = d_brittany
+			}
+                	set_defacto_liege = ROOT
+		}
+	}
+}
+# La Bretagne refuse la vassalisation
+letter_event = {
+        id = RIRSEI.39
+	title = EVTNAME_RIRSEI_39
+	desc = EVTDESC_RIRSEI_39
+	
+	picture = GFX_evt_Council_Around_Table
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_39"
+                add_claim = d_brittany
+	}
+}
+ 
+# Le roi de bretagne doit faire son choix
+letter_event = {
+        id = RIRSEI.40
+	title = EVTNAME_RIRSEI_40
+	desc = EVTDESC_RIRSEI_40
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_40"
+                FROM = {
+			letter_event = { id = RIRSEI.41 }
+		}
+		ai_chance = {
+			factor = 0.2
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_40"
+                FROM = {
+			letter_event = { id = RIRSEI.42}
+		}
+	
+		ai_chance = {
+			factor = 0.8
+			modifier = {
+				factor = 3.0
+				FROM = { trait = kinslayer }
+			}
+			
+		}
+	}
+}
+# Le roy de Bretagne accepte la vassalisation
+letter_event = {
+        id = RIRSEI.41
+	title = EVTNAME_RIRSEI_41
+	desc = EVTDESC_RIRSEI_41
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_41"
+                prestige = 1500
+		d_brittany = {
+			de_jure_liege = k_france
+		}
+		k_brittany = {
+			destroy_landed_title = THIS
+		}
+
+                any_independent_ruler = {
+                   limit = {
+			 has_landed_title = d_brittany
+		  }
+                 set_defacto_liege = ROOT
+		}
+	}
+}
+# La Bretagne refuse la vassalisation
+letter_event = {
+        id = RIRSEI.42
+	title = EVTNAME_RIRSEI_42
+	desc = EVTDESC_RIRSEI_42
+	
+	picture = GFX_evt_Council_Around_Table
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_42"
+                add_claim = d_brittany
+	}
+}
+# Information de la destruction de l'Empire
+narrative_event = {
+	id = RIRSEI.43
+	title = EVTNAME_RIRSEI_43
+	desc = EVTDESC_RIRSEI_43
+	
+	picture = GFX_evt_empmort
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_43
+		trigger = {
+			NOT = { has_landed_title = e_byzantium }
+		}
+	}
+	
+}
+
+# Information de la renaissance de l'Empire
+#narrative_event = {
+#	id = RIRSEI.222324
+#	title = EVTNAME_RIRSEI_222324
+#	desc = EVTDESC_RIRSEI_222324
+#	
+#	picture = GFX_evt_empretour
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_222324
+#		trigger = {
+#			NOT = { has_landed_title = e_hre }
+#		}
+#	}
+#option = {
+#		name = EVTOPTB_RIRSEI_222324
+#		trigger = {
+#			has_landed_title = e_hre 
+#		}
+#	}
+#	
+#}
+
+# Creation royaume de baviere
+narrative_event = {
+	id = RIRSEI.44
+	title = EVTNAME_RIRSEI_44
+	desc = EVTDESC_RIRSEI_44
+	
+	picture = GFX_evt_bav
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_44
+		hidden_tooltip = {
+			primary_title = {
+			  	d_bavaria = { de_jure_liege = k_bavaria }
+                          	d_tyrol = { de_jure_liege = k_bavaria }
+                          	d_osterreich = { de_jure_liege = k_bavaria }
+                          	d_carinthia = { de_jure_liege = k_bavaria }
+			}
+		}
+		k_bavaria = {
+			grant_title = ROOT
+			copy_title_laws = d_bavaria
+			copy_title_history = d_bavaria
+		}
+		d_bavaria = {
+			destroy_landed_title = THIS
+		}
+	}
+}
+# Information sur la mutation féodale
+narrative_event = {
+	id = RIRSEI.45
+	title = EVTNAME_RIRSEI_45
+	desc = EVTDESC_RIRSEI_45
+	
+	picture = GFX_evt_mutfeo
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_45
+		trigger = {
+			NOT = { has_landed_title = e_russia }
+		}
+	}
+}
+
+# Information sur la centralisation
+narrative_event = {
+	id = RIRSEI.46
+	title = EVTNAME_RIRSEI_46
+	desc = EVTDESC_RIRSEI_46
+	
+	picture = GFX_evt_phiphi
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTA_RIRSEI_46
+		trigger = {
+			NOT = { has_landed_title = e_russia }
+		}
+	}
+}
+# Protecteur des reliques de charlemagne
+character_event = {
+        id = RIRSEI.47
+	title = EVTNAME_RIRSEI_47
+	desc = EVTDESC_RIRSEI_47
+	sound = church_bells
+	picture = GFX_evt_relaix
+       
+	is_triggered_only = yes
+
+	option = {
+ 		name = "EVTOPTA_RIRSEI_47"
+ 		add_trait = relique_charles
+	}
+}
+# Plus protecteur !
+letter_event = {
+        id = RIRSEI.48
+	title = EVTNAME_RIRSEI_48
+	desc = EVTDESC_RIRSEI_48
+	
+	picture = GFX_evt_relaix
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_48" 
+                prestige = -200
+                remove_trait = relique_charles
+	}
+}
+
+# La hongrie doit faire son choix
+letter_event = {
+        id = RIRSEI.49
+	title = EVTNAME_RIRSEI_49
+	desc = EVTDESC_RIRSEI_49
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_49"
+                FROM = {
+			letter_event = { id = RIRSEI.50 }
+		}
+		ai_chance = {
+			factor = 0.2
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_49"
+                FROM = {
+			letter_event = { id = RIRSEI.51}
+		}
+	
+		ai_chance = {
+			factor = 0.8
+			modifier = {
+				factor = 2.0
+				FROM = { trait = kinslayer }
+			}
+			
+		}
+	}
+}
+# La Hongrie accepte la vassalisation
+letter_event = {
+        id = RIRSEI.50
+	title = EVTNAME_RIRSEI_50
+	desc = EVTDESC_RIRSEI_50
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_50"
+                prestige = 1500
+		k_hungary = { de_jure_liege = e_hre }
+                any_independent_ruler = {
+                	   limit = {
+				 has_landed_title = k_magyar
+			    }
+               	 	    set_defacto_liege = ROOT
+		}
+	}
+}
+# La hongrie refuse la vassalisation
+letter_event = {
+        id = RIRSEI.51
+	title = EVTNAME_RIRSEI_51
+	desc = EVTDESC_RIRSEI_51
+	
+	picture = GFX_evt_Council_Around_Table
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_51"
+                add_claim = k_magyar
+	}
+}
+
+# La boheme doit faire son choix
+letter_event = {
+        id = RIRSEI.52
+	title = EVTNAME_RIRSEI_52
+	desc = EVTDESC_RIRSEI_52
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_52"
+                FROM = {
+			letter_event = { id = RIRSEI.53 }
+		}
+		ai_chance = {
+			factor = 0.8
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_52"
+                FROM = {
+			letter_event = { id = RIRSEI.54}
+		}
+	
+		ai_chance = {
+			factor = 0.2
+			modifier = {
+				factor = 2.0
+				FROM = { trait = kinslayer }
+			}
+			
+		}
+	}
+}
+# La Boheme accepte la vassalisation
+letter_event = {
+        id = RIRSEI.53
+	title = EVTNAME_RIRSEI_53
+	desc = EVTDESC_RIRSEI_53
+	
+	picture = GFX_evt_holy_emperor
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_53"
+                prestige = 1000
+		k_bohemia = { de_jure_liege = e_hre }
+                                
+                any_independent_ruler = {
+                	limit = {
+				has_landed_title = d_bohemia
+		   	}
+                	set_defacto_liege = ROOT
+		}
+	}
+}
+
+# La Boheme refuse la vassalisation
+letter_event = {
+        id = RIRSEI.54
+	title = EVTNAME_RIRSEI_54
+	desc = EVTDESC_RIRSEI_54
+	
+	picture = GFX_evt_Council_Around_Table
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_54"
+                add_claim = d_bohemia
+	}
+}
+
+# La Boheme est un royaume
+character_event = {
+        id = RIRSEI.55
+	title = EVTNAME_RIRSEI_55
+	desc = EVTDESC_RIRSEI_55
+	sound = church_bells
+	picture = GFX_evt_roiboh
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_55"
+ 
+		prestige = 1000
+
+		k_bohemia = {
+			grant_title = ROOT
+			copy_title_laws = d_bohemia
+			copy_title_history = d_bohemia
+		}
+		e_hre = {
+			holder_scope = { set_defacto_vassal = ROOT } 
+		}
+		any_independent_ruler = {
+                	   limit = {
+				 has_landed_title = e_hre
+		   	}
+		   	letter_event = { id = RIRSEI.56}
+		}
+	}
+}
+# L'empereur est informé pour la boheme
+letter_event = {
+        id = RIRSEI.56
+	title = EVTNAME_RIRSEI_56
+	desc = EVTDESC_RIRSEI_56
+	
+	picture = GFX_evt_roiboh
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_56"
+               
+                prestige = -1200
+        	ROOT = {
+	        	opinion = {
+				modifier = Emp_boh_rex
+				who = FROM
+                                years = 30
+			}
+		}
+	}
+}
+# La Boheme est un royaume
+character_event = {
+        id = RIRSEI.57
+	title = EVTNAME_RIRSEI_57
+	desc = EVTDESC_RIRSEI_57
+	sound = church_bells
+	picture = GFX_evt_roiboh
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_57"
+ 
+		prestige = 1000
+
+		k_bohemia = {
+			grant_title = ROOT
+			copy_title_laws = d_bohemia
+			copy_title_history = d_bohemia
+		}
+		e_hre = {
+			holder_scope = { set_defacto_vassal = ROOT } 
+		}
+	}
+}
+# La Boheme est un royaume
+character_event = {
+        id = RIRSEI.58
+	title = EVTNAME_RIRSEI_58
+	desc = EVTDESC_RIRSEI_58
+	sound = church_bells
+	picture = GFX_evt_roiboh
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_58"
+ 
+		prestige = 1500
+
+		k_bohemia = {
+			grant_title = ROOT
+			copy_title_laws = d_bohemia
+			copy_title_history = d_bohemia
+		}
+	}
+}
+# La Croatie est un royaume
+character_event = {
+        id = RIRSEI.59
+	title = EVTNAME_RIRSEI_59
+	desc = EVTDESC_RIRSEI_59
+	sound = church_bells
+	picture = GFX_evt_croaroi
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_59"
+ 
+		prestige = 1500
+
+		k_croatia = {
+			grant_title = ROOT
+			copy_title_laws = d_croatia
+			copy_title_history = d_croatia
+		}
+	}
+}
+# La Pologne est un royaume
+character_event = {
+        id = RIRSEI.60
+	title = EVTNAME_RIRSEI_60
+	desc = EVTDESC_RIRSEI_60
+	sound = church_bells
+	picture = GFX_evt_polo
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_60"
+ 
+ 		prestige = 1500
+ 		hidden_tooltip = {
+                	primary_title = {
+				d_mazovia = { de_jure_liege = k_polandball }
+                                d_greater_poland = { de_jure_liege = k_polandball }
+                                d_silesia = { de_jure_liege = k_polandball }
+                                d_lesser_poland = { de_jure_liege = k_polandball }
+                                d_kuyavia = { de_jure_liege = k_polandball }
+			}
+		}
+		k_polandball = {
+			grant_title = ROOT
+			copy_title_laws = k_poland
+			copy_title_history = k_poland
+		}
+		k_poland = {
+			destroy_landed_title = THIS
+		 
+		}
+                activate_title = { title = k_poland status = no }
+	          
+	}
+}
+# La Pologne est un royaume
+character_event = {
+        id = RIRSEI.61
+	title = EVTNAME_RIRSEI_61
+	desc = EVTDESC_RIRSEI_61
+	sound = church_bells
+	picture = GFX_evt_polo
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_61"
+ 
+		prestige = 1500
+		hidden_tooltip = {
+                	primary_title = {
+				d_mazovia = { de_jure_liege = k_polandball }
+                                d_greater_poland = { de_jure_liege = k_polandball }
+                                d_silesia = { de_jure_liege = k_polandball }
+                                d_lesser_poland = { de_jure_liege = k_polandball }
+                                d_kuyavia = { de_jure_liege = k_polandball }
+			}
+		}
+		k_polandball = {
+			grant_title = ROOT
+			copy_title_laws = k_poland
+			copy_title_history = k_poland
+		}
+		k_poland = {
+			destroy_landed_title = THIS
+		}
+                activate_title = { title = k_poland status = no }
+	          
+	}
+}
+# La Serbie est un royaume
+character_event = {
+        id = RIRSEI.62
+	title = EVTNAME_RIRSEI_62
+	desc = EVTDESC_RIRSEI_62
+	sound = church_bells
+	picture = GFX_evt_roiserb
+
+	is_triggered_only = yes
+
+	option = {
+ 		name = "EVTOPTA_RIRSEI_62"
+ 
+		prestige = 1000
+		k_serbia = {
+			grant_title = ROOT
+		}
+		give_nickname = nick_premiercour
+	   	any_independent_ruler = {
+                   limit = { 
+			has_landed_title = e_byzantium
+		   }
+		   letter_event = { id = RIRSEI.63}
+	       }
+	}
+}
+
+# L'empereur est informé
+letter_event = {
+        id = RIRSEI.63
+	title = EVTNAME_RIRSEI_63
+	desc = EVTDESC_RIRSEI_63
+	
+	picture = GFX_evt_affro
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_63"
+               
+                prestige = -500
+        	ROOT = {
+	        	opinion = {
+				modifier = Emp_in_serb
+				who = FROM
+                                years = 30
+				
+			}
+		}
+	}
+}
+
+# La Serbie est un royaume
+character_event = {
+        id = RIRSEI.631
+	title = EVTNAME_RIRSEI_631
+	desc = EVTDESC_RIRSEI_631
+	sound = church_bells
+	picture = GFX_evt_roiserb
+      
+	is_triggered_only = yes
+
+	option = {
+ 		name = "EVTOPTA_RIRSEI_631"
+ 		ROOT = {
+			opinion = {
+				modifier = basileus_oui_cour
+				who = FROM
+				years = 30
+			}
+		}
+ 
+ 		prestige = 500
+		k_serbia = {
+			grant_title = ROOT
+		}
+		give_nickname = nick_premiercour
+	}
+}
+
+# Le Basileus doit choisir
+character_event = {
+        id = RIRSEI.64
+	title = EVTNAME_RIRSEI_64
+	desc = EVTDESC_RIRSEI_64
+	sound = church_bells
+	picture = GFX_evt_roiserb
+       
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTA_RIRSEI_64"
+                FROM = {
+			narrative_event = { id = RIRSEI.631 }
+		}
+		piety = 100
+		prestige = -300
+		ai_chance = {
+			factor = 0.6
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 20
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 40
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 60
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 80
+					}
+				}
+			}
+			modifier = {
+				factor = 1.2
+				ROOT = {
+					opinion = {
+						who = FROM
+						value = 100
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "EVTOPTB_RIRSEI_64"
+		piety = -200
+		prestige = -100
+                FROM = {
+			letter_event = { id = RIRSEI.65}
+		}
+	
+		ai_chance = {
+			factor = 0.4
+			modifier = {
+				factor = 2.0
+				FROM = { trait = kinslayer }
+			}
+			
+		}
+	}
+}
+# Le Basileus refuse
+character_event = {
+        id = RIRSEI.65
+	title = EVTNAME_RIRSEI_65
+	desc = EVTDESC_RIRSEI_65
+	sound = church_bells
+	picture = GFX_evt_Council_Around_Table
+	
+	is_triggered_only = yes
+
+	option = {
+ 		name = "EVTOPTA_RIRSEI_65"
+
+		ROOT = {
+			opinion = {
+				modifier = basileus_non_cour
+				who = FROM
+				years = 30
+			}
+		}
+	}
+}
+
+# Le Basileus doit choisir
+#character_event = {
+#        id = RIRSEI.505152
+#	title = EVTNAME_RIRSEI_505152
+#	desc = EVTDESC_RIRSEI_505152
+#	sound = church_bells
+#	picture = GFX_evt_courhongrie
+#       
+#       
+#       
+#is_triggered_only = yes
+#
+#option = {
+#		name = "EVTOPTA_RIRSEI_505152"
+#                FROM = {
+#			narrative_event = { id = 62910 }
+#		}
+#piety = 200
+#prestige = -50
+#		ai_chance = {
+#			factor = 0.9
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 20
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 40
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 60
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 80
+#					}
+#				}
+#			}
+#			modifier = {
+#				factor = 1.2
+#				ROOT = {
+#					opinion = {
+#						who = FROM
+#						value = 100
+#					}
+#				}
+#			}
+#		}
+#}
+#option = {
+#		name = "EVTOPTB_RIRSEI_505152"
+#piety = -200
+#prestige = -100
+#                FROM = {
+#			letter_event = { id = RIRSEI.515253}
+#		}
+#	
+#		ai_chance = {
+#			factor = 0.1
+#			modifier = {
+#				factor = 2.0
+#				FROM = { trait = kinslayer }
+#			}
+#			
+#		}
+#	}
+#
+#}
+# Le Basileus refuse
+#character_event = {
+#        id = RIRSEI.515253
+#	title = EVTNAME_RIRSEI_515253
+#	desc = EVTDESC_RIRSEI_515253
+#	sound = church_bells
+#	
+#       
+#       
+#       
+#is_triggered_only = yes
+#
+#option = {
+# name = "EVTOPTA_RIRSEI_515253"
+# 
+# 
+#
+#ROOT = {
+#			opinion = {
+#				modifier = basileus_non_cour
+#				who = FROM
+#				years = 30
+#			}
+#}
+#}
+#}

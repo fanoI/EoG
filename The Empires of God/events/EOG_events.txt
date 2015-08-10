@@ -125,7 +125,7 @@ character_event = {
 
 	desc = {
 		trigger = {
-			has_landed_title = e_germania
+			has_landed_title = e_germany
 		}
 		text = EVTDESCEoG_GER.3
 	}
@@ -180,7 +180,7 @@ character_event = {
 		FROMFROM = { trait = pretender_successor_state_of_wre }
 		FROM = {
 			OR = {
-				empire = { title = e_germania }	
+				empire = { title = e_germany }	
 				empire = { title = e_spqr }	
 				empire = { title = e_ere }	
 			}
@@ -206,7 +206,7 @@ character_event = {
 
 	desc = {
 		trigger = {
-			FROM = { has_landed_title = e_germania }
+			FROM = { has_landed_title = e_germany }
 		}
 		text = EVTDESCEoG_Germania.400
 	}

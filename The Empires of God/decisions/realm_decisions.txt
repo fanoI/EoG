@@ -700,7 +700,7 @@ decisions = {
 			}
 			k_rus = {
 				holder_scope = {
-					letter_event = { id = RIRSEBYZ.111135 }
+					letter_event = { id = RIRSEBYZ.1135 }
 				}
 			}
 		}
@@ -716,7 +716,7 @@ decisions = {
 			}
 			d_kiev = {
 				holder_scope = {
-					narrative_event = { id = RIRSEBYZ.111135 }
+					narrative_event = { id = RIRSEBYZ.1135 }
 				}
 			}
 		}
@@ -732,7 +732,7 @@ decisions = {
 			}
 			d_novgorod = {
 				holder_scope = {
-					narrative_event = { id = RIRSEBYZ.111135 }
+					narrative_event = { id = RIRSEBYZ.1135 }
 				}
 			}
 		}

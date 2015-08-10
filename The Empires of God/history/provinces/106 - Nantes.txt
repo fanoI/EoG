@@ -17,7 +17,7 @@ b_redon = temple
 #b_st_nazaire = temple
 
 # Misc
-culture = Gallo
+culture = gallo
 religion = catholic
 
 # History

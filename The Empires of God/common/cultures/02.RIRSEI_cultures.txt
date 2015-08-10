@@ -1,0 +1,47 @@
+latin = {
+	graphical_cultures = { westerngfx }
+
+	gallo = {
+		graphical_cultures = { frankishgfx }
+		
+		color = { 0.8 0.8 0.2 }
+		
+		male_names = {
+			Édouard_Edward Érrard Étienne_Stephen Adalbert_Albert Adémar Adrien Aimery_Aymeric Alain_Alan Aldebert_Albert Aldéric Alphonse_Alphonse Amaury_Amalric
+			Amédée Ancel André_Andrew Angelbert Antoine_Antoninus Archambaud_Archibald Arnaud_Arnold Arnault_Arnold Arnoul_Arnulf Aubry Aymar Barthélémi_Bartolomeus
+			Baudouin_Baldwin Benoît_Benedict Bérenger_Berengar Bernard_Bernard Bertrand_Bertrand Bohemond Boson_Boson Bouchard Centule_Centule Charles_Charles
+			Clotaire Ebbon Enguerrand Eudes_Otto Eustache_Eustace Evrard Foulques_Folke François_Francis Frédéric_Frederick Géraud_Gerald Gargamel Gaucher Gaucelin_Joscelin
+			Gauthier_Walter Geoffroy_Godfrey Géraud_Gerard Gelduin Gilbert_Gilbert Gilles_Egidius Godefroy_Godfrey Guichard Guiges Guilhem_William Guillaume_William
+			Guy_Guy Hélie Hamelin Henri_Henry Herbert Hildebert Hugues_Hugh Humbert_Humbert Jacques_Jacob Jaufré_Godfrey Jaspert Jean_John Josselin_Joscelin
+			Jourdain_Jordan Julien_Julian Léon Léonard Lothaire_Lothar Louis_Louis Loup_Lupo Manassès Mathieu_Matthew Maurice Nicolas_Nicholas Ogier Onfroy Orson Othon_Otto
+			Payen_Pagan Philippe_Philip Pierre_Peter Raimbaut Raoul_Ralph Raymond_Raymond Raynaud_Reinhold Renaud_Reinhold Richard_Richard Robert_Robert Robin Roger_Roger
+			Rorgon Rorgues Roubaud Savary Sigismond_Sigmund Simon_Simon Thibault_Theobald Thiébaut_Theobald Thierry_Thierry Thomas_Thomas Valeran Yves
+		}
+		female_names = {
+			Adela_Adela Alana Alis_Alice Andreva Annick_Anna Aouregan Aourell Argantlon Arzhela Avenie Azenor_Eleanor Aziliz_Cecilia
+			Beladora Berc'hed_Brigid Berthildis_Bertha Bleuzenn_Blodwen Brendana Deneza_Denise Deniela Drilego Ederna
+			Elara Elen_Helen Elena_Elaine Elesbed_Elisabeth Eliza_Elisabeth Enora Enougen Erwana_Yvonne Franseza Gaela
+			Gladez_Gwladys Gwenn_Gwen Hawiz_Hawise Heodez Hoela Izolde Janed_Joan Jenovefa Karidwen Katell_Catherine
+			Konstanza_Constance Kristen_Christina Laoransa Lara Levenez Loeiza_Louise Madenn Maela Marc'harit_Margaret
+			Mari_Maria Marzhina Matilin_Magdalena Mona Morganez_Morganna Morvana Nedeleg Nolwenn Nonn Oanez_Agnes
+			Padriga_Patricia Prostlon Rivanon_Rhiannon Ronana Rozenn Seva Sterenn Sulgwenn Tedvil Trifin Tristana Uriell
+			Youenna_Joan Ysabelle_Elisabeth
+		}
+		
+		from_dynasty_prefix = "de "
+		grammar_transform = french
+
+		modifier = default_culture_modifier
+
+		
+		# Chance of male children being named after their paternal or maternal grandfather, or their father. Sum must not exceed 100.
+		pat_grf_name_chance = 80
+		mat_grf_name_chance = 0
+		father_name_chance = 0
+		
+		# Chance of female children being named after their paternal or maternal grandmother, or their mother. Sum must not exceed 100.
+		pat_grm_name_chance = 10
+		mat_grm_name_chance = 50
+		mother_name_chance = 0
+	}
+}

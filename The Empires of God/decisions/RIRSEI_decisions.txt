@@ -13,7 +13,7 @@ decisions = {
 			independent = yes
 			OR = {
 				culture="breton"
-				culture="Gallo"
+				culture="gallo"
 			}
 		}
 		allow = {
@@ -22,7 +22,7 @@ decisions = {
 
 		}
 		effect = {
-			narrative_event = { id = RIRSEI.404040 tooltip = EVTTOOLTIPRIRSEI.404040 }
+			narrative_event = { id = RIRSEI.1 tooltip = EVTTOOLTIPRIRSEI.1 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -52,7 +52,8 @@ decisions = {
 			completely_controls = d_bourbon		
 		}
 		effect = {
-			narrative_event = { id = RIRSEI.414141 tooltip = EVTTOOLTIPRIRSEI.414141 }
+			narrative_event = { id = RIRSEI.2 tooltip =
+EVTTOOLTIPRIRSEI.2 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -76,7 +77,7 @@ decisions = {
 		}
 
 		effect = {
-			character_event = { id = RIRSEI.424242 tooltip = EVTTOOLTIPRIRSEI.424242 }
+			character_event = { id = RIRSEI.3 tooltip = EVTTOOLTIPRIRSEI.3 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -176,14 +177,16 @@ decisions = {
 		}
 		allow = {
 			prestige = 3000
-			OR = {
-				has_law = centralization_3
-				has_law = centralization_4	
+			k_france = {
+				OR = {
+					has_law = crown_authority_3
+					has_law = crown_authority_4	
+				}
 			}
 		}
 		effect = {
 			set_global_flag = rex_imperator_fr
-			character_event = { id = RIRSEI.454545 tooltip = EVTTOOLTIPRIRSEI.454545 }
+			character_event = { id = RIRSEI.4 tooltip = EVTTOOLTIPRIRSEI.4 }
 
 		}
 		ai_will_do = {
@@ -267,8 +270,8 @@ decisions = {
 			e_hre = {
 				OR = { 
 					OR = {
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					holder_scope = {
 						opinion = {
@@ -310,8 +313,8 @@ decisions = {
 			e_hre = {
 				OR = { 
 					OR = {
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					holder_scope = {
 						opinion = {
@@ -379,8 +382,8 @@ decisions = {
 			e_hre = {
 				OR = { 
 					OR = {
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					holder_scope = {
 						opinion = {
@@ -449,8 +452,8 @@ decisions = {
 			e_hre = {
 				OR = { 
 					OR = {
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					holder_scope = {
 						opinion = {
@@ -490,8 +493,8 @@ decisions = {
 			prestige = 2000
 			e_hre = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
+					has_law = crown_authority_0
+					has_law = crown_authority_1
 				}
 				holder_scope = {
 					opinion = {
@@ -531,8 +534,8 @@ decisions = {
 			e_hre = {
 				OR = { 
 					OR = {
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					holder_scope = {
 						opinion = {
@@ -579,21 +582,23 @@ decisions = {
 					value = 40 
 				}
 			}
-			OR = {
-				has_law = centralization_2 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_poland = {
+				OR = {
+					has_law = crown_authority_2 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 			e_hre = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
-					has_law = centralization_2
+					has_law = crown_authority_0
+					has_law = crown_authority_1
+					has_law = crown_authority_2
 				}
 			}
 		}
 		effect = {
-			character_event = { id = RIRSEI.474747 tooltip = EVTTOOLTIPRIRSEI.474747 }
+			character_event = { id = RIRSEI.6 tooltip = EVTTOOLTIPRIRSEI.6 }
 			set_global_flag = rex_poloniae
 
 		}
@@ -619,25 +624,27 @@ decisions = {
 				religion_group = christian
 				independent = yes
 				NOT = { completely_controls = k_poland }
-				OR = { 
-					has_law = centralization_3
-					has_law = centralization_4
+				primary_title = {
+					OR = { 
+						has_law = crown_authority_3
+						has_law = crown_authority_4
+					}
 				}
 			}
 		allow = {
 			prestige = 6000
 			k_poland = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
-					has_law = centralization_2
+					has_law = crown_authority_0
+					has_law = crown_authority_1
+					has_law = crown_authority_2
 				}
 			}	
 		}
 		effect = {
 			k_poland = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.494949}
+					letter_event = { id = RIRSEI.8}
 				}
 			}
 			set_character_flag = imp_polo
@@ -678,16 +685,18 @@ decisions = {
 			NOT = { trait = incapable }
 			NOT = { has_global_flag = ren_imp }
 			NOT = { trait = stupor_mundi }
-			OR = { 
-				has_law = centralization_2
-				has_law = centralization_3
-				has_law = centralization_4
-			}
-			trait = crowned_by_pope 
-			tier = emperor
 			primary_title = {
 					title = e_hre
 			}
+			e_hre = {
+				OR = { 
+					has_law = crown_authority_2
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
+			}
+			trait = crowned_by_pope 
+			tier = emperor
 		}
 		allow = {
 			prisoner = no
@@ -697,10 +706,10 @@ decisions = {
 		}
 		effect = {
 			add_trait = stupor_mundi
-			character_event = { id = RIRSEI.595959 }
+			character_event = { id = RIRSEI.14 }
 			any_independent_ruler = {
 				limit = { religion = catholic } 
-				letter_event = { id = RIRSEI.535353}
+				letter_event = { id = RIRSEI.12}
 			}
 		}
 		ai_will_do = {
@@ -726,9 +735,11 @@ decisions = {
 				dynasty = 25061
 			}
 			NOT = { completely_controls = k_france }
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			e_hre = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		allow = {
@@ -740,8 +751,8 @@ decisions = {
 
 			k_france = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
+					has_law = crown_authority_0
+					has_law = crown_authority_1
 				}
 			}
 		}
@@ -750,7 +761,7 @@ decisions = {
 				set_character_flag = recl_fr
 				k_france = {
 					holder_scope = {
-						letter_event = { id = RIRSEI.545454}
+						letter_event = { id = RIRSEI.13}
 					}
 				}
 		}
@@ -785,8 +796,8 @@ decisions = {
 			#has_landed_title = k_italy
 			#has_landed_title = k_germany
 			#OR = { 
-				#has_law = centralization_3
-				#has_law = centralization_4
+				#has_law = crown_authority_3
+				#has_law = crown_authority_4
 			#}
 		#}
 		#effect = {
@@ -838,8 +849,8 @@ decisions = {
 	#		completely_controls = d_aquitaine
 	#		completely_controls = k_germany
 	#		OR = { 
-	#			has_law = centralization_3
-	#			has_law = centralization_4
+	#			has_law = crown_authority_3
+	#			has_law = crown_authority_4
 	#		}
 	#	}
 	#	effect = {
@@ -874,8 +885,8 @@ decisions = {
 	#		completely_controls = k_byzantium
 	#
 	#		OR = { 
-	#			has_law = centralization_3
-	#			has_law = centralization_4
+	#			has_law = crown_authority_3
+	#			has_law = crown_authority_4
 	#		}
 	#	}
 	#	effect = {
@@ -902,9 +913,9 @@ decisions = {
 	#		trait = stupor_mundi
 	#		e_byzantium = {
 	#			OR = {
-	#				has_law = centralization_0
-	#				has_law = centralization_1
-	#				has_law = centralization_2
+	#				has_law = crown_authority_0
+	#				has_law = crown_authority_1
+	#				has_law = crown_authority_2
 	#			}
 	#			holder_scope = {
 	#				NOT =  { completely_controls = k_anatolia }
@@ -921,8 +932,8 @@ decisions = {
 	#		prestige = 8000
 	#		demesne_size = 10
 	#		OR = { 
-	#			has_law = centralization_3
-	#			has_law = centralization_4
+	#			has_law = crown_authority_3
+	#			has_law = crown_authority_4
 	#		}
 	#	}
 	#	effect = {
@@ -953,10 +964,10 @@ decisions = {
 	#
 	#		e_byzantium = {
 	#			OR = {
-	#				has_law = centralization_0
-	#				has_law = centralization_1
-	#				has_law = centralization_2
-	#				has_law = centralization_3
+	#				has_law = crown_authority_0
+	#				has_law = crown_authority_1
+	#				has_law = crown_authority_2
+	#				has_law = crown_authority_3
 	#			}
 	#			holder_scope = {
 	#				NOT =  { completely_controls = e_byzantium }
@@ -971,9 +982,9 @@ decisions = {
 	#		prestige = 5000
 	#		demesne_size = 6
 	#		OR = { 
-	#			has_law = centralization_2
-	#			has_law = centralization_3
-	#			has_law = centralization_4
+	#			has_law = crown_authority_2
+	#			has_law = crown_authority_3
+	#			has_law = crown_authority_4
 	#		}
 	#	}
 	#	effect = {
@@ -1007,8 +1018,8 @@ decisions = {
 			independent = yes
 			e_hre = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
+					has_law = crown_authority_0
+					has_law = crown_authority_1
 				}
 				holder_scope = {
 					trait = roi_des_romains
@@ -1035,9 +1046,11 @@ decisions = {
 		allow = {
 			prestige = 8000
 			demesne_size = 8
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 			rightful_religious_head_scope = {
 				opinion = {
@@ -1051,13 +1064,13 @@ decisions = {
 			set_character_flag = emp_guerre
 			e_hre = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.686868 }
+					letter_event = { id = RIRSEI.15 }
 					any_vassal = {
-						letter_event = { id = RIRSEI.696969 }
+						letter_event = { id = RIRSEI.16 }
 					}
 				}
 			}
-			character_event = { id = RIRSEI.727272 }
+			character_event = { id = RIRSEI.19 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -1077,13 +1090,15 @@ decisions = {
 					has_landed_title = k_polandball
 					trait = Imp_regn
 				} 
-				primary_title = { tier = KING }
+				# In "The Empires of God" you need to be a High King to take
+                                # this decision
+				primary_title = { tier = EMPEROR }
 
 				independent = yes
 				e_hre = {
 					OR = {
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					holder_scope = {
 						trait = roi_des_romains
@@ -1112,9 +1127,11 @@ decisions = {
 
 			prestige = 10000
 			demesne_size = 12
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 			rightful_religious_head_scope = {
 				opinion = {
@@ -1128,13 +1145,13 @@ decisions = {
 			set_character_flag = emp_guerre
 			e_hre = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.686868 }
+					letter_event = { id = RIRSEI.15 }
 					any_vassal = {
-						letter_event = { id = RIRSEI.696969 }
+						letter_event = { id = RIRSEI.16 }
 					}
 				}
 			}
-			character_event = { id = RIRSEI.727272 }
+			character_event = { id = RIRSEI.19 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -1142,47 +1159,48 @@ decisions = {
 	}
 
 	# Not needed in "The Empire of God" the Empires are the De Jure
-	royaume_normannia = {
-		is_high_prio = yes
-		potential = {
-			age = 16
-			NOT = { trait = incapable }
-			NOT = { has_landed_title = k_normannia }
-			OR = { 
-				has_landed_title = k_sweden
-				has_landed_title = k_denmark
-				has_landed_title = k_norway
-			}
-			culture_group = north_germanic
-			independent = yes
-		}
-		allow = {
-			prestige = 4000
-			OR = {
-				has_law = centralization_3
-				has_law = centralization_4
-			}
-			OR = { 
-				AND = { 
-					completely_controls = k_sweden
-					completely_controls = k_denmark
-					completely_controls = k_norway	
-				}
-				AND = {
-					has_landed_title = k_sweden
-					has_landed_title = k_denmark
-					has_landed_title = k_norway
-				}
-			}
-		}
-		effect = {
-			narrative_event = { id = RIRSEI.737373 }
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
-
+	#royaume_normannia = {
+	#	is_high_prio = yes
+	#	potential = {
+	#		age = 16
+	#		NOT = { trait = incapable }
+	#		NOT = { has_landed_title = k_normannia }
+	#		OR = { 
+	#			has_landed_title = k_sweden
+	#			has_landed_title = k_denmark
+	#			has_landed_title = k_norway
+	#		}
+	#		culture_group = north_germanic
+	#		independent = yes
+	#	}
+	#	allow = {
+	#		prestige = 4000
+	#		OR = {
+	#			has_law = crown_authority_3
+	#			has_law = crown_authority_4
+	#		}
+	#		OR = { 
+	#			AND = { 
+	#				completely_controls = k_sweden
+	#				completely_controls = k_denmark
+	#				completely_controls = k_norway	
+	#			}
+	#			AND = {
+	#				has_landed_title = k_sweden
+	#				has_landed_title = k_denmark
+	#				has_landed_title = k_norway
+	#			}
+	#		}
+	#	}
+	#	effect = {
+	#		narrative_event = { id = RIRSEI.737373 }
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
+	
+	# Left for now but in future will be - probably - changed with the concept of Pretender, Third Rome and so on...
 	creer_empire_russie_det = {
 		is_high_prio = yes
 		potential = {
@@ -1212,14 +1230,16 @@ decisions = {
 			prestige = 5000
 			piety = 500
 			demesne_size = 10
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
 			set_global_flag = empire_russie
-			narrative_event = { id = RIRSEI.747474 }
+			narrative_event = { id = RIRSEI.20 }
 
 		}
 		ai_will_do = {
@@ -1251,8 +1271,8 @@ decisions = {
 					}
 					AND = {
 						OR = {
-							has_law = centralization_0
-							has_law = centralization_1
+							has_law = crown_authority_0
+							has_law = crown_authority_1
 						}
 						holder_scope = {
 							NOT =  { completely_controls = k_anatolia }
@@ -1271,14 +1291,16 @@ decisions = {
 			prestige = 8000
 			piety = 500
 			demesne_size = 14
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
 			set_global_flag = empire_russie
-			narrative_event = { id = RIRSEI.757575 }
+			narrative_event = { id = RIRSEI.21 }
 
 		}
 		ai_will_do = {
@@ -1317,15 +1339,16 @@ decisions = {
 			completely_controls = d_epirus
 			completely_controls = d_dyrrachion
 
-
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_serbia = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
 
-			narrative_event = { id = RIRSEI.777777 }
+			narrative_event = { id = RIRSEI.23 }
 
 		}
 		ai_will_do = {
@@ -1355,8 +1378,8 @@ decisions = {
 					}
 					AND = {
 						OR = {
-							has_law = centralization_0
-							has_law = centralization_1
+							has_law = crown_authority_0
+							has_law = crown_authority_1
 						}
 						holder_scope = {
 							NOT =  { completely_controls = k_anatolia }
@@ -1383,13 +1406,15 @@ decisions = {
 			completely_controls = d_dyrrachion
 			completely_controls = d_vidin
 
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_serbia = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
-			narrative_event = { id = RIRSEI.787878 }
+			narrative_event = { id = RIRSEI.24 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -1422,19 +1447,20 @@ decisions = {
 			prestige = 4000
 			piety = 500
 			completely_controls = k_bulgaria
-
 			completely_controls = d_thessalonika
 			completely_controls = d_epirus
 			completely_controls = d_dyrrachion
 
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_bulgaria = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
 
-			narrative_event = { id = RIRSEI.808080 }
+			narrative_event = { id = RIRSEI.26 }
 
 		}
 		ai_will_do = {
@@ -1464,8 +1490,8 @@ decisions = {
 					}
 					AND = {
 						OR = {
-							has_law = centralization_0
-							has_law = centralization_1
+							has_law = crown_authority_0
+							has_law = crown_authority_1
 						}
 						holder_scope = {
 							NOT =  { completely_controls = k_anatolia }
@@ -1490,14 +1516,16 @@ decisions = {
 			completely_controls = d_dyrrachion
 			completely_controls = d_wallachia
 
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_bulgaria = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
 
-			narrative_event = { id = RIRSEI.818181 }
+			narrative_event = { id = RIRSEI.27 }
 
 		}
 		ai_will_do = {
@@ -1505,6 +1533,8 @@ decisions = {
 		}
 	}
 
+	# TODO Unsure if makes sense for "The Empires of God" they could retain their title maybe changing the name a little but
+        # they will become from  "Pretenders" the real Successors. Remember Byzantium is not ERE in "The Empires of God"!
 	reno_byz = {
 		is_high_prio = yes
 		potential = {
@@ -1526,15 +1556,17 @@ decisions = {
 			piety = 500
 			demesne_size = 10
 			completely_controls = c_byzantion
-			OR = { 
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = { 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 
 		effect = {
 
-			narrative_event = { id = RIRSEI.838383 }
+			narrative_event = { id = RIRSEI.29 }
 			hidden_tooltip = {
 				e_byzantium = {
 					destroy_landed_title = THIS
@@ -1573,10 +1605,10 @@ decisions = {
 		}
 
 		effect = {
-			character_event = { id = RIRSEI.848484 }
+			character_event = { id = RIRSEI.30 }
 			any_independent_ruler = {
 				limit = { trait = relique_jacques } 
-				letter_event = { id = RIRSEI.858585}
+				letter_event = { id = RIRSEI.31}
 			}
 		}
 		ai_will_do = {
@@ -1584,6 +1616,7 @@ decisions = {
 		}
 	}
 
+	# TODO this should be changed as real event coming from the Pope and not a decision...
 	defensor_christ = {
 		is_high_prio = yes
 		potential = {
@@ -1596,10 +1629,12 @@ decisions = {
 			culture_group = iberian
 			primary_title = { tier = KING }
 			NOT = { trait = defenseur_chretiente }
-			OR = { 
-				has_law = centralization_2
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = { 
+					has_law = crown_authority_2
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 			trait = relique_jacques 
 
@@ -1625,13 +1660,13 @@ decisions = {
 		}
 		effect = {
 
-			character_event = { id = RIRSEI.868686 }
+			character_event = { id = RIRSEI.32 }
 			any_independent_ruler = {
 				limit = { 
 					culture_group = iberian
 					primary_title = { tier = KING } 
-				} 
-				letter_event = { id = RIRSEI.878787}
+				}
+				letter_event = { id = RIRSEI.33}
 			}
 			any_independent_ruler = {
 				limit = { 
@@ -1643,7 +1678,7 @@ decisions = {
 						has_landed_title = d_knights_calatrava
 					}
 				}
-				letter_event = { id = RIRSEI.888888}
+				letter_event = { id = RIRSEI.34}
 			}
 			any_vassal = {
 				limit = { 
@@ -1656,7 +1691,7 @@ decisions = {
 
 					}
 				}
-				letter_event = { id = RIRSEI.888888}
+				letter_event = { id = RIRSEI.34}
 			}
 		}
 		ai_will_do = {
@@ -1693,7 +1728,7 @@ decisions = {
 	#		prestige = 7000
  	#		piety = 800
 
-	#		has_law = centralization_4
+	#		has_law = crown_authority_4
 
 	#		OR = { 
 	#			AND = { 
@@ -1840,7 +1875,7 @@ decisions = {
 		}
 		effect = {
 			wealth = -2500
-				narrative_event = { id = RIRSEI.919191 }
+				narrative_event = { id = RIRSEI.35 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -1893,7 +1928,7 @@ decisions = {
 				}			
 		}
 		effect = {
-			narrative_event = { id = RIRSEI.929292 }
+			narrative_event = { id = RIRSEI.36 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2012,8 +2047,8 @@ decisions = {
 	#		demesne_size = 10
 	#		completely_controls = e_byzantium
 	#		OR = { 
-	#			has_law = centralization_3
-	#			has_law = centralization_4
+	#			has_law = crown_authority_3
+	#			has_law = crown_authority_4
 	#		}
 	#	}
 	#	effect = {
@@ -2088,16 +2123,18 @@ decisions = {
 			}
 		allow = {
 			prestige = 1500
-				OR = {        
-					has_law = centralization_2
-						has_law = centralization_3
-						has_law = centralization_4
+				primary_title = {
+					OR = {        
+						has_law = crown_authority_2
+						has_law = crown_authority_3
+						has_law = crown_authority_4
+					}
 				}
 		}
 		effect = {
 			d_brittany = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.131415}
+					letter_event = { id = RIRSEI.37}
 				}
 			}
 			set_global_flag = france_bret
@@ -2133,20 +2170,22 @@ decisions = {
 		}
 		allow = {
 			prestige = 2500
-			OR = {        
-				has_law = centralization_2
-				has_law = centralization_3
-				has_law = centralization_4
+			primary_title = {
+				OR = {        
+					has_law = crown_authority_2
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 			k_brittany = {
-				has_law = centralization_0
-				has_law = centralization_1
+				has_law = crown_authority_0
+				has_law = crown_authority_1
 			}
 		}
 		effect = {
 			k_brittany = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.141516}
+					letter_event = { id = RIRSEI.40}
 				}
 			}
 			set_global_flag = france_bret
@@ -2169,8 +2208,8 @@ decisions = {
 					NOT = { dynasty = 25061 }
 					NOT = { trait = crowned_by_pope } 
 					OR = {        
-						has_law = centralization_0
-						has_law = centralization_1
+						has_law = crown_authority_0
+						has_law = crown_authority_1
 					}
 					NOT = { realm_size = 100 }
 					NOT = { completely_controls = k_italy }
@@ -2187,7 +2226,7 @@ decisions = {
 			any_playable_ruler = {
 				limit = { religion = catholic }
 
-				narrative_event = { id = RIRSEI.212223 }		 
+				narrative_event = { id = RIRSEI.43 }		 
 			}
 		}
 		ai_will_do = {
@@ -2195,29 +2234,29 @@ decisions = {
 		}
 	}
 
-	pape_script_dejure_hre = {
-		is_high_prio = yes
-		potential = {
-			NOT = { has_global_flag = de_jure_fr_hre }
-			has_landed_title = k_papal_state
-			NOT = { year = 950 }
-		}
-		allow = {
-			prestige = 1
-		}
-		effect = {
-			k_france = {
-				de_jure_liege = e_hre
-			}
-			k_aquitaine = {
-				de_jure_liege = e_hre
-			}
-			set_global_flag = de_jure_fr_hre
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	#pape_script_dejure_hre = {
+	#	is_high_prio = yes
+	#	potential = {
+	#		NOT = { has_global_flag = de_jure_fr_hre }
+	#		has_landed_title = k_papal_state
+	#		NOT = { year = 950 }
+	#	}
+	#	allow = {
+	#		prestige = 1
+	#	}
+	#	effect = {
+        #		k_france = {
+	#			de_jure_liege = e_hre
+	#		}
+	#		k_aquitaine = {
+	#			de_jure_liege = e_hre
+	#		}
+	#		set_global_flag = de_jure_fr_hre
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
 
 	pretention_fr_carol = {
 		is_high_prio = yes
@@ -2269,6 +2308,10 @@ decisions = {
 				primary_title = { tier = DUKE }
 				primary_title = { tier = KING }
 			}
+			
+				e_hre = {
+				has_holder = no
+			}	
 
 			NOT = {
 				e_hre = {
@@ -2496,7 +2539,7 @@ decisions = {
 			completely_controls = d_tyrol
 		}
 		effect = {
-			narrative_event = { id = RIRSEI.232425 }
+			narrative_event = { id = RIRSEI.44 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -2537,26 +2580,28 @@ decisions = {
 		}
 	}
 
-	pape_script_mutation = {
-		is_high_prio = yes
-		potential = {
-			NOT = { has_global_flag = mutare }
-			has_landed_title = k_papal_state
-			NOT = { year = 1020 }
-			}
-		allow = {
-			prestige = 1
-		}
-		effect = {
-			any_playable_ruler = {
-				narrative_event = { id = RIRSEI.242526 }		 
-			}
-			set_global_flag = mutare
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	# The event text is NOT shown (why?) but I have restored the normal Realm Laws has they chandeg them so much that
+	# I have not understood how to simulate this "mutation" anymore...
+	#pape_script_mutation = {
+	#	is_high_prio = yes
+	#	potential = {
+	#		NOT = { has_global_flag = mutare }
+	#		has_landed_title = k_papal_state
+	#		NOT = { year = 1020 }
+	#		}
+	#	allow = {
+	#		prestige = 1
+	#	}
+	#	effect = {
+	#		any_playable_ruler = {
+	#			narrative_event = { id = RIRSEI.45 }		 
+	#		}
+	#		set_global_flag = mutare
+	#	}
+	#	ai_will_do = {
+	#		factor = 1
+	#	}
+	#}
 
 	pape_script_central = {
 		is_high_prio = yes
@@ -2570,7 +2615,7 @@ decisions = {
 		}
 		effect = {
 			any_playable_ruler = {
-				narrative_event = { id = RIRSEI.252627 }		 
+				narrative_event = { id = RIRSEI.46 }		 
 			}
 			set_global_flag = central
 		}
@@ -2607,10 +2652,10 @@ decisions = {
 		}
 
 		effect = {
-			character_event = { id = RIRSEI.262728 }
+			character_event = { id = RIRSEI.47 }
 			any_independent_ruler = {
 				limit = { trait = relique_charles } 
-				letter_event = { id = RIRSEI.272829}
+				letter_event = { id = RIRSEI.48 }
 			}
 		}
 
@@ -2645,10 +2690,10 @@ decisions = {
 		}
 
 		effect = {
-			character_event = { id = RIRSEI.262728 }
+			character_event = { id = RIRSEI.47 }
 			any_independent_ruler = {
 				limit = { trait = relique_charles } 
-				letter_event = { id = RIRSEI.272829}
+				letter_event = { id = RIRSEI.48 }
 			}
 		}
 
@@ -2691,10 +2736,12 @@ decisions = {
 						value = 40 
 				}
 			}
-			OR = {
-				has_law = centralization_2 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_magyar = {
+				OR = {
+					has_law = crown_authority_2 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
@@ -2763,23 +2810,25 @@ decisions = {
 		}
 		allow = {
 			prestige = 7000
-			OR = { 
-				has_law = centralization_2
-				has_law = centralization_3
-				has_law = centralization_4
+			e_hre = {
+				OR = { 
+					has_law = crown_authority_2
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 
 			k_magyar = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
+					has_law = crown_authority_0
+					has_law = crown_authority_1
 				}
 			}	
 		}
 		effect = {
 			k_magyar = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.303132}
+					letter_event = { id = RIRSEI.49}
 				}
 			}
 			set_global_flag = ehre_hongrie
@@ -2825,11 +2874,13 @@ decisions = {
 		}
 		allow = {
 			prestige = 4000
-			OR = { 
-				has_law = centralization_1
-				has_law = centralization_2
-				has_law = centralization_3
-				has_law = centralization_4
+			e_hre = {
+				OR = { 
+					has_law = crown_authority_1
+					has_law = crown_authority_2
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 
 			d_bohemia = {
@@ -2839,7 +2890,7 @@ decisions = {
 		effect = {
 			d_bohemia = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.333435}
+					letter_event = { id = RIRSEI.52}
 				}
 			}
 			set_global_flag = ehre_boheme
@@ -2885,14 +2936,14 @@ decisions = {
 
 			e_hre = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
-					has_law = centralization_2
+					has_law = crown_authority_0
+					has_law = crown_authority_1
+					has_law = crown_authority_2
 				}
 			}
 		}
 		effect = {
-			character_event = { id = RIRSEI.363738 }
+			character_event = { id = RIRSEI.55 }
 			set_global_flag = couronne_boheme
 		}
 		ai_will_do = {
@@ -2932,15 +2983,15 @@ decisions = {
 			}                        
 			e_hre = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
-					has_law = centralization_2
-					has_law = centralization_3
+					has_law = crown_authority_0
+					has_law = crown_authority_1
+					has_law = crown_authority_2
+					has_law = crown_authority_3
 				}
 			}
 		}
 		effect = {
-			character_event = { id = RIRSEI.383940 }
+			character_event = { id = RIRSEI.57 }
 			set_global_flag = couronne_boheme
 
 		}
@@ -2984,7 +3035,7 @@ decisions = {
 			}
 		}
 		effect = {
-			character_event = { id = RIRSEI.394041 }
+			character_event = { id = RIRSEI.58 }
 			set_global_flag = couronne_boheme
 
 		}
@@ -3031,12 +3082,13 @@ decisions = {
 		allow = {
 			prestige = 2000
 			completely_controls = k_poland
-
-			OR = {
-				has_law = centralization_2
-				has_law = centralization_3
-				has_law = centralization_4
-
+	
+			primary_title = {
+				OR = {
+					has_law = crown_authority_2
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
@@ -3088,8 +3140,8 @@ decisions = {
 			k_poland = {
 				NOT = {                    
 					OR = {
-						has_law = centralization_3
-						has_law = centralization_4
+						has_law = crown_authority_3
+						has_law = crown_authority_4
 					}                             
 				}
 			}                        
@@ -3177,12 +3229,12 @@ decisions = {
 			rightful_religious_head_scope = {
 				opinion = {
 					who = ROOT
-						value = 35 
+					value = 35 
 				}
 			}
 		}
 		effect = {
-			character_event = { id = RIRSEI.414243 }
+			character_event = { id = RIRSEI.59 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -3215,15 +3267,16 @@ decisions = {
 					value = 40 
 				}
 			}
-			OR = {
-				has_law = centralization_2 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_poland = {
+				OR = {
+					has_law = crown_authority_2 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
-
 		}
 		effect = {
-			character_event = { id = RIRSEI.424344 }
+			character_event = { id = RIRSEI.60 }
 			set_global_flag = rex_poloniae_huit
 
 		}
@@ -3260,14 +3313,16 @@ decisions = {
 					}
 				}
 			}
-			OR = {
-				has_law = centralization_2 
-				has_law = centralization_3
-				has_law = centralization_4
+			k_poland = {
+				OR = {
+					has_law = crown_authority_2 
+					has_law = crown_authority_3
+					has_law = crown_authority_4
+				}
 			}
 		}
 		effect = {
-			character_event = { id = RIRSEI.434445 }
+			character_event = { id = RIRSEI.61 }
 			set_global_flag = rex_poloniae_huit
 		}
 		ai_will_do = {
@@ -3293,25 +3348,27 @@ decisions = {
 				religion_group = christian
 				independent = yes
 				NOT = { completely_controls = k_poland }
-				OR = { 
-					has_law = centralization_2
-					has_law = centralization_3
-					has_law = centralization_4
+				e_hre = {
+					OR = { 
+						has_law = crown_authority_2
+						has_law = crown_authority_3
+						has_law = crown_authority_4
+					}
 				}
 			}
 		allow = {
 			prestige = 6000
 			k_poland = {
 				OR = {
-					has_law = centralization_0
-					has_law = centralization_1
+					has_law = crown_authority_0
+					has_law = crown_authority_1
 				}
 			}	
 		}
 		effect = {
 			k_poland = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.494949}
+					letter_event = { id = RIRSEI.8}
 				}
 			}
 			set_character_flag = imp_polo
@@ -3360,7 +3417,7 @@ decisions = {
 			}                        
 		}
 		effect = {
-			character_event = { id = RIRSEI.444546 }
+			character_event = { id = RIRSEI.62 }
 			religion = catholic
 		}
 		ai_will_do = {
@@ -3420,7 +3477,7 @@ decisions = {
 		effect = {
 			e_byzantium = {
 				holder_scope = {
-					letter_event = { id = RIRSEI.474849 }
+					letter_event = { id = RIRSEI.64 }
 				}
 			}
 		}

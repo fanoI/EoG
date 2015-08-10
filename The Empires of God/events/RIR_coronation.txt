@@ -2,28 +2,26 @@
 #
 # Events for Coronation
 #
-# Id 2002000 - 2003000 is reserved
+# Id 2000 - 3000 is reserved
 #
 ###################################
 
 # Written by Van Diemen
 
 # Coronation inform Emperor
-namespace = RIRSEI
-
 character_event = {
-	id = RIRSEI.2002000
-	desc = "EVTDESC_RIRSEI_2002000"
+	id = RIRSEI.2000
+	desc = "EVTDESC_RIRSEI_2000"
 	picture = "GFX_evt_pope"
 	#border = "GFX_event_normal_frame_religion"
 	
 	is_triggered_only = yes # decision coronation
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002000" # I will ask the pope
+		name = "EVTOPTA_RIRSEI_2000" # I will ask the pope
 		hidden_tooltip = {
 			rightful_religious_head_scope = {
-				letter_event = { id = RIRSEI.2002005 }
+				letter_event = { id = RIRSEI.2005 }
 			}
 		}
 	}
@@ -31,16 +29,16 @@ character_event = {
 
 # Asking the pope for coronation
 letter_event = {
-	id = RIRSEI.2002005
-	desc = "EVTDESC_RIRSEI_2002005"
+	id = RIRSEI.2005
+	desc = "EVTDESC_RIRSEI_2005"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002005"	# Accept
+		name = "EVTOPTA_RIRSEI_2005"	# Accept
 		wealth = 100
 		FROM = {
-			letter_event = { id = RIRSEI.2002010 }
+			letter_event = { id = RIRSEI.2010 }
 		}
 		ai_chance = {
 			factor = 0.5
@@ -113,16 +111,16 @@ letter_event = {
 				factor = 1.2
 				FROM = { piety = 1000 }
 			}
-modifier = {
+			modifier = {
 				factor = 4.0
 				FROM = { dynasty = 25061 }
 			}
 		}
 	}
 	option = {
-		name = "EVTOPTA_RIRSEI_2002005"	# Reject
+		name = "EVTOPTA_RIRSEI_2005"	# Reject
 		FROM = {
-			letter_event = { id = RIRSEI.2002015 }
+			letter_event = { id = RIRSEI.2015 }
 		}
 		ROOT = {
 			opinion = {
@@ -155,13 +153,13 @@ modifier = {
 
 # Inform Emperor Pope accepts coronation + send out the invites to realm lords
 letter_event = {
-	id = RIRSEI.2002010
-	desc = "EVTDESC_RIRSEI_2002010"
+	id = RIRSEI.2010
+	desc = "EVTDESC_RIRSEI_2010"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002010"	# Excellent, now invite all the lords
+		name = "EVTOPTA_RIRSEI_2010"	# Excellent, now invite all the lords
 		hidden_tooltip = {
 			any_vassal = {
 				limit = {
@@ -182,22 +180,22 @@ letter_event = {
 					prisoner = no
 					NOT = { is_female = yes	}
 				}
-				letter_event = { id = RIRSEI.2002020 } # Invitation to coronation
+				letter_event = { id = RIRSEI.2020 } # Invitation to coronation
 			}
-		character_event = { id = RIRSEI.2002050 days = 60 } # Coronation by pope
+		character_event = { id = RIRSEI.2050 days = 60 } # Coronation by pope
 		}
 	}
 }
 
 # Inform Emperor pope rejects coronation
 letter_event = {
-	id = RIRSEI.2002015
-	desc = "EVTDESC_RIRSEI_2002015"
+	id = RIRSEI.2015
+	desc = "EVTDESC_RIRSEI_2015"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002015"	# Maybe we should try again later
+		name = "EVTOPTA_RIRSEI_2015"	# Maybe we should try again later
 		prestige = -50
 		ROOT = {
 			opinion = {
@@ -212,14 +210,14 @@ letter_event = {
 
 # Coronation invites to realm lords
 letter_event = {
-	id = RIRSEI.2002020
-	desc = "EVTDESC_RIRSEI_2002020"
+	id = RIRSEI.2020
+	desc = "EVTDESC_RIRSEI_2020"
 	#picture = GFX_evt_heretic
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002020"	# I will attend the ceremony
+		name = "EVTOPTA_RIRSEI_2020"	# I will attend the ceremony
 		set_character_flag = attend_coronation
 		ai_chance = {
 			factor = 0.8
@@ -271,7 +269,7 @@ letter_event = {
 		}
 	}
 	option = {
-		name = "EVTOPTB_RIRSEI_2002020"	# I have more important things to do
+		name = "EVTOPTB_RIRSEI_2020"	# I have more important things to do
 		ROOT = {
 			opinion = {
 				modifier = insulted
@@ -280,7 +278,7 @@ letter_event = {
 			}
 		}
 		FROM = {
-			letter_event = { id = RIRSEI.2002025 }
+			letter_event = { id = RIRSEI.2025 }
 		}
 		ai_chance = {
 			factor = 0.2
@@ -381,13 +379,13 @@ letter_event = {
 
 # Inform Emperor of not attending ceremony
 letter_event = {
-	id = RIRSEI.2002025
-	desc = "EVTDESC_RIRSEI_2002025"
+	id = RIRSEI.2025
+	desc = "EVTDESC_RIRSEI_2025"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002025"	# I have no words for such dishonour
+		name = "EVTOPTA_RIRSEI_2025"	# I have no words for such dishonour
 		ROOT = {
 			opinion = {
 				modifier = insulted
@@ -400,9 +398,9 @@ letter_event = {
 
 # Emperor crowned by pope
 character_event = {
-	id = RIRSEI.2002050
-	title = "EVTNAME_RIRSEI_2002050"
-	desc = "EVTDESC_RIRSEI_2002050"
+	id = RIRSEI.2050
+	title = "EVTNAME_RIRSEI_2050"
+	desc = "EVTDESC_RIRSEI_2050"
 	picture = "GFX_evt_empdeux"
 	#border = "GFX_event_narrative_frame_religion"
 	sound = church_bells
@@ -410,7 +408,7 @@ character_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002050"	# This is the happiest day of my life
+		name = "EVTOPTA_RIRSEI_2050"	# This is the happiest day of my life
 		add_trait = crowned_by_pope
                 remove_trait = roi_des_romains
 remove_trait = roi_oint
@@ -427,7 +425,7 @@ remove_trait = roi_oint
 				limit = {
 					has_character_flag = attend_coronation
 				}
-				character_event = { id = RIRSEI.2002055 }
+				character_event = { id = RIRSEI.2055 }
 				opinion = {
 					modifier = opinion_attended_ceremony # should maybe be a new opinion called "Crowned by Pope"
 					who = ROOT
@@ -438,24 +436,24 @@ remove_trait = roi_oint
 				limit = {
 					not = { has_character_flag = attend_coronation }
 				}
-				letter_event = { id = RIRSEI.2002060 }
+				letter_event = { id = RIRSEI.2060 }
 			}
 			clr_character_flag = wants_coronation
-			narrative_event = { id = RIRSEI.2002065 }
+			narrative_event = { id = RIRSEI.2065 }
 		}
 	}
 }
 
 # Emperor crowned by pope - attended realm lord inform ceremony
 character_event = {
-	id = RIRSEI.2002055
-	desc = "EVTDESC_RIRSEI_2002055"
+	id = RIRSEI.2055
+	desc = "EVTDESC_RIRSEI_2055"
 	picture = "GFX_evt_empdeux"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002055"	# The coronation was beautiful
+		name = "EVTOPTA_RIRSEI_2055"	# The coronation was beautiful
 		prestige = 20
 		clr_character_flag = attend_coronation
 	}
@@ -463,19 +461,19 @@ character_event = {
 
 # Emperor crowned by pope - non-attended realm lord inform
 letter_event = {
-	id = RIRSEI.2002060
-	desc = "EVTDESC_RIRSEI_2002060"
+	id = RIRSEI.2060
+	desc = "EVTDESC_RIRSEI_2060"
 	
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002060"	# Ok
+		name = "EVTOPTA_RIRSEI_2060"	# Ok
 	}
 }
 narrative_event = {
-	id = RIRSEI.2002065
-	title = "EVTNAME_RIRSEI_2002065"
-	desc = "EVTDESC_RIRSEI_2002065"
+	id = RIRSEI.2065
+	title = "EVTNAME_RIRSEI_2065"
+	desc = "EVTDESC_RIRSEI_2065"
 	picture = "GFX_evt_empdeux"
 	border = "GFX_event_narrative_frame_religion"
 
@@ -484,6 +482,6 @@ narrative_event = {
 	is_triggered_only = yes
 	
 	option = {
-		name = "EVTOPTA_RIRSEI_2002060"	# This is the happiest day of my life
+		name = "EVTOPTA_RIRSEI_2060"	# This is the happiest day of my life
 	}
 }
