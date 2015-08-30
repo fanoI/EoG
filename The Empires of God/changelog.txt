@@ -1,3 +1,32 @@
+0.0.4 Alpha
+
+- The Roman Empire has its COA again and the law of the forming title
+are maintened
+- Modified the Latin Empire scenario now it starts in 1204/8/1 with the
+Kingdom of Thessalonika (with Boniface of Montferrat as King) formed
+under the Latin Empire, Nikea and Trebizond are present too
+- Added history of the Empire of Bulgaria and Romania and Serbia and
+Romania
+- Now characters with the trait "Pretender Successor State of ERE" can
+declare war on the successor, as with the West a Conference of Peace is
+called
+- Modified defines: a character can control 4 Duchies without penalties
+- Modified de jure Kingdom of Byzantium added Hellas, Epirus and Nikea.
+Cyprus is de jure too with the duchy of Cyprus as its only vassal
+- The Emperor of HRE can request the crown to the Pope if HRE is not his
+primary title too
+- Modified form HRE decision in CM scenario it does not destroy excess
+Empire anymore and make de jure only the kingdoms of the primary Empire
+- As the form HRE decision could replace Italia, Francia or Hispania
+with HRE now the decision to reform the WRE takes this in account
+- The decision to form the Empire of Russia needs to have the title
+Kanate of Kievan Rus
+- The Emperor of Trebizond has claim in Nikea and in the Greek territory
+of Byzantium
+- The Emperors of Bulgaria, Serbia, Russia and Trebizond now wear
+Emperor crowns
+- A Greek Kingdom is called a Despotate
+
 0.0.3 Alpha
 
 - Compatible with "The Horse Lord DLC" and accompagning patches
