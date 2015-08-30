@@ -63,11 +63,10 @@
 {
 	holder=168072
 }
-955.1.1 = {
+907.1.1={
 	liege="k_magyar"
+	holder=159135
 }
-
-
 1066.1.1=
 {
 	liege="k_hungary"

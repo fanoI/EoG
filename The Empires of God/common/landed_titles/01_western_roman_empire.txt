@@ -1,3 +1,30 @@
+# High Empire of "Roman Empire" the union of the Western and Eastern Roman Empire.
+e_roman_empire = {
+	color={ 167 10 100 }
+	color2={ 255 255 20 }
+	
+	capital = 333 # Rome
+	
+	short_name = yes
+	
+	title = AUGUSTUS
+	title_female = AUGUSTAS
+
+	duchy_revokation = yes
+	purple_born_heirs = yes
+	
+	culture = roman
+	religion = orthodox
+	
+	# Cannot be held as a secondary title
+	primary = yes
+	dignity = 1000
+
+	allow = {
+		always = no # Only created through special event
+	}
+}
+
 # High Empire of "Western Roman Empire"
 e_wre = {
 	color={ 255 0 0 }
@@ -55,7 +82,7 @@ e_italy = {
 		culture = italian
 	
 		dignity = 200 # Never want the Republic of Genoa to change primary title
-	
+
 		allow = {
 			is_republic = yes
 		}

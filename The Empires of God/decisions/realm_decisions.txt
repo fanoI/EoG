@@ -1572,15 +1572,18 @@ decisions = {
 					add_law = succ_feudal_elective
 				}
 			}
-			any_demesne_title = {
-				limit = {
-					tier = KING
-					NOT = {
-						title = k_germany
-					}
-				}
-				destroy_landed_title = THIS
-			}
+			# Why this? To help retarded IA? Screw it!
+			#any_demesne_title = {
+			#	limit = {
+			#		tier = KING
+			#		NOT = {
+			#			title = k_germany
+			#		}
+			#	}
+			#	destroy_landed_title = THIS
+			#}
+
+			# TODO add a flavour event
 		}
 		revoke_allowed = {
 			always = no
@@ -1684,10 +1687,13 @@ decisions = {
 				limit = { has_nickname = no }
 				give_nickname = nick_the_great
 			}
-			any_demesne_title = {
-				limit = { tier = KING }
-				de_jure_liege = e_hre
-			}
+
+			# Not historical, no fair...
+			#any_demesne_title = {
+			#	limit = { tier = KING }
+			#	de_jure_liege = e_hre
+			#}
+
 			hidden_tooltip = {
 				primary_title = {
 					if = {
@@ -1698,21 +1704,70 @@ decisions = {
 					}
 				}
 			}
+
+			# If the HRE was created from another Empire we need to save this as it will have no more de jure
+			# territory and so have no sense to check for it! (And # problably makes no sense to make it
+			# creable too)
+			if = {
+				limit = {
+					primary_title = {
+						title = e_italy
+					}
+				}
+				set_global_flag = hre_of_the_italian_nation	
+			}
+
+			if = {
+				limit = {
+					primary_title = {
+						title = e_france
+					}
+				}
+				set_global_flag = hre_of_the_frankish_nation
+			}
+
+			if = {
+				limit = {
+					primary_title = {
+						title = e_spain
+					}
+				}
+				set_global_flag = hre_of_the_spanish_nation
+			}
+
+			if = {
+				limit = {
+					primary_title = {
+						title = e_germany
+					}
+				}
+				set_global_flag = hre_of_the_germanic_nation
+			}
+
 			primary_title = {
 				e_hre = {
 					grant_title = ROOT
 					copy_title_laws = PREV
 					set_coa = PREV
 				}
-			}
-			any_demesne_title = {
-				limit = {
-					tier = EMPEROR
-					NOT = { title = e_hre }
-				}
 				destroy_landed_title = THIS
 				hidden_tooltip = { activate_title = { title = THIS status = no } }
 			}
+
+			# Not destroy other Empires I could need them to restore WRE!
+			#any_demesne_title = {
+			#	limit = {
+			#		tier = EMPEROR
+			#		NOT = { title = e_hre }
+			#	}
+			#	destroy_landed_title = THIS
+			#	hidden_tooltip = { activate_title = { title = THIS status = no } }
+			#}
+
+			# As we do not destroy other Imperial title they become primary but we want HRE - the true Imperial
+			# title to be primary!
+			hidden_tooltip = { e_hre = { make_primary_title = yes } }
+
 #			any_demesne_title = {
 #				limit = { tier = KING }
 #				destroy_landed_title = THIS

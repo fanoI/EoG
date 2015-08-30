@@ -30,11 +30,29 @@ decisions = {
 						NOT = { has_global_flag = spqr_restored }
 					}
 				}
+
 				has_landed_title = e_spqr
+				custom_tooltip = {
+					text = hre_of_the_italian_nation_desc
+					has_global_flag = hre_of_the_italian_nation
+				}
 			}
 
-			has_landed_title = e_france
-			has_landed_title = e_spain
+			OR = {
+				has_landed_title = e_france
+				custom_tooltip = {
+					text = hre_of_the_frankish_nation_desc
+					has_global_flag = hre_of_the_frankish_nation
+				}
+			}
+		
+			OR = {
+				has_landed_title = e_spain
+				custom_tooltip = {
+					text = hre_of_the_spanish_nation_desc
+					has_global_flag = hre_of_the_spanish_nation
+				}
+			}
 
 			# If you are Catholic the Pope should be your vassal to be the true Roman Emperor!
 			custom_tooltip = {
@@ -140,7 +158,7 @@ decisions = {
 		effect = {
 			set_global_flag = ere_restored
 			#narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
-			narrative_event = { id = EoG.581 tooltip = EVTTOOLTIPEoG.581 }
+			narrative_event = { id = EoG.700 tooltip = EVTTOOLTIPEoG.700 }
 		}
 
 		ai_will_do = {

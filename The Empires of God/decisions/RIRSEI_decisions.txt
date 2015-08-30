@@ -660,6 +660,7 @@ EVTTOOLTIPRIRSEI.2 }
 			age = 16
 			NOT = { trait = incapable }
 			NOT = { trait = roi_des_romains }
+			NOT = { trait = crowned_by_pope }
 			has_landed_title = e_hre
 		}
 		allow = {
@@ -1209,18 +1210,23 @@ EVTTOOLTIPRIRSEI.2 }
 			NOT = { trait = incapable }
 			NOT = { has_global_flag = empire_russie }
 
-			has_landed_title = k_rus
+			#has_landed_title = k_rus
+			has_landed_title = e_kievan_rus
 
-			completely_controls = k_rus
+			#completely_controls = k_rus
+			completely_controls = e_kievan_rus
 
 			religion = orthodox
-
 
 			e_byzantium = {
 				has_holder = no
 			} 
 
 			e_roman_empire = {
+				has_holder = no
+			} 
+
+			e_ere = {
 				has_holder = no
 			} 
 		}
@@ -1255,12 +1261,18 @@ EVTTOOLTIPRIRSEI.2 }
 			NOT = { trait = incapable }
 			NOT = { has_global_flag = empire_russie }
 
-			has_landed_title = k_rus
+			#has_landed_title = k_rus
+			has_landed_title = e_kievan_rus
 
-			completely_controls = k_rus
+			#completely_controls = k_rus
+			completely_controls = e_kievan_rus
 
 			religion = orthodox
 			e_roman_empire = {
+				has_holder = no
+			} 
+
+			e_ere = {
 				has_holder = no
 			} 
 
@@ -1434,6 +1446,10 @@ EVTTOOLTIPRIRSEI.2 }
 			culture = bulgarian
 
 			e_byzantium = {
+				has_holder = no
+			} 
+
+			e_ere = {
 				has_holder = no
 			} 
 
@@ -1904,6 +1920,9 @@ EVTTOOLTIPRIRSEI.2 }
 					has_holder = no
 				}
 				e_roman_empire = {
+					has_holder = no
+				}
+				e_ere = {
 					has_holder = no
 				}
 

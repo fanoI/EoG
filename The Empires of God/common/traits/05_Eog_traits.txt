@@ -21,7 +21,7 @@ successor_state_of_ere = {
 
 	opposites = {
     		pretender_successor_state_of_ere
-		successor_state_of_wre
+		#successor_state_of_wre
 	}
 			
 	vassal_opinion = 10
@@ -52,9 +52,9 @@ successor_state_of_wre = {
 
 	opposites = {
     		pretender_successor_state_of_wre
-		successor_state_of_ere
+		#successor_state_of_ere
 	}
-			
+
 	vassal_opinion = 10
 	opposite_opinion = -30
 	general_opinion = 10
@@ -118,6 +118,69 @@ not_burgundian_holding_in_burgundy = {
 }
 
 emperor_holding_in_burgundy = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_thracian = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_hellenic = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_epirote = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_bulgarian = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_serbian = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_croatian =  {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_venetian = {
+	customizer = no
+	random = no
+
+	cached = yes
+}
+
+vassal_of_the_loser_trapezuntine = {
 	customizer = no
 	random = no
 

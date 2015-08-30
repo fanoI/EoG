@@ -50,68 +50,75 @@ character_event = {
 	option = {
 		name = EVTOPTAEoG.1
 		add_trait = successor_state_of_wre
+
+		any_independent_ruler {
+			limit = {
+				trait = successor_state_of_ere
+			}
+			add_rival = ROOT
+		}
 	}
 }
 
 # No more Holy Roman Emperor or Consul of S.P.Q.R, the trait is lost
-character_event = {
-	id = EoG.2
-	#desc = EVTDESCEoG.2
-	picture = GFX_evt_rome_restored_byzantine
-	
-	desc = {
-		trigger = {
-			has_landed_title = e_hre
-		}
-		text = EVTDESCEoG_HRE.2
-	}
+#character_event = {
+#	id = EoG.2
+#	#desc = EVTDESCEoG.2
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	desc = {
+#		trigger = {
+#			has_landed_title = e_hre
+#		}
+#		text = EVTDESCEoG_HRE.2
+#	}
+#
+#	desc = {
+#		trigger = {
+#			has_landed_title = e_spqr
+#		}
+#		text = EVTDESCEoG_SPQR.2
+#	}
+#
+#	trigger = {
+#		has_dlc = "Legacy of Rome"
+#		trait = successor_state_of_wre
+#	
+#		OR = {
+#			NOT = { has_landed_title = e_hre }
+#			NOT = { has_landed_title = e_spqr }
+#		}
+#
+#		# To avoid that during the conference of peace the winner lose the trait only because e_hre exists yet
+#		NOT = { has_character_flag = won_successor_state_of_wre_war }
+#		is_alive = yes
+#	}
+#
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#
+#	option = {
+#		#name = EVTOPTAEoG.2
+#		name= {
+#			text = EVTOPTAEoG_Empire.2
+#			trigger = {
+#				is_feudal = yes
+#			}
+#		}
+#		
+#		name= {
+#			text = EVTOPTAEoG_Republic.2
+#			trigger = {
+#				is_republic = yes
+#			}
+#		}
+#
+#		remove_trait = successor_state_of_wre
+#	}
+#}
 
-	desc = {
-		trigger = {
-			has_landed_title = e_spqr
-		}
-		text = EVTDESCEoG_SPQR.2
-	}
-
-	trigger = {
-		has_dlc = "Legacy of Rome"
-		trait = successor_state_of_wre
-	
-		OR = {
-			NOT = { has_landed_title = e_hre }
-			NOT = { has_landed_title = e_spqr }
-		}
-
-		# To avoid that during the conference of peace the winner lose the trait only because e_hre exists yet
-		NOT = { has_character_flag = won_successor_state_of_wre_war }
-		is_alive = yes
-	}
-
-	mean_time_to_happen = {
-		days = 1
-	}
-
-	option = {
-		#name = EVTOPTAEoG.2
-		name= {
-			text = EVTOPTAEoG_Empire.2
-			trigger = {
-				is_feudal = yes
-			}
-		}
-		
-		name= {
-			text = EVTOPTAEoG_Republic.2
-			trigger = {
-				is_republic = yes
-			}
-		}
-
-		remove_trait = successor_state_of_wre
-	}
-}
-
-# Pretender to be Successor State of WRE: S.P.Q.R, Germania (if it was HRE # before) and, obviously, Eastern Roman Empire
+# Pretender to be Successor State of WRE: S.P.Q.R, Germania (if it was HRE before) and, obviously, Eastern Roman Empire
 character_event = {
 	id = EoG.3
 	picture = GFX_evt_rome_restored_byzantine
@@ -151,7 +158,10 @@ character_event = {
 				has_landed_title = e_germany
 				has_global_flag = germania_was_hre
 			}
-		 	has_landed_title = e_ere
+		 	AND = {
+				has_landed_title = e_ere
+				NOT = { has_global_flag = e_ere_successor_by_might }
+			}
 		}
 	}
 
@@ -197,7 +207,7 @@ character_event = {
 	}
 }
 	
-# No more Consul of S.P.Q.R or Emperor of Germania "Pretender to be Successor State of WRE" trait is lost
+# No more Consul of S.P.Q.R or Emperor of Germania or ERE Emperor "Pretender to be Successor State of WRE" trait is lost
 character_event = {
 	id = EoG.400
 	picture = GFX_evt_rome_restored_byzantine
@@ -263,7 +273,7 @@ character_event = {
 
 # On action event: the Pretender has won the war against the Rightful Successor state of WRE
 # and now is universally recognized as the true Successor State. 
-# Now a Conference of Peace shall be called to decide the new assect of Europe!
+# Now a Conference of Peace shall be called to decide the new assect of  Western Europe!
 # The first character to be invited to the conference is the Holy Roman Emperor
 character_event = {
 	id = EoG.5
@@ -1011,8 +1021,8 @@ long_character_event = {
 		
 				NOT = {
 					any_realm_character = {
-					count = 1
-					trait = patrician_of_sqpr
+						count = 1
+						trait = patrician_of_sqpr
 					}
 				}
 			}
@@ -1061,7 +1071,7 @@ long_character_event = {
 				has_landed_title = e_hre
 			}
 
-			character_event = { id = EoG.31 days = 3} 
+			character_event = { id = EoG.31 days = 3 } 
 		}
 	}
 }
@@ -1567,7 +1577,7 @@ long_character_event = {
 
 	# Vassalize them to S.P.Q.R. directly without further discussion!
 	option = {
-		name = "EVTOPTAEog.38"
+		name = "EVTOPTAEoG.38"
 
 		ai_chance = {
 			# I'd prefer AI choses this option...
@@ -1634,7 +1644,7 @@ long_character_event = {
 
 	# Let them vote on the issue
 	option = {
-		name = "EVTOPTBEog.38"
+		name = "EVTOPTBEoG.38"
 		set_global_flag = voting_on_italian_issue
 
 		ai_chance = {
@@ -3512,7 +3522,8 @@ narrative_event = {
 	}
 }
 
-# Restoration of the Roman Empire via unification of WRE with ERE
+# Restoration of the Roman Empire (Kludge version: the primary title simply annex the territory of the other Empire then changes flag
+# and COA) 
 narrative_event = {
 	id = EoG.82
 	title = EVTNAMEEoG.82
@@ -3533,74 +3544,62 @@ narrative_event = {
 	
 	picture = GFX_evt_rome_restored_byzantine
 
-	is_triggered_only = yes
+	is_triggered_only = yes	
 
 	option = {
 		name = "EVTOPTAEoG.82"
 
-		#hidden_tooltip = {
-		#	primary_title = {
-		#		any_direct_de_jure_vassal_title = {
-		#			de_jure_liege = e_roman_empire
-		#		}
-		#	}
-		#}
-
-		# Bug of new patch grant_title does not work on not active titles anymore!
-		activate_title = { title = e_roman_empire status = yes }
-		primary_title = {
-			e_roman_empire = {
-				grant_title = ROOT
-				copy_title_laws = PREV
+		if = {
+			limit = {
+				primary_title = {
+					title = e_wre
+				}
 			}
-		}
-		
-		e_ere = {
-			any_direct_de_jure_vassal_title = {
-				de_jure_liege = e_roman_empire
-			}
-		}
 
-		e_wre = {
-			any_direct_de_jure_vassal_title = {
-				de_jure_liege = e_roman_empire
+			# e_wre hinerits e_ere
+			e_ere = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_wre
+				}
+			}
+
+			e_ere = {
+				destroy_landed_title = THIS
+			}
+			activate_title = { title = e_ere status = no }
+			
+			e_wre = {
+				set_coa = e_roman_empire
+				set_name = e_roman_empire
+				adjective = e_roman_empire_adj
 			}
 		}
 
-		#if = {
-		#	limit = {
-		#		has_landed_title = e_wre
-		#	}
-                #
-	        #	e_roman_empire = {
-		#		grant_title = ROOT
-		#		copy_title_laws = e_wre
-		#		#copy_title_history = e_wre
-		#	}
-		#}
+		if = {
+			limit = {
+				primary_title = {
+					title = e_ere
+				}
+			}
 
-		#if = {
-		#	limit = {
-		#		has_landed_title = e_ere
-		#	}
+			# e_ere hinerits e_wre
+			e_wre = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
+			}
 
-		#	e_roman_empire = {
-		#		grant_title = ROOT
-		#		copy_title_laws = e_ere
-		#		#copy_title_history = e_ere
-		#	}
-		#}
+			e_wre = {
+				destroy_landed_title = THIS
+			}
+			activate_title = { title = e_wre status = no }
 
-		# We have reformed the Empire, these titles are not needed anymore
-		e_ere = {
-			destroy_landed_title = THIS
+			e_ere = {
+				set_coa = e_roman_empire
+				set_name = e_roman_empire
+				adjective = e_roman_empire_adj
+			}
 		}
-		activate_title = { title = e_ere status = no }
-
-		e_wre = {
-			destroy_landed_title = THIS
-		}
-		activate_title = { title = e_wre status = no }
 
 		remove_trait = successor_state_of_wre
 		remove_trait = successor_state_of_ere
@@ -3608,11 +3607,6 @@ narrative_event = {
 		add_trait = augustus
 		give_nickname = nick_the_glorious
 
-		#e_roman_empire = {
-		#	succession = primogeniture # Kludge!
-		#}
-
-		recalc_succession = yes
 		# TODO Send narrative event to other characters
 	}
 }
@@ -3624,13 +3618,51 @@ character_event = {
 	id = EoG.500
 	desc = EVTDESCEoG.500
 	picture = GFX_evt_rome_restored_byzantine
-	
+
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		has_landed_title = e_byzantium
 		NOT = { trait = successor_state_of_ere }
 		# To avoid that during the conference of peace the loser gets the trait only because e_byzantium exists yet
 		NOT = { has_character_flag = lost_successor_state_of_ere_war }
+		OR = {
+			AND = { has_landed_title = e_byzantium }
+			AND = {
+				e_byzantium = {
+					has_holder = no	
+				}
+
+				OR = {
+					AND = {
+						has_landed_title = e_latin_empire
+						has_global_flag = e_latin_empire_successor_by_might
+					}
+
+					AND = {
+						has_landed_title = e_bulgaria
+						has_global_flag = e_bulgaria_successor_by_might
+					}
+
+					AND = {
+						has_landed_title = e_serbia
+						has_global_flag = e_serbia_successor_by_might
+					}
+
+					AND = {
+						has_landed_title = e_russia
+						OR = {
+							has_global_flag = e_russia_successor_by_might
+							has_global_flag = e_russia_is_third_rome
+						}
+					}
+
+					AND = {
+						has_landed_title = e_wre
+						has_global_flag = e_wre_successor_by_might
+					}
+					# Niceae and Trebizond if controls Constantinople should restore Byzantium first
+				}
+			}
+		}
 	}
 
 	mean_time_to_happen = {
@@ -3640,22 +3672,138 @@ character_event = {
 	option = {
 		name = EVTOPTAEoG.500
 		add_trait = successor_state_of_ere
+
+		any_independent_ruler {
+			limit = {
+				trait = successor_state_of_wre
+			}
+			add_rival = ROOT
+		}
+
 	}
 }
 
-# No more Byzantine Emperor, the trait is lost
-character_event = {
-	id = EoG.501
-	desc = EVTDESCEoG.501
+# No more Byzantine Emperor or Latin Emperor or Emperor of Bulgaria or Emperor of Serbia, the trait is lost
+#character_event = {
+#	id = EoG.501
+#	desc = EVTDESCEoG.501
+#	picture = GFX_evt_rome_restored_byzantine
+#	
+#	trigger = {
+#		has_dlc = "Legacy of Rome"
+#		trait = successor_state_of_ere
+#		
+#		OR = {
+#			NOT = { has_landed_title = e_byzantium }
+#			NOT = { has_landed_title = e_latin_empire }
+#			NOT = { has_landed_title = e_bulgaria }
+#			NOT = { has_landed_title = e_serbia }
+#			NOT = { has_landed_title = e_wre }
+#		}
+#		# To avoid that during the conference of peace the winner lose the trait only because e_byzantium exists yet
+#		NOT = { has_character_flag = won_successor_state_of_ere_war }
+#		is_alive = yes
+#	}
+#
+#	mean_time_to_happen = {
+#		days = 1
+#	}
+#
+#	option = {
+#		name = EVTOPTAEoG.501
+#		remove_trait = successor_state_of_ere
+#	}
+#}
+
+# Pretender to be Successor State of ERE: Nicaea, Trebizond, Latin Empire, Bulgaria and Romània, Serbia and Romània, and, obviously,
+# Western Roman Empire
+long_character_event = {
+	id = EoG.502
 	picture = GFX_evt_rome_restored_byzantine
+	#desc = EVTDESCEoG.502
+
+	desc = {
+		trigger = {
+			has_landed_title = e_nikaea
+		}
+		text = EVTDESCEoG_NIK.502
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_trebizond
+		}
+		text = EVTDESCEoG_TREB.502
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_latin_empire
+		}
+		text = EVTDESCEoG_LAT.502
+	}
 	
+	desc = {
+		trigger = {
+			has_landed_title = e_bulgaria
+		}
+		text = EVTDESCEoG_BUL.502
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_serbia
+		}
+		text = EVTDESCEoG_SER.502
+	}
+
+	desc = {
+		trigger = {
+			has_landed_title = e_russia
+		}
+		text = EVTDESCEoG_RUS.502
+	}
+	
+	# TODO desc for e_wre
+
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		NOT = { has_landed_title = e_byzantium }
-		# To avoid that during the conference of peace the winner lose the trait only because e_byzantium exists yet
-		NOT = { has_character_flag = won_successor_state_of_ere_war }
-		trait = successor_state_of_ere
-		is_alive = yes
+		NOT = { trait = pretender_successor_state_of_wre }
+		NOT = { trait = successor_state_of_wre }
+		OR = {
+			# These two are the "real" pretenders ruled from houses that ruled Byzantium and which bloodline
+			# - maybe  mithologically - be traced back to the times of the Roman Empire
+			AND = {
+				has_landed_title = e_nikaea
+			}
+			AND = {
+				has_landed_title = e_trebizond
+			}
+			# Western Version of "The Byzantine Empire", please note that in 1204 bookmark it is recognized as the real successor state
+			# so this event should not happen!
+			AND = {
+				has_landed_title = e_latin_empire
+				# This globlal flag implicates that The Latin Empire is the real successor NOT the pretender!
+				NOT = { has_global_flag = e_latin_empire_successor_by_might }
+			}
+			# These two are auto-proclamated successors states
+			AND = {
+				has_landed_title = e_bulgaria
+				# This globlal flag implicates that Bulgaria is the real successor NOT the pretender!
+				NOT = { has_global_flag = e_bulgaria_successor_by_might }
+			}
+			AND = {
+				has_landed_title = e_serbia
+				# This globlal flag implicates that Serbia is the real successor NOT the pretender!
+				NOT = { has_global_flag = e_serbia_successor_by_might }
+			}
+			AND = {
+				has_landed_title = e_russia
+				# This globlal flag implicates that Serbia is the real successor NOT the pretender!
+				NOT = { has_global_flag = e_russia_successor_by_might }
+			}
+		 	has_landed_title = e_wre
+		}
 	}
 
 	mean_time_to_happen = {
@@ -3663,28 +3811,7375 @@ character_event = {
 	}
 
 	option = {
-		name = EVTOPTAEoG.501
-		remove_trait = successor_state_of_ere
+		name = EVTOPTAEoG.502
+		add_trait = pretender_successor_state_of_ere
+	}
+}
+
+# on_action event on_new_holder_usurpation ROOT is the character FROM is the title FROMFROM is the old holder
+# It happens for the usurper (that is not really interested and for this in future we hide this window)
+character_event = {
+	id = EoG.503
+	desc = EVTDESCEoG.503
+	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes
+	#hide_window = yes
+
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		FROMFROM = { 
+				trait = pretender_successor_state_of_ere
+				# To avoid that during the conference of peace the loser loses the trait only because has not e_spqr
+				NOT = { has_character_flag = lost_successor_state_of_ere_war }
+		}
+		FROM = {
+			OR = {
+				empire = { title = e_nikaea }	
+				empire = { title = e_trebizond }	
+				empire = { title = e_bulgaria }	
+				empire = { title = e_serbia }	
+				empire = { title = e_wre }	
+			}
+		}
+	}
+	
+	#immediate = {
+		#FROMFROM = { character_event = { id = EoG.504 } } 
+	#}
+
+	option = {
+		name = "EVTOPTOKEoG.503"
+		FROMFROM = { character_event = { id = EoG.504 } } 
+	}
+}
+
+# No more Emperor of Nicaea, Emperor of Trebizond, Emperor of Bulgaria, Emperor of Serbia or WRE Emperor
+# "Pretender to be Successor State of WRE" trait is lost
+character_event = {
+	id = EoG.504
+	picture = GFX_evt_rome_restored_byzantine
+	desc = EVTDESCEoG.504
+	
+	is_triggered_only = yes
+
+	#desc = {
+	#	trigger = {
+	#		FROM = { has_landed_title = e_germany }
+	#	}
+	#	text = EVTDESCEoG_Germania.504
+	#}
+
+	#desc = {
+	#	trigger = {
+	#		FROM = { has_landed_title = e_spqr }
+	#	}
+	#	text = EVTDESCEoG_SPQR.400
+	#}
+
+	#desc = {
+	#	trigger = {
+	#		FROM = { has_landed_title = e_ere }
+	#	}
+	#	text = EVTDESCEoG_ERE.400
+	#}
+
+	trigger = {
+		has_dlc = "Legacy of Rome"
+		trait = pretender_successor_state_of_wre
+		#OR = {
+		#	NOT = { has_landed_title = e_spqr }
+		#	NOT = { has_landed_title = e_germany }
+		#	NOT = { has_landed_title = e_ere }
+		#}
+
+		# To avoid that during the conference of peace the loser loses the trait only because has not e_spqr
+		NOT = { has_character_flag = lost_successor_state_of_ere_war }
+		is_alive = yes
+	}
+
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	option = {
+		name= {
+			text = EVTOPTAEoG_Monarchy.504
+			trigger = {
+				is_feudal = yes
+			}
+		}
+		
+		name= {
+			text = EVTOPTAEoG_Republic.504
+			trigger = {
+				is_republic = yes
+			}
+		}
+		remove_trait = pretender_successor_state_of_ere
+	}
+}
+
+# The Pretender has won the war against the Rightful Successor state of ERE
+# and now is universally recognized as the true Successor State. 
+# Now a Conference of Peace shall be called to decide the new assect of Eastern Europe!
+# The first character to be invited to the conference is the Byzantine Emperor
+character_event = {
+	id = EoG.505
+	desc = EVTDESCEoG.505
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	#mean_time_to_happen = {
+	#	days = 1
+	#}
+
+	trigger = {
+		FROM = { has_character_flag = won_successor_state_of_ere_war }
+	}
+
+	immediate = {
+		# We set these flags to recognize easily who is the winner
+		if = {
+			limit = {
+				has_landed_title = e_bulgaria
+			}
+
+			set_character_flag = bulgaria_host_peace_conference
+			set_global_flag = e_bulgaria_successor_by_might 
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_serbia
+			}
+
+			set_character_flag = serbia_host_peace_conference
+			set_global_flag = e_serbia_successor_by_might 
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_latin_empire
+			}
+
+			set_character_flag = latin_empire_host_peace_conference
+			set_global_flag = latin_empire_successor_by_might 
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_russia
+			}
+
+			set_character_flag = russia_host_peace_conference
+			set_global_flag = e_russia_successor_by_might 
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_wre
+			}
+
+			set_character_flag = wre_host_peace_conference
+			set_global_flag = e_wre_successor_by_might 
+		}
+		
+		# We save the loser character ID for later use... if the on action had worked all has been more simple!
+		if = {
+			limit = {
+				has_global_flag = byzantium_lost_pretender_ere_war
+			}
+			e_byzantium = {
+				holder_scope = {
+					save_global_event_target_as = the_loser
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_global_flag = bulgaria_lost_pretender_ere_war
+			}
+			e_bulgaria = {
+				holder_scope = {
+					save_global_event_target_as = the_loser
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_global_flag = serbia_lost_pretender_ere_war
+			}
+			e_serbia = {
+				holder_scope = {
+					save_global_event_target_as = the_loser
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_global_flag = russia_lost_pretender_ere_war
+			}
+			e_russia = {
+				holder_scope = {
+					save_global_event_target_as = the_loser
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_global_flag = latin_empire_lost_pretender_ere_war
+			}
+			e_latin_empire = {
+				holder_scope = {
+					save_global_event_target_as = the_loser
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_global_flag = wre_lost_pretender_ere_war
+			}
+			e_wre = {
+				holder_scope = {
+					save_global_event_target_as = the_loser
+				}
+			}
+		}
+
+		# Fist we count the number of independent orthodox characters second their rank	
+
+		any_independent_ruler = {
+			# The First rank to check would be the one of Emperors that is characters of Imperial rank which title has
+			# a historical link (fabricated or not) with the Roman Empire, these are the true Emperors that wore
+			# the Imperial crown and which might scares the Popes too! But in the west only three character of this type
+			# exist: The Holy Roman Emperor, the Consul of S.P.Q.R and the Western Roman Emperor but the first two are
+			# the hoster of the Peace Conference and the thirth cannot yet exist! In the East the things are different
+			# and more complex...
+
+			# The "High Kings" that is characters of Imperial rank that because their title has not a historical link
+			# (fabricated or not) with the Roman Empire can not use the title of "Emperor" (are called Kings effectively)
+			# but apart for this they enjoy the same benefits of being an Emperor: they get more prestige that a mere King,
+			# can have Kings as vassal or Viceroys and so on...
+			# Some historical examples: King Knuth the great (vassal King of Scotland), Kings of the United Kingdom
+			# (they vassalized a lot of Rajas in India), Kings of Spain (vassalized tribal kings in the Americas).
+			# Typically in CK2 is difficult this rank exists because IA seems hardcoded to never create Empires sadly...
+			if = {
+				limit = {
+					#NOT = { has_landed_title = e_byzantium }
+					# We do not want to give the trait to the loser will be called directly
+					
+					event_target:the_loser = {
+						NOT = { character = THIS }	
+					}
+
+					AND = {
+						religion = orthodox
+						tier = emperor
+					}
+				}
+
+				add_trait = independent_character
+			}
+
+			# Normal Kings with nothing exotical attached, note that I am not doing distinction of character type so
+ 			# in here are counted the Serene Doges and unbeliable King Bishops too, I am unsure if it is correct to consider
+			# them really the same thing of Feudal Kings...
+			if = {
+				limit = {
+					AND = { 
+						religion = orthodox
+						tier = king
+						NOT = { has_landed_title = k_orthodox }
+					}
+				}
+
+				add_trait = independent_character
+			}
+
+			# Normal Dukes that are independent, note that I am not doing distinction of character type so
+ 			# in here are counted the Doges and Prince Archbishops too, I am unsure if it is correct to consider
+			# them really the same thing of Feudal Dukes...
+			if = {
+				limit = {
+					AND = { 
+						religion = orthodox
+						tier = duke
+						# TODO add check if not landed, I want the Teutonic order if it holds Prussia!
+						primary_title = { holy_order = no } 	
+						primary_title = { mercenary = no } 	
+					}
+				}
+
+				add_trait = independent_character
+			}
+
+			# Normal Counts that are independent, note that I am not doing distinction of character type so
+ 			# in here are counted the Mayors and Prince Bishops too, I am unsure if it is correct to consider
+			# them really the same thing of Feudal Counts...
+			if = {
+				limit = {
+					AND = { 
+						religion = orthodox
+						NOT = { has_landed_title = e_spqr }
+						NOT = { has_landed_title = e_hre }
+						NOT = { has_landed_title = k_papal_state }
+						tier = count
+					}
+				}
+
+				add_trait = independent_character
+			}
+		}
+
+		# count the Vassals of the loser
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						primary_title = { higher_tier_than = BARON }
+				 		#NOT = { has_landed_title = e_byzantium }
+				 		ROOT = { is_liege_of = THIS }
+						#any_demesne_title = {
+						#		temporary = no
+						#}
+						#THIS = {
+						#		in_revolt = no
+						#}
+					}
+				}
+
+				add_trait = vassal_of_the_loser
+			}
+		}
+
+			#e_byzantium = {
+			#	holder_scope = {
+			#		any_vassal = {
+			#			limit = {
+			#				AND = {
+			#					primary_title = { higher_tier_than = BARON }
+			#			 		NOT = { has_landed_title = e_byzantium }
+			#			 		ROOT = { is_liege_of = THIS }
+			#					#any_demesne_title = {
+			#					#		temporary = no
+			#					#}
+			#					#THIS = {
+			#					#		in_revolt = no
+			#					#}
+			#				}
+			#			}
+
+			#			add_trait = prince_of_byzantium
+			#		}
+			#	}
+			#}
+	}
+
+	# Emperor of Bulgaria, Serbia, Latin Empire or Russia vs the previous bearear of the title of Pretender of ERE (the Loser)
+	option = { 
+		name = "EVTOPTOKEoG.505"
+
+
+		# Let's call the loser first
+		event_target:the_loser = {
+			character_event = { id = EoG.506 days = 3 } 
+		}
+
+		#any_independent_ruler = {
+		#	limit = {
+		#		has_landed_title = e_byzantium
+		#	}
+		#	character_event = { id = EoG.506 days = 3 } 
+		#}
+	}
+}
+
+# The Conference of Peace invitation to the conference
+character_event = {
+	id = EoG.506
+	desc = EVTDESCEoG.506
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#}
+
+	# The loser is forced to join the Conference 
+	option = {
+		name = "EVTOPTAEoG.506"
+
+		# TODO check using global_flag xxx_lost_pretender_ere_war to see who is the loser
+		trigger = {
+			event_target:the_loser = { character = ROOT }
+			#has_landed_title = e_byzantium
+		}
+		
+		set_character_flag = joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our partecipation
+		#FROM = { character_event = { id = EoG.507 days = 5 random = 15 } }
+		FROM = { character_event = { id = EoG.507 days = 3 } }
+	}
+
+	# The Echumenical Patriarch is forced to join the Conference 
+	option = {
+		name = "EVTOPTBEoG.506"
+		
+		trigger = {
+			has_landed_title = k_orthodox
+		}
+		
+		set_character_flag = joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.507 days = 5 random = 15 } }
+	}
+
+	# Vassals of the Byzantine Empire which the Emperor is not de jure liege (forced to join)
+	option = {
+		name = "EVTOPTCEoG.506"
+		trigger = {
+			#NOT = { has_landed_title = e_byzantium }
+			event_target:the_loser = {
+					NOT = { character = ROOT }	
+			}
+			
+			NOT = { has_landed_title = k_orthodox }
+			any_realm_title = {
+				kingdom = {
+					OR = {
+						title = k_byzantium # Hellas
+						title = k_epirus
+						title = k_bulgaria
+						title = k_serbia
+						title = k_croatia
+					}
+					NOT = { tier = baron }
+				}
+			}
+		}
+
+		set_character_flag = joins_the_conference_of_peace
+
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.507 days = 5 random = 15 } }
+	}
+
+	# Other characters that can, effectively, choose to join the conference or not: they decide to join
+	# TODO force them to join if they posses land in the Kingdom of Italy / S.P.Q.R
+	option = {
+		name = "EVTOPTDEoG.506"
+		trigger = {
+			OR = {
+				AND = {
+					#NOT = { has_landed_title = e_byzantium } 
+					event_target:the_loser = {
+						NOT = { character = ROOT }	
+					}
+			
+					NOT = { has_landed_title = k_orthodox }
+
+					NOT = {
+						any_realm_title = {
+							kingdom = {
+								OR = {
+									title = k_byzantium # Hellas
+									title = k_epirus 
+									title = k_bulgaria
+									title = k_serbia
+									title = k_croatia
+								}
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				AND = {
+					#de_jure_liege_or_above = e_byzantium
+					#is_patrician = yes
+					#trait = patrician_of_sqpr
+					independent = yes
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 50
+
+			# If the character is at war it will be anti-climatic that he partecipates to a Conference of Peace
+			#modifier = {
+			#	factor = 0
+			#	war = yes
+			#}
+
+			# An (High) King or King should have a special interest to join for prestige reasons
+			modifier = {
+				factor = 3
+				higher_real_tier_than = duke
+				#OR = {
+				#	tier = king
+				#	tier = emperor
+				#}
+			}
+
+			# If he possesses land in Hellas it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_byzantium
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Epirus it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_epirus
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Bulgaria it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						OR = {
+							title = e_bulgaria
+							title = k_bulgaria
+						}
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Serbia it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						OR = {
+							title = e_serbia
+							title = k_serbia
+						}
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Croatia it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_croatia
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# If he possesses land in Venice it is in his interest to join
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					kingdom = {
+						title = k_venice
+						NOT = { tier = baron }
+					}
+				}
+			}
+
+			# The Basileos of Bulgaria / King of Bulgaria has a special interest in this conference...
+			modifier = {
+				factor = 3
+				OR = {
+					has_landed_title = e_bulgaria
+					has_landed_title = k_bulgaria
+				}
+			}
+
+			# The Basileos of Serbia / King of Serbia has a special interest in this conference...
+			modifier = {
+				factor = 3
+				OR = {
+					has_landed_title = e_serbia
+					has_landed_title = k_serbia
+				}
+			}
+
+			# TODO Duke of Trebizond if of House (Megas) Kommenos has a special interest in this conference...
+			modifier = {
+				factor = 3
+				any_realm_title = {
+					duchy = {
+						title = d_trebizond
+						NOT = { tier = baron }
+					}
+				}
+				#dynasty = 171
+			}
+
+			# Diplomacy >= 12 or "diplomatic" traits interested to join
+			modifier = {
+				factor = 1.25
+				OR = {
+					diplomacy = 12
+					trait = intricate_webweaver
+					trait = elusive_shadow
+					trait = naive_appeaser
+					trait = underhanded_rogue
+					trait = charismatic_negotiator
+					trait = grey_eminence
+					trait = ambitious
+					trait = diligent
+					trait = socializer
+				}
+			}
+
+			# Proud character: it is my right to be there!
+			modifier = {
+				factor = 1.75
+				trait = proud
+			}
+		}
+
+		set_character_flag = joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our partecipation
+		FROM = { character_event = { id = EoG.507 days = 5 random = 15 } }
+	}
+
+	# Other characters that can, effectively, choose to join the conference or not: they decide
+	# to NOT join!
+	option = {
+		name = "EVTOPTEEoG.506"
+		trigger = {
+			OR = {
+				AND = {
+					#NOT = { has_landed_title = e_byzantium } 
+					event_target:the_loser = {
+						NOT = { character = ROOT }	
+					}
+			
+					NOT = { has_landed_title = k_orthodox }
+
+					NOT = {
+						any_realm_title = {
+							kingdom = {
+								OR = {
+									title = k_byzantium # Hellas
+									title = k_epirus 
+									title = k_bulgaria
+									title = k_serbia
+									title = k_croatia
+								}
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				AND = {
+					#de_jure_liege_or_above = e_byzantium
+					#is_patrician = yes
+					#trait = patrician_of_sqpr
+					independent = yes
+				}
+			}
+		}
+
+		ai_chance = {
+			factor = 50
+
+			modifier = {
+				factor = 2
+				OR = {
+					trait = slothful
+					trait = shy
+					# It is only excuse to kill me!
+					trait = paranoid
+					# Not too smart to partecipate to the Conference
+					trait = imbecile
+					trait = slow
+					trait = inbred
+					# I'm too humble to partecipate...
+					trait = humble
+				}
+			}
+		}		
+
+		set_character_flag = not_joins_the_conference_of_peace
+		
+		# Send an event back to the caller to make him known of our not partecipation
+		FROM = { character_event = { id = EoG.508 days = 5 random = 15 } }
+	}
+}
+
+# Notification of joining The Conference of Peace
+character_event = {
+	id = EoG.507
+	desc = EVTDESCEoG.507
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.507"
+		
+		if = {
+			limit = {
+			 	#FROM = { has_landed_title = e_byzantium }
+				event_target:the_loser = {
+					character = FROM
+				}
+			}
+			# The Byzantine Emperor has given a positive response (he cannot give a negative
+			# one!), now scope back to ROOT itself to make him call the Echumenical Patriarch
+			character_event = { id = EoG.509 days = 3 } 
+		}
+
+		if = {
+			limit = {
+				FROM = { has_landed_title = k_orthodox }
+			}
+			# The Echumenical Patriarch has given a positive response (he cannot give a negative
+			# one!), now scope back to ROOT itself to make him call the High Kings
+			character_event = { id = EoG.510 days = 3 } 
+		}
+
+ 		# An independent character has given his answer, remove his trait
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = independent_character }
+                     }	
+ 			
+		     hidden_tooltip = { FROM = { remove_trait = independent_character } }
+             	}
+		
+
+		# A Vassal of the Loser has given his answer, remove his trait 
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = vassal_of_the_loser }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = vassal_of_the_loser } }
+             	}
+
+             	# A Patrician of S.P.Q.R has given his answer, remove his trait
+             	#if = {
+                #     limit = { 
+                #     	FROM = { trait = patrician_of_sqpr }
+                #     }	
+                #
+		#     hidden_tooltip = { FROM = { remove_trait = patrician_of_sqpr } }
+             	#}
+	}
+}
+
+# Notification of not joining The Conference of Peace
+character_event = {
+	id = EoG.508
+	desc = EVTDESCEoG.508
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.508"
+		opinion = {
+			modifier = opinion_disappointed
+			who = FROM
+			months = 120
+		}
+
+
+ 		# An independent character has given his answer, remove his trait
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = independent_character }
+                     }	
+  
+		     hidden_tooltip = { FROM = { remove_trait = independent_character } }
+             	}
+
+		# A Vassal of the Loser has given his answer, remove his trait 
+	     	if = {
+                     limit = { 
+                     	FROM = { trait = vassal_of_the_loser }
+                     }
+  
+		     hidden_tooltip = { FROM = { remove_trait = vassal_of_the_loser } }
+             	}
+
+             	# A Patrician of S.P.Q.R has given his answer, remove his trait
+             	#if = {
+                #     limit = { 
+                #     	FROM = { trait = patrician_of_sqpr }
+                #     }	
+                #
+		#     hidden_tooltip = { FROM = { remove_trait = patrician_of_sqpr } }
+             	#}
+	}
+}
+
+# The Conference of Peace
+# Invitation of the Echumenical Patriarch
+character_event = {
+	id = EoG.509
+	desc = EVTDESCEoG.509
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.509"
+
+		k_orthodox = {
+			holder_scope = {
+				character_event = { id = EoG.506 days = 3 }
+			}
+		}
+		#any_independent_ruler = {
+		#	limit = {
+		#		has_landed_title = k_orthodox
+		#	}
+		#	character_event = { id = EoG.506 days = 3 } 
+		#}
+	}
+}
+
+# The Conference of Peace
+# Invitation of independent characters
+character_event = {
+	id = EoG.510
+	desc = EVTDESCEoG.510
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	# Let's call all the independent characters
+	option = {
+		name = "EVTOPTOKEoG.510"
+
+		set_character_flag = calling_independent_chars
+		any_independent_ruler = {
+			limit = {
+				trait = independent_character
+			}
+			character_event = { id = EoG.506 days = 5 random = 15 } 
+		}
+	}
+}
+
+# The Conference of Peace
+# Invitation of The Vassals of the Loser
+character_event = {
+	id = EoG.512
+	desc = EVTDESCEoG.512
+	picture = GFX_evt_throne_room
+
+	#is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		has_character_flag = calling_independent_chars
+		
+		NOT = { 
+			any_independent_ruler = {
+				count = 1
+				trait = independent_character
+			}
+		}
+	}
+
+	# Let's call the Vassals of the Loser then	
+	option = {
+		name = "EVTOPTOKEoG.512"
+
+		# If we are here all indipendent characters are called
+		clr_character_flag = calling_independent_chars
+		set_character_flag = calling_vassals_of_loser
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = { 
+					trait = vassal_of_the_loser
+				}
+
+				character_event = { id = EoG.506 days = 3 }
+			}
+		}
+
+		#e_byzantium = {
+		#	holder_scope = {
+		#		any_vassal = {
+		#			limit = { 
+		#				trait = vassal_of_the_loser
+		#			}
+
+		#			character_event = { id = EoG.506 days = 3 } 
+		#		}
+		#	}
+		#}
+	}
+}
+
+# ID 514 - 530 reserved for various flavorful events: "pilgrinage" events for the characters that have decided to join the conference
+# (similar to religios or VIET survey realm events), maybe some pre-riunions to convince characters to vote to become your vassal in
+# the conference, events for the hoster of the conference preparatory to the meeting and so on...
+
+# The Conference of Peace
+# First issue: dissolution of the Byzantine Empire
+long_character_event = {
+	id = EoG.530
+	# TODO Bisogna differenziare il testo a seconda del titolo che viene dissolto!
+	desc = EVTDESCEoG.530
+	picture = GFX_evt_council
+	border = GFX_event_long_frame_diplomacy
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		OR = {
+			has_character_flag = bulgaria_host_peace_conference
+			has_character_flag = serbia_host_peace_conference
+			has_character_flag = latin_empire_host_peace_conference
+			has_character_flag = russia_host_peace_conference
+			has_character_flag = wre_host_peace_conference
+		}
+		has_character_flag = calling_vassals_of_loser
+		event_target:the_loser = {
+			NOT = {
+				any_vassal = {
+					count = 1
+					trait = vassal_of_the_loser
+				}
+			}
+		}
+		#e_byzantium = {
+		#	holder_scope = {
+		#		NOT = {
+		#			any_vassal = {
+		#				count = 1
+		#				trait = vassal_of_the_loser
+		#			}
+		#		}
+		#	}
+		#}
+		#OR = {
+		#	AND = {
+		#		has_landed_title = e_spqr
+		#		has_character_flag = spqr_host_peace_conference
+		#		has_character_flag = calling_patricians_of_spqr
+		#
+		#		NOT = {
+		#			any_realm_character = {
+		#				count = 1
+		#				trait = patrician_of_sqpr
+		#			}
+		#		}
+		#	}
+		#	AND = {
+		#		has_landed_title = e_ere
+		#		has_character_flag = ere_host_peace_conference
+		#		has_character_flag = calling_princes_of_hre
+
+		#		e_hre = {
+		#			holder_scope = {
+		#				NOT = {
+		#					any_vassal = {
+		#						count = 1
+		#						trait = prince_of_the_hre
+		#					}
+		#				}
+		#			}
+		#		}
+		#	}
+		#}
+	}
+
+	#mean_time_to_happen = {
+	#	days = 30
+	#}
+
+	# Give the sad news to the Loser Emperor that his Empire is forfeit
+	option = {
+		name= {
+  			text = EVTOPTOKREPEoG.530
+  			trigger = {
+    				 is_republic = yes
+  			}
+		}
+		name= {
+  			text = EVTOPTOKEMPEoG.530
+  			trigger = {
+    				is_feudal = yes
+  			}
+		}
+
+		#clr_character_flag = calling_patricians_of_spqr
+		clr_character_flag = calling_vassals_of_loser
+		event_target:the_loser = {
+			character_event = { id = EoG.531 days = 3 } 
+		}
+		#any_independent_ruler = {
+		#	limit = {
+		#		has_landed_title = e_byzantium
+		#	}
+
+		#	character_event = { id = EoG.531 days = 3 } 
+		#}
+	}
+}
+
+# The Conference of Peace
+# The Byzantine Emperor is forced to abdicate and to accept the crown of Nikea instead
+character_event = {
+	id = EoG.531
+	desc = EVTDESCEoG.531
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	# First we deal with the Fake Emperor!
+	option = {
+		name = "EVTOPTAEoG.531"
+
+		# The Loser was the Emperor of Byzantium, it becomes the Emperor of Nikeae
+		if = {
+			limit = {
+				has_landed_title = e_byzantium
+			}
+	
+			activate_title = { title = e_nikaea status = yes }
+
+			e_nikaea = {
+				grant_title = ROOT
+				copy_title_laws = e_byzantium
+				copy_title_history = e_byzantium
+			}
+
+			# The De Jure Vassalls of Byzantium become vassals of the new Empire
+			e_byzantium = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_nikaea
+				}
+			}
+
+			# The Byzantine Empire is dissolved!	
+			activate_title = { title = e_byzantium status = no }
+			e_byzantium = {
+				destroy_landed_title = THIS
+			}
+
+			# The Emperor abdicates
+			#remove_trait = crowned_by_pope
+			prestige = -1000
+			set_global_flag = nikaea_was_byzantium
+
+			# The Capital is moved to Nikea
+			any_realm_character = {
+				limit = {
+					AND = {
+						has_landed_title = c_nikaea
+						NOT =  { has_landed_title = e_nikaea } 
+					}
+				}
+				character_event = { id = EoG.533 }
+			}
+
+			if = {
+				limit = {
+					has_landed_title = c_nikaea
+				}
+				b_nikaea = {
+					ROOT = { capital = PREV }
+				}
+			}
+
+	 		# The last discourse as Emperor to the convened to the Conference of Peace
+			any_playable_ruler  = {
+				limit = {
+					#has_character_flag = joins_the_conference_of_peace
+					religion_group = christian
+				}
+				narrative_event = { id = EoG.532 }
+			}
+		}
+	}
+}
+
+# The former Emperor communicates to the convened to the Conference of Peace that he accepts to abdicate and becomes the Emperor of Nikeae
+narrative_event = {
+	id = EoG.532
+	title = EVTDESCEoG.532
+	desc = EVTDESCEoG.532
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	# As we have decided
+	option = {
+		trigger = {
+			#OR = {
+			#	has_landed_title = e_byzantium	
+			#	has_landed_title = e_ere	
+			#}
+			OR = {
+				has_character_flag = bulgaria_host_peace_conference 
+				has_character_flag = serbia_host_peace_conference
+				has_character_flag = latin_empire_host_peace_conference
+				has_character_flag = russia_host_peace_conference
+				has_character_flag = wre_host_peace_conference
+				has_character_flag = joins_the_conference_of_peace 
+			}
+		}
+ 
+		name = "EVTOPTA.532"
+	}
+
+	# For the WRE / HRE / S.P.Q.R. : "Well this fake "Romans" has done a good thing in the end!"
+	option = {
+		trigger = {
+			has_landed_title = e_wre
+			has_landed_title = e_hre
+			has_landed_title = e_spqr
+			NOT = { has_character_flag = wre_host_peace_conference }
+			#FROMFROM = {  has_character_flag = spqr_host_peace_conference }
+		}
+
+		# TODO make them lose prestige? They should the one to do this!
+		name = "EVTOPTB.532"
+	}
+
+	# For other characters that have NOT partecipated to the Conference of Peace
+	option = {
+		trigger = {
+			NOT = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference 
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+					has_character_flag = joins_the_conference_of_peace 
+				}
+			}
+		}
+ 
+		name = "EVTOPTC.532"
+	}
+}
+
+# A vassal of The Empire of Nikea is informed that he is holding the Imperial Capital and that he has go!
+character_event = {
+	id = EoG.533
+	desc = EVTDESCEoG.533
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.533"
+	
+		c_nikaea = {
+			usurp_title_plus_barony_if_unlanded = FROM
+		}
+
+		b_nikaea = {
+			FROM = { capital = PREV }
+		}
+
+		#any_demesne_title = {
+		#	limit = {
+		#		county = {
+		#			title = c_nikaea
+		#		}
+		#	}
+		#	usurp_title_plus_barony_if_unlanded = FROM
+		#	set_defacto_liege = FROM
+		#	b_nikaea = { province_capital = yes } 
+		#}
+	}
+}
+
+# Now that we have dealt with the Loser's Empire we should see if there are other issues, we count them and create a series of global_flags to recognize them,
+# when an issue is resolved we subtract from the count when the count reaches 0 it means that "The Conference of Peace" has ended.
+#
+# Possible issues:
+# 1. The loser holds the kingdom of Thrace: easy it should be annexed by the winner
+# 2. The vassals in Hellas do not want anymore be part of Nikea: annexion to the winner or vote
+# 3. The Duke of Epirus wants to become independent: annexion or they become independent and King!
+# 4. Serbia wants to become independent and King
+# 5. Croatia wants to become independent and King
+# 6. Bulgaria wants to become independent and King
+# 7. The Duke of Trebizond wants to become independent and Emperor!
+character_event = {
+	id = EoG.534
+	desc = EVTDESCEoG.534
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		OR = {
+			has_character_flag = bulgaria_host_peace_conference 
+			has_character_flag = serbia_host_peace_conference
+			has_character_flag = latin_empire_host_peace_conference
+			has_character_flag = russia_host_peace_conference
+			has_character_flag = wre_host_peace_conference
+			#has_character_flag = joins_the_conference_of_peace 
+		}
+		
+		has_global_flag = nikaea_was_byzantium
+		NOT = { has_global_flag = issue_calculation_done }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.534"
+
+		# Possible issues to check: The Loser is holding land in Thracia, to check this issue we search
+		# if the Empire of Nikea has vassals that are in reality de jure part of k_thrace
+		# TODO this an issue that the Winner should raise by himself...
+		# Thrace is the Imperial demesne it is possible that all the land is in possess of the Loser!
+		# It will be immersion breaking to see the Loser denunicing himself...
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_thrace
+						}
+					}
+				}
+				ROOT = { character_event = { id = EoG.535 } }
+			}
+		}
+
+		#event_target:the_loser = {
+		#	random_vassal = {
+		#		limit = {
+		#			de_jure_liege_or_above = k_thrace 
+		#			NOT = { tier = baron }
+		#		}
+		#		ROOT = { character_event = { id = EoG.535 } }
+		#	}
+		#}
+
+		#e_nikaea = {
+		#	holder_scope = {
+		#		random_vassal = {
+		#			limit = {
+		#				de_jure_liege_or_above = k_thrace 
+		#				NOT = { tier = baron }
+		#			}
+		#			character_event = { id = EoG.535 }
+		#		}
+		#	}
+		#}
+		
+		# The Loser is holding land in Hellas, to check this issue we search
+		# if Loser has vassals that are in reality de jure part of k_byzantium (hellas)
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_byzantium 
+					NOT = { tier = baron }
+				}
+				character_event = { id = EoG.536 }
+			}
+		}
+
+		# The Loser is holding land in Epirus, to check this issue we search
+		# if Loser has vassals that are in reality de jure part of k_epirus (hellas)
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_epirus 
+					NOT = { tier = baron }
+				}
+				character_event = { id = EoG.537 }
+			}
+		}
+
+		# If the Emperor of Bulgaria or the King of Bulgaria is present at the conference and the Loser is
+		# holding land in the Kingdom of Bulgaria we have another issue
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					AND = {
+						de_jure_liege_or_above = k_bulgaria 
+
+						OR = {
+							e_bulgaria = {
+								holder_scope = {
+									has_character_flag = joins_the_conference_of_peace 
+								}
+							}
+							k_bulgaria =  {
+								holder_scope = {
+									has_character_flag = joins_the_conference_of_peace 
+								}
+							}
+						}
+					}
+
+					NOT = { tier = baron }
+				}
+				character_event = { id = EoG.5381 }
+			}
+		}
+
+		# If the Emperor of Serbia or the King of Serbia is present at the conference and the Loser is
+		# holding land in the Kingdom of Serbia we have another issue
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					AND = {
+						de_jure_liege_or_above = k_serbia 
+
+							OR = {
+								e_serbia = {
+									holder_scope = {
+										has_character_flag = joins_the_conference_of_peace 
+									}
+								}
+								k_serbia =  {
+									holder_scope = {
+										has_character_flag = joins_the_conference_of_peace 
+									}
+								}
+							}
+						}
+
+						NOT = { tier = baron }
+					}
+					character_event = { id = EoG.5391 }
+			}
+		}
+
+		# If the (High) King of Illira or the King of Croatia is present at the conference and the The Loser is
+		# holding land in the Kingdom of Croatia we have another issue
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					AND = {
+						de_jure_liege_or_above = k_croatia 
+
+						OR = {
+							e_illiria = {
+								holder_scope = {
+									has_character_flag = joins_the_conference_of_peace 
+								}
+							}
+							k_croatia =  {
+								holder_scope = {
+									has_character_flag = joins_the_conference_of_peace 
+								}
+							}
+						}
+					}
+
+					NOT = { tier = baron }
+				}
+				character_event = { id = EoG.5401 }
+			}
+		}
+
+		# If the Serene Doge of Venice or the Doge of Venice is vassal of Nikea he wants independence
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					has_character_flag = joins_the_conference_of_peace
+					OR = {
+						has_landed_title = k_venice 
+						has_landed_title = d_venice
+					}
+				}
+				character_event = { id = EoG.541 }
+			}
+		}
+
+		# If any of the vassal of the Loser is the Duke of Trebizond and of the dinasty "Commenos" he wants to create an
+		# independent Empire - The Empir of Trebizond
+		event_target:the_loser = {
+			random_vassal = {
+				limit = {
+					has_character_flag = joins_the_conference_of_peace
+					has_landed_title = d_trebizond
+					#dynasty = 171
+				}
+				character_event = { id = EoG.595 }
+			}
+		}
+		
+
+		set_global_flag = issue_calculation_done
+	}
+}
+
+character_event = {
+	id = EoG.535
+	desc = EVTDESCEoG.535
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.535"
+		set_global_flag = issue_loser_controlling_thrace 
+		set_character_flag = sollevate_issue_loser_controlling_thrace
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.536
+	desc = EVTDESCEoG.536
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.536"
+		set_global_flag = issue_loser_controlling_hellas 
+		set_character_flag = sollevates_issue_loser_controlling_hellas
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.537
+	desc = EVTDESCEoG.537
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.537"
+		set_global_flag = issue_loser_controlling_epirus 
+		set_character_flag = sollevates_issue_loser_controlling_epirus
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.538
+	desc = EVTDESCEoG.538
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.538"
+		set_global_flag = issue_loser_controlling_bulgaria 
+		set_character_flag = sollevates_issue_loser_controlling_bulgaria
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.5381
+	desc = EVTDESCEoG.5381
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.5381"
+		set_global_flag = issue_loser_controlling_bulgaria 
+		set_character_flag = sollevates_issue_loser_controlling_bulgaria_ind
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.539
+	desc = EVTDESCEoG.539
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.539"
+		set_global_flag = issue_loser_controlling_serbia 
+		set_character_flag = sollevates_issue_loser_controlling_serbia
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.5391
+	desc = EVTDESCEoG.5391
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.5391"
+		set_global_flag = issue_loser_controlling_serbia
+		set_character_flag = sollevates_issue_loser_controlling_serbia_ind
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.540
+	desc = EVTDESCEoG.540
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.540"
+		set_global_flag = issue_loser_controlling_croatia 
+		set_character_flag = sollevates_issue_loser_controlling_croatia
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.5401
+	desc = EVTDESCEoG.5401
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.5401"
+		set_global_flag = issue_loser_controlling_croatia 
+		set_character_flag = sollevates_issue_loser_controlling_croatia_ind
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+character_event = {
+	id = EoG.541
+	desc = EVTDESCEoG.541
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.541"
+		set_global_flag = issue_loser_controlling_venice 
+		set_character_flag = sollevates_issue_loser_controlling_venice
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.542
+	desc = EVTDESCEoG.542
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		has_character_flag = sollevate_issue_loser_controlling_thrace
+
+		has_global_flag = issue_loser_controlling_thrace
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.542"
+
+		set_global_flag = thracian_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		# Apparently a character cannot find himself! Probaly done to avoid infinite loops
+		ROOT = { long_character_event = { id = EoG.543 } }
+		#any_independent_ruler = {
+		#	limit = {
+		#		OR = {
+		#			has_character_flag = bulgaria_host_peace_conference
+		#			has_character_flag = serbia_host_peace_conference
+		#			has_character_flag = latin_empire_host_peace_conference
+		#			has_character_flag = russia_host_peace_conference
+		#			has_character_flag = wre_host_peace_conference
+		#		}
+		#	}
+		#	long_character_event = { id = EoG.543 }
+		#}
+	}
+}
+
+# A Thracian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Thrace should remain vassal of Nikea or not?
+# There is only a possible choiche:
+#
+# 1. Annex these states as he is their de jure liege
+long_character_event = {
+	id = EoG.543
+	desc = EVTDESCEoG.543
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Thracian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_thrace
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_thracian
+			}
+		}
+
+#		e_nikaea = {
+#			holder_scope = {
+#				any_vassal = {
+#					limit = {
+#						de_jure_liege_or_above = k_thrace
+#						tier = duke
+#					}
+#
+#					add_trait = vassal_of_the_loser_thracian
+#				}
+#			}
+#		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_thrace
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_thracian
+			}
+		}
+
+#		e_nikaea = {
+#			holder_scope = {
+#				any_vassal = {
+#					limit = {
+#						de_jure_liege_or_above = k_thrace
+#						tier = count
+#
+#						NOT = {
+#						  	de_jure_liege = liege
+#						}
+#					}
+#					
+#					add_trait = vassal_of_the_loser_thracian
+#				}
+#			}
+#		}
+
+		# Other exception! The Echumenical Patriarch usually resides to Haga Sophia but his title is not part of Thrace (it is a
+		# landless title of King rank always under the Emperor)
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = { 
+						has_landed_title = k_orthodox
+						has_landed_title = b_hagiasophia
+					}
+				}
+
+				add_trait = vassal_of_the_loser_thracian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is territory that is part of the Thrace but
+		# he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_thrace
+							has_landed_title = k_orthodox
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_thrace
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		#e_nikaea = {
+		#	holder_scope = {
+		#		any_vassal = {
+		#			limit = {
+		#				AND = {
+		#					NOT = { 
+		#						de_jure_liege_or_above = k_thrace
+		#						has_landed_title = k_orthodox
+		#					}
+		#
+		#					any_realm_title = {
+		#						kingdom = {
+		#							title = k_thrace
+		#							NOT = { tier = baron }
+		#						}
+		#					}
+		#				}
+		#			}
+                #
+		#			add_trait = unlawful_imperial_territory
+		#		}
+		#	}
+		#}
+
+		# The Emperor of Nikaea is holding land in Thrace
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_thrace
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+
+		#any_independent_ruler = {
+		#	limit = {
+		#		has_landed_title = e_nikaea
+		#		any_demesne_title = {
+		#			kingdom = {
+		#				title = k_thrace
+		#			}
+		#		}
+		#	}
+#
+#			add_trait = unlawful_imperial_territory_ex_imperor
+#		}
+	}
+
+	# It is Thrace where Costantinople is! Vassalize them directly without further discussion!
+	option = {
+		name = "EVTOPTAEoG.543"
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_thrace
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_thracian
+				}
+				# Inform the Thracian Prince of the forced vassalization
+				character_event = { id = EoG.544 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.545 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Thrace (a lot probable as it was where the former capital - Costantinople - was!)
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.546 }
+			}
+		}
+	}
+}
+
+# A Thracian Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.544
+	desc = EVTDESCEoG.544
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.544"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_thracian }
+	}
+}
+
+# An unlawful holder of a title in Thrace is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.545
+	desc = EVTDESCEoG.545
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.545"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_thrace
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_thrace
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+
+		# Let's see if we have usurped Costantinople and if so make it our capital
+		if  = {
+			limit = {
+				FROM = { has_landed_title = c_byzantion }
+			}
+			FROM = { character_event =  { id = EoG.547 } }
+		}
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Thrace and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.546
+	desc = EVTDESCEoG.546
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.546"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_thrace
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+
+		# Let's see if we have usurped Costantinople and if so make it our capital
+		if  = {
+			limit = {
+				FROM = { has_landed_title = c_byzantion }
+			}
+			FROM = { character_event =  { id = EoG.547 } }
+		}
+	}
+}
+
+# The Imperial Capital is moved to Costantinople
+character_event = {
+	id = EoG.547
+	desc = EVTDESCEoG.547
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.547"
+
+		b_constantinople = {
+			ROOT = { capital = PREV }
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.548
+	desc = EVTDESCEoG.548
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		has_character_flag = sollevates_issue_loser_controlling_hellas
+
+		has_global_flag = issue_loser_controlling_hellas
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.548"
+
+		set_global_flag = hellas_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.549 }
+		}
+	}
+}
+
+# An Hellenic Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Hellas should remain vassal of Nikea or not?
+# There is only a possible choiche:
+#
+# 1. Annex these states as he is their de jure liege
+# 2. Make them vote on the issue
+long_character_event = {
+	id = EoG.549
+	desc = EVTDESCEoG.549
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Hellenic Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_byzantium # Hellas
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_hellenic
+			}
+		}
+
+#		e_nikaea = {
+#			holder_scope = {
+#				any_vassal = {
+#					limit = {
+#						de_jure_liege_or_above = k_thrace
+#						tier = duke
+#					}
+#
+#					add_trait = vassal_of_the_loser_thracian
+#				}
+#			}
+#		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_byzantium
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_hellenic
+			}
+		}
+
+#		e_nikaea = {
+#			holder_scope = {
+#				any_vassal = {
+#					limit = {
+#						de_jure_liege_or_above = k_thrace
+#						tier = count
+#
+#						NOT = {
+#						  	de_jure_liege = liege
+#						}
+#					}
+#					
+#					add_trait = vassal_of_the_loser_thracian
+#				}
+#			}
+#		}
+
+		# This character is holding unlawful imperial territory that is territory that is part of Hellas
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_byzantium
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_byzantium
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		#e_nikaea = {
+		#	holder_scope = {
+		#		any_vassal = {
+		#			limit = {
+		#				AND = {
+		#					NOT = { 
+		#						de_jure_liege_or_above = k_thrace
+		#						has_landed_title = k_orthodox
+		#					}
+		#
+		#					any_realm_title = {
+		#						kingdom = {
+		#							title = k_thrace
+		#							NOT = { tier = baron }
+		#						}
+		#					}
+		#				}
+		#			}
+                #
+		#			add_trait = unlawful_imperial_territory
+		#		}
+		#	}
+		#}
+
+		# The Emperor of Nikaea is holding land in Hellas
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_byzantium
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+
+		#any_independent_ruler = {
+		#	limit = {
+		#		has_landed_title = e_nikaea
+		#		any_demesne_title = {
+		#			kingdom = {
+		#				title = k_thrace
+		#			}
+		#		}
+		#	}
+#
+#			add_trait = unlawful_imperial_territory_ex_imperor
+#		}
+	}
+
+	# Vassalize them directly without further discussion
+	option = {
+		name = "EVTOPTAEoG.549"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_hellas
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_hellenic
+				}
+				# Inform the Hellenic Prince of the forced vassalization
+				character_event = { id = EoG.550 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.551 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.552 }
+			}
+		}
+	}
+
+	# Let them vote on the issue
+	option = {
+		name = "EVTOPTBEoG.549"
+		set_global_flag = voting_on_hellenic_issue
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# Hellenic Princes
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_hellenic
+				}
+
+				character_event = { id = EoG.553 }
+			}
+		}
+
+		# This character primary title is no de jure part of "The Roman Republic" but has the right to vote because hold land in that
+                # kingdom, his vote will be, probably, no!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+
+				character_event = { id = EoG.554 }
+			}
+		}
+		
+		# The loser himself could hold land in Hellas too!
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.555 }
+			}
+		}
+	}
+}
+
+# A Hellenic Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.550
+	desc = EVTDESCEoG.550
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.550"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_hellenic }
+	}
+}
+
+# An unlawful holder of a title in Hellas is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.551
+	desc = EVTDESCEoG.551
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.551"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_byzantium
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_byzantium
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Hellas and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.552
+	desc = EVTDESCEoG.552
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.552"
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_byzantium
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# Vote of the Princes of Hellas
+character_event = {
+	id = EoG.553
+	desc = EVTDESCEoG.553
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	# First option vassalization to the Conference host
+	option = {
+		name = "EVTOPTAEoG.553"
+
+		ai_chance = {
+			factor = 50
+
+			# He has similar culture
+			modifier = {
+				factor = 2
+				culture_group = FROM
+			}
+			
+			# He likes the new liege
+			modifier = {
+				factor = 2
+				opinion = { who = FROM value = 50 }
+			}
+		}
+
+		set_defacto_liege = FROM
+		FROM = { character_event = { id = EoG.556 } }
+		
+	}
+
+	# Second option he decides to remain part of The loser's Empire (that is nothing happens)
+	option = {
+		name = "EVTOPTBEoG.553"
+
+		ai_chance = {
+			factor = 50
+
+			# He has Byzantines cultures he wants to be part of the Loser Empire!
+			modifier = {
+				factor = 2
+				culture_group = byzantine
+			}
+
+			# It is the character that raised the issue! Now he cannot decide to remain part of Germania...
+			modifier = {
+				factor = 0
+				has_character_flag = sollevates_issue_loser_controlling_hellas	
+			}
+			
+			# He likes the old liege more
+			modifier = {
+				factor = 2
+				opinion = { who = liege value = 50 }
+			}
+		}
+
+		FROM = { character_event = { id = EoG.557 } }
+	}
+
+	# Third option he decides to use this as an excuse to declare his indipendence
+	option = {
+		name = "EVTOPTCEoG.553"
+
+		ai_chance = {
+			factor = 50
+
+			# It is a Republic and... "The Republic do not known master"
+			# (motto of the Most Serene Republic of Genoa - La Superba)
+			modifier = {
+				factor = 4
+				is_republic = yes
+			}
+			
+			# It is a King and a King should be independent!
+			modifier = {
+				factor = 3
+				OR = {
+					higher_real_tier_than = duke
+					# A Gran Duke probably...
+					num_title_realm_provs = {
+  						who = ROOT
+  						num = 12 
+					}
+				}
+			}
+
+			# An ambitious or proud character will become independent in any case...
+			modifier = {
+				factor = 2
+				trait = ambitious
+				trait = proud
+			}
+		}
+
+		set_defacto_liege = THIS
+		FROM = { character_event = { id = EoG.558 } }
+	}
+}
+
+# Vote of an unlawful holder of a title in Hellas
+character_event = {
+	id = EoG.554
+	desc = EVTDESCEoG.554
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#	remove_trait = unlawful_imperial_territory
+	#}
+
+	# First option give unlawful territory to the Conference's Host
+	option = {
+		name = "EVTOPTAEoG.554"
+
+		ai_chance = {
+			# I prefer AI to take this choice
+			factor = 100
+
+			# If he has a weak character he is more incline to accept 
+			modifier = {
+				factor = 2
+				trait = weak
+				trait = slothful
+				trait = craven
+			}
+
+			# If he is just he knows it is the right thing to do...
+			modifier = {
+				factor = 2
+				trait = just
+			}
+		}
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_byzantium
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				title = k_byzantium
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+		}
+
+		FROM = { character_event = { id = EoG.556 } }
+	}
+
+	# Second option he decides to retain his unlawful territory (that will remain part of Loser Empire)
+	option = {
+		name = "EVTOPTBEoG.554"
+
+		ai_chance = {
+			# I prefer AI to NOT take this choice
+			factor = 50
+
+			# If he has a strong character he will not accept
+			modifier = {
+				factor = 2
+				trait = strong
+				trait = ambitious
+				trait = brave
+			}
+
+			# if he has the Loser culture he will not accept
+			modifier = {
+				factor = 2
+				culture_group = byzantine
+			}
+		}
+
+		FROM = { character_event = { id = EoG.557 } }
+	}
+}
+
+# Vote of the Loser
+character_event = {
+	id = EoG.555
+	desc = EVTDESCEoG.555
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	#immediate = {
+	#	remove_trait = unlawful_imperial_territory_ex_imperor
+	#}
+
+	# First option give unlawful territory to the Conference Host
+	option = {
+		name = "EVTOPTAEoG.555"
+	
+		ai_chance = {
+			# I prefer AI to NOT take this choice (it does not makes sense...)
+			factor = 50
+
+			# If he has a weak character he is more incline to accept 
+			modifier = {
+				factor = 2
+				trait = weak
+				trait = slothful
+				trait = craven
+			}
+
+			# If he is just he knows it is the right thing to do...
+			modifier = {
+				factor = 2
+				trait = just
+			}
+		}
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_byzantium
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		FROM = { character_event = { id = EoG.556 } }
+	}
+
+	# Second option retain your territory and send an insult to the weak Consul
+	option = {
+		name = "EVTOPTBEoG.555"
+
+		ai_chance = {
+			# I prefer AI to take this choice
+			factor = 100
+
+			# If he has a strong character he will not accept
+			modifier = {
+				factor = 2
+				trait = strong
+				trait = ambitious
+				trait = brave
+			}
+		}
+
+		FROM = { character_event = { id = EoG.557 } }
+	}
+}
+
+# Inform the new liege that the new vassal is ready to serve
+character_event = {
+	id = EoG.556
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = vassal_of_the_loser_hellenic }
+			}
+		}
+		text = EVTDESCEoG_Vassal.556
+	}
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory }
+			}
+		}
+		text = EVTDESCEoG_GiveBack.556
+	}
+	
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory_ex_imperor }
+			}
+		}
+		text = EVTDESCEoG_GiveBackEmp.556
+	}
+		 
+	option =  {
+		name = "EVTOPTAEoG.556"
+
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = vassal_of_the_loser_hellenic
+				remove_trait = unlawful_imperial_territory
+				remove_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+}
+
+# Inform the Conference Host that the de jure vassal has decided to remain part of the Loser's Empire
+character_event = {
+	id = EoG.557
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = vassal_of_the_loser_hellenic }
+			}
+		}
+		text = EVTDESCEoG_Vassal.557
+	}
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory }
+			}
+		}
+		text = EVTDESCEoG_GiveBack.557
+	}
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = unlawful_imperial_territory_ex_imperor }
+			}
+		}
+		text = EVTDESCEoG_GiveBackEmp.557
+	}
+
+	option =  {
+		name = "EVTOPTAEoG.557"
+
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = vassal_of_the_loser_hellenic
+				remove_trait = unlawful_imperial_territory
+				remove_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}	
+	}
+}
+
+# Inform the Conference Host that the de jure vassal has decided to become indipendent!
+character_event = {
+	id = EoG.558
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	desc = {
+		trigger = {
+			OR = {
+				FROM = { trait = vassal_of_the_loser_hellenic }
+			}
+		}
+		text = EVTDESCEoG_Vassal.558
+	}
+
+	option =  {
+		name = "EVTOPTAEoG.558"
+		hidden_tooltip = {
+			FROM = {
+				remove_trait = vassal_of_the_loser_hellenic
+			}
+		}
+	}
+}
+
+# This event is to check that all have voted and that so we can pass on the next issue
+character_event = {
+	id = EoG.559
+	desc = EVTDESCEoG.559
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		OR = {
+			has_character_flag = bulgaria_host_peace_conference
+			has_character_flag = serbia_host_peace_conference
+			has_character_flag = latin_empire_host_peace_conference
+			has_character_flag = russia_host_peace_conference
+			has_character_flag = wre_host_peace_conference
+		}
+
+		has_global_flag = deciding_on_issue
+		has_global_flag = issue_loser_controlling_hellas
+		#NOT = { has_global_flag = votation_ended }
+		has_global_flag = voting_on_hellenic_issue
+
+		AND = {
+			event_target:the_loser = {
+				NOT = {
+					any_vassal = {
+						count = 1
+						trait = vassal_of_the_loser_hellenic
+					}
+				}
+			}
+
+			event_target:the_loser = {
+				NOT = {
+					any_vassal = {
+						count = 1
+						trait = unlawful_imperial_territory
+					}
+				}
+			}
+
+			event_target:the_loser = {
+				NOT = {
+					count = 1
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+			}
+		}
+	}
+
+	option =  {
+		name = "EVTOPTAEoG.559"
+
+		clr_global_flag = deciding_on_issue
+		#set_global_flag = votation_ended
+		clr_global_flag = issue_loser_controlling_hellas
+		clr_global_flag = voting_on_hellenic_issue
+
+		prestige = 500
+	}
+}
+
+long_character_event = {
+	id = EoG.560
+	desc = EVTDESCEoG.560
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		has_character_flag = sollevates_issue_loser_controlling_epirus
+
+		has_global_flag = issue_loser_controlling_epirus
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.560"
+
+		set_global_flag = epirus_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.561 }
+		}
+	}
+}
+
+# An Epirote Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Epyrus should remain vassal of
+# Nikea or not? He has the ardhore to pretend indipendence and a King crown!
+# There are two possible choiches:
+#
+# 1. Annex these states as he is their de jure liege
+# 2. Concede indipendence to all vassals in the Kingdom of Epirus and permit to them to have their Kingdom
+# 3. Create a Client Kingdom of Epirus
+long_character_event = {
+	id = EoG.561
+	desc = EVTDESCEoG.561
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Epirote Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_epirus
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_epirote
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_epirus
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_epirote
+			}
+		}
+
+
+		# This character is holding unlawful imperial territory that is part of Epirus
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_epirus
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_epirus
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Epirus
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_epirus
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly without further discussion
+	option = {
+		name = "EVTOPTAEoG.561"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_epirus
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_epirote
+				}
+				# Inform the Epirote Prince of the forced vassalization
+				character_event = { id = EoG.562 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.563 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.564 }
+			}
+		}
+	}
+
+	# Give them their indipendence!
+	option = {
+		name = "EVTOPTBEoG.561"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_epirus
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_epirus
+				}
+
+				character_event = { id = EoG.565 }
+			}
+		}
+
+	}
+
+	# Give them their kingdom but as our vassal :-)
+	option = {
+		name = "EVTOPTCEoG.561"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+					trait = lunatic
+					trait = arbitrary
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_epirus
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_epirus
+				}
+
+				character_event = { id = EoG.566 }
+			}
+		}
+
+	}
+}
+
+# A Epirote Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.562
+	desc = EVTDESCEoG.562
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.562"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+
+		# He expected to become an independent King and instead is forced vassalized!
+		if = {
+			limit = {
+				has_character_flag = sollevates_issue_loser_controlling_epirus
+			}
+
+			opinion = {
+				who =  FROM
+				modifier = opinion_insulted
+			}
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_epirote }
+	}
+}
+
+# An unlawful holder of a title in Epirus is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.563
+	desc = EVTDESCEoG.563
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.563"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_epirus
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_epirus
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Hellas and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.564
+	desc = EVTDESCEoG.564
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.564"
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_epirus
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# The creation of the independent Kingdom of Epirus
+character_event = {
+	id = EoG.565
+	desc = EVTDESCEoG.565
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.565"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_epirus status = yes }
+
+		liege = {
+			k_epirus = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_epirus
+
+				# This is not working! Other game bug? Annoying...
+				#any_de_jure_vassal = {
+				#	set_defacto_liege = ROOT
+				#}
+			}
+		}
+
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Epirous simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_epirote
+				}
+				# Inform the Epirote Prince of the forced vassalization
+				character_event = { id = EoG.562 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.563 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.564 }
+			}
+		}
+		
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# The creation of the Client Kingdom of Epirus
+character_event = {
+	id = EoG.566
+	desc = EVTDESCEoG.566
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.566"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_epirus status = yes }
+
+		# Make the character vassal of the Winner
+		set_defacto_liege = FROM
+
+		liege = {
+			k_epirus = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_epirus
+
+				# This is not working! Other game bug? Annoying...
+				#any_de_jure_vassal = {
+				#	set_defacto_liege = ROOT
+				#}
+			}
+		}
+
+		# Bug! You need to do this two times
+		set_defacto_liege = FROM
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Epirous simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_epirote
+				}
+				# Inform the Epirote Prince of the forced vassalization
+				character_event = { id = EoG.562 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.563 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.564 }
+			}
+		}
+		
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.567
+	desc = EVTDESCEoG.567
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		has_character_flag = sollevates_issue_loser_controlling_bulgaria
+
+		has_global_flag = issue_loser_controlling_bulgaria
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.567"
+
+		set_global_flag = bulgaria_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.568 }
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.5671
+	desc = EVTDESCEoG.5671
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		OR = {
+			has_landed_title = e_bulgaria
+			has_landed_title = k_bulgaria
+		}
+
+		#has_character_flag = joins_the_conference_of_peace
+
+		has_global_flag = issue_loser_controlling_bulgaria
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.5671"
+
+		set_global_flag = bulgaria_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.5681 }
+		}
+	}
+}
+
+# An Bulgarian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Epyrus should remain vassal of
+# Nikea or not? He has the ardhore to pretend indipendence and a King crown!
+# There are 3 possible choiches:
+#
+# 1. Annex these states as he is their de jure liege
+# 2. Concede indipendence to all vassals in the Kingdom of Bulgaria and permit to them to have their Kingdom
+# 3. Create a Client Kingdom of Bulgaria
+long_character_event = {
+	id = EoG.568
+	desc = EVTDESCEoG.568
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Bulgarian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_bulgaria
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_bulgarian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_bulgaria
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_bulgarian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Bulgaria
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_bulgaria
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_bulgaria
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Bulgaria
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_bulgaria
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly without further discussion
+	option = {
+		name = "EVTOPTAEoG.568"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_bulgaria
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_bulgarian
+				}
+				# Inform the Bulgarian Prince of the forced vassalization
+				character_event = { id = EoG.569 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.570 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.571 }
+			}
+		}
+	}
+
+	# Give them their indipendence!
+	option = {
+		name = "EVTOPTBEoG.568"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_bulgaria
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_bulgaria
+				}
+
+				character_event = { id = EoG.572 }
+			}
+		}
+
+	}
+
+	# Give them their kingdom but as our vassal :-)
+	option = {
+		name = "EVTOPTCEoG.568"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+					trait = lunatic
+					trait = arbitrary
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_bulgaria
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_bulgaria
+				}
+
+				character_event = { id = EoG.573 }
+			}
+		}
+	}
+}
+
+# A Bulgaria Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.569
+	desc = EVTDESCEoG.569
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.569"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+
+		# He expected to become an independent King and instead is forced vassalized!
+		if = {
+			limit = {
+				has_character_flag = sollevates_issue_loser_controlling_bulgaria
+			}
+
+			opinion = {
+				who =  FROM
+				modifier = opinion_insulted
+			}
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_bulgarian }
+	}
+}
+
+# An unlawful holder of a title in Bulgaria is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.570
+	desc = EVTDESCEoG.570
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.570"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_bulgaria
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_bulgaria
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Hellas and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.571
+	desc = EVTDESCEoG.571
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.571"
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_bulgaria
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# The creation of the independent Kingdom of Bulgaria
+character_event = {
+	id = EoG.572
+	desc = EVTDESCEoG.572
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.572"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_bulgaria status = yes }
+
+		liege = {
+			k_epirus = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_turnovo # Moesia
+			}
+		}
+
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Bulgaria simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_bulgarian
+				}
+				# Inform the Bulgarian Prince of the forced vassalization
+				character_event = { id = EoG.569 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.570 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.571 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# The creation of the Client Kingdom of Bulgaria
+character_event = {
+	id = EoG.573
+	desc = EVTDESCEoG.573
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.573"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_bulgaria status = yes }
+
+		# Make the character vassal of the Winner
+		set_defacto_liege = FROM
+
+		liege = {
+			k_bulgaria = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_turnovo # Moesia
+			}
+		}
+
+		# Bug! You need to do this two times
+		set_defacto_liege = FROM
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Bulgaria simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_bulgarian
+				}
+				# Inform the Bulgarian Prince of the forced vassalization
+				character_event = { id = EoG.569 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.570 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Bulgaria
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.571 }
+			}
+		}
+		
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# A Bulgarian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Bulgaria should remain vassal of
+# Nikea or should they become part of the existing Empire / Kingdom of Bulgaria?
+# There are 2 possible choiches:
+#
+# 1. Annex these states pretending to be their de jure liege
+# 2. Give these states to their true de jure liege: The Emperor / King of Bulgaria
+long_character_event = {
+	id = EoG.5681
+	desc = EVTDESCEoG.5681
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Bulgarian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_bulgaria
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_bulgarian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_bulgaria
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_bulgarian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Bulgaria
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_bulgaria
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_bulgaria
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Bulgaria
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_bulgaria
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly as a first point of expansion for the formation of the Eastern Roman Empire
+	# (the King of Bulgaria will be not happy)
+	option = {
+		name = "EVTOPTAEoG.5681"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_bulgaria
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_bulgarian
+				}
+				# Inform the Bulgarian Prince of the forced vassalization
+				character_event = { id = EoG.569 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.570 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.571 }
+			}
+		}
+	}
+
+	# We do the right thing: give them to the Emperor / King of Bulgaria
+	option = {
+		name = "EVTOPTBEoG.5681"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_bulgaria
+
+		# Scope back to the Emperor / King of Bulgaria so he will get his new vassals
+		FROMFROM = { character_event = { id = EoG.5682 } }
+	}
+}
+
+# Inform the Emperor / King of Bulgaria that he has new vassals. It annex the vassals themselves too.
+character_event = {
+	id = EoG.5682
+	desc = EVTDESCEoG.5682
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.5682"
+	
+		# Now we call the event that we have called to vassalize the
+		# Princes of Bulgaria simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_bulgarian
+				}
+				# Inform the Bulgarian Prince of the forced vassalization
+				character_event = { id = EoG.569 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.570 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Bulgaria
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.571 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_grateful
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.574
+	desc = EVTDESCEoG.574
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		OR = {
+			event_target:the_loser = {
+				any_vassal = {
+					has_landed_title = k_serbia
+				}
+			}
+			AND = {
+				has_character_flag = sollevates_issue_loser_controlling_serbia
+				k_serbia = {
+					has_holder = no
+				}
+			}
+		}
+
+		has_global_flag = issue_loser_controlling_serbia
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.574"
+
+		set_global_flag = serbia_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.575 }
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.5741
+	desc = EVTDESCEoG.5741
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		OR = {
+			has_landed_title = e_serbia
+			has_landed_title = k_serbia
+		}
+
+		#has_character_flag = joins_the_conference_of_peace
+
+		has_global_flag = issue_loser_controlling_serbia
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.5741"
+
+		set_global_flag = serbia_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.5751 }
+		}
+	}
+}
+
+# A Serbian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Serbia should remain vassal of
+# Nikea or not? He has the ardhore to pretend indipendence and a King crown!
+# There are three possible choiches:
+#
+# 1. Annex these states as he is their de jure liege
+# 2. Concede indipendence to all vassals in the Kingdom of Serbia and permit to them to have their Kingdom
+# 3. Create a Client Kingdom of Serbia
+long_character_event = {
+	id = EoG.575
+	desc = EVTDESCEoG.575
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Serbian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_serbia
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_serbian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_serbia
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_serbian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Bulgaria
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_serbia
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_serbia
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Bulgaria
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_serbia
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly without further discussion
+	option = {
+		name = "EVTOPTAEoG.575"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_serbia
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_serbian
+				}
+				# Inform the Serbian Prince of the forced vassalization
+				character_event = { id = EoG.576 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.577 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Hellas
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.578 }
+			}
+		}
+	}
+
+	# Give them their indipendence!
+	option = {
+		name = "EVTOPTBEoG.575"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_serbia
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_serbia
+				}
+
+				character_event = { id = EoG.579 }
+			}
+		}
+	}
+
+	# Give them their kingdom but as our vassal :-)
+	option = {
+		name = "EVTOPTCEoG.575"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+					trait = lunatic
+					trait = arbitrary
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_serbia
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_serbia
+				}
+
+				character_event = { id = EoG.580 }
+			}
+		}
+	}
+}
+
+# A Serbian Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.576
+	desc = EVTDESCEoG.576
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.576"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+
+		# He expected to become an independent King and instead is forced vassalized!
+		if = {
+			limit = {
+				has_character_flag = sollevates_issue_loser_controlling_serbia
+			}
+
+			opinion = {
+				who =  FROM
+				modifier = opinion_insulted
+			}
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_serbian }
+	}
+}
+
+# An unlawful holder of a title in Serbia is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.577
+	desc = EVTDESCEoG.577
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.577"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_serbia
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_serbia
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Serbia and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.578
+	desc = EVTDESCEoG.578
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.578"
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_serbia
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# The creation of the independent Kingdom of Serbia
+character_event = {
+	id = EoG.579
+	desc = EVTDESCEoG.579
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.579"
+
+		# If it has not the title of King of Serbia it is automatically granted the crown
+		if = {
+			limit = {
+				NOT = { has_landed_title = k_serbia }
+			}
+			# Bug of new patch grant_title does not work on not active titles anymore!
+			activate_title = { title = k_serbia status = yes }
+			liege = {
+				k_serbia = {
+					grant_title = ROOT
+					# TODO how to copy the laws of this character primary title?
+					copy_title_laws = d_rashka
+				}
+			}
+		}
+
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Serbia simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_serbian
+				}
+				# Inform the Serbian Prince of the forced vassalization
+				character_event = { id = EoG.576 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.577 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Serbia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.578 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# The creation of the Client Kingdom of Serbia
+character_event = {
+	id = EoG.580
+	desc = EVTDESCEoG.580
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.580"
+
+		# If it has not the title of King of Serbia it is automatically granted the crown
+		if = {
+			limit = {
+				NOT = { has_landed_title = k_serbia }
+			}
+			# Bug of new patch grant_title does not work on not active titles anymore!
+			activate_title = { title = k_serbia status = yes }
+			# Make the character vassal of the Winner
+			set_defacto_liege = FROM
+			liege = {
+				k_serbia = {
+					grant_title = ROOT
+					# TODO how to copy the laws of this character primary title?
+					copy_title_laws = d_rashka
+				}
+			}
+		}
+		
+		# Bug! You need to do this two times
+		set_defacto_liege = FROM
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Serbia simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_serbian
+				}
+				# Inform the Serbian Prince of the forced vassalization
+				character_event = { id = EoG.576 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.577 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Serbia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.578 }
+			}
+		}
+		
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# A Serbian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Serbia should remain vassal of
+# Nikea or should they become part of the existing Empire / Kingdom of Bulgaria?
+# There are 2 possible choiches:
+#
+# 1. Annex these states pretending to be their de jure liege
+# 2. Give these states to their true de jure liege: The Emperor / King of Serbia
+long_character_event = {
+	id = EoG.5751
+	desc = EVTDESCEoG.5751
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Serbian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_serbia
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_serbian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_serbia
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_serbian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Serbian
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_serbia
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_serbia
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Bulgaria
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_serbia
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly as a first point of expansion for the formation of the Eastern Roman Empire
+	# (the King of Serbia will be not happy)
+	option = {
+		name = "EVTOPTAEoG.5751"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_serbia
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_serbian
+				}
+				# Inform the Serbian Prince of the forced vassalization
+				character_event = { id = EoG.576 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.577 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Serbia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.578 }
+			}
+		}
+	}
+
+	# We do the right thing: give them to the Emperor / King of Serbia
+	option = {
+		name = "EVTOPTBEoG.5751"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_serbia
+
+		# Scope back to the Emperor / King of Serbia so he will get his new vassals
+		FROM = { character_event = { id = EoG.5752 } }
+	}
+}
+
+# Inform the Emperor / King of Serbia that he has new vassals. It annex the vassals themselves too.
+character_event = {
+	id = EoG.5752
+	desc = EVTDESCEoG.5752
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.5752"
+	
+		# Now we call the event that we have called to vassalize the
+		# Princes of Bulgaria simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_serbian
+				}
+				# Inform the Serbian Prince of the forced vassalization
+				character_event = { id = EoG.576 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.577 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Serbia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.578 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_grateful
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.581
+	desc = EVTDESCEoG.581
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		has_character_flag = sollevates_issue_loser_controlling_croatia
+
+		has_global_flag = issue_loser_controlling_croatia
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.581"
+
+		set_global_flag = croatia_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.582 }
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.5811
+	desc = EVTDESCEoG.5811
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		OR = {
+			has_landed_title = e_illiria
+			has_landed_title = k_croatia
+		}
+
+		#has_character_flag = joins_the_conference_of_peace
+		#has_character_flag = sollevates_issue_loser_controlling_croatia
+
+		has_global_flag = issue_loser_controlling_croatia
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.5811"
+
+		set_global_flag = croatia_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.5821 }
+		}
+	}
+}
+
+# An Croatian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Croatia should remain vassal of
+# Nikea or not? He has the ardhore to pretend indipendence and a King crown!
+# There are three possible choiches:
+#
+# 1. Annex these states as he is their de jure liege
+# 2. Concede indipendence to all vassals in the Kingdom of Croatia and permit to them to have their Kingdom
+# 3. Create a Client Kingdom of Croatia
+long_character_event = {
+	id = EoG.582
+	desc = EVTDESCEoG.582
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Croatian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_croatia
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_croatian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_croatia
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_croatian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Croatia
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_croatia
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_croatia
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Croatia
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_croatia
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly without further discussion
+	option = {
+		name = "EVTOPTAEoG.582"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_croatia
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_croatian
+				}
+				# Inform the Croatian Prince of the forced vassalization
+				character_event = { id = EoG.583 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Croatia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.585 }
+			}
+		}
+	}
+
+	# Give them their indipendence!
+	option = {
+		name = "EVTOPTBEoG.582"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_serbia
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_croatia
+				}
+
+				character_event = { id = EoG.586 }
+			}
+		}
+
+	}
+
+	# Give them their kingdom but as our vassal :-)
+	option = {
+		name = "EVTOPTCEoG.582"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+					trait = lunatic
+					trait = arbitrary
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_croatia
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_croatia
+				}
+
+				character_event = { id = EoG.587 }
+			}
+		}
+	}
+}
+
+# A Croatian Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.583
+	desc = EVTDESCEoG.583
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.583"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+
+		# He expected to become an independent King and instead is forced vassalized!
+		if = {
+			limit = {
+				has_character_flag = sollevates_issue_loser_controlling_serbia
+			}
+
+			opinion = {
+				who =  FROM
+				modifier = opinion_insulted
+			}
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_croatian }
+	}
+}
+
+# An unlawful holder of a title in Croatia is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.584
+	desc = EVTDESCEoG.584
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.584"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_croatia
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_croatia
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Serbia and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.585
+	desc = EVTDESCEoG.585
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.585"
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_croatia
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# The creation of the independent Kingdom of Croatia
+character_event = {
+	id = EoG.586
+	desc = EVTDESCEoG.586
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.586"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_croatia status = yes }
+
+		liege = {
+			k_croatia = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_dalmatia
+			}
+		}
+
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Croatia simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_croatian
+				}
+				# Inform the Croatian Prince of the forced vassalization
+				character_event = { id = EoG.583 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Croatia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.585 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# The creation of the Client Kingdom of Croatia
+character_event = {
+	id = EoG.587
+	desc = EVTDESCEoG.587
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.587"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_croatia status = yes }
+
+		# Make the character vassal of the Winner
+		set_defacto_liege = FROM
+
+		liege = {
+			k_croatia = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_dalmatia
+			}
+		}
+
+		# Bug! You need to do this two times
+		set_defacto_liege = FROM
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Croatia simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_serbian
+				}
+				# Inform the Croatian Prince of the forced vassalization
+				character_event = { id = EoG.583 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Croatia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.585 }
+			}
+		}
+		
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+	}
+}
+
+# A Croatian Prince of the former Byzantine Empire has sollevated an
+# interesting issue: his state and the other in Serbia should remain vassal of
+# Nikea or should they become part of the existing Empire / Kingdom of Croatia?
+# There are 2 possible choiches:
+#
+# 1. Annex these states pretending to be their de jure liege
+# 2. Give these states to their true de jure liege: The Emperor / King of Croatia
+long_character_event = {
+	id = EoG.5821
+	desc = EVTDESCEoG.5821
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Croatian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_croatia
+					tier = duke
+				}
+
+				add_trait = vassal_of_the_loser_croatian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_croatia
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_croatian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Croatia
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							de_jure_liege_or_above = k_croatia
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_croatia
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Croatia
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_croatia
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Vassalize them directly as a first point of expansion for the formation of the Eastern Roman Empire
+	# (the King of Croatia will be not happy)
+	option = {
+		name = "EVTOPTAEoG.5821"
+
+		ai_chance = {
+			# I'd prefer AI choses this option...
+			factor = 75
+
+			modifier = {
+				factor = 1.25
+				OR = {
+					trait = ambitious
+					trait = wroth
+					trait = greedy
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_croatia
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_croatian
+				}
+				# Inform the Croatian Prince of the forced vassalization
+				character_event = { id = EoG.583 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Croatia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.585 }
+			}
+		}
+	}
+
+	# We do the right thing: give them to the Emperor / King of Croatia
+	option = {
+		name = "EVTOPTBEoG.5821"
+
+		ai_chance = {
+			# I'd prefer AI does NOT chose this option...
+			factor = 25
+
+			modifier = {
+				factor = 3
+				OR = {
+					trait = just
+					trait = content
+					trait = charitable
+					trait = kind
+					trait = honest
+				}
+			}
+		}
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_bulgaria
+
+		# Scope back to the Emperor / King of Serbia so he will get his new vassals
+		FROMFROM = { character_event = { id = EoG.5822 } }
+	}
+}
+
+# Inform the Emperor / King of Croatia that he has new vassals. It annex the vassals themselves too.
+character_event = {
+	id = EoG.5822
+	desc = EVTDESCEoG.5822
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.5822"
+	
+		# Now we call the event that we have called to vassalize the
+		# Princes of Bulgaria simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_croatian
+				}
+				# Inform the Serbian Prince of the forced vassalization
+				character_event = { id = EoG.583 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Serbia
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_grateful
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.588
+	desc = EVTDESCEoG.588
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		#has_character_flag = joins_the_conference_of_peace
+		OR = {
+			has_landed_title = k_venice
+			has_landed_title = d_venice
+		}
+		#has_character_flag = sollevates_issue_loser_controlling_venice
+
+		has_global_flag = issue_loser_controlling_venice
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.588"
+
+		set_global_flag = venice_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.589 }
+		}
+	}
+}
+
+# Venice should become independent or not?
+long_character_event = {
+	id = EoG.589
+	desc = EVTDESCEoG.589
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Venetian Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					OR = {
+						de_jure_liege_or_above = k_venice
+						has_landed_title = k_venice
+					}	
+					higher_real_tier_than = duke
+				}
+
+				add_trait = vassal_of_the_loser_venetian
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = k_venice
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_venetian
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Venice
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							has_landed_title = k_venice
+							de_jure_liege_or_above = k_venice
+						}
+
+						any_realm_title = {
+							kingdom = {
+								title = k_venice
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Venice
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						kingdom = {
+							title = k_venice
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Give them their indipendence!
+	option = {
+		name = "EVTOPTOKEoG.589"
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_venice
+
+		# Search the one that sollevated the issue it will regarded
+		# with a King crown (if the Kingdom does not exist already)!
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_venice
+				}
+
+				character_event = { id = EoG.593 }
+			}
+		}
+
+	}
+}
+
+# A Venetian Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.590
+	desc = EVTDESCEoG.590
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.590"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+
+		# He expected to become an independent King and instead is forced vassalized!
+		if = {
+			limit = {
+				has_character_flag = sollevates_issue_loser_controlling_venice
+			}
+
+			opinion = {
+				who =  FROM
+				modifier = opinion_insulted
+			}
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_venetian }
+	}
+}
+
+# An unlawful holder of a title in Venice is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.591
+	desc = EVTDESCEoG.591
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.591"
+		
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_venice
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = k_venice
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Venice and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.592
+	desc = EVTDESCEoG.592
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.592"
+
+		any_demesne_title = {
+			limit = {
+				kingdom = {
+					title = k_venice
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# The creation of the independent Kingdom of Venice
+character_event = {
+	id = EoG.593
+	desc = EVTDESCEoG.593
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.593"
+
+		# If it has not the title of King of Venice (that is it is only the Duke of Venice) it is automatically granted the crown
+		if = {
+			limit = {
+				NOT = { has_landed_title = k_venice }
+			}
+		
+			# Bug of new patch grant_title does not work on not active titles anymore!
+			activate_title = { title = k_venice status = yes }
+			liege = {
+				k_venice = {
+					grant_title = ROOT
+					# TODO how to copy the laws of this character primary title?
+					copy_title_laws = d_venice
+				}
+			}
+		}
+
+		# Make the character independent
+		set_defacto_liege = THIS
+
+		# The Kingdom of Venice is not part of Byzantium anymore but of Italia
+		k_venice =  {
+			de_jure_liege = e_italy
+		}
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Venice simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_venetian
+				}
+				# Inform the Venetian Prince of the forced vassalization
+				character_event = { id = EoG.583 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.584 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Venice
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.585 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_venetian }
+	}
+}
+
+# The creation of the Client Kingdom of Venice
+character_event = {
+	id = EoG.594
+	desc = EVTDESCEoG.594
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.594"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = k_venice status = yes }
+
+		# Make the character vassal of the Winner
+		set_defacto_liege = FROM
+
+		liege = {
+			k_venice = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_venice
+			}
+		}
+
+		# Bug! You need to do this two times
+		set_defacto_liege = FROM
+
+		# Now we call the event that we have called to vassalize the
+		# Princes of Venice simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_venetian
+				}
+				# Inform the Venetian Prince of the forced vassalization
+				character_event = { id = EoG.590 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.591 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Venice
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.592 }
+			}
+		}
+		
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_kingdom
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_venetian }
+	}
+}
+
+character_event = {
+	id = EoG.595
+	desc = EVTDESCEoG.595
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVTOPTOKEoG.595"
+		set_global_flag = issue_loser_controlling_trebizond 
+		set_character_flag = sollevates_issue_loser_controlling_trebizond
+
+		if = {
+			limit = { 
+				FROM = { has_character_flag = bulgaria_host_peace_conference }
+			}
+			e_bulgaria = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = serbia_host_peace_conference }
+			}
+			e_serbia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = latin_empire_host_peace_conference }
+			}
+			e_latin_empire = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = russia_host_peace_conference }
+			}
+			e_russia = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+
+		if = {
+			limit = {
+				FROM = { has_character_flag = wre_host_peace_conference }
+			}
+			e_wre = {
+				change_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	}
+}
+
+long_character_event = {
+	id = EoG.596
+	desc = EVTDESCEoG.596
+	picture = GFX_evt_council
+
+	mean_time_to_happen = {
+		days = 1 
+	}
+
+	trigger = {
+		has_landed_title = d_trebizond
+
+		has_global_flag = issue_loser_controlling_trebizond
+		NOT = { has_global_flag = deciding_on_issue }
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.596"
+
+		set_global_flag = trebizond_issue_raised	
+		set_global_flag = deciding_on_issue
+
+		any_independent_ruler = {
+			limit = {
+				OR = {
+					has_character_flag = bulgaria_host_peace_conference
+					has_character_flag = serbia_host_peace_conference
+					has_character_flag = latin_empire_host_peace_conference
+					has_character_flag = russia_host_peace_conference
+					has_character_flag = wre_host_peace_conference
+				}
+			}
+			long_character_event = { id = EoG.597 }
+		}
+	}
+}
+
+# The Empire of Trebizond should be formed?
+long_character_event = {
+	id = EoG.597
+	desc = EVTDESCEoG.597
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	immediate = {
+		# When the option is pressed the issue could be considered resolved in a way or in another...		
+		if = {
+			limit = {
+				has_character_flag = bulgaria_host_peace_conference
+			}
+			e_bulgaria = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = serbia_host_peace_conference
+			}
+			e_serbia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = latin_empire_host_peace_conference
+			}
+			e_latin_empire = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = russia_host_peace_conference
+			}
+			e_russia = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+		if = {
+			limit = {
+				has_character_flag = wre_host_peace_conference
+			}
+			e_wre = {
+				subtract_variable = { which = "conference_issues" value = 1 }
+			}
+		}
+	
+		set_global_flag = deciding_on_issue
+
+		# Search the Trapezuntine Princes of the former Byzantine Empire
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					OR = {
+						de_jure_liege_or_above = d_trebizond
+						has_landed_title = d_trebizond
+					}	
+					higher_real_tier_than = duke
+				}
+
+				add_trait = vassal_of_the_loser_trapezuntine
+			}
+		}
+
+		# Exception! If the character is a Count and the ex Emperor held the Duchy title above him, this character
+		# shall not be counted as will be the ex Emperor to vote (in this case he will be his de jure liege effectively) 
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					de_jure_liege_or_above = d_trebizond
+					tier = count
+
+					NOT = {
+						de_jure_liege = liege
+					}
+				}
+				
+				add_trait = vassal_of_the_loser_trapezuntine
+			}
+		}
+
+		# This character is holding unlawful imperial territory that is part of Venice
+		# but he has no de jure right to do so
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						NOT = { 
+							has_landed_title = d_trebizond
+							de_jure_liege_or_above = d_trebizond
+						}
+
+						any_realm_title = {
+							duchy = {
+								title = d_trebizond
+								NOT = { tier = baron }
+							}
+						}
+					}
+				}
+
+				add_trait = unlawful_imperial_territory
+			}
+		}
+
+		# The Emperor of Nikaea is holding land in Trebizond
+		event_target:the_loser = {
+			if = {
+				limit = {
+					any_demesne_title = {
+						duchy = {
+							title = d_trebizond
+						}
+					}
+				}
+				add_trait = unlawful_imperial_territory_ex_imperor
+			}
+		}
+	}
+
+	# Give them their indipendence!
+	option = {
+		name = "EVTOPTOKEoG.597"
+
+		# We have already decided!
+		clr_global_flag = deciding_on_issue
+		clr_global_flag = issue_loser_controlling_trebizond
+
+		# Search the one that sollevated the issue it will regarded with an Imperial crown
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					has_character_flag = sollevates_issue_loser_controlling_trebizond
+				}
+
+				character_event = { id = EoG.598 }
+			}
+		}
+	}
+}
+
+# The creation of The Empire of Trebizond
+character_event = {
+	id = EoG.598
+	desc = EVTDESCEoG.598
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.593"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_trebizond status = yes }
+		liege = {
+			e_trebizond = {
+				grant_title = ROOT
+				# TODO how to copy the laws of this character primary title?
+				copy_title_laws = d_trebizond
+			}
+		}
+		
+		# Make the character independent
+		set_defacto_liege = THIS
+		
+		# Now we call the event that we have called to vassalize the
+		# Princes of Trebizond simply with the "FROM" changed
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = vassal_of_the_loser_trapezuntine
+				}
+				# Inform the Trebizond Prince of the forced vassalization
+				character_event = { id = EoG.599 }
+			}
+		}
+
+		# These characters are holding imperial territory without having the right to do so, we have two cases:
+		# 1. They hold the territory direct in this case the title is simply usurped
+		# 2. They hold the territory using a vassal in this case the vassal is retracted and given to the host of the Conference
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					trait = unlawful_imperial_territory
+				}
+				# Inform the unlawful holder that the land will be usurped
+				character_event = { id = EoG.600 }
+			}
+		}
+
+		# The Emperor of Nikaea himself could hold land in Trebizond
+		# Again we should grant the contested title to the host of the Conference
+		event_target:the_loser = {
+			if = {
+				limit = {
+					trait = unlawful_imperial_territory_ex_imperor
+				}
+
+				character_event = { id = EoG.601 }
+			}
+		}
+
+		opinion = {
+			who =  FROM
+			modifier = opinion_granted_empire
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_trapezuntine }
+	}
+}
+
+# A Trapezuntine Prince is informed of the forced vassalization
+character_event = {
+	id = EoG.599
+	desc = EVTDESCEoG.599
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.599"
+		set_defacto_liege = FROM
+
+		opinion = {
+			who =  FROM
+			modifier = forced_vassalization
+		}
+
+		hidden_tooltip = { remove_trait = vassal_of_the_loser_trapezuntine }
+	}
+}
+
+# An unlawful holder of a title in Trebizond is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.600
+	desc = EVTDESCEoG.600
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.600"
+		
+		any_demesne_title = {
+			limit = {
+				duchy = {
+					title = d_trebizond
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+
+		any_realm_lord = {
+			limit = {
+				de_jure_liege_or_above = d_trebizond
+				NOT = { tier = baron }
+			}
+			set_defacto_liege = FROM
+			opinion = {
+				who = FROM
+				modifier = forced_vassalization
+			}
+		}
+
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory }
+	}
+}
+
+# The Emperor of Nikaea is an unlawful holder of a title in Trebizond and is informed of the annexion of the title to host of the Conference
+character_event = {
+	id = EoG.601
+	desc = EVTDESCEoG.601
+	picture = GFX_evt_council
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.601"
+
+		any_demesne_title = {
+			limit = {
+				duchy = {
+					title = d_trebizond
+					NOT = { tier = baron }
+				}
+			}
+			usurp_title_plus_barony_if_unlanded = FROM
+			set_defacto_liege = FROM
+		}
+		hidden_tooltip = { remove_trait = unlawful_imperial_territory_ex_imperor }
+	}
+}
+
+# The Conference of Peace has ended, all guest are gone home...
+character_event = {
+	id = EoG.650
+	desc = EVTDESCEoG.650
+	picture = GFX_evt_throne_room
+
+	trigger = {
+		#has_landed_title = e_spqr
+		OR = { 
+			has_character_flag = bulgaria_host_peace_conference
+			has_character_flag = serbia_host_peace_conference
+			has_character_flag = latin_empire_host_peace_conference
+			has_character_flag = russia_host_peace_conference
+			has_character_flag = wre_host_peace_conference
+		}
+
+		# Kludge! I expected that an unexisting variable evalutated to false, instead is equal to 0...
+		# After the global flag 'issue_calculation_done' it should exist and have a value...
+		has_global_flag = issue_calculation_done
+
+		OR = {
+			AND = {
+				has_character_flag = bulgaria_host_peace_conference
+				e_bulgaria = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
+			AND = {
+				has_character_flag = serbia_host_peace_conference
+				e_serbia = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
+			AND = {
+				has_character_flag = latin_empire_host_peace_conference
+				e_latin_empire = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
+			AND = {
+				has_character_flag = russia_host_peace_conference
+				e_russia = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
+			AND = {
+				has_character_flag = wre_host_peace_conference
+				e_wre = {
+					is_variable_equal = { which = "conference_issues" value = 0 }
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 5
+	}
+
+	option = {
+		name = "EVTOPTAEoG.650"	
+
+		# Now a little of clean up...
+		clr_character_flag = bulgaria_host_peace_conference
+		clr_character_flag = serbia_host_peace_conference
+		clr_character_flag = latin_empire_host_peace_conference
+		clr_character_flag = russia_host_peace_conference
+		clr_character_flag = wre_host_peace_conference
+		clr_global_flag = issue_calculation_done
+
+		any_independent_ruler = {
+			clr_character_flag = joins_the_conference_of_peace
+			clr_character_flag = not_joins_the_conference_of_peace
+		}
+
+		event_target:the_loser = {
+			any_vassal = {
+				limit = {
+					AND = {
+						primary_title = { higher_tier_than = BARON }
+						#NOT = { has_landed_title = e_germany }
+						ROOT = { is_liege_of = THIS }
+						#any_demesne_title = {
+						#	temporary = no
+						##}
+						#THIS = {
+						#	in_revolt = no
+						#}
+					}
+				}
+	
+				clr_character_flag = joins_the_conference_of_peace
+				clr_character_flag = not_joins_the_conference_of_peace
+			 }
+		}
+
+		any_realm_character = {
+			limit = {
+				is_patrician  = yes 
+			}
+		
+			clr_character_flag = joins_the_conference_of_peace
+			clr_character_flag = not_joins_the_conference_of_peace
+		}
 	}
 }
 
 # Restoration of the Eastern Roman Empire
 narrative_event = {
-	id = EoG.581
-	title = EVTNAMEEoG.581
-	#desc = EVTDESCEoG.581
+	id = EoG.700
+	title = EVTNAMEEoG.700
+	#desc = EVTDESCEoG.700
 	desc = {
 		trigger = {
 			has_landed_title = e_byzantium
 		}
-		text = EVTDESCEoG_byz.581
+		text = EVTDESCEoG_byz.700
 	}
 
 	desc = {
 		trigger = {
 			has_landed_title = e_latin_empire
 		}
-		text = EVTDESCEoG_latin_empire.581
+		text = EVTDESCEoG_latin_empire.700
 	}
 	
 	picture = GFX_evt_rome_restored_byzantine
@@ -3692,7 +11187,7 @@ narrative_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = "EVTOPTAEoG.581"	
+		name = "EVTOPTAEoG.700"	
 
 		#hidden_tooltip = {
 		#	primary_title = {

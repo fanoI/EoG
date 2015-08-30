@@ -15,9 +15,10 @@ decisions = {
 			NOT = { trait = incapable }
 			NOT = { trait = crowned_by_pope }
 			tier = emperor
-			primary_title = {
-				title = e_hre
-			}
+			#primary_title = {
+			#	title = e_hre
+			#}
+			has_landed_title = e_hre
 		}
 		allow = {
 			prisoner = no

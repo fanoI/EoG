@@ -2069,6 +2069,9 @@
 	1204.7.1 = {
 		add_spouse=219515
 	}
+	1204.8.1 = {
+		add_claim = e_latin_empire	
+	}
 	1205.1.1 = {
 		capital="c_thessalonike"
 	}

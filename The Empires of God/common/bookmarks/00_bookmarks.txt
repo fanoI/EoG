@@ -123,9 +123,10 @@ bookmark =
 {
 	name = "BM_THE_LATIN_EMPIRE"
 	desc = "BM_THE_LATIN_EMPIRE_DESC"
-	date = 1204.5.16
+	date = 1204.8.1
 	
 	character = 205523 # Baudouin I - Latin Empire
+	character = 213523 # Bonifazio I of Thessalonica
 	character = 215674 # Theodoros I - Byzantine Empire
 	character = 204514 # John I of England
 	character = 205506 # Philippe II of France

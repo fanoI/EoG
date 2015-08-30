@@ -2,5 +2,6 @@
 on_new_holder_usurpation = {
 	events = {
 		EoG.4
+	  	EoG.503	
 	}
 }

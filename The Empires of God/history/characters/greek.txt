@@ -4451,7 +4451,16 @@
 	mother=216510
 	1182.1.2={
 		birth="1182.1.2"
-		add_claim = e_byzantium
+		add_claim = e_nikaea
+		add_claim = d_nikaea
+		add_claim = c_philippopolis
+		add_claim = c_euboia
+		add_claim = c_naxos
+		add_claim = c_lesbos
+		add_claim = c_adrianopolis
+		add_claim = c_kaliopolis
+		add_claim = c_thrake
+		add_claim = c_byzantion
 	}
 	1204.1.2={
 		add_spouse=232509

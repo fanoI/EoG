@@ -49,365 +49,22 @@ e_byzantium = {
 		}
 	}
 	
-	k_cyprus = {
-		color = { 85 138 236 }
-		capital = 757 # Famagusta
-		allow = {
-			OR = {
-				religion = catholic
-				is_heresy_of = catholic
-			}
-		}
-	}
+	k_thrace = {
+		color={ 165 11 111 }
+		color2={ 255 255 23 }
+		#color={ 172 76 139 }
+		#color2={ 255 255 20 }
 
-	k_trinacria = {
-		color={ 249 232 247 }
-	#	capital = 340 #	Palermo
-	
-		allow = {
-			OR = {
-				religion = catholic
-				is_heresy_of = catholic
-			}
-		}
-	}
+		capital = 496 # Byzantion
 
-	k_trebizond = {
-		color={ 100 151 33 }
-		capital = 678 # Trapezous
-		culture = greek
-	
+		orthodox = 250 # Crusade target weight
+		catholic = 125 # Crusade target weight
+		muslim = 100 # Crusade target weight
+
 		allow = {
 			always = no
 		}
-	}
 
-	k_byzantium = {
-		color={ 165 11 111 }
-		color2={ 255 255 23 }
-		
-		capital = 496 # Byzantion
-		
-		culture = greek
-		
-		# Creation/Usurp Trigger
-		allow = {
-			hidden_tooltip = {
-				OR = {
-					ai = no
-					culture = greek
-				}
-			}
-		}
-		
-		orthodox = 5000 # Crusade target weight
-		catholic = 2000 # Crusade target weight
-		zoroastrian_group = 100 # Crusade target weight
-		
-		d_nikaea = {
-			color={ 202 101 167 }
-			color2={ 255 255 20 }
-			
-			capital = 750 # Nikaea
-			
-			c_nikaea = {
-				color={ 205 104 170 }
-				color2={ 255 255 20 }
-				
-				turkish = "Iznik"
-				
-				b_nikaea = {
-					turkish = "Iznik"
-				}
-				b_kios = {
-				}
-				b_optimatum = {
-				}
-				b_petobriga = {
-				}
-				b_kotyaion = {
-				}
-				b_palaeokastron = {
-				}
-				b_yalova = {
-				}
-				b_modrene = {
-				}
-			}
-			c_nikomedeia = {
-				color={ 208 107 173 }
-				color2={ 255 255 20 }
-				
-				turkish = "Izmit"
-				
-				b_nikomedeia = {
-					turkish = "Izmit"
-				}
-				b_chalkedon = {
-				}
-				b_chrysopolis = {
-				} 
-				b_praenetos = {
-				}
-				b_calpe = {
-				}
-				b_palodes = {
-				}
-				b_adapazari = {
-				}
-				b_malagina = {
-				}
-			}
-			c_prusa = {
-				color={ 211 110 176 }
-				color2={ 255 255 20 }
-				
-				turkish = "Bursa"
-				
-				b_prusa = {
-					turkish = "Hüdavendigar"
-				}
-				b_darieium = {
-					greek = "Dorieion"
-					turkish = "Sögüt"
-				}
-				b_apamea = {
-					greek = "Trigleia"
-					turkish = "Tirilye"
-				}
-				b_docimium = {
-					greek = "Dokimeion"
-					turkish = "Iscehisar"
-				}
-				b_adrastea = {
-				}
-				b_thyatira = {
-				}
-				b_pelopia = {
-				}
-				b_miletopolis = {
-				}
-			}
-			c_kyzikos = {
-				color={ 214 113 179 }
-				color2={ 255 255 20 }
-				
-				turkish = "Erdek"
-				
-				b_kyzikos = {
-					turkish = "Aydincik"
-				}
-				b_artake = {
-					turkish = "Erdek"
-				}
-				b_militopolis = {
-				}
-				b_kremasti = {
-				}
-				b_adrianutherai = {
-				}
-				b_myrina = {
-				}
-				b_percote = {
-				}
-				b_arisbe = {
-				}
-			}
-		}
-		d_samos = {
-			color={ 115 55 100 }
-			color2={ 255 255 20 }
-			
-			capital = 486 # Samos
-			
-			c_ephesos = {
-				color={ 237 42 171 }
-				color2={ 255 255 20 }
-				holy_site = orthodox
-				
-				turkish = "Ayasoluk"
-				
-				b_ephesos = {
-					turkish = "Ayasoluk"
-				}
-				b_lebedos = {
-				}
-				b_miletos = {
-				}
-				b_magnesia = {
-				}
-				b_tralles = {
-				}
-				b_iassos = {
-				}
-				b_palation = {
-				}
-				b_petron = {
-				}
-			}
-			c_smyrna = {
-				color={ 240 45 174 }
-				color2={ 255 255 20 }
-				
-				turkish = "Izmir"
-				
-				b_smyrna = {
-					turkish = "Izmir"
-				}
-				b_pergamon = {
-				}
-				b_phokaia = {
-				}
-				b_adramyttion = {
-				}
-				b_chio = {
-				}
-				b_klazomeanai = {
-				}
-				b_kydonia = {
-				}
-				b_erythrai = {
-				}
-			}
-			c_chios = {
-				color={ 243 48 177 }
-				color2={ 255 255 20 }
-				
-				turkish = "Sisam"
-				
-				b_samos = {
-					turkish = "Sisam"
-				}
-				b_chios = {
-					turkish = "Sakiz"
-				}
-				b_tigani = {
-				}
-				b_marathokampos = {
-				}
-				b_ikaria = {
-				}
-				b_fourni = {
-				}
-				b_chrysostomos = {
-				}
-				b_pagondas = {
-				}
-			}
-		}
-		d_aegean_islands = {
-			color={ 104 8 103 }
-			color2={ 255 255 20 }
-			
-			capital = 484 # Naxos
-			
-			c_abydos = {
-				color={ 147 55 115 }
-				color2={ 255 255 20 }
-				
-				turkish = "Balakhisar"
-
-				holy_site = hellenic_pagan
-				
-				b_abydos = {
-					turkish = "Balakhisar"
-				}
-				b_lampsakos = {
-				}
-				b_alexandriatroas = {
-				}
-				b_pigai = {
-				}
-				b_aegae = {
-				}
-				b_allianoi = {
-				}
-				b_cebrene = {
-				}
-				b_elaia = {
-				}
-			}
-			c_naxos = {
-				color={ 149 57 117 }
-				color2={ 255 255 20 }
-				
-				turkish = "Kiklad"
-				italian = "Egeopelagi"
-				
-				b_naxos = {
-					turkish = "Naksa"
-					italian = "Nasso"
-				}
-				b_hermoupolis = {
-					turkish = "Sire"
-					italian = "Syra"
-				}
-				b_santorini = {
-					greek = "Thera"
-					turkish = "Santoron"
-				}
-				b_andros = {
-				}
-				b_tinos = {
-				}
-				b_mykonos = {
-				}
-				b_kastraki = {
-				}
-				b_filoti = {
-				}
-			}
-			c_euboia = {
-				color={ 151 59 119 }
-				color2={ 255 255 20 }
-				
-				italian = "Negroponte"
-				turkish = "Egriboz"
-				
-				b_chalkis = {
-					italian = "Negroponte"
-					turkish = "Egriboz"
-				}
-				b_kymi = {
-				}
-				b_karystos = {
-				}
-				b_oreoi = {
-				}
-				b_artemisio = {
-				}
-				b_istiaia = {
-				}
-				b_lilantia = {
-				}
-				b_messapia = {
-				}
-			}
-			c_lesbos = {
-				color={ 153 61 121 }
-				color2={ 255 255 20 }
-				
-				turkish = "Midilli"
-				
-				b_mytilene = {
-					turkish = "Midilli"
-				}
-				b_mithymna = {
-				}
-				b_plomari = {
-				}
-				b_agiasos = {
-				}
-				b_eresos = {
-				}
-				b_kalloni = {
-				}
-				b_thasos = {
-				}
-				b_moudros = {
-				}
-			}
-		}
 		d_thrace = {
 			color={ 172 76 139 }
 			color2={ 255 255 20 }
@@ -456,11 +113,19 @@ e_byzantium = {
 
 				norse = Miklagar�r # A joke?
 				turkish = Kostantiniyye # This should never happen :-)
+				bulgarian = Tsargrad
+				serbian = Tsargrad
+				croatian = Tsargrad
+				russian = Tsargrad
 				
 				b_constantinople = {
 					# Why it is not working? Strange...
 					norse = Miklagardr # A joke?
 					turkish = Kostantiniyye # This should never happen :-)
+					bulgarian = Tsargrad
+					serbian = Tsargrad
+					croatian = Tsargrad
+					russian = Tsargrad
 				}
 				b_hagiasophia = {
 					# Not Bishorpric of Basilica of...
@@ -567,83 +232,170 @@ e_byzantium = {
 				}
 			}
 		}
-		d_thessalonika = {
-			color={ 189 19 130 }
+	}
+	
+	k_cyprus = {
+		color = { 85 138 236 }
+		capital = 757 # Famagusta
+		allow = {
+			OR = {
+				religion = catholic
+				is_heresy_of = catholic
+			}
+		}
+
+		d_cyprus = {
+			color={ 239 109 163 }
 			color2={ 255 255 20 }
 			
-			capital = 490 # Thessalonike
+			capital = 757 # Famagusta
 			
-			c_chalkidike = {
-				color={ 192 22 133 }
+			c_famagusta = {
+				color={ 228 19 156 }
 				color2={ 255 255 20 }
-
-				holy_site = orthodox
 				
-				b_serres = {
+				turkish = "Magusa"
+				
+				b_famagusta = {
+					turkish = "Magusa"
 				}
-				b_mntathos = {
+				b_cithium = {
 				}
-				b_philippi = {
+				b_nikosia = {
 				}
-				b_chrysiopolis = {
+				b_sthilarion = {
 				}
-				b_siderokastron = {
+				b_kyrenia = {
 				}
-				b_zicna = {
+				b_buffavento = {
 				}
-				b_melnik = {
+				b_kantara = {
 				}
-				b_drama = {
+				b_peristerona = {
 				}
 			}
-			c_thessalonike = {
-				color={ 195 25 136 }
+			c_limisol = {
+				color={ 231 22 159 }
 				color2={ 255 255 20 }
 				
-				turkish = "Salonika"
-
-				holy_site = hellenic_pagan
+				turkish = "Leymosun"
 				
-				b_thessaloniki = {
-					turkish = "Salonika"
+				b_limmassol = {
+					turkish = "Leymosun"
 				}
-				b_thesedessa = {
+				b_paphos = {
 				}
-				b_voden = {
+				b_arsinoe = {
 				}
-				b_hlerin = {
+				b_kolossi = {
 				}
-				b_cemren = {
+				b_morphou = {
 				}
-				b_veria = {
+				b_agridi = {
 				}
-				b_elasson = {
+				b_dieudamour = {
 				}
-				b_servia = {
+				b_khirokitia = {
 				}
 			}
-			c_thessalia = {
-				color={ 198 28 139 }
+		}
+	}
+
+
+	# Trebizond was an Empire a petty Empire probably but... 
+	#k_trebizond = {
+	#	color={ 100 151 33 }
+	#	capital = 678 # Trapezous
+	#	culture = greek
+        #	
+	#	allow = {
+	#		always = no
+	#	}
+	#}
+
+	k_epirus = {
+		color={ 134 63 109 }
+		color2={ 255 255 20 }
+		
+		capital = 473 # Arta
+
+		d_epirus = {
+			color={ 134 63 109 }
+			color2={ 255 255 20 }
+			
+			capital = 473 # Arta
+
+			c_epeiros = {
+				color={ 138 67 113 }
 				color2={ 255 255 20 }
 				
-				turkish = "Tesalya"
+				b_butrint = {
+					greek = "Bouthroton"
+				}
+				b_paramythia = {
+				}
+				b_ioannina = {
+				}
+				b_sopot = {
+					greek = "Koritsa"
+				}
+				b_pogonia = {
+				}
+				b_gjirokaster = {
+					greek = Argyrokastron
+				}
+				b_igoumenitsa = {
+				}
+				b_sagiada = {
+				}
+			}
+			c_arta = {
+				color={ 142 71 117 }
+				color2={ 255 255 20 }
 				
-				b_larissa = {
-					turkish = "Yenisehir i-Fenari"
+				b_preveza = {
 				}
-				b_volos = {
+				b_angelokastron = {
 				}
-				b_neopetra = {
+				b_arta = {
 				}
-				b_damasis = {
+				b_agnanta = {
 				}
-				b_kastri = {
+				b_thomokastron = {
 				}
-				b_pharsalos = {
+				b_vonitsza = {
 				}
-				b_trikkala = {
+				b_vlacherna = {
 				}
-				b_stagi = {
+				b_rogoi = {
+				}
+			}
+			c_cephalonia = {
+				color={ 146 75 121 }
+				color2={ 255 255 20 }
+				
+				turkish = "Iyonya"
+				
+				b_corfu = {
+				}
+				b_lefkas = {
+					turkish = "Ayamavra"
+				}
+				b_palaiofrourio = {
+				}
+				b_kefalonia = {
+				}
+				b_zante = {
+				}
+				b_paxos = {
+					italian = "Passo"
+					turkish = "Paksa"
+				}
+				b_ithaca = {
+					turkish = "Fiaki"
+				}
+				b_cerigo = {
+					turkish = "Çuha"
 				}
 			}
 		}
@@ -725,83 +477,196 @@ e_byzantium = {
 				}
 			}
 		}
-		d_epirus = {
-			color={ 134 63 109 }
+	}
+
+	# Kingdom of Hellas (proper Greece)
+	k_byzantium = {
+		color={ 69 40 143 }
+		color2={ 255 255 23 }
+		
+		#capital = 496 # Byzantion
+		capital = 490 # Thessalonike
+		
+		culture = greek
+		
+		# Creation/Usurp Trigger
+		allow = {
+			hidden_tooltip = {
+				OR = {
+					ai = no
+					culture = greek
+				}
+			}
+		}
+		
+		orthodox = 5000 # Crusade target weight
+		catholic = 2000 # Crusade target weight
+		zoroastrian_group = 100 # Crusade target weight
+		
+		d_aegean_islands = {
+			color={ 104 8 103 }
 			color2={ 255 255 20 }
 			
-			capital = 473 # Arta
+			capital = 484 # Naxos
 			
-			c_epeiros = {
-				color={ 138 67 113 }
+			c_naxos = {
+				color={ 149 57 117 }
 				color2={ 255 255 20 }
 				
-				b_butrint = {
-					greek = "Bouthroton"
+				turkish = "Kiklad"
+				italian = "Egeopelagi"
+				
+				b_naxos = {
+					turkish = "Naksa"
+					italian = "Nasso"
 				}
-				b_paramythia = {
+				b_hermoupolis = {
+					turkish = "Sire"
+					italian = "Syra"
 				}
-				b_ioannina = {
+				b_santorini = {
+					greek = "Thera"
+					turkish = "Santoron"
 				}
-				b_sopot = {
-					greek = "Koritsa"
+				b_andros = {
 				}
-				b_pogonia = {
+				b_tinos = {
 				}
-				b_gjirokaster = {
-					greek = Argyrokastron
+				b_mykonos = {
 				}
-				b_igoumenitsa = {
+				b_kastraki = {
 				}
-				b_sagiada = {
+				b_filoti = {
 				}
 			}
-			c_arta = {
-				color={ 142 71 117 }
+			c_euboia = {
+				color={ 151 59 119 }
 				color2={ 255 255 20 }
 				
-				b_preveza = {
+				italian = "Negroponte"
+				turkish = "Egriboz"
+				
+				b_chalkis = {
+					italian = "Negroponte"
+					turkish = "Egriboz"
 				}
-				b_angelokastron = {
+				b_kymi = {
 				}
-				b_arta = {
+				b_karystos = {
 				}
-				b_agnanta = {
+				b_oreoi = {
 				}
-				b_thomokastron = {
+				b_artemisio = {
 				}
-				b_vonitsza = {
+				b_istiaia = {
 				}
-				b_vlacherna = {
+				b_lilantia = {
 				}
-				b_rogoi = {
+				b_messapia = {
 				}
 			}
-			c_cephalonia = {
-				color={ 146 75 121 }
+			c_lesbos = {
+				color={ 153 61 121 }
 				color2={ 255 255 20 }
 				
-				turkish = "Iyonya"
+				turkish = "Midilli"
 				
-				b_corfu = {
+				b_mytilene = {
+					turkish = "Midilli"
 				}
-				b_lefkas = {
-					turkish = "Ayamavra"
+				b_mithymna = {
 				}
-				b_palaiofrourio = {
+				b_plomari = {
 				}
-				b_kefalonia = {
+				b_agiasos = {
 				}
-				b_zante = {
+				b_eresos = {
 				}
-				b_paxos = {
-					italian = "Passo"
-					turkish = "Paksa"
+				b_kalloni = {
 				}
-				b_ithaca = {
-					turkish = "Fiaki"
+				b_thasos = {
 				}
-				b_cerigo = {
-					turkish = "Çuha"
+				b_moudros = {
+				}
+			}
+		}
+		d_thessalonika = {
+			color={ 189 19 130 }
+			color2={ 255 255 20 }
+			
+			capital = 490 # Thessalonike
+			
+			c_chalkidike = {
+				color={ 192 22 133 }
+				color2={ 255 255 20 }
+
+				holy_site = orthodox
+				
+				b_serres = {
+				}
+				b_mntathos = {
+				}
+				b_philippi = {
+				}
+				b_chrysiopolis = {
+				}
+				b_siderokastron = {
+				}
+				b_zicna = {
+				}
+				b_melnik = {
+				}
+				b_drama = {
+				}
+			}
+			c_thessalonike = {
+				color={ 195 25 136 }
+				color2={ 255 255 20 }
+				
+				turkish = "Salonika"
+
+				holy_site = hellenic_pagan
+				
+				b_thessaloniki = {
+					turkish = "Salonika"
+				}
+				b_thesedessa = {
+				}
+				b_voden = {
+				}
+				b_hlerin = {
+				}
+				b_cemren = {
+				}
+				b_veria = {
+				}
+				b_elasson = {
+				}
+				b_servia = {
+				}
+			}
+			c_thessalia = {
+				color={ 198 28 139 }
+				color2={ 255 255 20 }
+				
+				turkish = "Tesalya"
+				
+				b_larissa = {
+					turkish = "Yenisehir i-Fenari"
+				}
+				b_volos = {
+				}
+				b_neopetra = {
+				}
+				b_damasis = {
+				}
+				b_kastri = {
+				}
+				b_pharsalos = {
+				}
+				b_trikkala = {
+				}
+				b_stagi = {
 				}
 			}
 		}
@@ -1040,62 +905,239 @@ e_byzantium = {
 				}
 			}
 		}
-		d_cyprus = {
-			color={ 239 109 163 }
+	}
+
+	k_nikaea = {
+		color={ 237 194 54 }
+		color2={ 1 1 1 }
+
+		capital = 750 # Nikaea
+
+		orthodox = 5000 # Crusade target weight
+		catholic = 2000 # Crusade target weight
+		zoroastrian_group = 100 # Crusade target weight
+
+		d_nikaea = {
+			color={ 202 101 167 }
 			color2={ 255 255 20 }
 			
-			capital = 757 # Famagusta
+			capital = 750 # Nikaea
 			
-			c_famagusta = {
-				color={ 228 19 156 }
+			c_nikaea = {
+				color={ 205 104 170 }
 				color2={ 255 255 20 }
 				
-				turkish = "Magusa"
+				turkish = "Iznik"
 				
-				b_famagusta = {
-					turkish = "Magusa"
+				b_nikaea = {
+					turkish = "Iznik"
 				}
-				b_cithium = {
+				b_kios = {
 				}
-				b_nikosia = {
+				b_optimatum = {
 				}
-				b_sthilarion = {
+				b_petobriga = {
 				}
-				b_kyrenia = {
+				b_kotyaion = {
 				}
-				b_buffavento = {
+				b_palaeokastron = {
 				}
-				b_kantara = {
+				b_yalova = {
 				}
-				b_peristerona = {
+				b_modrene = {
 				}
 			}
-			c_limisol = {
-				color={ 231 22 159 }
+			c_nikomedeia = {
+				color={ 208 107 173 }
 				color2={ 255 255 20 }
 				
-				turkish = "Leymosun"
+				turkish = "Izmit"
 				
-				b_limmassol = {
-					turkish = "Leymosun"
+				b_nikomedeia = {
+					turkish = "Izmit"
 				}
-				b_paphos = {
+				b_chalkedon = {
 				}
-				b_arsinoe = {
+				b_chrysopolis = {
+				} 
+				b_praenetos = {
 				}
-				b_kolossi = {
+				b_calpe = {
 				}
-				b_morphou = {
+				b_palodes = {
 				}
-				b_agridi = {
+				b_adapazari = {
 				}
-				b_dieudamour = {
+				b_malagina = {
 				}
-				b_khirokitia = {
+			}
+			c_prusa = {
+				color={ 211 110 176 }
+				color2={ 255 255 20 }
+				
+				turkish = "Bursa"
+				
+				b_prusa = {
+					turkish = "Hüdavendigar"
+				}
+				b_darieium = {
+					greek = "Dorieion"
+					turkish = "Sögüt"
+				}
+				b_apamea = {
+					greek = "Trigleia"
+					turkish = "Tirilye"
+				}
+				b_docimium = {
+					greek = "Dokimeion"
+					turkish = "Iscehisar"
+				}
+				b_adrastea = {
+				}
+				b_thyatira = {
+				}
+				b_pelopia = {
+				}
+				b_miletopolis = {
+				}
+			}
+			c_kyzikos = {
+				color={ 214 113 179 }
+				color2={ 255 255 20 }
+				
+				turkish = "Erdek"
+				
+				b_kyzikos = {
+					turkish = "Aydincik"
+				}
+				b_artake = {
+					turkish = "Erdek"
+				}
+				b_militopolis = {
+				}
+				b_kremasti = {
+				}
+				b_adrianutherai = {
+				}
+				b_myrina = {
+				}
+				b_percote = {
+				}
+				b_arisbe = {
+				}
+			}
+		
+			# Moved into d_nikaea because inside Aegaen Island made no sense!
+			c_abydos = {
+				color={ 147 55 115 }
+				color2={ 255 255 20 }
+				
+				turkish = "Balakhisar"
+
+				holy_site = hellenic_pagan
+
+				b_abydos = {
+					turkish = "Balakhisar"
+				}
+				b_lampsakos = {
+				}
+				b_alexandriatroas = {
+				}
+				b_pigai = {
+				}
+				b_aegae = {
+				}
+				b_allianoi = {
+				}
+				b_cebrene = {
+				}
+				b_elaia = {
 				}
 			}
 		}
-		
+
+		d_samos = {
+			color={ 115 55 100 }
+			color2={ 255 255 20 }
+			
+			capital = 486 # Samos
+			
+			c_ephesos = {
+				color={ 237 42 171 }
+				color2={ 255 255 20 }
+				holy_site = orthodox
+				
+				turkish = "Ayasoluk"
+				
+				b_ephesos = {
+					turkish = "Ayasoluk"
+				}
+				b_lebedos = {
+				}
+				b_miletos = {
+				}
+				b_magnesia = {
+				}
+				b_tralles = {
+				}
+				b_iassos = {
+				}
+				b_palation = {
+				}
+				b_petron = {
+				}
+			}
+			c_smyrna = {
+				color={ 240 45 174 }
+				color2={ 255 255 20 }
+				
+				turkish = "Izmir"
+				
+				b_smyrna = {
+					turkish = "Izmir"
+				}
+				b_pergamon = {
+				}
+				b_phokaia = {
+				}
+				b_adramyttion = {
+				}
+				b_chio = {
+				}
+				b_klazomeanai = {
+				}
+				b_kydonia = {
+				}
+				b_erythrai = {
+				}
+			}
+			c_chios = {
+				color={ 243 48 177 }
+				color2={ 255 255 20 }
+				
+				turkish = "Sisam"
+				
+				b_samos = {
+					turkish = "Sisam"
+				}
+				b_chios = {
+					turkish = "Sakiz"
+				}
+				b_tigani = {
+				}
+				b_marathokampos = {
+				}
+				b_ikaria = {
+				}
+				b_fourni = {
+				}
+				b_chrysostomos = {
+				}
+				b_pagondas = {
+				}
+			}
+		}
+
 		d_cibyrrhaeot = { 
 			color={ 108 29 80 }
 			color2={ 255 255 20 }
@@ -1174,6 +1216,63 @@ e_byzantium = {
 				}
 			}
 		}
+
+		d_thracesia = {
+			color={ 154 43 116 }
+			color2={ 255 255 20 }
+			
+			capital = 748 # Laodikeia
+			
+			c_sozopolis = {
+				color={ 158 47 120 }
+				color2={ 255 255 20 }
+				
+				turkish = "Isparta"
+				
+				b_souzopolis = {
+					turkish = "Afyonkarahisar"
+				}
+				b_synnada = {
+				}
+				b_aezani = {
+				}
+				b_cadi = {
+				}
+				b_polidorion = {
+				}
+				b_kelainai = {
+				}
+				b_dinar = {
+				}
+				b_isparta = {
+					greek = "Baris"
+				}
+			}
+			c_laodikeia = {
+				color={ 162 51 124 }
+				color2={ 255 255 20 }
+				
+				turkish = "Alasehir"
+				
+				b_laodikeia = {
+				}
+				b_philadelphia = {
+					turkish = "Alasehir"
+				}
+				b_rhoas = {
+				}
+				b_sardes = {
+				}
+				b_hieropolis = {
+				}
+				b_kona = {
+				}
+				b_gordes = {
+				}
+				b_flaviupolis = {
+				}
+			}
+		}
 	}
 	
 	k_anatolia = {
@@ -1242,63 +1341,6 @@ e_byzantium = {
 				b_amblada = {
 				}
 				b_sauatra = {
-				}
-			}
-		}
-		
-		d_thracesia = {
-			color={ 154 43 116 }
-			color2={ 255 255 20 }
-			
-			capital = 748 # Laodikeia
-			
-			c_sozopolis = {
-				color={ 158 47 120 }
-				color2={ 255 255 20 }
-				
-				turkish = "Isparta"
-				
-				b_souzopolis = {
-					turkish = "Afyonkarahisar"
-				}
-				b_synnada = {
-				}
-				b_aezani = {
-				}
-				b_cadi = {
-				}
-				b_polidorion = {
-				}
-				b_kelainai = {
-				}
-				b_dinar = {
-				}
-				b_isparta = {
-					greek = "Baris"
-				}
-			}
-			c_laodikeia = {
-				color={ 162 51 124 }
-				color2={ 255 255 20 }
-				
-				turkish = "Alasehir"
-				
-				b_laodikeia = {
-				}
-				b_philadelphia = {
-					turkish = "Alasehir"
-				}
-				b_rhoas = {
-				}
-				b_sardes = {
-				}
-				b_hieropolis = {
-				}
-				b_kona = {
-				}
-				b_gordes = {
-				}
-				b_flaviupolis = {
 				}
 			}
 		}
@@ -2234,6 +2276,7 @@ e_byzantium = {
 				color2={ 255 255 255 }
 				
 				greek = "Krounoi"
+				bulgarian = "Prezlav"
 				
 				b_karvuna = {
 					greek = "Krounoi"
@@ -2814,7 +2857,20 @@ e_byzantium = {
 			}
 		}
 	}
+
+	# Technically the same title of k_sicily
+	k_trinacria = {
+		color={ 249 232 247 }
+	#	capital = 340 #	Palermo
 	
+		allow = {
+			OR = {
+				religion = catholic
+				is_heresy_of = catholic
+			}
+		}
+	}
+
 	k_georgia = {
 		color={ 205 145 145 }
 		color2={ 255 255 255 }
@@ -3076,6 +3132,7 @@ e_byzantium = {
 			}
 		}
 	}
+
 }
 
 # "Western" Version of the Byzantine Empire
@@ -3092,6 +3149,16 @@ e_latin_empire = {
 	allow = {
 		always = no # Only created through special event
 	}
+
+	k_thessalonica = {
+		color = { 0 115 255 }
+		capital = 490 # Thessalonike
+		culture = greek
+
+		allow = {
+			always = no # Only created through special event
+		}
+	}
 }
 
 # Byzantine Empire remant after the IV "Crusade"
@@ -3103,12 +3170,32 @@ e_nikaea = {
 
 	short_name = yes
 
+	title = BASILEUS
+	title_female = BASILEAS
+	
+	culture = greek
+	religion = orthodox
+
 	allow = {
 		always = no # Only created through special event
 	}
 }
 
-# TODO e_trebizond
+# Byzantine Empire remant after the IV "Crusade"
+e_trebizond = {
+		color={ 100 151 33 }
+		capital = 678 # Trapezous
+
+		culture = greek
+		religion = orthodox
+	
+		title = BASILEUS
+		title_female = BASILEAS
+
+		allow = {
+			always = no
+		}
+}
 
 # Possible usurper of "The Byzantine Empire" if weak
 e_bulgaria = {
@@ -3133,7 +3220,10 @@ e_russia = {
 	color2={ 255 255 255 }
 	
 	capital = 547 # Kiev
-	title = "Imprus"
+	title = TSAR
+	title_female = TSARINA
+	title_prefix = TSARDOM
+
 	culture = russian
 
 	allow = {
@@ -5384,18 +5474,6 @@ k_antioch = {
 
 	allow = {
 		always = no # Only created through special event
-	}
-}
-
-# Crusader State of Principality of Antioch
-k_cyprus = {
-	color = { 85 138 236 }
-	capital = 757 # Famagusta
-	allow = {
-		OR = {
-			religion = catholic
-			is_heresy_of = catholic
-		}
 	}
 }
 

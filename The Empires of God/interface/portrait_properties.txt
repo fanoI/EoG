@@ -979,6 +979,10 @@
 			NOT = { has_landed_title = e_nikaea }
 			NOT = { has_landed_title = e_ere }
 			NOT = { has_landed_title = e_roman_empire }
+			NOT = { has_landed_title = e_bulgaria }
+			NOT = { has_landed_title = e_serbia }
+			NOT = { has_landed_title = e_russia }
+			NOT = { has_landed_title = e_trebizond }
 			#NOT = { trait = successor_state_of_wre }
 		}
 		modifier = {

@@ -1,8 +1,13 @@
 # End of the Eastern Roman Empire, Emperor Heraclius accepts defeat:
 # Greek become the official language of the Empire. 
 # The Byzantine Empire is born.
+
 610.10.5={
         holder=145071
+	law = crown_authority_2
+	law = succ_primogeniture
+	law = centralization_3
+	law = imperial_administration
 }
 641.2.11={
 	holder=70509
@@ -187,24 +192,30 @@
 1203.7.18={
 	holder=215507
 }
-1204.1.28={
-	holder=125710
-}
+# IV Crusade the Byzantine Empire is destroyed and the Emperor escapes in
+# Nikaea - The Empire of Nikaea is born!
 1204.5.16={
-	holder=215674
-    law = centralization_1
+	holder=0
 }
-1222.8.2={
-	holder=125741
-}
-1254.11.3={
-	holder=125742
-}
-1258.8.18={
-	holder=125743
-}
+#1204.1.28={
+#	holder=125710
+#}
+#1204.5.16={
+#	holder=215674
+#    	law = centralization_1
+#}
+#1222.8.2={
+#	holder=125741
+#}
+#1254.11.3={
+#	holder=125742
+#}
+#1258.8.18={
+#	holder=125743
+#}
+# The Byzantine Empire is restored
 1261.7.25={
-	holder=465527
+	holder=465527 # Michael VIII Palaiologos
 }
 1282.12.11={
 	holder=465521

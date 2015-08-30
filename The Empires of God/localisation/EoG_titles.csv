@@ -10,10 +10,16 @@ k_pref_hispania;Hispania;Hispania;Hispania;Hispania;;;;;;;;;x
 k_pref_britannia;Britannia;Britannia;Britannia;Britannia;;;;;;;;;x
 k_pref_germania;Germania;Germania;Germania;Germania;;;;;;;;;x
 k_pref_africa;Africa;Africa;Africa;Africa;;;;;;;;;x
+k_epirus;Epirus;Epirus;Epirus;Epirus;;;;;;;;;x
+k_thrace;Thrace;Thrace;Thrace;Thrace;;;;;;;;;x
+k_byzantium;Hellas;Hellas;Hellas;Hellas;;;;;;;;;x
+k_nikaea;Nikaea;Nicaea;Nicaea;Nicaea;;;;;;;;;;x
 e_ere;Eastern Roman Empire;;Eastern Roman Empire;Eastern Roman Empire;Eastern Roman Empire;;;;;;;;;x
 e_bulgaria;Bulgaria and Romània;Bulgaria and Romània;Bulgaria and Romània;Bulgaria and Romània;;;;;;;;;x
 e_serbia;Serbia and Romània;Serbia and Romània;Serbia and Romània;Serbia and Romània;;;;;;;;;x
-e_nikaea;Nicaen Empire;;Nicaen Empire;;Nicaen Empire;;Nicaen Empire;;;;;;;;;x
+e_nikaea;Nicaen Empire;Nicaen Empire;Nicaen Empire;Nicaen Empire;;;;;;;;;x
+e_trebizond;Trebizond;Trebizond;Trebizond;Trebizond;;;;;;;;;x
+k_thessalonica;Thessalonica;Thessalonica;Thessalonica;Thessalonica;;;;;;;;;;x
 e_illiria;Illiria;Illiria;Illiria;Illiria;;;;;;;;;x
 e_asia;Asia;Asia;Asia;Asia;;;;;;;;;x
 e_aegyptus;Aegyptus;Aegyptus;Aegyptus;Aegyptus;;;;;;;;;x

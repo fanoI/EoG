@@ -1,3 +1,4 @@
+# First Bulgarian Empire
 893.1.1={
 	holder=712 #Simeon
 }
@@ -7,3 +8,16 @@
 969.1.30={
 	holder=0
 }
+# Second Bulgarian Empire
+1196.1.1={
+	holder=217502 #Kaloyan
+}
+1207.10.1={
+	holder=217505 #Boril
+}
+1218.1.2={
+	holder=31160 #Ivan II
+}
+# In reality it continued to be called "Empire" after this date but was a
+# decadent state at that point so I have decided that it did not deserve
+# the Imperial title anymore. A choiche totally arbitrary...
