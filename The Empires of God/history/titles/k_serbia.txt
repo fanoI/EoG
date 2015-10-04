@@ -1,5 +1,5 @@
-867.1.1 = {
-	# In 867 the Empire / (High) Kingdom of Illiria is titular
+769.1.1 = {
+	# In 769 the Empire / (High) Kingdom of Illiria is titular
 	de_jure_liege = e_byzantium
 }
 1066.1.1={

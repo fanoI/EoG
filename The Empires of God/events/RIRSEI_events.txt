@@ -1427,71 +1427,71 @@ letter_event = {
 }
 
 # Creation empire byzantin par les tsars
-narrative_event = {
-	id = RIRSEI.29
-	title = EVTNAME_RIRSEI_29
-	desc = EVTDESC_RIRSEI_29
-	
-	picture = GFX_evt_prisbyz
-	
-	is_triggered_only = yes
-	
-	option = {
-		name = EVTOPTA_RIRSEI_29
-                prestige = 5000
-                piety = 500
-		if = {
-			limit = { has_landed_title = e_bulgaria }
-			hidden_tooltip = {
-				primary_title = {
-					any_direct_de_jure_vassal_title = {
-						de_jure_liege = e_byzantium
-					}
-				}
-			}
-		
-			e_byzantium = {
-				grant_title = ROOT
-				copy_title_laws = e_bulgaria
-                        	copy_title_history = e_bulgaria
-			}
-			e_bulgaria = {
-				destroy_landed_title = THIS
-			}
-		}
-		if = {
-			limit = { has_landed_title = e_russia }
-			hidden_tooltip = {
-				primary_title = {
-					any_direct_de_jure_vassal_title = {
-						de_jure_liege = e_byzantium
-					}
-				}
-			}
-		
-			e_byzantium = {
-				grant_title = ROOT
-				copy_title_laws = e_russia
-                        	copy_title_history = e_russia
-			}
-			e_russia = {
-				destroy_landed_title = THIS
-			}
-		}
-		if = {
-			limit = { has_landed_title = e_serbia }
-		
-			e_byzantium = {
-				grant_title = ROOT
-				copy_title_laws = e_serbia
-                        	copy_title_history = e_serbia
-			}
-			e_serbia = {
-				destroy_landed_title = THIS
-			}
-		}
-	}
-}
+#narrative_event = {
+#	id = RIRSEI.29
+#	title = EVTNAME_RIRSEI_29
+#	desc = EVTDESC_RIRSEI_29
+#	
+#	picture = GFX_evt_prisbyz
+#	
+#	is_triggered_only = yes
+#	
+#	option = {
+#		name = EVTOPTA_RIRSEI_29
+#                prestige = 5000
+#                piety = 500
+#		if = {
+#			limit = { has_landed_title = e_bulgaria }
+#			hidden_tooltip = {
+#				primary_title = {
+#					any_direct_de_jure_vassal_title = {
+#						de_jure_liege = e_byzantium
+#					}
+#				}
+#			}
+#		
+#			e_byzantium = {
+#				grant_title = ROOT
+#				copy_title_laws = e_bulgaria
+#                        	copy_title_history = e_bulgaria
+#			}
+#			e_bulgaria = {
+#				destroy_landed_title = THIS
+#			}
+#		}
+#		if = {
+#			limit = { has_landed_title = e_russia }
+#			hidden_tooltip = {
+#				primary_title = {
+#					any_direct_de_jure_vassal_title = {
+#						de_jure_liege = e_byzantium
+#					}
+#				}
+#			}
+#		
+#			e_byzantium = {
+#				grant_title = ROOT
+#				copy_title_laws = e_russia
+#                        	copy_title_history = e_russia
+#			}
+#			e_russia = {
+#				destroy_landed_title = THIS
+#			}
+#		}
+#		if = {
+#			limit = { has_landed_title = e_serbia }
+#		
+#			e_byzantium = {
+#				grant_title = ROOT
+#				copy_title_laws = e_serbia
+#                        	copy_title_history = e_serbia
+#			}
+#			e_serbia = {
+#				destroy_landed_title = THIS
+#			}
+#		}
+#	}
+#}
 
 # Protecteur des reliques de st jacques
 character_event = {
@@ -2326,7 +2326,7 @@ character_event = {
 letter_event = {
         id = RIRSEI.48
 	title = EVTNAME_RIRSEI_48
-	desc = EVTDESC_RIRSEI_48
+	desc = EVTDESC_RIRSEI_48
 	
 	picture = GFX_evt_relaix
 	is_triggered_only = yes

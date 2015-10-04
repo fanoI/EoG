@@ -23,6 +23,10 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Legacy of Rome"
+		NOT = { has_global_flag = rome_restored }
+		e_wre = {
+			has_holder = no
+		}
 		NOT = { trait = successor_state_of_wre }
 		OR = {
 			AND = {
@@ -146,6 +150,10 @@ character_event = {
 	
 	trigger = {
 		has_dlc = "Legacy of Rome"
+		NOT = { has_global_flag = rome_restored }
+		e_wre = {
+			has_holder = no
+		}
 		NOT = { trait = pretender_successor_state_of_wre }
 		NOT = { trait = successor_state_of_wre }
 		OR = {
@@ -187,6 +195,9 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Legacy of Rome"
+		e_wre = {
+			has_holder = no
+		}
 		FROMFROM = { trait = pretender_successor_state_of_wre }
 		FROM = {
 			OR = {
@@ -3621,6 +3632,10 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Legacy of Rome"
+		e_ere = {
+			has_holder = no
+		}
+		NOT = { has_global_flag = rome_restored }
 		NOT = { trait = successor_state_of_ere }
 		# To avoid that during the conference of peace the loser gets the trait only because e_byzantium exists yet
 		NOT = { has_character_flag = lost_successor_state_of_ere_war }
@@ -3715,8 +3730,7 @@ character_event = {
 #	}
 #}
 
-# Pretender to be Successor State of ERE: Nicaea, Trebizond, Latin Empire, Bulgaria and Romània, Serbia and Romània, and, obviously,
-# Western Roman Empire
+# Pretender to be Successor State of ERE: Nicaea, Trebizond, Latin Empire, Bulgaria and Romània, Serbia and Romània, and, obviously, Western Roman Empire
 long_character_event = {
 	id = EoG.502
 	picture = GFX_evt_rome_restored_byzantine
@@ -3768,8 +3782,12 @@ long_character_event = {
 
 	trigger = {
 		has_dlc = "Legacy of Rome"
-		NOT = { trait = pretender_successor_state_of_wre }
-		NOT = { trait = successor_state_of_wre }
+		NOT = { has_global_flag = rome_restored }
+		e_ere = {
+			has_holder = no
+		}
+		NOT = { trait = pretender_successor_state_of_ere }
+		NOT = { trait = successor_state_of_ere }
 		OR = {
 			# These two are the "real" pretenders ruled from houses that ruled Byzantium and which bloodline
 			# - maybe  mithologically - be traced back to the times of the Roman Empire
@@ -3828,6 +3846,9 @@ character_event = {
 
 	trigger = {
 		has_dlc = "Legacy of Rome"
+		e_ere = {
+			has_holder = no
+		}
 		FROMFROM = { 
 				trait = pretender_successor_state_of_ere
 				# To avoid that during the conference of peace the loser loses the trait only because has not e_spqr
@@ -11219,7 +11240,6 @@ narrative_event = {
 			}
 		}
 
-
 		if = {
 			limit = {
 				has_landed_title = e_byzantium
@@ -11267,7 +11287,79 @@ narrative_event = {
 
 			activate_title = { title = e_latin_empire status = no }
 		}
-		
+
+		if = {
+			limit = {
+				has_landed_title = e_bulgaria
+			}
+
+			e_bulgaria = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
+			}
+
+			#e_ere = {
+			#	grant_title = ROOT
+			#	copy_title_laws = e_latin_empire
+			#	#copy_title_history = e_latin_empire
+			#}
+
+			e_bulgaria = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_bulgaria status = no }
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_serbia
+			}
+
+			e_serbia = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
+			}
+
+			#e_ere = {
+			#	grant_title = ROOT
+			#	copy_title_laws = e_latin_empire
+			#	#copy_title_history = e_latin_empire
+			#}
+
+			e_serbia = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_serbia status = no }
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_russia
+			}
+
+			e_russia = {
+				any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_ere
+				}
+			}
+
+			#e_ere = {
+			#	grant_title = ROOT
+			#	copy_title_laws = e_latin_empire
+			#	#copy_title_history = e_latin_empire
+			#}
+
+			e_russia = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_russia status = no }
+		}
+
 		# We have reformed the Empire, these titles are not needed anymore
 		e_illiria = {
 			destroy_landed_title = THIS
@@ -11286,5 +11378,518 @@ narrative_event = {
 
 		recalc_succession = yes
 		# TODO Send narrative event to other characters
+	}
+}
+
+narrative_event = {
+	id = EoG.800
+	title = EVTNAMEEoG.800
+	desc = EVTDESCEoG.800
+	
+	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.800"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		activate_title = { title = e_byzantium status = yes }
+		set_character_flag = byzantium_restorer
+		give_nickname = nick_the_glorious
+
+		primary_title = {
+			e_byzantium = {
+				grant_title = ROOT
+				copy_title_laws = PREV
+			}
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_nikaea
+			}
+
+			e_nikaea = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_nikaea status = no }
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_trebizond
+			}
+
+			e_trebizond = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_trebizond status = no }
+		}
+
+
+		# First we give to Byzantium its core territory: "Mega Hellas"
+		any_title = {
+			limit = {
+				tier = KING
+				region = world_megas_hellas
+				# Avoid the titular titles
+				is_titular = no
+			}
+			de_jure_liege = e_byzantium
+
+		}
+
+		# We give to Byzantium his de jure territory but we should  take in account that if some sub-Empires have de jure
+		# territories (Illiria or Asia but this can happen via de jure # drift for Bulgaria and Romania too) they should retain it
+		any_title = {
+			limit = {
+				tier = KING
+				region = world_byzantium
+                                # Do not give "Megas Hellas" to Byzantium again
+				NOT = {
+					de_jure_liege = e_byzantium
+				}
+				NOT = {
+					de_jure_liege = e_illiria
+				}
+				NOT = {
+					de_jure_liege = e_bulgaria
+				}
+				NOT = {
+					de_jure_liege = e_serbia
+				}
+				# TODO Make e_asia de jure after 1204 
+				NOT = {
+					de_jure_liege = e_asia
+				}
+				# Avoid the titular titles
+				is_titular = no
+
+ 			}
+			de_jure_liege = e_byzantium
+		}
+	}
+}
+
+# If the Echumenical Patriarch is not a vassal anymore recall him to
+# Costantinople kicking out who is in the Cathedral of Haga Sophia
+character_event = {
+	id = EoG.801
+	desc = EVTDESCEoG.801
+	
+	picture = GFX_evt_throne_room
+
+	mean_time_to_happen = {
+		days = 5 
+	}
+
+	trigger = {
+		OR = { 
+			has_character_flag = byzantium_restorer
+			has_character_flag = new_byzantium_restorer
+		}
+		NOT = {
+			any_realm_title = {
+				kingdom = {
+					title = k_orthodox
+				}
+			}
+		}
+		k_orthodox = {
+			holder_scope = {
+				independent = yes
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.801"
+		
+		# Send the event to the Echumenical Patriarch actually he cannot refuse to join it is more simple do the vassalization
+		# if he is in scope :-)
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = k_orthodox
+			}
+
+			character_event = { id = EoG.802 days = 3 } 
+		}
+	}
+}
+
+# The Echumenical Patriarch accepts vassalization and he is granted "Haga Sophia"
+character_event = {
+	id = EoG.802
+	desc = EVTDESCEoG.802
+	
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.802"
+		
+		set_defacto_liege = FROM
+	
+		# Restore him on Haga Sophia
+		b_hagiasophia = {
+			grant_title = ROOT
+		}
+		FROM = { character_event = { id = EoG.803 days = 3 } }
+	}
+}
+
+# The Emperor get the notification that new vassal is ready to serve
+character_event = {
+	id = EoG.803
+	desc = EVTDESCEoG.803
+
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.803"
+		
+		# Let all Chatolic characters know this known
+		narrative_event = { id = EoG.804 }
+	}
+}
+
+# All the world knows that the Echumenical Patriarchy is restored in Haga Sophia
+narrative_event = {
+	id = EoG.804
+	title = EVTNAMEEoG.804
+	desc = EVTDESCEoG.804
+
+	is_triggered_only = yes
+
+	picture = GFX_evt_rome_restored_byzantine
+
+	option = {
+		name = "EVTOPTOKEoG.804"
+	}
+}
+
+# The Varangian Guard has become indepent while Byzantium not existed anymore: ask them to become our vassal again
+character_event = {
+	id = EoG.805
+	desc = EVTDESCEoG.805
+	
+	picture = GFX_evt_throne_room
+
+	mean_time_to_happen = {
+		days = 10
+	}
+
+	trigger = {
+		OR = { 
+			has_character_flag = byzantium_restorer
+			has_character_flag = new_byzantium_restorer
+		}
+		NOT = {
+			any_realm_title = {
+				duchy = {
+					title = d_varangian_guard
+				}
+			}
+		}
+		d_varangian_guard = {
+			holder_scope = {
+				independent = yes
+			}
+		}
+	}
+
+	option = {
+		name = "EVTOPTOKEoG.805"
+		
+		# Send the event to the Echumenical Patriarch actually he cannot refuse to join it is more simple do the vassalization
+		# if he is in scope :-)
+		any_independent_ruler = {
+			limit = {
+				has_landed_title = d_varangian_guard
+			}
+
+			character_event = { id = EoG.806 days = 3 } 
+		}
+	}
+}
+
+# The Chief of the Varangian Guard accepts vassalization
+character_event = {
+	id = EoG.806
+	desc = EVTDESCEoG.806
+	
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.806"
+		
+		set_defacto_liege = FROM
+	
+		FROM = { character_event = { id = EoG.807 days = 3 } }
+	}
+}
+
+# The Emperor get the notification that new vassal is ready to serve
+character_event = {
+	id = EoG.807
+	desc = EVTDESCEoG.807
+
+	picture = GFX_evt_throne_room
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.807"
+	}
+}
+
+narrative_event = {
+	id = EoG.808
+	title = EVTNAMEEoG.808
+	desc = EVTDESCEoG.808
+
+	picture = GFX_evt_rome_restored_byzantine
+
+	is_triggered_only = yes
+
+	option = {
+		name = "EVTOPTOKEoG.808"
+
+		# Bug of new patch grant_title does not work on not active titles anymore!
+		set_character_flag = new_byzantium_restorer
+		give_nickname = nick_the_glorious
+
+		# If it is Emperor of these titles his claiming to be the Emperor of Byzantium makes them automatically invalid
+		if = {
+			limit = {
+				has_landed_title = e_nikaea
+			}
+
+			e_nikaea = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_nikaea status = no }
+		}
+
+		if = {
+			limit = {
+				has_landed_title = e_trebizond
+			}
+
+			e_trebizond = {
+				destroy_landed_title = THIS
+			}
+
+			activate_title = { title = e_trebizond status = no }
+		}
+
+		if = {
+			limit = {
+				primary_title = {
+					title = e_bulgaria
+				}
+			}
+
+			set_global_flag = bulgaria_is_byzantium	
+			# First we give to the new Byzantium its core territory: "Mega Hellas"
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_megas_hellas
+					# Avoid the titular titles
+					is_titular = no
+				}
+				de_jure_liege = e_bulgaria
+			}
+
+			# We give to the new Byzantium his de jure territory but we should take in account that if some sub-Empires have de jure
+			# territories (Illiria or Asia but this can happen via de jure drift for Bulgaria and Romania too) they should retain it
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_byzantium
+					# Do not give "Megas Hellas" to Byzantium again
+					NOT = {
+						de_jure_liege = THIS
+					}
+					NOT = {
+						de_jure_liege = e_illiria
+					}
+					NOT = {
+						de_jure_liege = e_bulgaria
+					}
+					NOT = {
+						de_jure_liege = e_serbia
+					}
+					# TODO Make e_asia de jure after 1204 
+					NOT = {
+						de_jure_liege = e_asia
+					}
+					# Avoid the titular titles
+					is_titular = no
+
+				}
+				de_jure_liege = e_bulgaria
+			}
+		}
+
+		if = {
+			limit = {
+				primary_title = {
+					title = e_serbia
+				}
+			}
+
+			set_global_flag = serbia_is_byzantium	
+			# First we give to the new Byzantium its core territory: "Mega Hellas"
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_megas_hellas
+					# Avoid the titular titles
+					is_titular = no
+				}
+				de_jure_liege = e_serbia
+			}
+
+			# We give to the new Byzantium his de jure territory but we should take in account that if some sub-Empires have de jure
+			# territories (Illiria or Asia but this can happen via de jure drift for Bulgaria and Romania too) they should retain it
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_byzantium
+					# Do not give "Megas Hellas" to Byzantium again
+					NOT = {
+						de_jure_liege = THIS
+					}
+					NOT = {
+						de_jure_liege = e_illiria
+					}
+					NOT = {
+						de_jure_liege = e_bulgaria
+					}
+					NOT = {
+						de_jure_liege = e_serbia
+					}
+					# TODO Make e_asia de jure after 1204 
+					NOT = {
+						de_jure_liege = e_asia
+					}
+					# Avoid the titular titles
+					is_titular = no
+
+				}
+				de_jure_liege = e_serbia
+			}
+		}
+
+		if = {
+			limit = {
+				primary_title = {
+					title = e_russia
+				}
+			}
+
+			set_global_flag = russia_is_byzantium	
+			# First we give to the new Byzantium its core territory: "Mega Hellas"
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_megas_hellas
+					# Avoid the titular titles
+					is_titular = no
+				}
+				de_jure_liege = e_russia
+			}
+
+			# We give to the new Byzantium his de jure territory but we should take in account that if some sub-Empires have de jure
+			# territories (Illiria or Asia but this can happen via de jure drift for Bulgaria and Romania too) they should retain it
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_byzantium
+					# Do not give "Megas Hellas" to Byzantium again
+					NOT = {
+						de_jure_liege = THIS
+					}
+					NOT = {
+						de_jure_liege = e_illiria
+					}
+					NOT = {
+						de_jure_liege = e_bulgaria
+					}
+					NOT = {
+						de_jure_liege = e_serbia
+					}
+					# TODO Make e_asia de jure after 1204 
+					NOT = {
+						de_jure_liege = e_asia
+					}
+					# Avoid the titular titles
+					is_titular = no
+
+				}
+				de_jure_liege = e_russia
+			}
+		}
+
+		if = {
+			limit = {
+				primary_title = {
+					title = e_latin_empire
+				}
+			}
+
+			set_global_flag = latin_empire_is_byzantium	
+			# First we give to the new Byzantium its core territory: "Mega Hellas"
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_megas_hellas
+					# Avoid the titular titles
+					is_titular = no
+				}
+				de_jure_liege = e_latin_empire
+			}
+
+			# We give to the new Byzantium his de jure territory but we should take in account that if some sub-Empires have de jure
+			# territories (Illiria or Asia but this can happen via de jure drift for Bulgaria and Romania too) they should retain it
+			any_title = {
+				limit = {
+					tier = KING
+					region = world_byzantium
+					# Do not give "Megas Hellas" to Byzantium again
+					NOT = {
+						de_jure_liege = THIS
+					}
+					NOT = {
+						de_jure_liege = e_illiria
+					}
+					NOT = {
+						de_jure_liege = e_bulgaria
+					}
+					NOT = {
+						de_jure_liege = e_serbia
+					}
+					# TODO Make e_asia de jure after 1204 
+					NOT = {
+						de_jure_liege = e_asia
+					}
+					# Avoid the titular titles
+					is_titular = no
+
+				}
+				de_jure_liege = e_latin_empire
+			}
+		}
 	}
 }

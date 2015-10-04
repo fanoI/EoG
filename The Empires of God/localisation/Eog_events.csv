@@ -364,3 +364,24 @@ EVTTOOLTIPEoG.700;The Eastern Roman Empire is restored.;;;;;;;;;x
 EVTNAMEEoG.700;The Dawn of a New Era;L'Aube d'une Ère nouvelle;Der Aufbruch in eine neue Ära.;;El amanecer de una Nueva Era;;;;;;;;;x
 EVTDESCEoG_byz.700;Exarch, Dux and Strategos of the Byzantine Empire, stimated members of the Senate of Constantinople, lend me your ears! After the miraculous recovery of territory lost centuries ago, the Eastern Roman Empire has been reborn! Europe has endured dark times since the imperial frontiers were stormed by barbarians and province after province burned at their touch, but now a bright new age has dawned for all of civilization.\n\nThe Roman State will no longer be referred to as the "Empire of the Greeks" by jealous pretenders in the West, but recognized as the true heir to the legacy of Rome. [Root.GetTitledFirstName] rules a restored Imperium Romanum Orientalis, but much work remains to be done. There is still territory to recover and ancient borders to reclaim. For the Senate and People of Rome!;;;;;;;;x
 EVTOPTAEoG.700;Esto perpetua!;Esto perpetua!;Esto perpetua!;;Esto perpetua!;;;;;;;;;x
+EVTNAMEEoG.800;The Restoration of Byzantium;;;;;;;;;x
+EVTDESCEoG.800;Exarch, Dux and Strategos of the [From.PrimaryTitle.GetName],stimated members of the Senate, lend me your ears! Finally we have recovered Costantinople and the sorrounding territories and so we solemnly proclaim that "The Byzantine Empire" is restored in his full glory! [Root.GetTitledFirstName] rules a restored Imperium Byzantium, but much work remains to be done. There is still territory to recover and ancient borders to reclaim. For the Senate and People of Rome!;;;;;;;;x
+EVTOPTOKEoG.800;Esto perpetua!;Esto perpetua!;Esto perpetua!;;Esto perpetua!;;;;;;;;;x
+EVTDESCEoG.801;After the dissolution of the Byzantine Empire the Echunemical Patriarch has become independent. As the new Emperor in Byzantium we can offer to him the possibility to become our vassal again and to be restored with all honours as Metropolitan of Haga Sophia;;;;;;;;;x
+EVTOPTOKEoG.801;I hope he will accepts;;;;;;;;;;x
+EVTDESCEoG.802;The new Emperor in Byzantium is asking to us to accept his request of vassalization, he is offering to us in exchange to be restored as Metropolitan of Haga Sophia;;;;;;;;x
+EVTOPTOKEoG.802;We must accept he is the legittimate Emperor!;;;;;;;;x
+EVTDESCEoG.803;To the glorious [This.GetTitledFirstName] as you are the legittamate Emperor in Byzantium we accept your offer and we are ready to serve you as your vassal.\nSigned [From.GetTitledFirstName] of [From.PrimaryTitle.GetName];;;;;;;;x
+EVTOPTOKEoG.803;Excellent!;;;;;;;;;x
+EVTNAMEEoG.804;The Echumenical Patriarchy joins the Emperor in Byzantium;;;;;;;;x
+EVTDESCEoG.804;[FromFrom.GetTitledFirstName] of [FromFrom.PrimaryTitle.GetName] has been restored as Metropolitan of Haga Sophia by [From.GetTitledFirstName] of [From.PrimaryTitle.GetName] and accepted his vassalization request.\nThe correct world order is restored.;;;;;;;;x
+EVTOPTOKEoG.804;OK;;;;;;;;x
+EVTDESCEoG.805;After the dissolution of the Byzantine Empire the Varangarian Guard has become independent. As the new Emperor in Byzantium we can offer to him the possibility to become our vassal again;;;;;;;;;x
+EVTOPTOKEoG.805;I hope he will accepts;;;;;;;;;;x
+EVTDESCEoG.806;The new Emperor in Byzantium is asking to us to accept his request of vassalization what shall I do?;;;;;;;;;x
+EVTOPTOKEoG.806;We must accept he is the legittimate Emperor!;;;;;;;;x
+EVTDESCEoG.807;To the glorious [This.GetTitledFirstName] as you are the legittamate Emperor in Byzantium we accept your offer and we are ready to serve you as your vassal.\nSigned [From.GetTitledFirstName] of [From.PrimaryTitle.GetName];;;;;;;;x
+EVTOPTOKEoG.807;Excellent!;;;;;;;;;x
+EVTNAMEEoG.808;A New Byzantine Empire;;;;;;;;;x
+EVTDESCEoG.808;Exarch, Dux and Strategos of the [From.PrimaryTitle.GetName],stimated members of the Senate, lend me your ears! Finally we have conquered Costantinople and the sorrounding territories and so we solemnly proclaim that we are the true Byzantine Emperor but at the same time we do not renounce to our culture and traditions so the State will continue to be called  [From.PrimaryTitle.GetName]! [Root.GetTitledFirstName] rules a restored Imperium Byzantinus Novus, but much work remains to be done. There is still territory to recover and ancient borders to reclaim. For the Senate and People of Rome!;;;;;;;;;x
+EVTOPTOKEoG.808;Esto perpetua!;Esto perpetua!;Esto perpetua!;;Esto perpetua!;;;;;;;;;x

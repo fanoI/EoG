@@ -723,48 +723,48 @@ character_event = {
 }
 
 # The rise of the evil: The Ottoman Empire!
-#narrative_event = {
-#	id = RIRSEBYZ.111141
-#	title = EVTNAME_RIRSEBYZ_111141
-#	desc = EVTDESC_RIRSEBYZ_111141
-#	
-#	picture = GFX_evt_Rumiturc
-#	
-#	is_triggered_only = yes
-#	
-#	option = {
-#		name = EVTOPTA_RIRSEBYZ_111141
-#                prestige = 2000
-#	e_byzantium = {
-#				any_direct_de_jure_vassal_title = {
-#					de_jure_liege = e_otto_roum
-#		}
-#}
-#	e_latin_empire = {
-#				any_direct_de_jure_vassal_title = {
-#					de_jure_liege = e_otto_roum
-#		}
-#}
-#		e_otto_roum = {
-#			grant_title = ROOT
-##			
-#			
-#		}
-#any_independent_ruler = {
-#                   limit = { has_landed_title = k_orthodox }
-#                set_defacto_liege = ROOT
-#}
-#hidden_tooltip = {
-#					b_constantinople = { province_capital = yes }
-#					ROOT = {
-#						b_constantinople = {
-#							usurp_title = PREV
-#						}
-#					}
-#}
-#               
-#		}
-#	}  
+narrative_event = {
+	id = RIRSEBYZ.111141
+	title = EVTNAME_RIRSEBYZ_111141
+	desc = EVTDESC_RIRSEBYZ_111141
+	
+	picture = GFX_evt_Rumiturc
+	
+	is_triggered_only = yes
+	
+	option = {
+	 	name = EVTOPTA_RIRSEBYZ_111141
+                prestige = 2000
+		e_byzantium = {
+			any_direct_de_jure_vassal_title = {
+				de_jure_liege = e_otto_roum
+			}
+		}
+		e_latin_empire = {
+			any_direct_de_jure_vassal_title = {
+					de_jure_liege = e_otto_roum
+			}
+		}
+		e_otto_roum = {
+			grant_title = ROOT
+		}
+		any_independent_ruler = {
+                   limit = { 
+				has_landed_title = k_orthodox
+		    }
+                    set_defacto_liege = ROOT
+		}
+		hidden_tooltip = {
+			b_constantinople = { province_capital = yes }
+			ROOT = {
+				b_constantinople = {
+					usurp_title = PREV
+				}
+			}
+		}
+               
+	}
+}  
 
 narrative_event = {
 	id = RIRSEBYZ.1143

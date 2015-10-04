@@ -112,7 +112,34 @@ decisions = {
 			# possibility to take this decision
 			OR = {
 				has_landed_title = e_byzantium
-				has_landed_title = e_latin_empire
+				AND = {
+					has_landed_title = e_latin_empire
+					custom_tooltip = {
+						text = new_byzantium
+						has_global_flag = latin_empire_is_byzantium 
+					}
+				}
+				AND = {
+					has_landed_title = e_bulgaria
+					custom_tooltip = {
+						text = new_byzantium
+						has_global_flag = bulgaria_is_byzantium 
+					}
+				}
+				AND = {
+					has_landed_title = e_serbia
+					custom_tooltip = {
+						text = new_byzantium
+						has_global_flag = serbia_is_byzantium 
+					}
+				}
+				AND = {
+					has_landed_title = e_russia
+					custom_tooltip = {
+						text = new_byzantium
+						has_global_flag = russia_is_byzantium 
+					}
+				}
 			}
 
 			# The "Tsardom of Serbia" is, in reality, the same
@@ -189,6 +216,86 @@ decisions = {
 		effect = {
 			set_global_flag = rome_restored
 			narrative_event = { id = EoG.82 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	restore_byzantium = {
+		potential = {
+			e_byzantium = { has_holder = no }
+
+			OR = {
+				has_landed_title = e_nikaea
+				has_landed_title = e_trebizond
+			}
+
+			trait = successor_state_of_ere
+		}
+
+		allow = {
+			prestige = 1000
+			#completely_controls = k_thrace
+			completely_controls = d_thrace 
+			completely_controls = d_adrianopolis 
+			
+			#completely_controls = k_nikaea
+			completely_controls = d_nikaea 
+			completely_controls = d_samos 
+			completely_controls = d_cibyrrhaeot 
+			completely_controls = d_thracesia 
+		}
+
+		effect = {
+			set_global_flag = byzantium_restored
+			narrative_event = { id = EoG.800 tooltip = EVTTOOLTIPLoR.800 }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	become_new_byzantium = {
+		is_high_prio = yes
+		potential = {
+			age = 16
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_landed_title = e_byzantium }
+			OR ={ 
+				has_landed_title = e_latin_empire
+				has_landed_title = e_bulgaria
+				has_landed_title = e_serbia
+				has_landed_title = e_russia
+			}
+			independent = yes
+			religion_group = catholic
+			trait = successor_state_of_ere
+			NOR = {
+				has_global_flag = latin_empire_is_byzantium 
+				has_global_flag = bulgaria_is_byzantium 
+				has_global_flag = serbia_is_byzantium 
+				has_global_flag = russia_is_byzantium 
+			}
+		}
+		allow = {
+
+			prestige = 9000
+			piety = 500
+			#demesne_size = 10
+			completely_controls = c_byzantion
+			#primary_title = {
+			#	OR = {
+			#		has_law = crown_authority_3
+			#		has_law = crown_authority_4
+			#	}
+			#}
+		}
+
+		effect = {
+			narrative_event = { id = EoG.808 }
 		}
 		ai_will_do = {
 			factor = 1

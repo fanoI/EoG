@@ -714,7 +714,7 @@ e_otto_roum = {
 	culture = turkish
 
 	short_name = yes
-	title = "Padisotto"
+	title = PADISOTTO
 
 	capital = 496 # Byzantion
 

@@ -1551,49 +1551,49 @@ EVTTOOLTIPRIRSEI.2 }
 
 	# TODO Unsure if makes sense for "The Empires of God" they could retain their title maybe changing the name a little but
         # they will become from  "Pretenders" the real Successors. Remember Byzantium is not ERE in "The Empires of God"!
-	reno_byz = {
-		is_high_prio = yes
-		potential = {
-			age = 16
-			prisoner = no
-			NOT = { trait = incapable }
-			NOT = { has_landed_title = e_byzantium }
-			OR ={ 
-				has_landed_title = e_bulgaria
-				has_landed_title = e_serbia
-				has_landed_title = e_russia
-			}
-			independent = yes
-			religion = orthodox
-		}
-		allow = {
-
-			prestige = 9000
-			piety = 500
-			demesne_size = 10
-			completely_controls = c_byzantion
-			primary_title = {
-				OR = { 
-					has_law = crown_authority_3
-					has_law = crown_authority_4
-				}
-			}
-		}
-
-		effect = {
-
-			narrative_event = { id = RIRSEI.29 }
-			hidden_tooltip = {
-				e_byzantium = {
-					destroy_landed_title = THIS
-				}
-			}
-
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	#reno_byz = {
+	#	is_high_prio = yes
+	#	potential = {
+	#		age = 16
+	#		prisoner = no
+	#		NOT = { trait = incapable }
+	#		NOT = { has_landed_title = e_byzantium }
+	#		OR ={ 
+	#			has_landed_title = e_bulgaria
+	#			has_landed_title = e_serbia
+	#			has_landed_title = e_russia
+	#		}
+	#		independent = yes
+	#		religion = orthodox
+	#	}
+	#	allow = {
+#
+#			prestige = 9000
+#			piety = 500
+#			demesne_size = 10
+#			completely_controls = c_byzantion
+#			primary_title = {
+#				OR = { 
+#					has_law = crown_authority_3
+#					has_law = crown_authority_4
+#				}
+#			}
+#		}
+#
+#		effect = {
+#
+#			narrative_event = { id = RIRSEI.29 }
+#			hidden_tooltip = {
+#				e_byzantium = {
+#					destroy_landed_title = THIS
+#				}
+#			}
+#
+#		}
+#		ai_will_do = {
+#			factor = 1
+#		}
+#	}
 
 	protecrelique = {
 		is_high_prio = yes

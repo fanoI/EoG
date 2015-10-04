@@ -913,7 +913,7 @@ narrative_event = {
 # Augustus Trait Gained
 character_event = {
 	id = LoR.45
-	desc = EVTDESCLoR.45
+	desc = EVTDESCLoR.45
 	picture = GFX_evt_rome_restored_byzantine
 	
 	trigger = {
