@@ -1,3 +1,16 @@
+0.0.5 Alpha
+
+- Restored RIRSEI event to create the Ottoman Empire
+- Added decision to restore Byzantium
+- Added decision to become a "new" Byzantium for Latine Empire, Serbia,
+Bulgaria and Russia
+- Removed event file CA.txt because events triggerd randomly
+- The events Successor / Pretender of ERE / WRE should trigger only a
+time for character life not any days!
+- Event chain to give to the restored Byzantine Empire the Echumenical
+Patriarcate and Varangardian Guard as his vassal
+- Added custom regions of world_byzantium and world_megas_hellas
+
 0.0.4 Alpha
 
 - The Roman Empire has its COA again and the law of the forming title
